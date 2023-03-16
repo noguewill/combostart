@@ -1,0 +1,48 @@
+.mobileMenu {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+  background-color: aquamarine;
+}
+
+.mobileMenu__logo {
+  z-index: 4;
+  margin-right: 65vw;
+}
+.mobileMenu__container {
+  z-index: 4;
+}
+.mobileMenu__navParent {
+  position: absolute;
+  top: 0.8%;
+  left: 50%;
+  width: 95vw;
+  height: 78vh;
+  margin-left: -47.5vw;
+  z-index: 2;
+  background-color: burlywood;
+  border-radius: 4px;
+}
+.mobileMenu__navContainer {
+  padding-top: 3.5rem;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mobileMenu__navContainer__btn {
+  width: 6rem;
+  height: 2.5rem;
+  margin-bottom: 1.8rem;
+  font-size: 0.7rem;
+}
+/* After the minimum width of 700 pix is passed, mobile UI turns to desktop version */
+@media (min-width: 700px) {
+  .mobileMenu {
+    display: none;
+  }
+}

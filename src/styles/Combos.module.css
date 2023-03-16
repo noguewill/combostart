@@ -1,0 +1,45 @@
+.comboCard__title {
+  font-size: 1rem;
+  padding-left: 2.8rem;
+  padding-bottom: 0.3rem;
+}
+.comboCard__container {
+  display: flex;
+  width: 100%;
+  background-color: blue;
+  padding-left: 0.3rem;
+  padding-right: 0.4rem;
+  padding-bottom: 1.5rem;
+}
+.comboCard_upvote__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: orange;
+  margin-right: 0.3rem;
+}
+.comboCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  height: 8rem;
+  background-color: aquamarine;
+}
+.comboCard_info__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 23%;
+  background-color: burlywood;
+}
+.comboCard_inputs__container {
+  height: 60%;
+  background-color: blueviolet;
+}
+.comboCard_patch__container {
+  height: 18%;
+  background-color: olivedrab;
+}
