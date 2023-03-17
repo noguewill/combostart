@@ -3,21 +3,24 @@
   padding-left: 2.8rem;
   padding-bottom: 0.3rem;
 }
-.comboCard__container {
-  display: flex;
-  width: 100%;
-  background-color: blue;
-  padding-left: 0.3rem;
-  padding-right: 0.4rem;
-  padding-bottom: 1.5rem;
-}
+
+/* Combocard upvote element */
 .comboCard_upvote__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: orange;
+  background-color: rgb(238, 176, 61);
   margin-right: 0.3rem;
+}
+
+/* Combocard parent element*/
+.comboCard__container {
+  display: flex;
+  width: 100%;
+  background-color: rgb(46, 46, 212);
+  padding-left: 0.3rem;
+  padding-right: 0.4rem;
 }
 .comboCard {
   width: 100%;
@@ -28,6 +31,8 @@
   height: 8rem;
   background-color: aquamarine;
 }
+
+/* Combocard 3 main children rows */
 .comboCard_info__container {
   display: flex;
   justify-content: space-between;
@@ -35,11 +40,63 @@
   height: 23%;
   background-color: burlywood;
 }
+
+/* Input row */
 .comboCard_inputs__container {
-  height: 60%;
+  flex-grow: 1;
   background-color: blueviolet;
 }
+.comboCard_inputs__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.input_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 4.8rem;
+  height: 4.8rem;
+  background-color: dimgrey;
+}
+.input_icon {
+}
+.input_text {
+}
+
+/*Patch version row */
 .comboCard_patch__container {
-  height: 18%;
+  padding: 0.3rem 0 0 0.4rem;
+  height: 16%;
   background-color: olivedrab;
+}
+.patch__text {
+  font-size: 0.8rem;
+}
+
+/* Social row */
+.comboCard_social__container {
+  height: 1.2rem;
+  align-items: center;
+  width: 100%;
+  background-color: brown;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.social_bookmark__btn {
+  width: 2rem;
+  height: 1.3rem;
+  margin-right: 1rem;
+}
+.social_share__btn {
+  width: 2rem;
+  height: 1.3rem;
+  margin-right: 1rem;
+}
+.social_more__btn {
+  width: 2rem;
+  height: 1.3rem;
+  margin-right: 0.3rem;
 }
