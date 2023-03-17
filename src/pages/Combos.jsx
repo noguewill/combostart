@@ -34,6 +34,7 @@ function Combos() {
           {/* Patch version row */}
           <div className={styles.comboCard_patch__container}>
             <div className={styles.patch__text}>PATCH: v1.0.0</div>
+            <div className={styles.expand_btn}>EXPAND</div>
           </div>
           {/* Bookmark, sharing, and other options section */}
         </div>
