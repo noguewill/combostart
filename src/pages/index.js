@@ -5,6 +5,7 @@ import styles from "@/styles/Home.module.css";
 import Navbar from "./Navbar";
 import Search from "./Search";
 import Combos from "./Combos";
+import Footer from "./Footer";
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
           <Combos />
           <Combos />
         </section>
+        <Footer />
       </main>
     </>
   );
