@@ -1,7 +1,12 @@
 import React from "react";
 import styles from "@/styles/Search.module.css";
+import Dropdown from "./Dropdown";
 
 function Search() {
+  function handleOptionSelect(option) {
+    console.log(`Selected option: ${option}`);
+  }
+
   return (
     /* Mobile Search Section */
     <div className={styles.search__container}>
@@ -12,18 +17,33 @@ function Search() {
       <div className={styles.search__filterContainer}>
         {/* Sort filter option */}
         <div className={styles.search__filterOption_container}>
-          <h6 className={styles.search__filterBtnText}> SORT </h6>
-          <button className={styles.search__filterBtn}>TOP RATED</button>
+          {/*           <h6 className={styles.search__filterBtnText}> SORT </h6>
+          <button className={styles.search__filterBtn}>TOP RATED</button> */}
+          <Dropdown
+            options={["Option 1", "Option 2", "Option 3"]}
+            defaultOption="TOP RATED"
+            onOptionSelect={handleOptionSelect}
+          />
         </div>
         {/* Author filter option */}
         <div className={styles.search__filterOption_container}>
-          <h6 className={styles.search__filterBtnText}> AUTHOR </h6>
-          <button className={styles.search__filterBtn}>RANKED</button>
+          {/*           <h6 className={styles.search__filterBtnText}> AUTHOR </h6>
+          <button className={styles.search__filterBtn}>RANKED</button> */}
+          <Dropdown
+            options={["Option 1", "Option 2", "Option 3"]}
+            defaultOption="RANKED"
+            onOptionSelect={handleOptionSelect}
+          />
         </div>
         {/* Character filter option */}
         <div className={styles.search__filterOption_container}>
-          <h6 className={styles.search__filterBtnText}> CHARACTER</h6>
-          <button className={styles.search__filterBtn}>NONE</button>
+          {/*  <h6 className={styles.search__filterBtnText}> CHARACTER</h6> */}
+          {/* <button className={styles.search__filterBtn}>NONE</button> */}
+          <Dropdown
+            options={["Option 1", "Option 2", "Option 3"]}
+            defaultOption="NONE"
+            onOptionSelect={handleOptionSelect}
+          />
         </div>
       </div>
 
