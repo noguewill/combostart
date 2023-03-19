@@ -37,10 +37,27 @@ function Footer() {
           <button className={styles.footer_navigationMenu_btn}>About</button>
         </div>
 
+        {/* Page navigation menu */}
+        <div className={styles.comboCard_pager}>
+          <button className={styles.pager_leftArrow}>left</button>
+          <div className={styles.pager_num}>
+            <h8>1</h8> <a>dot</a>
+          </div>
+          <div className={styles.pager_num}>
+            <h8>2</h8> <a>dot</a>
+          </div>
+          <div className={styles.pager_num}>
+            <h8>3</h8> <a>dot</a>
+          </div>
+          <div className={styles.pager_num}>
+            <h8>4</h8> <a>dot</a>
+          </div>
+          <button className={styles.pager_rightArrow}>right</button>
+        </div>
+
         {/* Copyright notice */}
         <div className={styles.copyrightNotice}>
           <p>All rights reserved sfcombos.com @2023</p>
-          <div></div>
         </div>
       </footer>
     </>
