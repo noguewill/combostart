@@ -19,9 +19,12 @@
 .comboCard__container {
   display: flex;
   width: 100%;
+  height: auto;
   background-color: rgb(46, 46, 212);
+  align-items: center;
   padding-left: 0.3rem;
   padding-right: 0.7rem;
+  padding-bottom: 0.3rem;
 }
 .comboCard {
   width: 100%;
@@ -38,19 +41,39 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 23%;
   background-color: burlywood;
+  text-align: center;
+  font-size: 0.9rem;
+}
+/* Info elements */
+.comboCard_charName {
+  background-color: rgb(55, 231, 187);
+  font-size: 0.8rem;
+  width: 4rem;
+}
+.comboCard_super {
+  background-color: rgb(228, 49, 183);
+  width: 1.3rem;
+}
+.comboCard_bars {
+  background-color: rgb(47, 255, 141);
+  width: 1.3rem;
+}
+.comboCard_damage {
+  background-color: rgb(252, 47, 47);
+  width: 8rem;
+}
+.comboCard_comboType {
+  font-size: 0.8rem;
 }
 
 /* Input row */
 .comboCard_inputs__container {
-  flex-grow: 1;
-  background-color: blueviolet;
-}
-.comboCard_inputs__container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-grow: 1;
+  background-color: blueviolet;
 }
 .input_container {
   display: flex;
@@ -70,17 +93,21 @@
 .comboCard_patch__container {
   display: flex;
   align-items: center;
-  height: 16%;
   background-color: olivedrab;
+  height: 3rem;
 }
 .patch__text {
   font-size: 0.8rem;
-  padding-top: 0.4rem;
+  padding-top: 0.3rem;
   padding-left: 0.1rem;
-  margin-right: 15vw;
+  margin-right: 11vw;
 }
 .expand_btn {
+  width: 4rem;
   background-color: darkorchid;
+
+  height: 1.4rem;
+  font-size: 0.7rem;
 }
 
 /* Social row */

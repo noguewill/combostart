@@ -8,7 +8,7 @@ function Combos() {
       <article className={styles.comboCard__container}>
         {/* Combocard upvotes */}
         <div className={styles.comboCard_upvote__container}>
-          <a>arrow</a>
+          <button>^</button>
           <h7>469</h7>
         </div>
 
@@ -18,7 +18,7 @@ function Combos() {
           <div className={styles.comboCard_info__container}>
             <div className={styles.comboCard_charName}>RYU / master</div>
             <div className={styles.comboCard_super}>S</div>
-            <div className={styles.comboCard_bars}>DRIVE</div>
+            <div className={styles.comboCard_bars}>4</div>
             <div className={styles.comboCard_damage}>DAMAGE:5600</div>
             <div className={styles.comboCard_comboType}>Corner</div>
           </div>
@@ -34,7 +34,7 @@ function Combos() {
           {/* Patch version row */}
           <div className={styles.comboCard_patch__container}>
             <div className={styles.patch__text}>PATCH: v1.0.0</div>
-            <div className={styles.expand_btn}>EXPAND</div>
+            <button className={styles.expand_btn}>EXPAND</button>
           </div>
           {/* Bookmark, sharing, and other options section */}
         </div>
