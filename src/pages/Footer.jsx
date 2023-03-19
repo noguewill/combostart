@@ -12,7 +12,7 @@ function Footer() {
 
         {/* Stats column */}
         <div className={styles.menu_sfcStats__container}>
-          <h3 className={styles.stat_header}>SFC stats:</h3>
+          <h3 className={styles.stat_header}>SFC stats</h3>
           <h8 className={styles.stat}>Lorem ipsum ich delat tsunum</h8>
           <h8 className={styles.stat}>Tsunum delat ich ipsum lorem</h8>
           <h8 className={styles.stat}>Lorem ipsum ich delat tsunum</h8>
@@ -23,8 +23,7 @@ function Footer() {
 
         {/* Quick navigation column */}
         <div className={styles.menu_quickNavigation}>
-          {" "}
-          <h3 className={styles.stat_header}>Quick navigation:</h3>
+          <h3 className={styles.stat_header}>Quick navigation</h3>
           <button className={styles.footer_navigationMenu_btn}>
             New Post +
           </button>
