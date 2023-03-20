@@ -37,13 +37,22 @@
 /* .search__filterBtn {
   padding: 0.1rem 0.3rem;
 } */
-
-.search__searchBar {
-  width: 15rem;
+.searchBar_container {
+  width: 100%;
+  background-color: blanchedalmond;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchBar_input {
+  width: 20rem;
   padding: 0.4rem;
 }
 @media (min-width: 700px) {
   .search__filterContainer {
     width: 40%;
+  }
+  .searchBar_input {
+    width: 25rem;
   }
 }

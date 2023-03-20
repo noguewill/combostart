@@ -48,9 +48,9 @@ function Search() {
       </div>
 
       {/* Mobile Searchbar */}
-      <label className={styles.search__searchBar__container}>
+      <label className={styles.searchBar_container}>
         <input
-          className={styles.search__searchBar}
+          className={styles.searchBar_input}
           type="text"
           placeholder="Ryu shoryuken superless combo"
         />
