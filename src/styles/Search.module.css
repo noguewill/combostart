@@ -4,8 +4,6 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding-top: 0;
-  padding: 0.2rem 1rem 1rem 1rem;
 }
 .search__comboSection_header {
   font-size: 1.5rem;

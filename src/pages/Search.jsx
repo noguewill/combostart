@@ -17,8 +17,8 @@ function Search() {
       <div className={styles.search__filterContainer}>
         {/* Sort filter option */}
         <div className={styles.search__filterOption_container}>
-          {/*           <h6 className={styles.search__filterBtnText}> SORT </h6>
-          <button className={styles.search__filterBtn}>TOP RATED</button> */}
+          <h6 className={styles.search__filterBtnText}> SORT </h6>
+          {/* <button className={styles.search__filterBtn}>TOP RATED</button> */}
           <Dropdown
             options={["Option 1", "Option 2", "Option 3"]}
             defaultOption="TOP RATED"
@@ -27,8 +27,8 @@ function Search() {
         </div>
         {/* Author filter option */}
         <div className={styles.search__filterOption_container}>
-          {/*           <h6 className={styles.search__filterBtnText}> AUTHOR </h6>
-          <button className={styles.search__filterBtn}>RANKED</button> */}
+          <h6 className={styles.search__filterBtnText}> AUTHOR </h6>
+          {/* <button className={styles.search__filterBtn}>RANKED</button> */}
           <Dropdown
             options={["Option 1", "Option 2", "Option 3"]}
             defaultOption="RANKED"
@@ -37,7 +37,7 @@ function Search() {
         </div>
         {/* Character filter option */}
         <div className={styles.search__filterOption_container}>
-          {/*  <h6 className={styles.search__filterBtnText}> CHARACTER</h6> */}
+          <h6 className={styles.search__filterBtnText}> CHARACTER</h6>
           {/* <button className={styles.search__filterBtn}>NONE</button> */}
           <Dropdown
             options={["Option 1", "Option 2", "Option 3"]}

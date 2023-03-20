@@ -4,12 +4,9 @@
 }
 
 .dropdown_button button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 100%;
-  padding: 0.3rem 0.9rem;
-  font-size: 0.8rem;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.7rem;
   font-weight: bold;
   color: #333;
   background-color: #fff;
