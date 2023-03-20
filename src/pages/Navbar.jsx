@@ -1,6 +1,6 @@
 import React from "react";
 
-import  styles from "@/styles/Navbar.module.css";
+import styles from "@/styles/Navbar.module.css";
 
 import { useState } from "react";
 
@@ -8,9 +8,19 @@ function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <nav className={styles.mobileMenu}>
-      {/* Mobile menu */}
-      <button className={styles.mobileMenu__logo}>LOGO</button>
+    <nav className={styles.navbar}>
+      {/* Desktop nav buttons */}
+      <div className={styles.navbar_logo__container}>
+        <button className={styles.navbar_logo}>LOGO</button>
+      </div>
+
+      <div className={styles.navbar_btn__container}>
+        <button className={styles.navbar_btn}>New Post +</button>
+        <button className={styles.navbar_btn}>Combos</button>
+        <button className={styles.navbar_btn}>Characters</button>
+        <button className={styles.navbar_btn}>About</button>
+      </div>
+
       {/* Mobile Menu button */}
       <div className={styles.mobileMenu__container}>
         <button
