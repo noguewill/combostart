@@ -2,11 +2,15 @@
   display: flex;
   flex-direction: column;
 }
+.footer_body__container {
+  display: block;
+}
 
 .footer_warningBanner {
   text-align: center;
   width: 100%;
   background-color: red;
+  margin-top: 3rem;
 }
 
 .menu_sfcStats__container {
@@ -69,4 +73,21 @@
 }
 .copyrightNotice {
   text-align: center;
+}
+@media (min-width: 700px) {
+  .footer_warningBanner {
+    width: 60%;
+  }
+  .footer_body__container {
+    display: flex;
+  }
+  .menu_quickNavigation {
+    padding-left: 0;
+  }
+  .stat_divider {
+    width: 0.2rem;
+    color: yellow;
+  }
+  .menu_sfcStats__container {
+  }
 }
