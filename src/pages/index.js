@@ -22,7 +22,7 @@ export default function Home() {
       <main className={styles.main}>
         <Navbar />
         <Search />
-        <section className={styles.combos__container}>
+        <section className={styles.combos_container}>
           <Combos />
           <Combos />
           <Combos />

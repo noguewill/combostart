@@ -16,26 +16,34 @@
 }
 
 /* Combocard parent element*/
+
 .comboCard__container {
   display: flex;
   width: 100%;
-  height: auto;
   background-color: rgb(46, 46, 212);
   align-items: center;
   padding-left: 0.3rem;
   padding-right: 0.7rem;
   padding-bottom: 0.3rem;
 }
-.comboCard {
+.combocard {
+  align-self: center;
   width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
   height: 8rem;
   background-color: aquamarine;
 }
-
+.combocard_charFrame {
+  display: none;
+}
+.combocard_body__container {
+  width: 100%;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+}
 /* Combocard 3 main children rows */
 .comboCard_info__container {
   display: flex;
@@ -47,6 +55,9 @@
 }
 /* Info elements */
 .comboCard_charName {
+  display: none;
+}
+.comboCard_charName__mobile {
   background-color: rgb(55, 231, 187);
   font-size: 0.8rem;
   width: 4rem;
@@ -61,10 +72,11 @@
 }
 .comboCard_damage {
   background-color: rgb(252, 47, 47);
-  width: 8rem;
+  flex-grow: 1;
 }
 .comboCard_comboType {
   font-size: 0.8rem;
+  width: 10%;
 }
 
 /* Input row */
@@ -100,7 +112,10 @@
   font-size: 0.8rem;
   padding-top: 0.3rem;
   padding-left: 0.1rem;
-  margin-right: 11vw;
+  width: 47 %;
+  background-color: cornflowerblue;
+}
+.expand_btn__container {
 }
 .expand_btn {
   width: 4rem;
@@ -134,4 +149,60 @@
   width: 2rem;
   height: 1.3rem;
   margin-right: 0.7rem;
+}
+
+@media (min-width: 700px) {
+  .comboCard__container {
+    width: 75%;
+  }
+
+  /* Character frame */
+  .combocard_charFrame__container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 18rem;
+
+    text-align: center;
+  }
+  .comboCard_charName__mobile {
+    display: none;
+  }
+  .combocard_charFrame {
+    display: block;
+    flex-grow: 1;
+    background-color: black;
+  }
+  .comboCard_charName {
+    display: block;
+    background-color: rgb(55, 231, 187);
+    font-size: 1rem;
+  }
+  .combocard {
+    height: 12rem;
+  }
+  .comboCard_patch__container {
+    height: auto;
+  }
+
+  /* Info elements */
+  .comboCard_super {
+    background-color: rgb(228, 49, 183);
+    width: 5rem;
+  }
+  .comboCard_bars {
+    background-color: rgb(47, 255, 141);
+    width: 5rem;
+  }
+  .comboCard_damage {
+    background-color: rgb(252, 47, 47);
+    flex-grow: 1;
+  }
+  .comboCard_comboType {
+    font-size: 0.8rem;
+  }
+
+  .comboCard_social__container {
+    width: 75%;
+  }
 }
