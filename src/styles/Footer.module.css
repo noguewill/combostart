@@ -1,3 +1,4 @@
+/* Parental layout foundation */
 .footer_container {
   display: flex;
   flex-direction: column;
@@ -13,7 +14,8 @@
   margin-top: 3rem;
 }
 
-.menu_sfcStats__container {
+/* Stats Section */
+.stats_container {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -22,37 +24,57 @@
   background-color: darkorchid;
   padding-bottom: 1rem;
 }
-
+.stats_header {
+  font-size: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
 .stat {
   font-size: 1rem;
   padding: 0.2rem;
 }
-.stat_divider {
+
+.footer_divider {
   width: 100%;
   color: aqua;
 }
 
-.stat_header {
-  font-size: 1.5rem;
-  padding-top: 1rem;
-  padding-bottom: 0.5rem;
-}
-.menu_quickNavigation {
+/* Quick Navigation Section */
+.quickNav_container {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1rem;
+  background-color: rgb(51, 134, 228);
+  padding-bottom: 1rem;
+}
+.quickNav_menu__container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   padding-left: 12vw;
-  background-color: rgb(51, 134, 228);
+}
+
+.quickNav_header {
+  font-size: 1.5rem;
+  padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.footer_navigationMenu_btn {
+.quickNav_btn {
   width: 5rem;
   height: 2rem;
   padding: 0.2rem;
   margin-bottom: 0.7rem;
 }
+.toTop_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-end;
+}
 
+/* Page Navigation Element */
 .comboCard_pager {
   display: flex;
   width: 100%;
@@ -62,8 +84,8 @@
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
-.pager_leftArrow {
-}
+/* .pager_leftArrow {
+} */
 .pager_num {
   display: flex;
   flex-direction: column;
@@ -71,23 +93,104 @@
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
-.copyrightNotice {
-  text-align: center;
+
+/* Copyright */
+.copyright_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
 }
+.copyright_text__container {
+  background-color: purple;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+.copyright_text {
+  font-size: 0.8rem;
+}
+.copyright_logo__container {
+  order: 1;
+  background-color: brown;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+/* .copyrightNotice_logo {
+} */
+
 @media (min-width: 700px) {
-  .footer_warningBanner {
-    width: 60%;
-  }
+  /* Footer */
+
   .footer_body__container {
     display: flex;
   }
-  .menu_quickNavigation {
-    padding-left: 0;
+
+  .footer_warningBanner {
+    width: 60%;
   }
-  .stat_divider {
+
+  /* Stats Section*/
+  .stats_container {
+    width: 100%;
+    padding-left: 2.5vw;
+    padding-top: 1rem;
+    padding-bottom: 5rem;
+    justify-content: flex-start;
+  }
+  .stats_header {
+    font-size: 3rem;
+    padding-bottom: 0.5rem;
+  }
+  .stat {
+    padding-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  .footer_divider {
     width: 0.2rem;
     color: yellow;
   }
-  .menu_sfcStats__container {
+
+  /* Quick Navigation Section */
+
+  .quickNav_menu__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 2.5vw;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+  }
+  .quickNav_header {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+  }
+  .quickNav_btn {
+    margin-bottom: 1.2rem;
+  }
+
+  .toTop_container {
+    justify-self: flex-end;
+  }
+
+  /* Copyright Section */
+  .copyright_container {
+    flex-direction: row;
+  }
+  .copyright_logo__container {
+    width: 52.5%;
+    padding-top: 0.8rem;
+  }
+  .copyright_text {
+    font-size: 1rem;
+    padding-right: 1rem;
+  }
+  .copyright_text__container {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
   }
 }

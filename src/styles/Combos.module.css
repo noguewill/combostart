@@ -3,6 +3,8 @@
   padding-left: 2.8rem;
   padding-bottom: 0.3rem;
   margin-top: 1rem;
+  margin-left: 0;
+  align-self: flex-start;
 }
 
 /* Combocard upvote element */
@@ -26,6 +28,7 @@
   padding-right: 0.7rem;
   padding-bottom: 0.3rem;
 }
+
 .combocard {
   align-self: center;
   width: 100%;
@@ -104,6 +107,7 @@
 /*Patch version row */
 .comboCard_patch__container {
   display: flex;
+
   align-items: center;
   background-color: olivedrab;
   height: 3rem;
@@ -112,7 +116,7 @@
   font-size: 0.8rem;
   padding-top: 0.3rem;
   padding-left: 0.1rem;
-  width: 47 %;
+  width: 40%;
   background-color: cornflowerblue;
 }
 .expand_btn__container {
@@ -154,6 +158,9 @@
 @media (min-width: 700px) {
   .comboCard__container {
     width: 75%;
+  }
+  .comboCard__title {
+    margin-left: 11.5vw;
   }
 
   /* Character frame */

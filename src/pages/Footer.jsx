@@ -29,36 +29,45 @@ function Footer() {
         </h7>
         <section className={styles.footer_body__container}>
           {/* Stats column */}
-          <div className={styles.menu_sfcStats__container}>
-            <h3 className={styles.stat_header}>SFC stats</h3>
+          <div className={styles.stats_container}>
+            <h3 className={styles.stats_header}>SFC stats</h3>
             <h8 className={styles.stat}>Lorem ipsum ich delat tsunum</h8>
             <h8 className={styles.stat}>Tsunum delat ich ipsum lorem</h8>
             <h8 className={styles.stat}>Lorem ipsum ich delat tsunum</h8>
             <h8 className={styles.stat}>Tsunum delat ich ipsum lorem</h8>
           </div>
 
-          <hr className={styles.stat_divider} />
+          <hr className={styles.footer_divider} />
 
           {/* Quick navigation column */}
-          <div className={styles.menu_quickNavigation}>
-            <h3 className={styles.stat_header}>Quick navigation</h3>
-            <button className={styles.footer_navigationMenu_btn}>
-              New Post +
-            </button>
-            <button className={styles.footer_navigationMenu_btn}>Combos</button>
-            <button className={styles.footer_navigationMenu_btn}>
-              Characters
-            </button>
-            <button className={styles.footer_navigationMenu_btn}>
-              Tier List
-            </button>
-            <button className={styles.footer_navigationMenu_btn}>About</button>
+          <div className={styles.quickNav_container}>
+            <div className={styles.quickNav_menu__container}>
+              <h3 className={styles.quickNav_header}>Quick navigation</h3>
+              <button className={styles.quickNav_btn}>New Post +</button>
+              <button className={styles.quickNav_btn}>Combos</button>
+              <button className={styles.quickNav_btn}>Characters</button>
+              <button className={styles.quickNav_btn}>Tier List</button>
+              <button className={styles.quickNav_btn}>About</button>
+            </div>
+            <div className={styles.toTop_container}>
+              <button className={styles.toTop_btn}>arrow</button>
+              <a className={styles.toTop_text}>Back to the Top</a>
+            </div>
           </div>
         </section>
 
         {/* Copyright notice */}
-        <div className={styles.copyrightNotice}>
-          <p>All rights reserved sfcombos.com @2023</p>
+        <div className={styles.copyright_container}>
+          {/* Desktop nav buttons */}
+          <div className={styles.copyright_text__container}>
+            <p className={styles.copyright_text}>
+              All rights reserved sfcombos.com @2023
+            </p>
+          </div>
+
+          <div className={styles.copyright_logo__container}>
+            <button className={styles.copyright_logo}>LOGO</button>
+          </div>
         </div>
       </footer>
     </>
