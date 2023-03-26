@@ -11,7 +11,7 @@ function Combos() {
           <button>^</button>
           <h7>469</h7>
         </div>
-
+        {/*         <button className={styles.custom_shape}></button> */}
         {/* ComboCard */}
         <div className={styles.combocard}>
           {/* Character frame */}
