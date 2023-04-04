@@ -2,8 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  padding: 1rem;
-  background-color: aquamarine;
+  padding-bottom: 0.7rem;
 }
 .navbar_logo__container {
   width: auto;
@@ -25,7 +24,6 @@
   height: 78vh;
   margin-left: -47.5vw;
   z-index: 2;
-  background-color: burlywood;
   border-radius: 4px;
 }
 .mobileMenu__navContainer {
@@ -63,7 +61,6 @@
   .navbar_logo__container {
     width: 55%;
     justify-content: flex-end;
-    background-color: rgb(22, 200, 206);
   }
   .navbar_logo {
     margin-right: 0;
@@ -72,11 +69,60 @@
   .navbar_btn__container {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     width: 50%;
-    background-color: brown;
   }
   .navbar_btn {
-    margin-right: 1rem;
+    cursor: pointer;
+    width: 5.5rem;
+    height: 1.8rem;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.8rem;
+    margin-right: 1.9rem;
     padding: 0.3rem 0.5rem;
+    color: #f1f0f0;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 0.5px solid #505050;
+  }
+  .navbar_btn:hover {
+    border-top: 2px solid #69eec3;
+    border-left: 2px solid #69eec3;
+  }
+  .profileBtn_container {
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 1.5rem;
+  }
+  .navbar_profileBtn {
+    cursor: pointer;
+    width: 4rem;
+    height: 3.5rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 0.2px solid #69eec3;
+    margin-bottom: 0.4rem;
+  }
+  .profileBtn_username,
+  .profileBtn_logOut {
+    font-family: "Kanit";
+    font-style: italic;
+    font-weight: 600;
+    line-height: 12px;
+    font-size: 0.75rem;
+    color: #69eec3;
+  }
+  .profileBtn_logOut {
+    font-weight: 400;
+    font-size: 0.7rem;
+    background: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+  }
+  .profileBtn_logOut:hover {
+    text-decoration: 1px underline #69eec3;
   }
 }

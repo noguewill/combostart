@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "@/styles/Navbar.module.css";
-
+import Image from "next/image";
 import { useState } from "react";
 
 function Navbar() {
@@ -11,7 +11,7 @@ function Navbar() {
     <nav className={styles.navbar}>
       {/* Desktop nav buttons */}
       <div className={styles.navbar_logo__container}>
-        <button className={styles.navbar_logo}>LOGO</button>
+        <div className={styles.navbar_logo}>LOGO</div>
       </div>
 
       <div className={styles.navbar_btn__container}>
@@ -19,6 +19,20 @@ function Navbar() {
         <button className={styles.navbar_btn}>Combos</button>
         <button className={styles.navbar_btn}>Characters</button>
         <button className={styles.navbar_btn}>About</button>
+        <div className={styles.profileBtn_container}>
+          <button className={styles.navbar_profileBtn}>
+            {" "}
+            <Image
+              src="/ryuAvatar.png"
+              alt="Upvote arrow"
+              width={56}
+              height={55}
+              priority
+            />
+          </button>
+          <a className={styles.profileBtn_username}>WilhelmDM</a>
+          <button className={styles.profileBtn_logOut}>Log Out </button>
+        </div>
       </div>
 
       {/* Mobile Menu button */}

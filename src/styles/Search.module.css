@@ -5,14 +5,29 @@
   justify-content: space-between;
   align-items: center;
 }
+.search_main__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.evoAd_container {
+  display: none;
+}
+
 .search__comboSection_header {
-  background-color: gold;
   width: 100%;
   text-align: center;
   font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  color: #c572ff;
+  text-shadow: 0px 0px 6px #c572ff;
+  font-family: "Kanit";
+  font-style: italic;
+  font-weight: 600;
 }
 .search__filterContainer {
-  background-color: indigo;
   width: 80%;
   display: flex;
   justify-content: space-evenly;
@@ -30,8 +45,11 @@
 
 .search__filterBtnText {
   text-align: center;
-  font-size: 0.6rem;
   padding-bottom: 0.4rem;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
 }
 /* Deprecated/ Now they are Dropdown buttons */
 /* .search__filterBtn {
@@ -39,7 +57,6 @@
 } */
 .searchBar_container {
   width: 100%;
-  background-color: blanchedalmond;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,12 +64,64 @@
 .searchBar_input {
   width: 20rem;
   padding: 0.4rem;
+  background: rgba(14, 14, 15, 0.7);
+  border: 0.1px solid #fff;
 }
+
 @media (min-width: 700px) {
+  .search__container {
+    flex-direction: row;
+    padding: 0.5rem 0 0.5rem 0;
+  }
+  .evoAd_container {
+    display: block;
+    width: 20%;
+    background-color: limegreen;
+  }
+  .evoAd {
+    width: 10rem;
+  }
+
+  /* Main Search Section */
+  .search__comboSection_header {
+    font-size: 3.5rem;
+    align-self: flex-start;
+    justify-self: flex-start;
+    background-color: transparent;
+    padding: 0rem 0 1rem 0;
+  }
+  .search_main__container {
+    width: 68%;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .search_container__child {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+  }
   .search__filterContainer {
-    width: 40%;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.5rem 0 2rem 0;
+  }
+  .search__filterBtnText {
+    color: #fff;
+    font-size: 0.7rem;
+  }
+  .searchBar_container {
+    padding: 0 0 1rem 0;
   }
   .searchBar_input {
-    width: 25rem;
+    width: 30rem;
+    color: #fff;
   }
+  .searchBar_input:hover {
+    border: 0.2px solid #c1f3e3;
+  }
+  /*   .searchBar_input:active {
+    border: 0.2px solid #69eec3;
+  } */
 }

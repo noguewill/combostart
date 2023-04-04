@@ -5,3 +5,15 @@
   align-items: center;
   padding-top: 1rem;
 }
+
+.img_container {
+  width: 1366px;
+  height: 100vw;
+  position: absolute;
+  z-index: -1;
+}
+
+.bg_img {
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}

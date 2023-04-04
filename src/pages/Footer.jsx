@@ -1,26 +1,57 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "@/styles/Footer.module.css";
 
 function Footer() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    if (window.pageYOffset > 300) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <footer className={styles.footer_container}>
         {/* Page navigation menu */}
         <div className={styles.comboCard_pager}>
-          <button className={styles.pager_leftArrow}>left</button>
+          <button
+            className={styles.pager_leftArrow}
+            style={{ visibility: "hidden" }}
+          ></button>
           <div className={styles.pager_num}>
-            <h8>1</h8> <a>dot</a>
+            <span style={{ color: "#69eec3" }}>1</span>{" "}
+            <a
+              className={styles.pager_num__dot}
+              style={{ backgroundColor: "#69eec3" }}
+            ></a>
           </div>
           <div className={styles.pager_num}>
-            <h8>2</h8> <a>dot</a>
+            <span>2</span> <a className={styles.pager_num__dot}></a>
           </div>
           <div className={styles.pager_num}>
-            <h8>3</h8> <a>dot</a>
+            <span>3</span> <a className={styles.pager_num__dot}></a>
           </div>
           <div className={styles.pager_num}>
-            <h8>4</h8> <a>dot</a>
+            <span>4</span> <a className={styles.pager_num__dot}></a>
           </div>
-          <button className={styles.pager_rightArrow}>right</button>
+          <button className={styles.pager_rightArrow}></button>
         </div>
 
         <h7 className={styles.footer_warningBanner}>
@@ -31,10 +62,33 @@ function Footer() {
           {/* Stats column */}
           <div className={styles.stats_container}>
             <h3 className={styles.stats_header}>SFC stats</h3>
-            <h8 className={styles.stat}>Lorem ipsum ich delat tsunum</h8>
-            <h8 className={styles.stat}>Tsunum delat ich ipsum lorem</h8>
-            <h8 className={styles.stat}>Lorem ipsum ich delat tsunum</h8>
-            <h8 className={styles.stat}>Tsunum delat ich ipsum lorem</h8>
+            <span className={styles.stat}>
+              Most clicked character:{" "}
+              <span style={{ color: "#489EEE" }}>Ryu</span>
+              <span style={{ color: "#E9FF61" }}> (14%)</span>
+            </span>
+            <span className={styles.stat}>
+              Most viewed combo:{" "}
+              <span style={{ color: "#489EEE" }}>
+                Ken 6000 damage superless combo by{" "}
+              </span>{" "}
+              <span style={{ color: "#4BDBFB", fontWeight: "bold" }}>
+                sajam
+              </span>{" "}
+              <span style={{ color: "#E9FF61" }}>(954 views)</span>
+            </span>
+            <span className={styles.stat}>
+              Most combos for a character:{" "}
+              <span style={{ color: "#489EEE" }}>Juri</span>
+              <span style={{ color: "#E9FF61" }}> (49 posts)</span>
+            </span>
+            <span className={styles.stat}>
+              Highest string count for a character:{" "}
+              <span style={{ color: "#489EEE" }}>
+                Kimberly edging TOD 26 hit combo
+              </span>
+              <span style={{ color: "#E9FF61" }}> (26 unique inputs)</span>
+            </span>
           </div>
 
           <hr className={styles.footer_divider} />
@@ -49,8 +103,9 @@ function Footer() {
               <button className={styles.quickNav_btn}>Tier List</button>
               <button className={styles.quickNav_btn}>About</button>
             </div>
-            <div className={styles.toTop_container}>
-              <button className={styles.toTop_btn}>arrow</button>
+
+            <div className={styles.toTop_container} onClick={scrollToTop}>
+              <button className={styles.toTop_btn}></button>
               <a className={styles.toTop_text}>Back to the Top</a>
             </div>
           </div>
