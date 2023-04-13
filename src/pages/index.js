@@ -4,44 +4,65 @@ import styles from "@/styles/Home.module.css";
 import Navbar from "./Navbar";
 import Search from "./Search";
 import ComboCard from "./ComboCard";
+import WelcomePage from "./WelcomePage";
 import Footer from "./Footer";
+import Cookies from "js-cookie";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [showWelcome, setShowWelcome] = useState(false);
+
+  useEffect(() => {
+    const visited = Cookies.get("visited");
+    if (!visited) {
+      Cookies.set("visited", "true", { expires: 7 });
+      setShowWelcome(true);
+    }
+  }, []);
+
   return (
     <>
-      <Head>
-        <title>Street Fighter Combos</title>
-        <meta
-          name="description"
-          content="Combos for the videogame Street Fighter 6 by Capcom"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,400;1,600&family=Lato:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className={styles.img_container}>
-        <Image
-          className={styles.bg_img}
-          src="/bg4000.jpg"
-          alt="Picture of the author"
-          fill
-          sizes="(max-width: 1920px) 100vw,
+      {!showWelcome ? (
+        <WelcomePage />
+      ) : (
+        <>
+          <Head>
+            <title>Street Fighter Combos</title>
+            <meta
+              name="description"
+              content="Combos for the videogame Street Fighter 6 by Capcom"
+            />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            />
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link
+              rel="preconnect"
+              href="https://fonts.gstatic.com"
+              crossOrigin="true"
+            />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+
+          <div className={styles.img_container}>
+            <Image
+              className={styles.bg_img}
+              src="/bg4000.jpg"
+              alt="Picture of the author"
+              fill
+              sizes="(max-width: 1920px) 100vw,
                     (max-width: 1200px) 50vw,
                     33vw"
-          object-fit="cover"
-        />
-      </div>
+              object-fit="cover"
+            />
+          </div>
 
-      <main className={styles.main}>
-        <Navbar />
-        <Search />
-        <section className={styles.combos_container}>
-          <ComboCard
+          <main className={styles.main}>
+            <Navbar />
+            <Search />
+            <section className={styles.combos_container}>
+              {/*  <ComboCard
             videoUrl="Phdd6XJovgg"
             hasSuper={true}
             usesDriveRush={false}
@@ -100,10 +121,12 @@ export default function Home() {
             comboTitle="Closed Beta Chun-li sakura combo"
             username="UFOrange  "
             lastUpdated="October 9, 2022"
-          />
-        </section>
-        <Footer />
-      </main>
+  /> */}
+            </section>
+            <Footer />
+          </main>
+        </>
+      )}
     </>
   );
 }
