@@ -61,18 +61,25 @@
   width: 100%;
 }
 
-.navbar button {
+.navbar .navbar_btn {
   font-family: "Kanit";
   font-style: normal;
   font-weight: 500;
   font-size: 0.7rem;
   letter-spacing: 0.1rem;
   margin: 0 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 0.5rem;
   border: none;
   border-radius: 0.25rem;
   background-color: transparent;
   cursor: pointer;
+  z-index: 2;
+}
+.navbar_btn:hover {
+  background-color: #1a1919;
+  color: #e6e6e6;
+  /* transition */
+  transition: all 0.1s ease-in-out;
 }
 
 .heroDiv {
@@ -124,13 +131,13 @@
 .heroLeftDivWrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
 }
 
 .heroParagraph {
   color: #1a1919;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-family: "Lato";
   font-style: normal;
   font-weight: 400;
@@ -147,16 +154,21 @@
 /* Combo Selection element */
 .comboSelectionContainer {
   display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .comboSelectionHeader {
   margin-top: 1.2rem;
   font-size: 1.2rem;
-
+  background-color: #1a1919;
+  color: #e6e6e6;
+  padding: 0.5rem;
+  border-radius: 10px;
   font-family: "Kanit";
   font-style: italic;
   font-weight: 600;
+}
+.comboSelectionHeader:hover {
+  color: #ff2727;
+  transition: all 0.1s ease-in-out;
 }
 .comboBtnContainer {
   display: flex;
@@ -207,8 +219,46 @@
 }
 
 .noticeDiv {
+  display: flex;
+
+  align-items: flex-end;
   height: 3rem;
   width: 100%;
+}
+
+.noticeDivWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 1rem;
+  width: auto;
+  padding: 0 0.15rem 0 0.15rem;
+
+  /*   background-color: #1a1919; */
+  margin-left: 5rem;
+  border-right: 25px solid transparent;
+  border-left: 25px solid transparent;
+  border-bottom: 1.8rem solid #1a1919;
+}
+
+.noticeSocialMediaWrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 4.4rem;
+  padding-bottom: 1rem;
+  width: 10%;
+}
+.socialMediaIcon {
+  /*   margin: 0 1rem 0 0; */
+}
+.noticeHeader {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  font-family: "Kanit";
+  font-style: italic;
+  font-weight: 600;
+  color: #d0d0d0;
 }
 
 @media screen and (max-width: 768px) {

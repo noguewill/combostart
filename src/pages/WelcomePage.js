@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "@/styles/WelcomePage.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
+import Login from "./Login";
 
 const WelcomePage = () => {
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  const toggleOverlay = () => {
+    setShowOverlay(!showOverlay);
+  };
+
   return (
     <div className={styles.page}>
+      {showOverlay && <Login toggleOverlay={toggleOverlay} />}
       <div className={styles.leftColumn}>
         <h1 className={styles.combo}>COMBO</h1>
         <div className={styles.ball}></div>
@@ -13,10 +22,11 @@ const WelcomePage = () => {
       </div>
       <div className={styles.container}>
         <div className={styles.navbar}>
-          <button>HOME</button>
-          <button>ABOUT</button>
-          <button>SERVICES</button>
-          <button>CONTACT</button>
+          <button className={styles.navbar_btn}>COMBO GUIDES</button>
+          <button className={styles.navbar_btn}>SUPPORTED GAMES</button>
+          <button className={styles.navbar_btn} onClick={toggleOverlay}>
+            LOGIN/SIGN UP
+          </button>
         </div>
         <div className={styles.headerDiv}>
           <h3 className={styles.gameNameHeader}>STREET FIGHTER 6</h3>
@@ -36,10 +46,10 @@ const WelcomePage = () => {
                 </p>
               </div>
               <div className={styles.comboSelectionContainer}>
-                <h5 className={styles.comboSelectionHeader}>
-                  Show combos for:
-                </h5>
-                <div className={styles.comboBtnContainer}>
+                <Link href="/" className={styles.comboSelectionHeader}>
+                  SHOW ME SOME COMBOS
+                </Link>
+                {/*                 <div className={styles.comboBtnContainer}>
                   <button className={styles.comboBtn}></button>
                   <button className={styles.comboBtn}></button>
                   <button className={styles.comboBtn}></button>
@@ -49,7 +59,8 @@ const WelcomePage = () => {
                 <span className={styles.homeBtn}>
                   CONTINUE TO COMBOSTART.COM
                 </span>
-              </Link>
+              </Link> */}
+              </div>
             </div>
           </div>
 
@@ -73,7 +84,33 @@ const WelcomePage = () => {
           </div>
         </div>
 
-        <div className={styles.noticeDiv}></div>
+        <div className={styles.noticeDiv}>
+          {/* Add two social media buttons, one for Twitter the other for Instagram */}
+          <div className={styles.noticeSocialMediaWrapper}>
+            <a href="https://twitter.com/ComboStart" target="_blank">
+              <Image
+                src="/twitterIcon.svg"
+                width={22}
+                height={22}
+                className={styles.socialMediaIcon}
+              />
+            </a>
+            <a href="https://www.instagram.com/combostart/" target="_blank">
+              <Image
+                src="/instagramIcon.svg"
+                width={22}
+                height={22}
+                className={styles.socialMediaIcon}
+              />
+            </a>
+          </div>
+
+          <div className={styles.noticeDivWrapper}>
+            <h4 className={styles.noticeHeader}>
+              FAN WEBSITE | NOT AFFILIATED WITH CAPCOM
+            </h4>
+          </div>
+        </div>
       </div>
     </div>
   );
