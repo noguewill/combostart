@@ -23,11 +23,22 @@
   position: relative;
 }
 .signUp_logo {
-  color: #ff2727;
+  margin-bottom: 1rem;
+}
+
+.signUp_header_wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.signUp_notice {
+  font-size: 0.8rem;
+  font-weight: 400;
 }
 .close_btn {
   position: absolute;
-  top: 0.8rem;
+  top: 0.5rem;
   right: 1rem;
   font-size: 1.2rem;
   border: none;
@@ -39,45 +50,143 @@
 .signUp_form {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.signUp_label,
-.password_label,
-.username_label {
+.label_wrapper {
+  margin-top: 1.8rem;
   display: flex;
   flex-direction: column;
-  margin: 0.8rem;
+  justify-content: space-between;
   font-size: 1rem;
+  font-family: "Lato";
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  color: #d6d6d6;
+  position: relative;
 }
-
 .email_input,
 .password_input,
 .username_input {
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
   padding: 0.25rem;
   border-radius: 5px;
   border: none;
+  background-color: #d6d6d6;
 }
+.required_asterisk {
+  align-self: flex-start;
+  color: red;
+  font-size: 1.2em;
+  margin-left: 0.3rem;
+}
+
 .username_input {
   width: 10rem;
 }
-.email_input {
-  width: 15rem;
-}
+.email_input,
 .password_input {
   width: 15rem;
 }
-.submit_btn[type="submit"] {
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
+.passwordEye_btn,
+.password_hoverBtn,
+.username_hoverBtn {
+  background-color: transparent;
   border: none;
-  background-color: #0077cc;
-  color: white;
-  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+}
+.exclamation_icon {
+  position: absolute;
+  top: 1.9rem;
+  left: 13.5rem;
+  right: 0;
+}
+.password_hoverBtn,
+.username_hoverBtn {
+  cursor: default;
+}
+.dialog,
+.username_dialog {
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  font-size: 0.85rem;
+  font-family: "Lato";
+  font-weight: 400;
+  top: 100%;
+  left: 50%;
+
+  padding: 0.3rem;
+  transform: translateX(-50%);
+  background-color: #d6d6d6;
+  border: 1px solid #1a1a1a;
+  color: #1a1a1a;
+  border-radius: 5px;
+
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+.username_hoverBtn:hover + .username_dialog {
+  opacity: 1;
+  visibility: visible;
+}
+.password_hoverBtn:hover + .dialog {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tos_label {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0 1rem 0;
+}
+.tos_text {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.tos_checkbox[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
+  margin-right: 0.8rem;
+  outline: none;
   cursor: pointer;
 }
 
+.tos_checkbox[type="checkbox"]:checked {
+  background-color: #73e979;
+}
+
+.tos_link {
+  margin-left: 0.3rem;
+  color: #48aaf0;
+}
+.tos_link:hover {
+  text-decoration: underline;
+}
+
+.submit_btn[type="submit"] {
+  width: 100%;
+  font-family: "Kanit";
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  margin: 0.8rem 0;
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #d6d6d6;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
 .submit_btn[type="submit"]:hover {
-  background-color: #005fa3;
+  background-color: #ff2727;
+  color: #d6d6d6;
 }
