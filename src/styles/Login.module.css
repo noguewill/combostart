@@ -14,6 +14,7 @@
 }
 
 .login_body {
+  width: 28%;
   background-color: #1a1a1a;
   padding: 2rem;
   border-radius: 10px;
@@ -21,20 +22,6 @@
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-}
-.signUp_logo {
-  margin-bottom: 1rem;
-}
-
-.signUp_header_wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.signUp_notice {
-  font-size: 0.8rem;
-  font-weight: 400;
 }
 .close_btn {
   position: absolute;
@@ -47,146 +34,66 @@
   color: #e6e6e6;
 }
 
-.signUp_form {
+.signUp_header_wrapper {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+}
+.signUp_logo {
+  margin-bottom: 1rem;
+}
+
+.signOption_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   width: 100%;
 }
 
-.label_wrapper {
-  margin-top: 1.8rem;
+.signOption_btn {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  font-size: 1rem;
-  font-family: "Lato";
-  font-weight: 600;
-  letter-spacing: 0.05rem;
-  color: #d6d6d6;
-  position: relative;
-}
-.email_input,
-.password_input,
-.username_input {
-  margin-top: 0.3rem;
-  padding: 0.25rem;
-  border-radius: 5px;
-  border: none;
-  background-color: #d6d6d6;
-}
-.required_asterisk {
-  align-self: flex-start;
-  color: red;
-  font-size: 1.2em;
-  margin-left: 0.3rem;
-}
-
-.username_input {
-  width: 10rem;
-}
-.email_input,
-.password_input {
-  width: 15rem;
-}
-.passwordEye_btn,
-.password_hoverBtn,
-.username_hoverBtn {
-  background-color: transparent;
-  border: none;
-  outline: none;
+  align-items: center;
+  padding-left: 1rem;
   cursor: pointer;
+  width: 100%;
+  font-size: 0.85rem;
+  color: #d6d6d6;
+  background-color: #3b3b3b;
+  font-family: "Lato";
+  font-weight: 400;
+  border: none;
+  border-radius: 10px;
+  height: 2.5rem;
+  margin: 0.5rem 0 0.5rem 0;
 }
-.exclamation_icon {
-  position: absolute;
-  top: 1.9rem;
-  left: 13.5rem;
-  right: 0;
-}
-.password_hoverBtn,
-.username_hoverBtn {
-  cursor: default;
-}
-.dialog,
-.username_dialog {
-  z-index: 2;
+.signOptionIcon {
   display: flex;
   justify-content: center;
-  position: absolute;
-  font-size: 0.85rem;
-  font-family: "Lato";
-  font-weight: 400;
-  top: 100%;
-  left: 50%;
-
-  padding: 0.3rem;
-  transform: translateX(-50%);
-  background-color: #d6d6d6;
-  border: 1px solid #1a1a1a;
-  color: #1a1a1a;
-  border-radius: 5px;
-
-  visibility: hidden;
-  transition: opacity 0.2s, visibility 0.2s;
-}
-.username_hoverBtn:hover + .username_dialog {
-  opacity: 1;
-  visibility: visible;
-}
-.password_hoverBtn:hover + .dialog {
-  opacity: 1;
-  visibility: visible;
-}
-
-.tos_label {
-  display: flex;
   align-items: center;
-  margin: 2rem 0 1rem 0;
+  width: 4rem;
+  height: 2.5rem;
+  background-color: #1a1a1a;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-color: none;
 }
-.tos_text {
+
+/* Sign In Notice */
+.signIn_text {
+  align-self: center;
   font-size: 0.8rem;
   font-weight: 400;
+  margin-top: 0.5rem;
 }
-.tos_checkbox[type="checkbox"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  width: 1.1rem;
-  height: 1.1rem;
-  border: 1px solid #d6d6d6;
-  border-radius: 4px;
-  margin-right: 0.8rem;
-  outline: none;
-  cursor: pointer;
-}
-
-.tos_checkbox[type="checkbox"]:checked {
-  background-color: #73e979;
-}
-
-.tos_link {
+.signIn_link {
+  font-weight: 600;
+  letter-spacing: 0.03rem;
   margin-left: 0.3rem;
   color: #48aaf0;
 }
-.tos_link:hover {
+.signIn_link:hover {
   text-decoration: underline;
-}
-
-.submit_btn[type="submit"] {
-  width: 100%;
-  font-family: "Kanit";
-  font-weight: 700;
-  letter-spacing: 0.1rem;
-  margin: 0.8rem 0;
-  padding: 0.8rem;
-  border-radius: 5px;
-  border: none;
-  background-color: #d6d6d6;
-  color: #1a1a1a;
-  cursor: pointer;
-  transition: all 0.1s ease-in-out;
-}
-.submit_btn[type="submit"]:hover {
-  background-color: #ff2727;
-  color: #d6d6d6;
 }
