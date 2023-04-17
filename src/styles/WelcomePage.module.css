@@ -79,9 +79,11 @@
   background-color: #1a1919;
   color: #e6e6e6;
   /* transition */
-  transition: all 0.1s ease-in-out;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
-
+.navbar_btn:not(:hover) {
+  transition: all 0.1s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
 .heroDiv {
   display: flex;
   justify-content: space-between;
@@ -168,7 +170,10 @@
 }
 .comboSelectionHeader:hover {
   color: #ff2727;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+.comboSelectionHeader:not(:hover) {
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
 .comboBtnContainer {
   display: flex;

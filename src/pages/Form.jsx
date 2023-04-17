@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "@/styles/Form.module.css";
 import Image from "next/image";
 
-const Form = ({ toggleOverlay }) => {
+const Form = ({ toggleOverlay, showSignupForm }) => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
@@ -15,7 +15,12 @@ const Form = ({ toggleOverlay }) => {
   return (
     <>
       {/* THE FORM */}
-      <form className={styles.signUp_form} onSubmit={handleSubmit}>
+      <form
+        className={`${styles.signUp_form} ${
+          showSignupForm ? styles.show : styles.hide
+        }`}
+        onSubmit={handleSubmit}
+      >
         <span className={styles.signUp_notice}>
           (Fields marked with an <span style={{ color: "red" }}>*</span> are
           required)
