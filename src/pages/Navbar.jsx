@@ -4,8 +4,12 @@ import styles from "@/styles/Navbar.module.css";
 import Image from "next/image";
 import { useState } from "react";
 
-function Navbar() {
+function Navbar({}) {
   const [showMenu, setShowMenu] = useState(false);
+  const [subDirectory, setSubDirectory] = useState(false);
+  /* is navbar inside a subdirectory? */
+  /* Style to remove bg color of the buttons, as well as hover properties */
+  /* Color of the font */
 
   return (
     <nav className={styles.navbar}>

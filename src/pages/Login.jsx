@@ -6,6 +6,7 @@ import Form from "./Form";
 import SignupOptions from "./SignupOptions";
 const Login = ({ toggleOverlay }) => {
   const [showSignupForm, setShowSignupForm] = useState(false);
+  const [signIn, setSignIn] = useState(false);
   return (
     <div className={styles.login_parent}>
       <div className={styles.login_body}>
@@ -27,9 +28,17 @@ const Login = ({ toggleOverlay }) => {
 
         {/* Sign Up Form */}
         {showSignupForm ? (
-          <Form toggleOverlay={toggleOverlay} showSignupForm={showSignupForm} />
+          <Form
+            toggleOverlay={toggleOverlay}
+            signIn={signIn}
+            showSignupForm={showSignupForm}
+          />
         ) : (
-          <SignupOptions setShowSignupForm={setShowSignupForm} />
+          <SignupOptions
+            showSignupForm={showSignupForm}
+            setShowSignupForm={setShowSignupForm}
+            signIn={signIn}
+          />
         )}
 
         <span className={styles.signIn_text}>
@@ -47,9 +56,21 @@ const Login = ({ toggleOverlay }) => {
           ) : (
             <span>Already have an account?</span>
           )}
-          <a href="/" className={styles.signIn_link}>
-            Sign in
-          </a>
+          {signIn ? (
+            <a
+              className={styles.signIn_link}
+              onClick={() => setSignIn(!signIn)}
+            >
+              Sign Up
+            </a>
+          ) : (
+            <a
+              className={styles.signIn_link}
+              onClick={() => setSignIn(!signIn)}
+            >
+              Sign in
+            </a>
+          )}
         </span>
       </div>
     </div>

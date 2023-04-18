@@ -45,21 +45,11 @@ const WelcomePage = () => {
                   <span className={styles.paragraphGame}>STREET FIGHTER 6</span>
                 </p>
               </div>
+
               <div className={styles.comboSelectionContainer}>
-                <Link href="/" className={styles.comboSelectionHeader}>
+                <Link href="/ComboHub" className={styles.comboSelectionHeader}>
                   SHOW ME SOME COMBOS
                 </Link>
-                {/*                 <div className={styles.comboBtnContainer}>
-                  <button className={styles.comboBtn}></button>
-                  <button className={styles.comboBtn}></button>
-                  <button className={styles.comboBtn}></button>
-                </div>
-              </div>
-              <Link className={styles.homeBtnContainer} href="/">
-                <span className={styles.homeBtn}>
-                  CONTINUE TO COMBOSTART.COM
-                </span>
-              </Link> */}
               </div>
             </div>
           </div>
