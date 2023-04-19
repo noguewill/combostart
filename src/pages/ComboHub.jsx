@@ -24,8 +24,8 @@ const ComboHub = () => {
   };
 
   return (
-    <>
-      <Navbar />
+    <div className={styles.bigboi}>
+      <Navbar btnType={`classic`} />
       <div className={styles.container}>
         <div className={styles.topRow}>
           <div className={styles.square1}>1</div>
@@ -39,7 +39,7 @@ const ComboHub = () => {
           </button>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

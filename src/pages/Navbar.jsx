@@ -4,12 +4,14 @@ import styles from "@/styles/Navbar.module.css";
 import Image from "next/image";
 import { useState } from "react";
 
-function Navbar({}) {
+function Navbar({ btnType, themeOverride }) {
   const [showMenu, setShowMenu] = useState(false);
   const [subDirectory, setSubDirectory] = useState(false);
-  /* is navbar inside a subdirectory? */
-  /* Style to remove bg color of the buttons, as well as hover properties */
-  /* Color of the font */
+
+  /*  if (window.location.pathname !== "/") {
+    setSubDirectory(true);
+  }
+ */
 
   return (
     <nav className={styles.navbar}>
@@ -19,13 +21,21 @@ function Navbar({}) {
       </div>
 
       <div className={styles.navbar_btn__container}>
-        <button className={styles.navbar_btn}>New Post +</button>
-        <button className={styles.navbar_btn}>Combos</button>
-        <button className={styles.navbar_btn}>Characters</button>
-        <button className={styles.navbar_btn}>About</button>
+        <button className={styles[`${btnType}_nav_btn`]} style={themeOverride}>
+          {" "}
+          NEW POST +
+        </button>
+        <button className={styles[`${btnType}_nav_btn`]} style={themeOverride}>
+          COMBOS
+        </button>
+        <button className={styles[`${btnType}_nav_btn`]} style={themeOverride}>
+          CHARACTERS
+        </button>
+        <button className={styles[`${btnType}_nav_btn`]} style={themeOverride}>
+          SAVED COMBOS
+        </button>
         <div className={styles.profileBtn_container}>
           <button className={styles.navbar_profileBtn}>
-            {" "}
             <Image
               src="/ryuAvatar.png"
               alt="Upvote arrow"
@@ -34,8 +44,10 @@ function Navbar({}) {
               priority
             />
           </button>
-          <a className={styles.profileBtn_username}>WilhelmDM</a>
-          <button className={styles.profileBtn_logOut}>Log Out </button>
+          <a className={styles[`${btnType}_profileBtn_username`]}>WilhelmDM</a>
+          <button className={styles[`${btnType}_profileBtn_logOut`]}>
+            Log Out
+          </button>
         </div>
       </div>
 

@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import styles from "@/styles/WelcomePage.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 import Login from "./Login";
 
 const WelcomePage = () => {

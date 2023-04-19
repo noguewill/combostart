@@ -77,51 +77,7 @@ export default function Home() {
             username="SFO Ghost"
             lastUpdated="December 20, 2022"
           />
-          <ComboCard
-            videoUrl="dMxh2lMzTWo"
-            hasSuper={true}
-            usesDriveRush={false}
-            damage={3300}
-            hits={12}
-            comboType="ANYWHERE"
-            characterName="Ken"
-            patchVersion="1.0.0"
-            inputType="Stick"
-            inputTypeText="Arcade Stick"
-            comboTitle="Fun Ken Combo, 12 hits"
-            username="gentle step"
-            lastUpdated="December 16, 2022"
-          />{" "}
-          <ComboCard
-            videoUrl="O_FLTu5eGcg"
-            hasSuper={true}
-            usesDriveRush={false}
-            damage={2800}
-            hits={7}
-            comboType="CORNER"
-            characterName="Juri"
-            patchVersion="1.0.0"
-            inputType="Stick"
-            inputTypeText="Arcade Stick"
-            comboTitle="Feng shui engine Juri combo"
-            username="VesperArcade"
-            lastUpdated="October 10, 2022"
-          />{" "}
-          <ComboCard
-            videoUrl="jhiSCTpFTmE"
-            hasSuper={true}
-            usesDriveRush={false}
-            damage={3100}
-            hits={13}
-            comboType="MID"
-            characterName="Chun-li"
-            patchVersion="1.0.0"
-            inputType="Stick"
-            inputTypeText="Arcade Stick"
-            comboTitle="Closed Beta Chun-li sakura combo"
-            username="UFOrange  "
-            lastUpdated="October 9, 2022"
-  /> */}
+*/}
             </section>
             <Footer />
           </main>
