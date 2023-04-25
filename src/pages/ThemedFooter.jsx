@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "@/styles/Footer.module.css";
+import styles from "@/styles/ThemedFooter.module.css";
 
 function Footer() {
   const [isVisible, setIsVisible] = useState(false);

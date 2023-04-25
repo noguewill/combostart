@@ -1,0 +1,47 @@
+.banner {
+  font-family: "Lato";
+  display: flex;
+
+  align-items: center;
+  justify-content: space-evenly;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
+
+  z-index: 9999;
+}
+
+.acceptButton {
+  font-family: "Lato";
+  margin-right: 5rem;
+  background-color: rgb(53, 162, 252);
+  color: #d6d6d6;
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.acceptButton:hover {
+  background-color: rgb(81, 202, 81);
+}
+
+.rejectButton {
+  font-family: "Lato";
+  background-color: transparent;
+  color: #333;
+  border: none;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+
+.rejectButton:hover {
+  color: #d6d6d6;
+  background-color: red;
+}

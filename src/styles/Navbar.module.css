@@ -5,12 +5,12 @@
   padding-bottom: 0.7rem;
 }
 .navbar_logo__container {
-  width: auto;
   display: flex;
   align-items: center;
   z-index: 4;
 }
 .navbar_logo {
+  position: relative;
   margin-right: 65vw;
 }
 .mobileMenu__container {
@@ -56,11 +56,10 @@
   .navbar {
     align-items: center;
     justify-content: space-between;
-    padding: 0 1rem 0 1rem;
+    padding: 1.5rem 0 2rem 1.5rem;
   }
 
   .navbar_logo__container {
-    background-color: #69eec3;
     width: auto;
   }
   .navbar_logo {
@@ -71,7 +70,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 50%;
+    width: auto;
   }
   .themed_nav_btn,
   .classic_nav_btn {
@@ -86,20 +85,30 @@
     transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
   }
   .classic_nav_btn {
-    background-color: transparent;
-    border: none;
-    color: black;
+    color: #1a1a1a;
     font-family: "Kanit";
     font-style: normal;
     font-weight: 500;
-    font-size: 0.8rem;
-    margin-right: 0.8rem;
-    line-height: 1.5rem;
-    letter-spacing: 0.06em;
+    font-size: 0.7rem;
+    letter-spacing: 0.1rem;
+    margin: 0 1rem;
+    padding: 0.3rem 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 2;
   }
   .classic_nav_btn:hover {
-    color: #f84242;
+    background-color: #1a1919;
+    color: #e6e6e6;
+
+    transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
   }
+  .classic_nav_btn:not(:hover) {
+    transition: all 0.1s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+  }
+
   .themed_nav_btn:hover {
     border-top: 2px solid #69eec3;
     border-left: 2px solid #69eec3;
@@ -109,7 +118,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 1.5rem;
   }
   .themed_profileBtn {
     cursor: pointer;

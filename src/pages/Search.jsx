@@ -16,8 +16,8 @@ const Search = ({ btnType, themeOverride, onData }) => {
 
   function handleButtonClick(buttonIndex) {
     setActiveButton(buttonIndex);
+    onData(activeButton);
   }
-  onData(activeButton);
 
   return (
     /* Mobile Search Section */

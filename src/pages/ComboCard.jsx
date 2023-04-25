@@ -281,3 +281,21 @@ function ComboCard({
   );
 }
 export default ComboCard;
+{
+  /*  <ComboCard
+            videoUrl="Phdd6XJovgg"
+            hasSuper={true}
+            usesDriveRush={false}
+            damage={5600}
+            hits={16}
+            comboType="CORNER"
+            characterName="Ryu"
+            patchVersion="1.0.0"
+            inputType="Stick"
+            inputTypeText="Arcade Stick"
+            comboTitle="Ryu advanced 5600 damage corner combo"
+            username="SFO Ghost"
+            lastUpdated="December 20, 2022"
+          />
+*/
+}

@@ -1,32 +1,32 @@
-import React from "react";
-
-import styles from "@/styles/Navbar.module.css";
-import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import styles from "@/styles/Navbar.module.css";
+import Login from "./Login";
 
-function Navbar({ btnType, themeOverride }) {
+function Navbar({ loggedIn, btnType, themeOverride }) {
+  const [showOverlay, setShowOverlay] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [subDirectory, setSubDirectory] = useState(false);
 
-  /*  if (window.location.pathname !== "/") {
-    setSubDirectory(true);
-  }
- */
+  const toggleOverlay = () => {
+    setShowOverlay(!showOverlay);
+  };
 
   return (
     <nav className={styles.navbar}>
       {/* Desktop nav buttons */}
       <div className={styles.navbar_logo__container}>
-        <div className={styles.navbar_logo}>LOGO</div>
+        <Link href="/" className={styles.navbar_logo}>
+          <Image src="/logo.svg" width={50} height={40} alt="Placeholder" />
+        </Link>
       </div>
 
       <div className={styles.navbar_btn__container}>
         <button className={styles[`${btnType}_nav_btn`]} style={themeOverride}>
-          {" "}
           NEW POST +
         </button>
         <button className={styles[`${btnType}_nav_btn`]} style={themeOverride}>
-          COMBOS
+          COMBO GUIDES
         </button>
         <button className={styles[`${btnType}_nav_btn`]} style={themeOverride}>
           CHARACTERS
@@ -34,23 +34,41 @@ function Navbar({ btnType, themeOverride }) {
         <button className={styles[`${btnType}_nav_btn`]} style={themeOverride}>
           SAVED COMBOS
         </button>
-        <div className={styles.profileBtn_container}>
-          <button className={styles.navbar_profileBtn}>
-            <Image
-              src="/ryuAvatar.png"
-              alt="Upvote arrow"
-              width={56}
-              height={55}
-              priority
-            />
-          </button>
-          <a className={styles[`${btnType}_profileBtn_username`]}>WilhelmDM</a>
-          <button className={styles[`${btnType}_profileBtn_logOut`]}>
-            Log Out
-          </button>
-        </div>
+
+        {/* Only show if the user is logged in */}
+        {loggedIn ? (
+          <div className={styles.profileBtn_container}>
+            <button className={styles.navbar_profileBtn}>
+              <Image
+                src="/ryuAvatar.png"
+                alt="Upvote arrow"
+                width={56}
+                height={55}
+                priority
+              />
+            </button>
+            <a className={styles[`${btnType}_profileBtn_username`]}>
+              WilhelmDM
+            </a>
+
+            <button className={styles[`${btnType}_profileBtn_logOut`]}>
+              Log Out
+            </button>
+          </div>
+        ) : (
+          <>
+            <button
+              className={styles[`${btnType}_nav_btn`]}
+              style={themeOverride}
+              onClick={toggleOverlay}
+            >
+              LOG IN | SIGN UP
+            </button>
+          </>
+        )}
       </div>
 
+      {showOverlay && <Login toggleOverlay={toggleOverlay} />}
       {/* Mobile Menu button */}
       <div className={styles.mobileMenu__container}>
         <button

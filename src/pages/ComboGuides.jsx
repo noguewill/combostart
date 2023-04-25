@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import styles from "@/styles/ComboHub.module.css";
+import styles from "@/styles/ComboGuides.module.css";
 import Navbar from "./Navbar";
 import Link from "next/link";
+import Image from "next/image";
 import Search from "./Search";
+import CookieBanner from "./CookieBanner";
 
 const ComboHub = () => {
   const [cardLimit, setCardLimit] = useState(10);
@@ -35,6 +37,8 @@ const ComboHub = () => {
       <Navbar btnType={`classic`} />
       <Search btnType={`classic`} onData={handleDataFromChild} />
       <div className={styles.container}>
+        <CookieBanner />
+
         <div className={styles.topRow}>
           <Link
             href={"/"}
@@ -42,7 +46,13 @@ const ComboHub = () => {
             style={colorStyle}
           >
             <span className={styles.cardTitle}>STREET FIGHTER 6</span>
-            <div className={styles.square1}></div>
+            <Image
+              className={styles.cardImage}
+              src="/sf6coverArt.webp"
+              alt="Picture of the author"
+              fill
+              object-fit="fit"
+            />
           </Link>
           <Link
             href={"/"}
@@ -50,7 +60,13 @@ const ComboHub = () => {
             style={colorStyle}
           >
             <span className={styles.cardTitle}>TEKKEN 7</span>
-            <div className={styles.square2}></div>
+            <Image
+              className={styles.cardImage}
+              src="/tekken7coverArt.jpg"
+              alt="Picture of the author"
+              fill
+              object-fit="fit"
+            />
           </Link>
           <Link
             href={"/"}
@@ -58,9 +74,16 @@ const ComboHub = () => {
             style={colorStyle}
           >
             <span className={styles.cardTitle}>MORTAL KOMBAT 11</span>
-            <div className={styles.square3}></div>
+            <Image
+              className={styles.cardImage}
+              src="/mk11UltimatecoverArt.webp"
+              alt="Picture of the author"
+              fill
+              object-fit="fit"
+            />
           </Link>
         </div>
+
         <div className={styles.bottomRow}>{cards.slice(0, cardLimit * 3)}</div>
         {cardLimit < 10 && (
           <button className={styles.button} onClick={loadMore}>

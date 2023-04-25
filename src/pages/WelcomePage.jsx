@@ -1,32 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "@/styles/WelcomePage.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import Login from "./Login";
+import CookieBanner from "./CookieBanner";
 
 const WelcomePage = () => {
-  const [showOverlay, setShowOverlay] = useState(false);
-
-  const toggleOverlay = () => {
-    setShowOverlay(!showOverlay);
-  };
-
   return (
     <div className={styles.page}>
-      {showOverlay && <Login toggleOverlay={toggleOverlay} />}
+      <CookieBanner />
       <div className={styles.leftColumn}>
         <h1 className={styles.combo}>COMBO</h1>
         <div className={styles.ball}></div>
         <h1 className={styles.start}>START</h1>
       </div>
       <div className={styles.container}>
-        <div className={styles.navbar}>
-          <button className={styles.navbar_btn}>COMBO GUIDES</button>
-          <button className={styles.navbar_btn}>SUPPORTED GAMES</button>
-          <button className={styles.navbar_btn} onClick={toggleOverlay}>
-            LOGIN/SIGN UP
-          </button>
-        </div>
         <div className={styles.headerDiv}>
           <h3 className={styles.gameNameHeader}>STREET FIGHTER 6</h3>
           <h1 className={styles.heroHeader}>DISCOVER</h1>

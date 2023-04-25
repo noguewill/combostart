@@ -17,26 +17,33 @@
   margin-bottom: 1rem;
 }
 
-.square1,
-.square2,
-.square3 {
-  height: 18rem;
+.featuredCard_left,
+.featuredCard_mid,
+.featuredCard_right {
+  display: flex;
+  justify-content: center;
   border-radius: 4px;
-  background-color: #1a1a1a;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  height: 18rem;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
-
 .featuredCard_left {
   flex-basis: 40%;
 }
-
 .featuredCard_mid {
-  flex-basis: 32.5%;
+  flex-basis: 31.5%;
 }
-
 .featuredCard_right {
   flex-basis: 22.5%;
 }
-
+.featuredCard_left:hover,
+.featuredCard_mid:hover,
+.featuredCard_right:hover {
+  transform: scale(1.05);
+}
 .bottomRow {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -67,20 +74,40 @@
   height: auto;
   transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
-
 .cardTitle {
-  width: 100%;
+  visibility: hidden;
+  background-color: #0f0f0fd5;
+  width: auto;
+  border-radius: 10px;
+  height: 2.5rem;
   padding: 0.5rem;
-  margin: 0;
-  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
   font-family: "Kanit";
   font-style: italic;
   font-weight: 600;
-  line-height: 1.5rem;
-  color: #1a1a1a;
-  text-align: left;
+  color: white;
+  z-index: 99;
+  transition: all 0.1s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
-
+.featuredCard_left:hover .cardTitle {
+  visibility: visible;
+}
+.featuredCard_mid:hover .cardTitle {
+  visibility: visible;
+}
+.featuredCard_right:hover .cardTitle {
+  visibility: visible;
+}
+.featuredCard_left:hover .cardImage {
+  transform: scale(1.1);
+}
+.featuredCard_mid:hover .cardImage {
+  transform: scale(1.1);
+}
+.featuredCard_right:hover .cardImage {
+  transform: scale(1.1);
+}
 .card:hover .cardImage {
   transform: scale(1.05);
 }
@@ -101,8 +128,3 @@
 .button:hover {
   background-color: #555;
 }
-
-/* There's gotta be a state that checks if the navbar is on a subdirectory, if it is, show the url of the current subdirectory
-and also show the buttons that are only related to a subdirectory
-Same thing for the footer, if it's in a subdirectory show the stats of that game, otherwise show the about section
-Also a bunch of states for the combo guides/sort buttons/ some other filter options when it's in a directory/and search bar styling */
