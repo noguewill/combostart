@@ -4,10 +4,8 @@ import Dropdown from "./Dropdown";
 import { useRouter } from "next/router";
 
 const Search = ({ btnType, themeOverride, onData }) => {
-  const componentName = "/" + Search.name;
   const router = useRouter();
   const pathname = router.pathname;
-  const [subDirectory, setSubDirectory] = useState(componentName);
   const [activeButton, setActiveButton] = useState(1);
 
   function handleOptionSelect(option) {
@@ -34,7 +32,7 @@ const Search = ({ btnType, themeOverride, onData }) => {
             COMBO GUIDES
           </h1>
 
-          {pathname === subDirectory ? (
+          {pathname === "/ComboPage" ? (
             <div className={styles.search__filterContainer}>
               {/* Sort filter option */}
               <div className={styles.search__filterOption_container}>
@@ -69,7 +67,12 @@ const Search = ({ btnType, themeOverride, onData }) => {
             </div>
           ) : (
             <div className={styles.classic_filter_container}>
-              <span className={styles.classic_filter_label}>SORT:</span>
+              <span
+                className={styles.classic_filter_label}
+                style={themeOverride}
+              >
+                SORT:
+              </span>
               <button
                 className={
                   styles[

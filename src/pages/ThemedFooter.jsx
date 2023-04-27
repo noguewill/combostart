@@ -30,7 +30,7 @@ function Footer() {
     <>
       <footer className={styles.footer_container}>
         {/* Page navigation menu */}
-        <div className={styles.comboCard_pager}>
+        {/* <div className={styles.comboCard_pager}>
           <button
             className={styles.pager_leftArrow}
             style={{ visibility: "hidden" }}
@@ -52,7 +52,7 @@ function Footer() {
             <span>4</span> <a className={styles.pager_num__dot}></a>
           </div>
           <button className={styles.pager_rightArrow}></button>
-        </div>
+        </div> */}
 
         <h7 className={styles.footer_warningBanner}>
           sfcombos.com is an unnoficcial fanmade website and is not affiliated

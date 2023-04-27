@@ -1,12 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "@/styles/Home.module.css";
-import Navbar from "./Navbar";
-import Search from "./Search";
-import ComboCard from "./ComboCard";
 import WelcomePage from "./WelcomePage";
-import ThemedFooter from "./ThemedFooter";
-import CookieBanner from "./CookieBanner";
 import ComboHub from "./ComboGuides";
 import Cookies from "js-cookie";
 import { useState, useEffect } from "react";
@@ -37,7 +31,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Street Fighter Combos</title>
+        <title>ComboStart Fighting game combos</title>
         <meta
           name="description"
           content="Combos for the videogame Street Fighter 6 by Capcom"

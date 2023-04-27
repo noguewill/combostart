@@ -41,7 +41,7 @@ const ComboHub = () => {
 
         <div className={styles.topRow}>
           <Link
-            href={"/"}
+            href={"/ComboPage"}
             className={styles.featuredCard_left}
             style={colorStyle}
           >

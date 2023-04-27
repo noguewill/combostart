@@ -7,9 +7,15 @@ import Login from "./Login";
 function Navbar({ loggedIn, btnType, themeOverride }) {
   const [showOverlay, setShowOverlay] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleOverlay = () => {
     setShowOverlay(!showOverlay);
+  };
+
+  const handleDropdownClick = () => {
+    setIsOpen(!isOpen);
+    console.log(isOpen);
   };
 
   return (
@@ -44,16 +50,72 @@ function Navbar({ loggedIn, btnType, themeOverride }) {
                 alt="Upvote arrow"
                 width={56}
                 height={55}
+                style={{ border: "2px solid #69eec3" }}
                 priority
               />
+              <button
+                className={styles.arrow_btn}
+                onClick={() => handleDropdownClick()}
+              >
+                <svg
+                  className={
+                    isOpen ? `${styles.icon} ${styles.rotated}` : styles.icon
+                  }
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
             </button>
-            <a className={styles[`${btnType}_profileBtn_username`]}>
+            <span className={styles[`${btnType}_profileBtn_username`]}>
               WilhelmDM
-            </a>
-
-            <button className={styles[`${btnType}_profileBtn_logOut`]}>
-              Log Out
-            </button>
+            </span>
+            {isOpen && (
+              <div className={styles.dropdownMenu}>
+                <ul className={styles.dropdown_container}>
+                  <li>
+                    <button className={styles.dropdown_item_btn}>
+                      PROFILE
+                    </button>
+                  </li>
+                  <li>
+                    <button className={styles.dropdown_item_btn}>
+                      MY POSTS
+                    </button>
+                  </li>
+                  <li>
+                    <button className={styles.dropdown_item_btn}>
+                      SAVED POSTS
+                    </button>
+                  </li>
+                </ul>
+                <hr style={{ width: "100%" }} />
+                <ul
+                  className={styles.submenu_container}
+                  style={{ alignItems: "flex-start", fontSize: "0.2rem" }}
+                >
+                  <li>
+                    <button className={styles.submenu_item_btn}>
+                      SETTINGS
+                    </button>
+                  </li>
+                  <li>
+                    <button className={styles.submenu_item_btn}>
+                      TERMS AND CONDITIONS
+                    </button>
+                  </li>
+                  <button className={styles.dropdown_logout_btn}>
+                    LOG OUT
+                  </button>
+                </ul>
+              </div>
+            )}
           </div>
         ) : (
           <>

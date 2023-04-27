@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styles from "@/styles/ComboCard.module.css";
 import Image from "next/image";
 import YouTube from "react-youtube";
+import { inputData } from "./InputData";
 
-function ComboCard({
+const ComboCard = ({
   videoUrl,
   hasSuper,
   usesDriveRush,
@@ -18,35 +19,7 @@ function ComboCard({
   comboTitle,
   username,
   lastUpdated,
-}) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [containerWidth, setContainerWidth] = useState(null);
-  const [contentWidth, setContentWidth] = useState(null);
-
-  useEffect(() => {
-    const container = document.getElementById("container");
-    const content = document.getElementById("content");
-
-    if (container && content) {
-      const containerWidth = container.offsetWidth;
-      const contentWidth = content.offsetWidth;
-
-      setContainerWidth(containerWidth);
-      setContentWidth(contentWidth);
-    }
-  }, []);
-
-  const handleExpand = () => {
-    setIsExpanded(true);
-  };
-  console.log(containerWidth + contentWidth);
-  const shouldShowExpandButton = () => {
-    if (containerWidth && contentWidth) {
-      return contentWidth > containerWidth;
-    }
-    return false;
-  };
-
+}) => {
   return (
     <>
       <div className={styles.comboCard__title__container}>
@@ -56,8 +29,6 @@ function ComboCard({
           Updated in {lastUpdated}
         </a>
       </div>
-
-      {/* Combocard upvotes */}
 
       {/* ComboCard */}
       <article className={styles.combocard}>
@@ -78,7 +49,7 @@ function ComboCard({
           <div className={styles.combocard_charFrame__container}>
             <div className={styles.comboCard_charName}>{characterName} </div>
             <div className={styles.combocard_video}>
-              <YouTube
+              {/*               <YouTube
                 videoId={videoUrl}
                 height={315}
                 width={560}
@@ -86,7 +57,7 @@ function ComboCard({
                   controls: 1, // Disable player controls
                   autoplay: 1, // Automatically start playing
                 }}
-              />
+              /> */}
             </div>
           </div>
 
@@ -113,129 +84,21 @@ function ComboCard({
             </div>
 
             {/* Inputs row */}
-            <div
-              id="container"
-              style={{
-                height: isExpanded ? "" : "20rem",
-                overflow: "hidden",
-              }}
-              className={styles.comboCard_inputs__container}
-            >
-              <div
-                id="content"
-                /*    style={{ paddingBottom: "1rem" }} */
-                className={styles.input_container}
-              >
-                <Image
-                  /*     className={styles.input_icon} */
-                  src="/inputs/kickA.svg"
-                  alt="Street Fighter medium punch icon input"
-                  width={54}
-                  height={54}
-                  object-fit="cover"
-                />
-                <span className={styles.input_text}>B.AK</span>
-              </div>
-              {/*    <span style={{ color: "white" }}>+</span> */}
-              <div className={styles.input_container}>
-                <Image
-                  /*     className={styles.input_icon} */
-                  src="/inputs/punchM.svg"
-                  alt="Street Fighter medium punch icon input"
-                  width={54}
-                  height={54}
-                  object-fit="cover"
-                />
-                <span className={styles.input_text}>S.MP</span>
-              </div>
-              <div className={styles.input_container}>
-                <Image
-                  /*     className={styles.input_icon} */
-                  src="/inputs/kickH.svg"
-                  alt="Street Fighter medium punch icon input"
-                  width={54}
-                  height={54}
-                  object-fit="cover"
-                />
-                <span className={styles.input_text}>S.MP</span>
-              </div>
-              <div className={styles.input_container}>
-                <Image
-                  /*     className={styles.input_icon} */
-                  src="/inputs/arrow.svg"
-                  alt="Street Fighter medium punch icon input"
-                  width={34}
-                  height={34}
-                  object-fit="cover"
-                />
-                <span className={styles.input_text}>F</span>
-              </div>
-              <div className={styles.input_container}>
-                <Image
-                  /*     className={styles.input_icon} */
-                  src="/inputs/punchH.svg"
-                  alt="Street Fighter medium punch icon input"
-                  width={54}
-                  height={54}
-                  object-fit="cover"
-                />
-                <span className={styles.input_text}>S.MP</span>
-              </div>
-              <div className={styles.input_container}>
-                <Image
-                  /*     className={styles.input_icon} */
-                  src="/inputs/arrow.svg"
-                  alt="Street Fighter medium punch icon input"
-                  width={34}
-                  height={34}
-                  object-fit="cover"
-                />
-                <span className={styles.input_text}>F</span>
-              </div>
-              <div className={styles.input_container}>
-                <Image
-                  /*     className={styles.input_icon} */
-                  src="/inputs/punchA.svg"
-                  alt="Street Fighter medium punch icon input"
-                  width={54}
-                  height={54}
-                  object-fit="cover"
-                />
-                <span className={styles.input_text}>F.AP</span>
-              </div>
-              <div className={styles.input_container}>
-                <Image
-                  /*     className={styles.input_icon} */
-                  src="/inputs/punchM.svg"
-                  alt="Street Fighter medium punch icon input"
-                  width={54}
-                  height={54}
-                  object-fit="cover"
-                />
-                <span className={styles.input_text}>QCF.ML</span>
-              </div>
-              <div className={styles.input_container}>
-                <Image
-                  /*     className={styles.input_icon} */
-                  src="/inputs/kickL.svg"
-                  alt="Street Fighter medium punch icon input"
-                  width={54}
-                  height={54}
-                  object-fit="cover"
-                />
-                <span className={styles.input_text}>B.LK</span>
-              </div>
-              <div className={styles.input_container}>
-                <Image
-                  /*     className={styles.input_icon} */
-                  src="/inputs/punchH.svg"
-                  alt="Street Fighter medium punch icon input"
-                  width={54}
-                  height={54}
-                  object-fit="cover"
-                />
-                <span className={styles.input_text}>S.HP</span>
-              </div>
+            <div className={styles.comboCard_inputs__container}>
+              {inputData.map((input) => (
+                <figure key={input.id} className={styles.input_container}>
+                  <Image
+                    src={input.imageSrc}
+                    alt={input.altText}
+                    width={input.width}
+                    height={input.height}
+                    object-fit="cover"
+                  />
+                  <figcaption className={styles.input_text}>
+                    {input.figCaption}
+                  </figcaption>
+                </figure>
+              ))}
             </div>
 
             {/* Patch version row */}
@@ -243,13 +106,6 @@ function ComboCard({
               <div className={styles.patch_text__container}>
                 <div className={styles.patch__text}>PATCH: v1.0.0</div>
               </div>
-              {shouldShowExpandButton() && !isExpanded && (
-                <div className={styles.expand_btn__container}>
-                  <button onClick={handleExpand} className={styles.expand_btn}>
-                    EXPAND<div className={styles.expand_arrowDown}></div>
-                  </button>
-                </div>
-              )}
             </div>
             {/* Bookmark, sharing, and other options section */}
           </div>
@@ -279,23 +135,5 @@ function ComboCard({
       </div>
     </>
   );
-}
+};
 export default ComboCard;
-{
-  /*  <ComboCard
-            videoUrl="Phdd6XJovgg"
-            hasSuper={true}
-            usesDriveRush={false}
-            damage={5600}
-            hits={16}
-            comboType="CORNER"
-            characterName="Ryu"
-            patchVersion="1.0.0"
-            inputType="Stick"
-            inputTypeText="Arcade Stick"
-            comboTitle="Ryu advanced 5600 damage corner combo"
-            username="SFO Ghost"
-            lastUpdated="December 20, 2022"
-          />
-*/
-}
