@@ -7,7 +7,7 @@ const SignupOptions = ({ setShowSignupForm, showSignupForm, signIn }) => {
     {
       text: "Sign Up with E-mail",
       textSignIn: "Sign In withh E-mail",
-      icon: "/logo.png",
+      icon: "/logo.svg",
       color: "#0e0e0e",
       textColor: "white",
     },

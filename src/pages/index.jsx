@@ -31,10 +31,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>ComboStart Fighting game combos</title>
+        <title>COMBOSTART</title>
         <meta
           name="description"
-          content="Combos for the videogame Street Fighter 6 by Capcom"
+          content="Combos for various fighting videogames"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,7 +43,7 @@ export default function Home() {
           href="https://fonts.gstatic.com"
           crossOrigin="true"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logoMin.ico" />
       </Head>
       <main className={styles.main}>
         {showWelcome ? <WelcomePage /> : <ComboHub />}

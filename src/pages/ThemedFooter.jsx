@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "@/styles/ThemedFooter.module.css";
+import Image from "next/image";
+import Link from "next/link";
 
 function Footer() {
   const [isVisible, setIsVisible] = useState(false);
@@ -121,7 +123,14 @@ function Footer() {
           </div>
 
           <div className={styles.copyright_logo__container}>
-            <button className={styles.copyright_logo}>LOGO</button>
+            <Link href="/" className={styles.copyright_logo}>
+              <Image
+                src="/logo.svg"
+                width={50}
+                height={50}
+                alt="ComboStart Logo"
+              />
+            </Link>
           </div>
         </div>
       </footer>

@@ -15,7 +15,6 @@ function Navbar({ loggedIn, btnType, themeOverride }) {
 
   const handleDropdownClick = () => {
     setIsOpen(!isOpen);
-    console.log(isOpen);
   };
 
   return (
@@ -23,7 +22,7 @@ function Navbar({ loggedIn, btnType, themeOverride }) {
       {/* Desktop nav buttons */}
       <div className={styles.navbar_logo__container}>
         <Link href="/" className={styles.navbar_logo}>
-          <Image src="/logo.svg" width={50} height={40} alt="Placeholder" />
+          <Image src="/logo.svg" width={50} height={50} alt="ComboStart Logo" />
         </Link>
       </div>
 
@@ -44,7 +43,7 @@ function Navbar({ loggedIn, btnType, themeOverride }) {
         {/* Only show if the user is logged in */}
         {loggedIn ? (
           <div className={styles.profileBtn_container}>
-            <button className={styles.navbar_profileBtn}>
+            <div className={styles.navbar_profileBtn}>
               <Image
                 src="/ryuAvatar.png"
                 alt="Upvote arrow"
@@ -72,48 +71,36 @@ function Navbar({ loggedIn, btnType, themeOverride }) {
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </button>
-            </button>
+            </div>
             <span className={styles[`${btnType}_profileBtn_username`]}>
               WilhelmDM
             </span>
             {isOpen && (
               <div className={styles.dropdownMenu}>
-                <ul className={styles.dropdown_container}>
-                  <li>
-                    <button className={styles.dropdown_item_btn}>
-                      PROFILE
-                    </button>
-                  </li>
-                  <li>
-                    <button className={styles.dropdown_item_btn}>
-                      MY POSTS
-                    </button>
-                  </li>
-                  <li>
-                    <button className={styles.dropdown_item_btn}>
-                      SAVED POSTS
-                    </button>
-                  </li>
-                </ul>
+                <div className={styles.dropdown_container}>
+                  <button className={styles.dropdown_item_btn}>PROFILE</button>
+
+                  <button className={styles.dropdown_item_btn}>MY POSTS</button>
+
+                  <button className={styles.dropdown_item_btn}>
+                    SAVED POSTS
+                  </button>
+                </div>
                 <hr style={{ width: "100%" }} />
-                <ul
+                <div
                   className={styles.submenu_container}
                   style={{ alignItems: "flex-start", fontSize: "0.2rem" }}
                 >
-                  <li>
-                    <button className={styles.submenu_item_btn}>
-                      SETTINGS
-                    </button>
-                  </li>
-                  <li>
-                    <button className={styles.submenu_item_btn}>
-                      TERMS AND CONDITIONS
-                    </button>
-                  </li>
+                  <button className={styles.submenu_item_btn}>SETTINGS</button>
+
+                  <button className={styles.submenu_item_btn}>
+                    TERMS AND CONDITIONS
+                  </button>
+
                   <button className={styles.dropdown_logout_btn}>
                     LOG OUT
                   </button>
-                </ul>
+                </div>
               </div>
             )}
           </div>
