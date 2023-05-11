@@ -46,7 +46,7 @@ const ComboCard = () => {
   return (
     <>
       {comboCardData.map((card) => (
-        <article key={card.id}>
+        <article key={card.id} className={styles.combocard_container}>
           {/* Render card title */}
           <div className={styles.comboCard__title__container}>
             <h4 className={styles.comboCard_title}>{card.cardTitle}</h4>
@@ -84,14 +84,16 @@ const ComboCard = () => {
                 {upvotes[card.id].count}
               </span>
             </div>
-
             <div className={styles.combocard_hugger}>
-              {/* Render character frame */}
-              <div className={styles.combocard_charFrame__container}>
-                <div className={styles.comboCard_charName}>{card.charName}</div>
-                <div className={styles.combocard_video}>
-                  {/* Render YouTube video */}
-                  <YouTube
+              <div className={styles.content_container}>
+                {/* Render character frame */}
+                <div className={styles.combocard_charFrame__container}>
+                  <div className={styles.comboCard_charName}>
+                    {card.charName}
+                  </div>
+                  <div className={styles.combocard_video}>
+                    {/* Render YouTube video */}
+                    {/*            <YouTube
                     videoId={card.videoUrl}
                     height={315}
                     width={560}
@@ -99,90 +101,105 @@ const ComboCard = () => {
                       controls: 1, // Disable player controls
                       autoplay: 1, // Automatically start playing
                     }}
-                  />
-                </div>
-              </div>
-
-              {/* Combo Information row */}
-              <div className={styles.combocard_body__container}>
-                <div className={styles.comboCard_info__container}>
-                  <div className={styles.comboCard_charName__mobile}>
-                    {card.charName}
-                  </div>
-                  <div className={styles.comboCard_super}>
-                    <span style={{ zIndex: 1 }}>S</span>
-                  </div>
-                  <div className={styles.comboCard_bars}>
-                    <span className={styles.comboCard_bars__text}>
-                      {card.driveRushBars}
-                    </span>
-                  </div>
-                  <div className={styles.comboCard_damage}>
-                    <span className={styles.comboCard_damage__text}>
-                      DAMAGE:
-                    </span>
-                    <span className={styles.comboCard_damageNum__text}>
-                      {card.comboDamage}
-                    </span>
-                    <span className={styles.comboCard_hitNum__text}>
-                      | {card.comboHits} hits
-                    </span>
-                  </div>
-                  <div className={styles.comboCard_comboType}>
-                    {card.comboType}
+                  /> */}
                   </div>
                 </div>
 
-                {/* Inputs row */}
-                <div className={styles.comboCard_inputs__container}>
-                  {card.inputs.map((input) => (
-                    <figure className={styles.input_container}>
-                      <Image
-                        src={input.imageSrc}
-                        alt={input.altText}
-                        width={44}
-                        height={44}
-                        object-fit="cover"
-                      />
-                      <figcaption className={styles.input_text}>
-                        {input.figCaption}
-                      </figcaption>
-                    </figure>
-                  ))}
-                </div>
-
-                {/* Patch version row */}
-                <div className={styles.comboCard_patch__container}>
-                  <div className={styles.patch_text__container}>
-                    <div className={styles.patch__text}>
-                      PATCH: {card.patchVer}
+                {/* Combo Information row */}
+                <div className={styles.combocard_body__container}>
+                  <div className={styles.comboCard_info__container}>
+                    <div className={styles.comboCard_charName__mobile}>
+                      {card.charName}
+                    </div>
+                    <div className={styles.comboCard_super}>
+                      <span style={{ zIndex: 1 }}>S</span>
+                    </div>
+                    <div className={styles.comboCard_bars}>
+                      <span className={styles.comboCard_bars__text}>
+                        {card.driveRushBars}
+                      </span>
+                    </div>
+                    <div className={styles.comboCard_damage}>
+                      <span className={styles.comboCard_damage__text}>
+                        DAMAGE:
+                      </span>
+                      <span className={styles.comboCard_damageNum__text}>
+                        {card.comboDamage}
+                      </span>
+                      <span className={styles.comboCard_hitNum__text}>
+                        | {card.comboHits} hits
+                      </span>
+                    </div>
+                    <div className={styles.comboCard_comboType}>
+                      {card.comboType}
                     </div>
                   </div>
+
+                  {/* Inputs row */}
+                  <div className={styles.comboCard_inputs__container}>
+                    {card.inputs.map((input) => (
+                      <figure className={styles.input_container}>
+                        <Image
+                          src={input.imageSrc}
+                          alt={input.altText}
+                          width={44}
+                          height={44}
+                          object-fit="cover"
+                        />
+                        <figcaption className={styles.input_text}>
+                          {input.figCaption}
+                        </figcaption>
+                      </figure>
+                    ))}
+                  </div>
+
+                  {/* Patch version row */}
+                  <div className={styles.comboCard_patch__container}>
+                    <div className={styles.patch_text__container}>
+                      <div className={styles.patch__text}>
+                        PATCH: {card.patchVer}
+                      </div>
+                    </div>
+                  </div>
+                  {/* Bookmark, sharing, and other options section */}
                 </div>
-                {/* Bookmark, sharing, and other options section */}
+              </div>
+              {/* Social combocard options */}
+              <div className={styles.comboCard_social__container}>
+                {/* Container for the tags */}
+                <div className={styles.tag_container}>
+                  <span className={styles.tag_text}>TAGS:</span>
+                  <button className={styles.tag_btn}>CORNER</button>
+                  <button className={styles.tag_btn}>CORNER</button>
+                  <button className={styles.tag_btn}>CORNER</button>
+                  <button className={styles.tag_btn}>CORNER</button>
+                  <button className={styles.tag_btn}>CORNER</button>
+                  <button className={styles.tag_btn}>CORNER</button>
+                  <button className={styles.tag_btn}>CORNER</button>
+                </div>
+                {/* Container for the social buttons   */}
+                <div className={styles.socialOptions_container}>
+                  <button className={styles.social_bookmark__btn}>
+                    {" "}
+                    <Image
+                      src="/bookmark.svg"
+                      alt="Picture of the author"
+                      width={24}
+                      height={24}
+                    />
+                  </button>
+                  <button className={styles.social_share__btn}>
+                    {" "}
+                    <Image
+                      src="/shareIcon.svg"
+                      alt="Picture of the author"
+                      width={24}
+                      height={24}
+                    />
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-          {/* Social combocard options */}
-          <div className={styles.comboCard_social__container}>
-            <button className={styles.social_bookmark__btn}>
-              {" "}
-              <Image
-                src="/bookmark.svg"
-                alt="Picture of the author"
-                width={24}
-                height={24}
-              />
-            </button>
-            <button className={styles.social_share__btn}>
-              {" "}
-              <Image
-                src="/shareIcon.svg"
-                alt="Picture of the author"
-                width={24}
-                height={24}
-              />
-            </button>
           </div>
         </article>
       ))}
