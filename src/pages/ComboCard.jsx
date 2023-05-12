@@ -169,13 +169,9 @@ const ComboCard = () => {
                 {/* Container for the tags */}
                 <div className={styles.tag_container}>
                   <span className={styles.tag_text}>TAGS:</span>
-                  <button className={styles.tag_btn}>CORNER</button>
-                  <button className={styles.tag_btn}>CORNER</button>
-                  <button className={styles.tag_btn}>CORNER</button>
-                  <button className={styles.tag_btn}>CORNER</button>
-                  <button className={styles.tag_btn}>CORNER</button>
-                  <button className={styles.tag_btn}>CORNER</button>
-                  <button className={styles.tag_btn}>CORNER</button>
+                  {card.tags.map((tag) => (
+                    <button className={styles.tag_btn}>{tag.text}</button>
+                  ))}
                 </div>
                 {/* Container for the social buttons   */}
                 <div className={styles.socialOptions_container}>

@@ -86,6 +86,43 @@ export const comboCardData = [
         figCaption: "Punch",
       },
     ],
+    tags: [
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+    ],
   },
   {
     id: 2,
@@ -172,6 +209,43 @@ export const comboCardData = [
         imageSrc: "/inputs/punchL.svg",
         altText: "Street Fighter light punch icon input",
         figCaption: "Punch",
+      },
+    ],
+    tags: [
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
       },
     ],
   },
@@ -262,6 +336,43 @@ export const comboCardData = [
         figCaption: "Punch",
       },
     ],
+    tags: [
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+    ],
   },
   {
     id: 4,
@@ -348,6 +459,43 @@ export const comboCardData = [
         imageSrc: "/inputs/punchL.svg",
         altText: "Street Fighter light punch icon input",
         figCaption: "Punch",
+      },
+    ],
+    tags: [
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
       },
     ],
   },
@@ -438,6 +586,43 @@ export const comboCardData = [
         figCaption: "Punch",
       },
     ],
+    tags: [
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+    ],
   },
   {
     id: 6,
@@ -524,6 +709,43 @@ export const comboCardData = [
         imageSrc: "/inputs/punchL.svg",
         altText: "Street Fighter light punch icon input",
         figCaption: "Punch",
+      },
+    ],
+    tags: [
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
       },
     ],
   },
@@ -614,6 +836,43 @@ export const comboCardData = [
         figCaption: "Punch",
       },
     ],
+    tags: [
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+    ],
   },
   {
     id: 8,
@@ -700,6 +959,43 @@ export const comboCardData = [
         imageSrc: "/inputs/punchL.svg",
         altText: "Street Fighter light punch icon input",
         figCaption: "Punch",
+      },
+    ],
+    tags: [
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
       },
     ],
   },
@@ -790,6 +1086,43 @@ export const comboCardData = [
         figCaption: "Punch",
       },
     ],
+    tags: [
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+    ],
   },
   {
     id: 10,
@@ -876,6 +1209,43 @@ export const comboCardData = [
         imageSrc: "/inputs/punchL.svg",
         altText: "Street Fighter light punch icon input",
         figCaption: "Punch",
+      },
+    ],
+    tags: [
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
+      },
+      {
+        text: "corner",
+        src: "/",
+        desc: "Combo only performed at one of the corners of the arena",
       },
     ],
   },
