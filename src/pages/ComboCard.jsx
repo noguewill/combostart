@@ -30,7 +30,7 @@ function reducer(state, action) {
 }
 
 // Define ComboCard component
-const ComboCard = () => {
+const ComboCard = ({ comboCardData }) => {
   // Use useReducer hook to manage state
   const [upvotes, dispatch] = useReducer(reducer, initialState);
 

@@ -27,22 +27,34 @@ function Navbar({ loggedIn, btnType, themeOverride }) {
       </div>
 
       <div className={styles.navbar_btn__container}>
-        <button className={styles[`${btnType}_nav_btn`]} style={themeOverride}>
+        {/*         <button className={styles[`${btnType}_nav_btn`]} style={themeOverride}>
           NEW POST +
-        </button>
-        <button className={styles[`${btnType}_nav_btn`]} style={themeOverride}>
-          COMBO GUIDES
-        </button>
-        <button className={styles[`${btnType}_nav_btn`]} style={themeOverride}>
-          CHARACTERS
-        </button>
-        <button className={styles[`${btnType}_nav_btn`]} style={themeOverride}>
+        </button> */}
+        <Link
+          href="/ComboGuides"
+          className={styles[`${btnType}_nav_btn`]}
+          style={themeOverride}
+        >
+          COMBOS HUB
+        </Link>
+        <span
+          href="/ComboPage"
+          className={styles[`${btnType}_nav_btn`]}
+          style={themeOverride}
+        >
+          COMBOS PAGE
+        </span>
+
+        {/*         <button className={styles[`${btnType}_nav_btn`]} style={themeOverride}>
           SAVED COMBOS
-        </button>
+        </button> */}
 
         {/* Only show if the user is logged in */}
         {loggedIn ? (
-          <div className={styles.profileBtn_container}>
+          <div
+            className={styles.profileBtn_container}
+            style={{ display: "none" }} /* TEMPORARY TEMPORARY TEMPORARY */
+          >
             <div className={styles.navbar_profileBtn}>
               <Image
                 src="/ryuAvatar.png"
@@ -106,20 +118,20 @@ function Navbar({ loggedIn, btnType, themeOverride }) {
           </div>
         ) : (
           <>
-            <button
+            {/*             <button
               className={styles[`${btnType}_nav_btn`]}
               style={themeOverride}
               onClick={toggleOverlay}
             >
               LOG IN | SIGN UP
-            </button>
+            </button> */}
           </>
         )}
       </div>
 
       {showOverlay && <Login toggleOverlay={toggleOverlay} />}
       {/* Mobile Menu button */}
-      <div className={styles.mobileMenu__container}>
+      <div className={styles.mobileMenu__container} style={{ display: "none" }}>
         <button
           className={styles.menuContainer__menuBtn}
           onClick={() => setShowMenu(!showMenu)}

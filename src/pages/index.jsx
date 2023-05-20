@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import WelcomePage from "./WelcomePage";
-import ComboHub from "./ComboGuides";
+import ComboGuides from "./ComboGuides";
 import Cookies from "js-cookie";
 import { useState, useEffect } from "react";
 
@@ -46,7 +46,7 @@ export default function Home() {
         <link rel="icon" href="/logoMin.ico" />
       </Head>
       <main className={styles.main}>
-        {showWelcome ? <WelcomePage /> : <ComboHub />}
+        {showWelcome ? <WelcomePage /> : <ComboGuides />}
       </main>
     </>
   );

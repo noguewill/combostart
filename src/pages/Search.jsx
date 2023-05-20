@@ -1,21 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "@/styles/Search.module.css";
 import Dropdown from "./Dropdown";
 import { useRouter } from "next/router";
 
-const Search = ({ btnType, themeOverride, onData }) => {
+const Search = ({ btnType, themeOverride, onData, onSearch }) => {
   const router = useRouter();
   const pathname = router.pathname;
   const [activeButton, setActiveButton] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
+  const debounceTimerRef = useRef(null);
 
-  function handleOptionSelect(option) {
+  const handleOptionSelect = (option) => {
+    // Handle the selected option
     console.log(`Selected option: ${option}`);
-  }
+  };
 
-  function handleButtonClick(buttonIndex) {
+  const handleButtonClick = (buttonIndex) => {
+    // Set the active button and trigger onData callback
     setActiveButton(buttonIndex);
     onData(activeButton);
-  }
+  };
+
+  const handleSearchQueryChange = (e) => {
+    // Update the search query and debounce the onSearch callback
+    const value = e.target.value;
+    setSearchQuery(value);
+
+    clearTimeout(debounceTimerRef.current);
+    debounceTimerRef.current = setTimeout(() => {
+      onSearch(value);
+    }, 300); // Adjust the debounce delay as needed
+  };
 
   return (
     /* Mobile Search Section */
@@ -124,6 +139,8 @@ const Search = ({ btnType, themeOverride, onData }) => {
               className={styles[`${btnType}__searchBar_input`]}
               type="text"
               placeholder="Ryu shoryuken superless combo"
+              value={searchQuery}
+              onChange={handleSearchQueryChange}
             />
           </label>
         </div>
@@ -131,4 +148,16 @@ const Search = ({ btnType, themeOverride, onData }) => {
     </div>
   );
 };
+
 export default Search;
+
+/* 
+className={
+  styles[
+    `${
+      activeButton === 3
+        ? "classic_filter_container_btn--active"
+        : "classic_filter_container_btn"
+    }`
+  ]
+} */
