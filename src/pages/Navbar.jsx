@@ -39,16 +39,120 @@ function Navbar({ loggedIn, btnType, themeOverride }) {
         </Link>
         <span
           href="/ComboPage"
-          className={styles[`${btnType}_nav_btn`]}
+          className={styles[`${btnType}_nav_hoverBtn`]}
           style={themeOverride}
         >
           COMBOS PAGE
+          {/* Combos Page Submenu */}
+          <div className={styles.combosPage_submenu_parent}>
+            <div className={styles.arrowUp}></div>
+            {/* Arrow Icon */}
+            <div className={styles.combosPage_submenu_container}>
+              {/* This is a button section */}
+              <div className={styles.combosPage_submenu}>
+                <h1 className={styles.combosPage_submenu_header}>FEATURED</h1>
+                <button className={styles.combosPage_submenu_btn}>
+                  Street Fighter 6
+                </button>
+                <button className={styles.combosPage_submenu_btn}>
+                  Tekken 7
+                </button>
+                <button className={styles.combosPage_submenu_btn}>
+                  Mortal Kombat 11
+                </button>
+              </div>
+
+              <div
+                className={styles.combosPage_submenu}
+                style={{ marginLeft: "0.9rem", marginRight: "0.9rem" }}
+              >
+                <h1 className={styles.combosPage_submenu_header}>ONGOING</h1>
+                <button className={styles.combosPage_submenu_btn}>
+                  Guilty Gear Strive
+                </button>
+                <button className={styles.combosPage_submenu_btn}>
+                  The King of Fighters XV
+                </button>
+                <button className={styles.combosPage_submenu_btn}>
+                  Smash Bros Ultimate
+                </button>
+              </div>
+
+              {/* This is a button section */}
+              <div className={styles.combosPage_submenu}>
+                <h1 className={styles.combosPage_submenu_header}>UPCOMING</h1>
+                <button
+                  className={styles.combosPage_submenu_btn}
+                  style={{ color: "#8a8a8a" }}
+                >
+                  Mortal Kombat 1(2023)
+                </button>
+                <button
+                  className={styles.combosPage_submenu_btn}
+                  style={{ color: "#8a8a8a" }}
+                >
+                  Tekken 8
+                </button>
+                <button
+                  className={styles.combosPage_submenu_btn}
+                  style={{ color: "#8a8a8a" }}
+                >
+                  Multiversus
+                </button>
+              </div>
+            </div>
+          </div>
         </span>
-
-        {/*         <button className={styles[`${btnType}_nav_btn`]} style={themeOverride}>
-          SAVED COMBOS
-        </button> */}
-
+        <span
+          id={styles.aboutBtn}
+          href="/About"
+          className={styles[`${btnType}_nav_hoverBtn`]}
+          style={themeOverride}
+        >
+          ABOUT
+          {/* Combos Page Submenu */}
+          <div className={styles.about_submenu_parent}>
+            <div
+              className={styles.arrowUp}
+              style={{ top: "-0.5rem", left: "10.5rem" }}
+            ></div>
+            {/* Arrow Icon */}
+            {/* This is a button section */}
+            <p style={{ maxWidth: "27rem" }}>
+              Combostart is a beginner-friendly community-driven combo <br />
+              sharing platform{" "}
+              <span style={{ fontWeight: "800" }}>tailored </span> specifically
+              for fighting game players
+              <br /> of all skill levels.
+              {/* With a user-friendly interface,
+              Combostart makes it effortless to search for and learn new combos.
+              The platform offers a comprehensive library of carefully curated
+              techniques contributed by passionate players. Simply browse
+              through the collection, view step-by-step instructions, and master
+              the art of executing intricate move sequences. Please note that
+              Combostart is currently in beta, which means some features like
+              account creation, upvoting of posts, and creation of new posts are
+              still in development. We appreciate your patience as we work
+              diligently to enhance the platform and provide you with a complete
+              and seamless experience. Join our vibrant community on Combostart
+              and unlock the full potential of your fighting game skills. Engage
+              with fellow players, share feedback, and stay up-to-date with the
+              latest combo trends. Whether you're aiming to improve your
+              gameplay or showcase your creativity, Combostart is your go-to
+              destination for unleashing devastating combos and taking your
+              fighting game prowess to the next level. Get ready to become a
+              combo master. Combostart awaits you. */}
+              <br />
+              Whether you're a <span style={{ fontWeight: "800" }}>
+                casual
+              </span>{" "}
+              player or a seasoned pro, Combostart provides a welcoming space
+              where you can <span style={{ fontWeight: "800" }}>easily</span>{" "}
+              learn, discover, and explore combos for a variety of popular
+              fighting games.
+            </p>
+          </div>
+        </span>
         {/* Only show if the user is logged in */}
         {loggedIn ? (
           <div

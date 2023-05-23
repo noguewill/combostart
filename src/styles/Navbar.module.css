@@ -11,7 +11,79 @@
 }
 .navbar_logo {
   position: relative;
-  margin-right: 65vw;
+}
+
+.combosPage_submenu_parent,
+.about_submenu_parent {
+  opacity: 0;
+  transition: visibility 0s linear, opacity 0.1s ease-in-out;
+  visibility: hidden;
+}
+.classic_nav_hoverBtn:hover .combosPage_submenu_parent {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+.classic_nav_hoverBtn:not(:hover) .combosPage_submenu_parent {
+  transition-delay: 50ms;
+}
+#aboutBtn:hover .about_submenu_parent {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.combosPage_submenu_container,
+.about_submenu_parent {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  background-color: #f8f8f8;
+  width: 30rem;
+  top: 4.2rem;
+  left: 14.5rem;
+  padding: 1.2rem 1rem;
+  border-radius: 0.3rem;
+  color: #1a1a1a;
+}
+.about_submenu_parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 0.85rem;
+  font-family: "Open Sans";
+  font-weight: 600;
+  letter-spacing: 0;
+  padding: 1 0;
+}
+
+.arrowUp {
+  position: absolute;
+  top: 3.7rem;
+  left: 16.5rem;
+  width: 0;
+  height: 0;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-bottom: 0.5rem solid #f8f8f8;
+}
+.combosPage_submenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.combosPage_submenu_header {
+  font-size: 0.9rem;
+  font-family: "Kanit";
+  font-style: italic;
+  color: #000;
+}
+.combosPage_submenu_btn {
+  margin-left: 0;
+  margin: 0;
+  width: 10.5rem;
 }
 .mobileMenu__container {
   z-index: 4;
@@ -55,7 +127,7 @@
 
   .navbar {
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 1.5rem 1rem 2rem 3rem;
   }
 
@@ -84,7 +156,9 @@
     border: 0.5px solid #505050;
     transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
   }
-  .classic_nav_btn {
+  .classic_nav_btn,
+  .classic_nav_hoverBtn,
+  .combosPage_submenu_btn {
     color: #1a1a1a;
     font-family: "Kanit";
     font-style: normal;
@@ -99,22 +173,30 @@
     cursor: pointer;
     z-index: 2;
   }
+
+  /*-- HOVER BUTTONS MANIA -- */
   .classic_nav_btn:hover {
     background-color: #1a1919;
     color: #e6e6e6;
-
     transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
   }
+
+  .combosPage_submenu_btn:hover {
+    color: #f84242;
+  }
+
   .classic_nav_btn:not(:hover) {
     transition: all 0.1s cubic-bezier(0.2, 0.5, 0.8, 0.9);
   }
-  .themed_nav_btn {
+  .themed_nav_btn,
+  .themed_nav_hoverBtn {
     font-size: 0.7rem;
     border: none;
     border-top: 2px solid transparent;
     border-left: 2px solid transparent;
   }
-  .themed_nav_btn:hover {
+  .themed_nav_btn:hover,
+  .themed_nav_hoverBtn {
     border-top: 2px solid #69eec3;
     border-left: 2px solid #69eec3;
   }
@@ -130,6 +212,7 @@
     height: 3.5rem;
     margin-bottom: 0.4rem;
   }
+
   .themed_profileBtn_username,
   .themed_profileBtn_logOut,
   .classic_profileBtn_username,
@@ -243,4 +326,23 @@
   background-color: #1a1a1a;
   color: #d6d6d6;
   border-radius: 0.25rem;
+}
+.combosPage_submenu_btn {
+  width: auto;
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: normal;
+  padding: 0.2rem 0;
+  color: #2e2e2e;
+  margin-top: 0.11rem;
+  margin-right: 0;
+  margin-left: 0;
+  margin-bottom: 0.3rem;
+  padding-left: 0;
+  padding-right: 0;
+  cursor: pointer;
+}
+.classic_nav_hoverBtn {
+  cursor: default;
 }

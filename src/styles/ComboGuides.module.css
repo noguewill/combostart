@@ -5,7 +5,7 @@
 }
 
 .container {
-  max-width: auto;
+  width: 95%;
   margin: 0 auto;
   padding: 1rem;
 }
