@@ -120,28 +120,10 @@ function Navbar({ loggedIn, btnType, themeOverride }) {
             {/* This is a button section */}
             <p style={{ maxWidth: "27rem" }}>
               Combostart is a beginner-friendly community-driven combo <br />
-              sharing platform{" "}
-              <span style={{ fontWeight: "800" }}>tailored </span> specifically
+              sharing platform
+              <span style={{ fontWeight: "800" }}> tailored </span> specifically
               for fighting game players
               <br /> of all skill levels.
-              {/* With a user-friendly interface,
-              Combostart makes it effortless to search for and learn new combos.
-              The platform offers a comprehensive library of carefully curated
-              techniques contributed by passionate players. Simply browse
-              through the collection, view step-by-step instructions, and master
-              the art of executing intricate move sequences. Please note that
-              Combostart is currently in beta, which means some features like
-              account creation, upvoting of posts, and creation of new posts are
-              still in development. We appreciate your patience as we work
-              diligently to enhance the platform and provide you with a complete
-              and seamless experience. Join our vibrant community on Combostart
-              and unlock the full potential of your fighting game skills. Engage
-              with fellow players, share feedback, and stay up-to-date with the
-              latest combo trends. Whether you're aiming to improve your
-              gameplay or showcase your creativity, Combostart is your go-to
-              destination for unleashing devastating combos and taking your
-              fighting game prowess to the next level. Get ready to become a
-              combo master. Combostart awaits you. */}
               <br />
               Whether you're a <span style={{ fontWeight: "800" }}>
                 casual

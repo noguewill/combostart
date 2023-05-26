@@ -55,10 +55,3 @@
   background: rgba(0, 0, 0, 1);
   color: #69eec3;
 }
-@media (min-width: 700px) {
-  .dropdown_button button {
-  }
-  .dropdown_button button {
-    font-size: 0.8rem;
-  }
-}

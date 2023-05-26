@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import styles from "@/styles/Dropdown.module.css";
 
-function Dropdown({ options, defaultOption, onOptionSelect }) {
+function Dropdown({
+  options,
+  defaultOption,
+  onOptionSelect,
+  classStyle,
+  menuStyle,
+}) {
   const [selectedOption, setSelectedOption] = useState(defaultOption);
   const [showOptions, setShowOptions] = useState(false);
 
@@ -12,7 +18,7 @@ function Dropdown({ options, defaultOption, onOptionSelect }) {
   }
 
   return (
-    <div className={styles.dropdown_button}>
+    <div className={classStyle}>
       <button onClick={() => setShowOptions(!showOptions)}>
         {selectedOption}
         <span

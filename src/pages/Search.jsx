@@ -2,12 +2,14 @@ import React, { useState, useRef } from "react";
 import styles from "@/styles/Search.module.css";
 import Dropdown from "./Dropdown";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const Search = ({ btnType, themeOverride, onData, onSearch }) => {
   const router = useRouter();
   const pathname = router.pathname;
   const [activeButton, setActiveButton] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedOption, setSelectedOption] = useState("");
   const debounceTimerRef = useRef(null);
 
   const handleOptionSelect = (option) => {
@@ -32,6 +34,10 @@ const Search = ({ btnType, themeOverride, onData, onSearch }) => {
     }, 300); // Adjust the debounce delay as needed
   };
 
+  const handleDropdownChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
   return (
     /* Mobile Search Section */
     <div className={styles.search__container}>
@@ -54,6 +60,8 @@ const Search = ({ btnType, themeOverride, onData, onSearch }) => {
                 <h6 className={styles.search__filterBtnText}> SORT </h6>
 
                 <Dropdown
+                  classStyle={styles.dropdown_button}
+                  menuStyle={styles.dropdown_menu}
                   options={["Top Rated", "Popular", "Reviewed"]}
                   defaultOption="Trending"
                   onOptionSelect={handleOptionSelect}
@@ -64,6 +72,8 @@ const Search = ({ btnType, themeOverride, onData, onSearch }) => {
                 <h6 className={styles.search__filterBtnText}> AUTHOR </h6>
 
                 <Dropdown
+                  classStyle={styles.dropdown_button}
+                  menuStyle={styles.dropdown_menu}
                   options={["Creator", "Popular", "Pro"]}
                   defaultOption="Points"
                   onOptionSelect={handleOptionSelect}
@@ -74,6 +84,8 @@ const Search = ({ btnType, themeOverride, onData, onSearch }) => {
                 <h6 className={styles.search__filterBtnText}> CHARACTER</h6>
 
                 <Dropdown
+                  classStyle={styles.dropdown_button}
+                  menuStyle={styles.dropdown_menu}
                   options={["Ryu", "Ken", "Juri"]}
                   defaultOption="none"
                   onOptionSelect={handleOptionSelect}
@@ -81,7 +93,8 @@ const Search = ({ btnType, themeOverride, onData, onSearch }) => {
               </div>
             </div>
           ) : (
-            <div className={styles.classic_filter_container}>
+            <></>
+            /*   <div className={styles.classic_filter_container}>
               <span
                 className={styles.classic_filter_label}
                 style={themeOverride}
@@ -130,19 +143,33 @@ const Search = ({ btnType, themeOverride, onData, onSearch }) => {
               >
                 Following
               </button>
-            </div>
+            </div> */
           )}
+          <div>
+            <label className={styles[`${btnType}__searchBar_container`]}>
+              <input
+                className={styles[`${btnType}__searchBar_input`]}
+                type="text"
+                placeholder="Ryu shoryuken superless combo"
+                value={searchQuery}
+                onChange={handleSearchQueryChange}
+              />
 
-          {/* Mobile Searchbar */}
-          <label className={styles[`${btnType}__searchBar_container`]}>
-            <input
-              className={styles[`${btnType}__searchBar_input`]}
-              type="text"
-              placeholder="Ryu shoryuken superless combo"
-              value={searchQuery}
-              onChange={handleSearchQueryChange}
-            />
-          </label>
+              <select
+                className={styles.searchBar_filterBtn}
+                value={selectedOption}
+                onChange={handleDropdownChange}
+              >
+                <option value="option1">POPULAR</option>
+                <option value="option2">TRENDING</option>
+                <option value="option3">FOLLOWING</option>
+              </select>
+
+              <button className={styles.searchBar_searchBtn}>
+                <Image src="/searchIcon.svg" width={15} height={15} />
+              </button>
+            </label>
+          </div>
         </div>
       </div>
     </div>
@@ -150,14 +177,3 @@ const Search = ({ btnType, themeOverride, onData, onSearch }) => {
 };
 
 export default Search;
-
-/* 
-className={
-  styles[
-    `${
-      activeButton === 3
-        ? "classic_filter_container_btn--active"
-        : "classic_filter_container_btn"
-    }`
-  ]
-} */

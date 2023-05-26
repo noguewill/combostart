@@ -15,26 +15,58 @@
 .evoAd_container {
   display: none;
 }
+.searchBar_filterBtn {
+  position: absolute;
+  right: 29.5rem;
+  background-color: #1a1a1a;
+  border: none;
+  font-family: "Kanit";
+  font-style: italic;
+  color: #d6d6d6;
+  width: 5.5rem;
+  height: 2.2rem;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+.searchBar_searchBtn {
+  position: absolute;
+  background-color: #5a5cfd;
+  border-radius: 0 4px 4px 0;
+  padding: 0.55rem;
+  right: 26.55rem;
+  width: 3rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+.searchBar_searchBtn:hover {
+  background-color: #3b3efc;
+}
+
+.searchBar_searchBtn,
+.searchBar_filterBtn {
+  border: none;
+}
 
 .themed__comboSection_header,
 .classic__comboSection_header {
   width: 100%;
-  text-align: center;
   font-size: 3rem;
   letter-spacing: 0.1rem;
   color: #c572ff;
   text-shadow: 0px 0px 6px #c572ff;
   font-family: "Kanit";
-  font-style: italic;
   font-weight: 600;
 }
 .classic__comboSection_header {
-  font-size: 3rem;
+  font-size: 4rem;
+  width: auto;
   margin-bottom: 2rem;
   line-height: 2.5rem;
   text-shadow: none;
   text-align: center;
-  color: #1a1a1a;
+  color: #5053fc;
 }
 .search__filterContainer {
   width: 80%;
@@ -115,7 +147,7 @@
   border-radius: 4px;
 }
 .classic__searchBar_input {
-  background-color: #1a1a1a;
+  background-color: #010101;
   border: none;
   border: 0.13rem solid transparent;
 }
