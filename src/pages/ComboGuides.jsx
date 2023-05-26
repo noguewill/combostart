@@ -5,8 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import Search from "./Search";
 import CookieBanner from "./CookieBanner";
+import { guideCardData } from "./guideCardData";
 
-const ComboHub = () => {
+const ComboGuides = () => {
   const [cardLimit, setCardLimit] = useState(10);
   const [dataFromChild, setDataFromChild] = useState("");
   const colorStyle =
@@ -15,18 +16,55 @@ const ComboHub = () => {
   const handleDataFromChild = (data) => {
     setDataFromChild(data);
   };
-  const cards = [...Array(cardLimit * 3)].map((_, i) => (
-    <Link key={i} href="#" className={styles.card}>
-      <h2 className={styles.cardTitle}>Card {i + 1}</h2>
-      <div className={styles.cardImageContainer}>
-        <img
-          src={`https://picsum.photos/seed/${i + 1}/300/200`}
-          alt={`Card ${i + 1}`}
+
+  const cards = guideCardData
+    .filter((card) => card.attr !== "Featured") // Ignore cards with "Featured" attribute
+    .slice(0, cardLimit * 3)
+    .map((card) => (
+      <Link key={card.id} href={card.src} className={styles.card}>
+        <div className={styles.cardImageContainer}>
+          <span className={styles.cardTitle}>{card.name}</span>
+          <Image
+            src={card.bgImg}
+            alt={card.name}
+            className={styles.cardImage}
+            fill
+          />
+        </div>
+      </Link>
+    ));
+
+  const featuredCards = guideCardData.filter(
+    (card) => card.attr === "Featured"
+  );
+
+  const featuredCardElements = featuredCards.map((card) => {
+    let cardClassName;
+    if (card.id === 1) {
+      cardClassName = styles.featuredCard_left;
+    } else if (card.id === 2) {
+      cardClassName = styles.featuredCard_mid;
+    } else if (card.id === 3) {
+      cardClassName = styles.featuredCard_right;
+    }
+
+    return (
+      <Link
+        key={card.id}
+        href={card.src}
+        className={cardClassName}
+        style={colorStyle}
+      >
+        <span className={styles.cardTitle}>{card.name}</span>
+        <Image
           className={styles.cardImage}
+          src={card.bgImg}
+          alt={card.name}
+          fill
         />
-      </div>
-    </Link>
-  ));
+      </Link>
+    );
+  });
 
   const loadMore = () => {
     setCardLimit(cardLimit + 10);
@@ -39,54 +77,12 @@ const ComboHub = () => {
       <div className={styles.container}>
         <CookieBanner />
 
-        <div className={styles.topRow}>
-          <Link
-            href={"/ComboPage"}
-            className={styles.featuredCard_left}
-            style={colorStyle}
-          >
-            <span className={styles.cardTitle}>STREET FIGHTER 6</span>
-            <Image
-              className={styles.cardImage}
-              src="/sf6coverArt.webp"
-              alt="Picture of the author"
-              fill
-              object-fit="fit"
-            />
-          </Link>
-          <Link
-            href={"/"}
-            className={styles.featuredCard_mid}
-            style={colorStyle}
-          >
-            <span className={styles.cardTitle}>TEKKEN 7</span>
-            <Image
-              className={styles.cardImage}
-              src="/tekken7coverArt.jpg"
-              alt="Picture of the author"
-              fill
-              object-fit="fit"
-            />
-          </Link>
-          <Link
-            href={"/"}
-            className={styles.featuredCard_right}
-            style={colorStyle}
-          >
-            <span className={styles.cardTitle}>MORTAL KOMBAT 11</span>
-            <Image
-              className={styles.cardImage}
-              src="/mk11UltimatecoverArt.webp"
-              alt="Picture of the author"
-              fill
-              object-fit="fit"
-            />
-          </Link>
-        </div>
-
-        <div className={styles.bottomRow}>{cards.slice(0, cardLimit * 3)}</div>
+        <h2 className={styles.rowTitle}>FEATURED</h2>
+        <div className={styles.featuredRow}>{featuredCardElements}</div>
+        <h2 className={styles.rowTitle}>ONGOING</h2>
+        <div className={styles.ongoingRow}>{cards.slice(0, cardLimit * 3)}</div>
         {cardLimit < 10 && (
-          <button className={styles.button} onClick={loadMore}>
+          <button className={styles.loadMore_btn} onClick={loadMore}>
             Load More
           </button>
         )}
@@ -95,4 +91,4 @@ const ComboHub = () => {
   );
 };
 
-export default ComboHub;
+export default ComboGuides;

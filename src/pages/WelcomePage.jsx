@@ -33,7 +33,10 @@ const WelcomePage = () => {
               </div>
 
               <div className={styles.comboSelectionContainer}>
-                <Link href="/ComboHub" className={styles.comboSelectionHeader}>
+                <Link
+                  href="/ComboGuides"
+                  className={styles.comboSelectionHeader}
+                >
                   SHOW ME SOME COMBOS
                 </Link>
               </div>

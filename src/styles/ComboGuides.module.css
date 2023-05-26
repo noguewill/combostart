@@ -7,10 +7,11 @@
 .container {
   width: 95%;
   margin: 0 auto;
-  padding: 1rem;
+}
+.rowTitle {
 }
 
-.topRow {
+.featuredRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,7 +23,7 @@
 .featuredCard_right {
   display: flex;
   justify-content: center;
-  border-radius: 4px;
+  border-radius: 8px;
   position: relative;
   overflow: hidden;
   padding: 0;
@@ -42,18 +43,37 @@
 .featuredCard_left:hover,
 .featuredCard_mid:hover,
 .featuredCard_right:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
-.bottomRow {
+.featuredCard_left:hover .cardTitle {
+  visibility: visible;
+}
+.featuredCard_mid:hover .cardTitle {
+  visibility: visible;
+}
+.featuredCard_right:hover .cardTitle {
+  visibility: visible;
+}
+.featuredCard_left:hover .cardImage {
+  transform: scale(1.1);
+}
+.featuredCard_mid:hover .cardImage {
+  transform: scale(1.1);
+}
+.featuredCard_right:hover .cardImage {
+  transform: scale(1.1);
+}
+
+.ongoingRow {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 3rem;
+  row-gap: 3rem;
+  column-gap: 2.5rem;
 }
 
 .card {
   position: relative;
   width: 100%;
-  height: 15rem;
   padding: 0;
   margin: 0;
   display: flex;
@@ -61,7 +81,8 @@
 }
 
 .cardImageContainer {
-  border-radius: 4px;
+  height: 15rem;
+  border-radius: 8px;
   position: relative;
   overflow: hidden;
   padding: 0;
@@ -90,33 +111,14 @@
   z-index: 99;
   transition: all 0.1s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
-.featuredCard_left:hover .cardTitle {
-  visibility: visible;
-}
-.featuredCard_mid:hover .cardTitle {
-  visibility: visible;
-}
-.featuredCard_right:hover .cardTitle {
-  visibility: visible;
-}
-.featuredCard_left:hover .cardImage {
-  transform: scale(1.1);
-}
-.featuredCard_mid:hover .cardImage {
-  transform: scale(1.1);
-}
-.featuredCard_right:hover .cardImage {
-  transform: scale(1.1);
-}
 .card:hover .cardImage {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
-
 .card:hover .cardTitle {
   transform: translateY(0);
 }
 
-.button {
+.loadMore_btn {
   display: block;
   margin: 0 auto;
   padding: 10px 20px;
@@ -125,6 +127,6 @@
   border: none;
   cursor: pointer;
 }
-.button:hover {
+.loadMore_btn:hover {
   background-color: #555;
 }
