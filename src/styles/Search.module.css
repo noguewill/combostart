@@ -24,7 +24,7 @@
   font-style: italic;
   color: #d6d6d6;
   width: 5.5rem;
-  height: 2.2rem;
+  height: 2.1rem;
   text-align: center;
   cursor: pointer;
   font-size: 0.8rem;
@@ -51,8 +51,8 @@
 
 .themed__comboSection_header,
 .classic__comboSection_header {
-  width: 100%;
-  font-size: 3rem;
+  width: auto;
+  font-size: 4rem;
   letter-spacing: 0.1rem;
   color: #c572ff;
   text-shadow: 0px 0px 6px #c572ff;
@@ -60,12 +60,7 @@
   font-weight: 600;
 }
 .classic__comboSection_header {
-  font-size: 4rem;
-  width: auto;
-  margin-bottom: 2rem;
-  line-height: 2.5rem;
   text-shadow: none;
-  text-align: center;
   color: #5053fc;
 }
 .search__filterContainer {

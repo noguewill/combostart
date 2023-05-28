@@ -9,18 +9,26 @@
   margin: 0 auto;
 }
 .rowTitle {
+  margin-bottom: 0.6rem;
 }
 
-.featuredRow {
+.featuredRow,
+.upcomingRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
 }
-
+.upcomingRow {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
 .featuredCard_left,
 .featuredCard_mid,
-.featuredCard_right {
+.featuredCard_right,
+.upcoming_left,
+.upcoming_mid,
+.upcoming_right {
   display: flex;
   justify-content: center;
   border-radius: 8px;
@@ -31,6 +39,7 @@
   height: 18rem;
   transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
+
 .featuredCard_left {
   flex-basis: 40%;
 }
@@ -42,26 +51,44 @@
 }
 .featuredCard_left:hover,
 .featuredCard_mid:hover,
-.featuredCard_right:hover {
+.featuredCard_right:hover,
+.upcoming_left,
+.upcoming_mid,
+.upcoming_right {
   transform: scale(1.03);
 }
-.featuredCard_left:hover .cardTitle {
+.featuredCard_left:hover .cardTitle,
+.upcoming_left:hover .cardTitle {
   visibility: visible;
 }
-.featuredCard_mid:hover .cardTitle {
+.featuredCard_mid:hover .cardTitle,
+.upcoming_mid:hover .cardTitle {
   visibility: visible;
 }
-.featuredCard_right:hover .cardTitle {
+.featuredCard_right:hover .cardTitle,
+.upcoming_right:hover .cardTitle {
   visibility: visible;
 }
-.featuredCard_left:hover .cardImage {
+.featuredCard_left:hover .cardImage,
+.upcoming_left:hover .cardImage {
   transform: scale(1.1);
 }
-.featuredCard_mid:hover .cardImage {
+.featuredCard_mid:hover .cardImage,
+.upcoming_mid:hover .cardImage {
   transform: scale(1.1);
 }
-.featuredCard_right:hover .cardImage {
+.featuredCard_right:hover .cardImage,
+.upcoming_right:hover .cardImage {
   transform: scale(1.1);
+}
+.upcoming_left {
+  flex-basis: 39%;
+}
+.upcoming_mid {
+  flex-basis: 30.5%;
+}
+.upcoming_right {
+  flex-basis: 21.5%;
 }
 
 .ongoingRow {
@@ -116,17 +143,4 @@
 }
 .card:hover .cardTitle {
   transform: translateY(0);
-}
-
-.loadMore_btn {
-  display: block;
-  margin: 0 auto;
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-.loadMore_btn:hover {
-  background-color: #555;
 }

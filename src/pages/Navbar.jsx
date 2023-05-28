@@ -39,7 +39,7 @@ function Navbar({ loggedIn, btnType, themeOverride }) {
         </Link>
         <span
           href="/ComboPage"
-          className={styles[`${btnType}_nav_hoverBtn`]}
+          className={styles[`classic_nav_hoverBtn`]}
           style={themeOverride}
         >
           COMBOS PAGE
@@ -85,7 +85,7 @@ function Navbar({ loggedIn, btnType, themeOverride }) {
                   className={styles.combosPage_submenu_btn}
                   style={{ color: "#8a8a8a" }}
                 >
-                  Mortal Kombat 1(2023)
+                  Mortal Kombat 1 (2023)
                 </button>
                 <button
                   className={styles.combosPage_submenu_btn}
@@ -106,7 +106,7 @@ function Navbar({ loggedIn, btnType, themeOverride }) {
         <span
           id={styles.aboutBtn}
           href="/About"
-          className={styles[`${btnType}_nav_hoverBtn`]}
+          className={styles[`classic_nav_hoverBtn`]}
           style={themeOverride}
         >
           ABOUT

@@ -316,3 +316,20 @@
     padding-bottom: 0.8rem;
   }
 }
+.evoAd_container {
+  width: 55%;
+  padding-left: 2.5vw;
+  padding-top: 1rem;
+  padding-bottom: 5rem;
+  display: flex;
+  justify-content: center;
+}
+.evoAd {
+  position: relative;
+  width: 20rem;
+}
+.cptText {
+  color: #69eec3;
+  font-family: "Kanit";
+  font-style: italic;
+}

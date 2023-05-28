@@ -3,6 +3,7 @@ import styles from "@/styles/Home.module.css";
 import WelcomePage from "./WelcomePage";
 import ComboGuides from "./ComboGuides";
 import Cookies from "js-cookie";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -36,7 +37,7 @@ export default function Home() {
           name="description"
           content="Combos for various fighting videogames"
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -46,6 +47,23 @@ export default function Home() {
         <link rel="icon" href="/logoMin.ico" />
       </Head>
       <main className={styles.main}>
+        {/*         <div className={styles.mobileMessage}>
+          <h3 style={{ fontSize: "2rem" }}>Hello!</h3>
+          <p>
+            <br />
+            The mobile version of this website is still in{" "}
+            <strong>development</strong>,
+            <br />
+            please access this website on your PC.
+          </p>
+          <Image
+            src="/logo.svg"
+            alt="Combostart logo"
+            width={50}
+            height={50}
+            style={{ marginTop: "2rem" }}
+          />
+        </div> */}
         {showWelcome ? <WelcomePage /> : <ComboGuides />}
       </main>
     </>

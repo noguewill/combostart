@@ -44,7 +44,15 @@ const ComboPage = () => {
         style={{ objectFit: "cover" }}
       />
       <div className={styles.content_container}>
-        <Navbar btnType={`themed`} loggedIn={true} />
+        <Navbar
+          btnType={`themed`}
+          loggedIn={true}
+          themeOverride={{
+            color: "#69eec3",
+            margin: "0 1rem",
+            padding: " 0.3rem 0.5rem",
+          }}
+        />
         <Search
           btnType={`themed`}
           onData={handleData}

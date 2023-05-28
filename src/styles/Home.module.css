@@ -17,3 +17,18 @@
   background-repeat: no-repeat;
   background-size: 100% auto;
 }
+@media (max-width: 267px) {
+  /* Styles for mobile devices */
+  .mobileMessage {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: #d6d6d6;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+}

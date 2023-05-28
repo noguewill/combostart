@@ -1,4 +1,4 @@
-import React, { useMemo, useReducer, useCallback } from "react";
+import React, { useReducer, useCallback } from "react";
 import styles from "@/styles/ComboCard.module.css";
 import Image from "next/image";
 import YouTube from "react-youtube";
@@ -58,10 +58,8 @@ const ComboCard = ({ comboCardData }) => {
             </a>
           </div>
 
-          {/* Render combo card */}
           <div className={styles.combocard}>
-            {/* Render upvote button */}
-            <div className={styles.comboCard_upvote__container}>
+            {/*             <div className={styles.comboCard_upvote__container}>
               <button
                 className={styles.upvoteArrow}
                 onClick={() => handleUpvoteClick(card.id)}
@@ -79,11 +77,11 @@ const ComboCard = ({ comboCardData }) => {
                   />
                 </svg>
               </button>
-              {/* Render upvote count */}
+        
               <span className={styles.comboCard_upvote__text}>
                 {upvotes[card.id].count}
               </span>
-            </div>
+            </div> */}
             <div className={styles.combocard_hugger}>
               <div className={styles.content_container}>
                 {/* Render character frame */}

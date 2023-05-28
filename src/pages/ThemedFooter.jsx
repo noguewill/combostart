@@ -31,38 +31,12 @@ function Footer() {
   return (
     <>
       <footer className={styles.footer_container}>
-        {/* Page navigation menu */}
-        {/* <div className={styles.comboCard_pager}>
-          <button
-            className={styles.pager_leftArrow}
-            style={{ visibility: "hidden" }}
-          ></button>
-          <div className={styles.pager_num}>
-            <span style={{ color: "#69eec3" }}>1</span>{" "}
-            <a
-              className={styles.pager_num__dot}
-              style={{ backgroundColor: "#69eec3" }}
-            ></a>
-          </div>
-          <div className={styles.pager_num}>
-            <span>2</span> <a className={styles.pager_num__dot}></a>
-          </div>
-          <div className={styles.pager_num}>
-            <span>3</span> <a className={styles.pager_num__dot}></a>
-          </div>
-          <div className={styles.pager_num}>
-            <span>4</span> <a className={styles.pager_num__dot}></a>
-          </div>
-          <button className={styles.pager_rightArrow}></button>
-        </div> */}
-
         <h7 className={styles.footer_warningBanner}>
           sfcombos.com is an unnoficcial fanmade website and is not affiliated
           with CAPCOM or Street Fighter VI in any capacity.
         </h7>
         <section className={styles.footer_body__container}>
-          {/* Stats column */}
-          <div className={styles.stats_container}>
+          {/*         <div className={styles.stats_container}>
             <h3 className={styles.stats_header}>SFC stats</h3>
             <span className={styles.stat}>
               Most clicked character:{" "}
@@ -92,10 +66,22 @@ function Footer() {
               <span style={{ color: "#E9FF61" }}> (26 unique inputs)</span>
             </span>
           </div>
-
+ */}{" "}
+          <div className={styles.evoAd_container}>
+            <div className={styles.evoAd}>
+              <Image
+                src={"/capcomProTourLogo.png"}
+                alt={"Capcom Pro Tour logo"}
+                width={300}
+                height={300}
+                object-fit="cover"
+              />
+              <h3 className={styles.cptText}>
+                CAPCOM Pro Tour 2023 starts in: <strong>TBD</strong>{" "}
+              </h3>
+            </div>
+          </div>
           <hr className={styles.footer_divider} />
-
-          {/* Quick navigation column */}
           <div className={styles.quickNav_container}>
             <div className={styles.quickNav_menu__container}>
               <h3 className={styles.quickNav_header}>Quick navigation</h3>
