@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/ClassicFooter.module.css";
-import { guideCardData } from "./guideCardData";
+import guideCardData from "./gamesData/guideCardData.json";
 
 const ClassicFooter = () => {
   const renderedGames = guideCardData.map((game) => {

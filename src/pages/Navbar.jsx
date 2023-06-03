@@ -150,7 +150,7 @@ const Navbar = ({ loggedIn, btnType, themeOverride, setGameName }) => {
               sharing platform
               <span style={{ fontWeight: "800" }}> tailored </span> specifically
               for fighting game players <br /> of all skill levels. <br />
-              Whether you're a
+              Whether you&apos;re a
               <span style={{ fontWeight: "800" }}> casual </span> player or a
               seasoned pro, Combostart provides a welcoming space where you can
               <span style={{ fontWeight: "800" }}>easily</span> learn, discover,

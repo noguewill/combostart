@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { guideCardData } from "./guideCardData";
+import guideCardData from "./gamesData/guideCardData.json";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/ComboGuides.module.css";

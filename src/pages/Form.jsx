@@ -67,7 +67,7 @@ const Form = ({ toggleOverlay, showSignupForm, signIn }) => {
                   <span style={{ fontWeight: "700" }}>
                     -Symbols not supported:
                     <br />
-                    (e.g: "@ # $ !")
+                    (e.g: &quot;@ # $ !&quot;)
                   </span>
                 </p>
               </div>
@@ -161,7 +161,7 @@ const Form = ({ toggleOverlay, showSignupForm, signIn }) => {
                   <span style={{ fontWeight: "700" }}>-Uppercase Letter</span>
                   <br />
                   <span style={{ fontWeight: "700" }}>
-                    -Symbol:(e.g: "@ # $ !")
+                    -Symbol:(e.g: &quot;@ # $ !&quot;)
                   </span>
                   <br />
                   <span style={{ fontWeight: "700" }}>-Number</span>
@@ -176,7 +176,7 @@ const Form = ({ toggleOverlay, showSignupForm, signIn }) => {
                 id="terms-checkbox"
               />
               <span className={styles.tos_text}>
-                I Agree with COMBOSTART's
+                I Agree with COMBOSTART&apos;s
                 <a
                   className={styles.tos_link}
                   href="https://www.combostart.com/terms-of-service"
@@ -196,4 +196,5 @@ const Form = ({ toggleOverlay, showSignupForm, signIn }) => {
     </>
   );
 };
+
 export default Form;

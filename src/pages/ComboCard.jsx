@@ -29,7 +29,7 @@ function reducer(state, action) {
 }
 
 // Define ComboCard component
-const ComboCard = React.memo(({ sf6 }) => {
+const ComboCard = () => {
   // Use useReducer hook to manage state
   const [upvotes, dispatch] = useReducer(reducer, initialState);
 
@@ -42,6 +42,7 @@ const ComboCard = React.memo(({ sf6 }) => {
   );
 
   // Render ComboCard component
+
   return (
     <>
       {sf6.map((card) => (
@@ -105,16 +106,12 @@ const ComboCard = React.memo(({ sf6 }) => {
                   {/* Inputs row */}
                   <div className={styles.comboCard_inputs__container}>
                     {card.inputs.map((input) => (
-                      <figure
-                        className={styles.input_container}
-                        key={input.imageSrc}
-                      >
+                      <figure className={styles.input_container} key={input.id}>
                         <Image
                           src={input.imageSrc}
                           alt={input.altText}
                           width={44}
                           height={44}
-                          objectFit="cover"
                         />
                         <figcaption className={styles.input_text}>
                           {input.figCaption}
@@ -170,6 +167,6 @@ const ComboCard = React.memo(({ sf6 }) => {
       ))}
     </>
   );
-});
+};
 
 export default ComboCard;

@@ -4,12 +4,10 @@ import Search from "./Search";
 import ThemedFooter from "./ThemedFooter";
 import Navbar from "./Navbar";
 import ComboCard from "./ComboCard";
-
 import sf6 from "./gamesData/sf6.json";
 
 const ComboPage = () => {
-  const [gameName, setGameName] = useState(sf6);
-  const [filteredCombos, setFilteredCombos] = useState(gameName);
+  const [filteredCombos, setFilteredCombos] = useState(sf6);
 
   const handleSearch = (searchQuery) => {
     const formattedSearchQuery = searchQuery.toLowerCase().replace(/-/g, "");
@@ -31,25 +29,11 @@ const ComboPage = () => {
     setFilteredCombos(filteredData);
   };
 
-  const handleData = (data) => {
-    // Do something with the data
-    console.log(data);
-  };
-
   return (
     <div className={styles.container}>
-      {/*       <Image
-        src="/graffitiBg.webp"
-        alt="Pic"
-        fill
-        style={{ objectFit: "cover" }}
-      />
- */}
-
       <div className={styles.content_container}>
         <Navbar
           btnType={`themed`}
-          setGameName={setGameName}
           loggedIn={true}
           themeOverride={{
             color: "#69eec3",
@@ -58,13 +42,9 @@ const ComboPage = () => {
           }}
         />
 
-        <Search
-          btnType={`themed`}
-          onData={handleData}
-          onSearch={handleSearch}
-        />
+        <Search btnType={`themed`} onSearch={handleSearch} />
 
-        <ComboCard sf6={filteredCombos} gameName={gameName} />
+        <ComboCard filteredCombos={filteredCombos} />
 
         <ThemedFooter />
       </div>

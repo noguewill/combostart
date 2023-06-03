@@ -67,7 +67,12 @@ const Search = ({ btnType, onData, onSearch }) => {
               </select> */}
 
               <button className={styles.searchBar_searchBtn}>
-                <Image src="/searchIcon.svg" width={15} height={15} />
+                <Image
+                  src="/searchIcon.svg"
+                  alt="Search icon"
+                  width={15}
+                  height={15}
+                />
               </button>
             </label>
           </div>

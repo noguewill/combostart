@@ -16,71 +16,85 @@
     "date": "June 2nd, 2023",
     "inputs": [
       {
+        "id": 1,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 2,
         "imageSrc": "/inputs/kickM.svg",
         "altText": "Street Fighter medium kick icon input",
         "figCaption": "MK"
       },
       {
+        "id": 3,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 4,
         "imageSrc": "/inputs/punchL.svg",
         "altText": "Street Fighter light punch icon input",
         "figCaption": "LP"
       },
       {
+        "id": 5,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 6,
         "imageSrc": "/inputs/kickL.svg",
         "altText": "Street Fighter light kick icon input",
         "figCaption": "LK"
       },
       {
+        "id": 7,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 8,
         "imageSrc": "/inputs/punchM.svg",
         "altText": "Street Fighter medium punch icon input",
         "figCaption": "MP"
       },
       {
+        "id": 9,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 10,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 11,
         "imageSrc": "/inputs/kickM.svg",
         "altText": "Street Fighter medium kick icon input",
         "figCaption": "MK"
       },
       {
+        "id": 12,
         "imageSrc": "/inputs/punchL.svg",
         "altText": "Street Fighter light punch icon input",
         "figCaption": "LP"
       },
       {
+        "id": 13,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 14,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
@@ -128,76 +142,90 @@
     "date": "June 2nd, 2023",
     "inputs": [
       {
+        "id": 1,
         "imageSrc": "/inputs/kickH.svg",
         "altText": "Street Fighter heavy kick icon input",
         "figCaption": "HK"
       },
       {
+        "id": 2,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 3,
         "imageSrc": "/inputs/arrow_up.svg",
         "altText": "Street Fighter quarter-circle forward icon input",
         "figCaption": "UP"
       },
       {
+        "id": 4,
         "imageSrc": "/inputs/kickM.svg",
         "altText": "Street Fighter medium kick icon input",
         "figCaption": "MK"
       },
       {
+        "id": 5,
         "imageSrc": "/inputs/kickH.svg",
         "altText": "Street Fighter heavy kick icon input",
         "figCaption": "HK"
       },
       {
+        "id": 6,
         "imageSrc": "/inputs/arrow_left.svg",
         "altText": "Street Fighter left arrow icon input",
         "figCaption": "B"
       },
       {
+        "id": 7,
         "imageSrc": "/inputs/punchL.svg",
         "altText": "Street Fighter light punch icon input",
         "figCaption": "LP"
       },
       {
+        "id": 8,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 9,
         "imageSrc": "/inputs/kickM.svg",
         "altText": "Street Fighter medium kick icon input",
         "figCaption": "MK"
       },
       {
+        "id": 10,
         "imageSrc": "/inputs/kickH.svg",
         "altText": "Street Fighter heavy kick icon input",
         "figCaption": "HK"
       },
       {
+        "id": 11,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 12,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 13,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter quarter-circle forward icon input",
         "figCaption": "D"
       },
       {
+        "id": 14,
         "imageSrc": "/inputs/kickL.svg",
         "altText": "Street Fighter light kick icon input",
         "figCaption": "K"
       }
-    ],    
+    ], 
     "tags": [
       {
         "text": "corner",
@@ -253,77 +281,91 @@
     "author": "Gailone_FGC",
     "date": "June 2nd, 2023",
     "inputs": [
-      {
+      { 
+        "id": 1,
         "imageSrc": "/inputs/kickL.svg",
         "altText": "Street Fighter light kick icon input",
         "figCaption": "LK"
       },
       {
+        "id": 2,
         "imageSrc": "/inputs/punchL.svg",
         "altText": "Street Fighter light punch icon input",
         "figCaption": "LP"
       },
       {
+        "id": 3,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 4,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 5,
         "imageSrc": "/inputs/kickL.svg",
         "altText": "Street Fighter light kick icon input",
         "figCaption": "LK"
       },
       {
+        "id": 6,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 7,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 8,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 9,
         "imageSrc": "/inputs/kickL.svg",
         "altText": "Street Fighter light kick icon input",
         "figCaption": "LK"
       },
       {
+        "id": 10,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 11,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 12,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 13,
         "imageSrc": "/inputs/kickL.svg",
         "altText": "Street Fighter light kick icon input",
         "figCaption": "LK"
       },
       {
+        "id": 14,
         "imageSrc": "/inputs/punchL.svg",
         "altText": "Street Fighter light punch icon input",
         "figCaption": "LP"
       }
-    ],
+    ],    
     "tags": [
       {
         "text": "corner",
@@ -380,71 +422,85 @@
     "date": "June 2nd, 2023",
     "inputs": [
       {
+        "id": 1,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 2,
         "imageSrc": "/inputs/kickM.svg",
         "altText": "Street Fighter medium kick icon input",
         "figCaption": "MK"
       },
       {
+        "id": 3,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 4,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 5,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 6,
         "imageSrc": "/inputs/punchL.svg",
         "altText": "Street Fighter light punch icon input",
         "figCaption": "LP"
       },
       {
+        "id": 7,
         "imageSrc": "/inputs/kickL.svg",
         "altText": "Street Fighter light kick icon input",
         "figCaption": "LK"
       },
       {
+        "id": 8,
         "imageSrc": "/inputs/kickH.svg",
         "altText": "Street Fighter heavy kick icon input",
         "figCaption": "HK"
       },
       {
+        "id": 9,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 10,
         "imageSrc": "/inputs/arrow_up.svg",
         "altText": "Street Fighter quarter-circle forward icon input",
         "figCaption": "UP"
       },
       {
+        "id": 11,
         "imageSrc": "/inputs/kickM.svg",
         "altText": "Street Fighter medium kick icon input",
         "figCaption": "MK"
       },
       {
+        "id": 12,
         "imageSrc": "/inputs/kickH.svg",
         "altText": "Street Fighter heavy kick icon input",
         "figCaption": "HK"
       },
       {
+        "id": 13,
         "imageSrc": "/inputs/kickL.svg",
         "altText": "Street Fighter light kick icon input",
         "figCaption": "LK"
       },
       {
+        "id": 14,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
@@ -507,71 +563,85 @@
     "date": "June 2nd, 2023",
     "inputs": [
       {
+        "id": 1,
         "imageSrc": "/inputs/arrow_left.svg",
         "altText": "Street Fighter left arrow icon input",
         "figCaption": "B"
       },
       {
+        "id": 2,
         "imageSrc": "/inputs/arrow_left.svg",
         "altText": "Street Fighter left arrow icon input",
         "figCaption": "B"
       },
       {
+        "id": 3,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 4,
         "imageSrc": "/inputs/kickM.svg",
         "altText": "Street Fighter medium kick icon input",
         "figCaption": "MK"
       },
       {
+        "id": 5,
         "imageSrc": "/inputs/kickH.svg",
         "altText": "Street Fighter heavy kick icon input",
         "figCaption": "HK"
       },
       {
+        "id": 6,
         "imageSrc": "/inputs/punchL.svg",
         "altText": "Street Fighter light punch icon input",
         "figCaption": "LP"
       },
       {
+        "id": 7,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 8,
         "imageSrc": "/inputs/kickM.svg",
         "altText": "Street Fighter medium kick icon input",
         "figCaption": "MK"
       },
       {
+        "id": 9,
         "imageSrc": "/inputs/arrow_left.svg",
         "altText": "Street Fighter left arrow icon input",
         "figCaption": "B"
       },
       {
+        "id": 10,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 11,
         "imageSrc": "/inputs/punchL.svg",
         "altText": "Street Fighter light punch icon input",
         "figCaption": "LP"
       },
       {
+        "id": 12,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 13,
         "imageSrc": "/inputs/kickM.svg",
         "altText": "Street Fighter medium kick icon input",
         "figCaption": "MK"
       },
       {
+        "id": 14,
         "imageSrc": "/inputs/arrow_left.svg",
         "altText": "Street Fighter left arrow icon input",
         "figCaption": "B"
@@ -618,71 +688,85 @@
     "date": "June 2nd, 2023",
     "inputs": [
       {
+        "id": 1,
         "imageSrc": "/inputs/kickL.svg",
         "altText": "Street Fighter light kick icon input",
         "figCaption": "LK"
       },
       {
+        "id": 2,
         "imageSrc": "/inputs/punchL.svg",
         "altText": "Street Fighter light punch icon input",
         "figCaption": "LP"
       },
       {
+        "id": 3,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 4,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 5,
         "imageSrc": "/inputs/kickL.svg",
         "altText": "Street Fighter light kick icon input",
         "figCaption": "LK"
       },
       {
+        "id": 6,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 7,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 8,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 9,
         "imageSrc": "/inputs/kickL.svg",
         "altText": "Street Fighter light kick icon input",
         "figCaption": "LK"
       },
       {
+        "id": 10,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 11,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 12,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 13,
         "imageSrc": "/inputs/kickL.svg",
         "altText": "Street Fighter light kick icon input",
         "figCaption": "LK"
       },
       {
+        "id": 14,
         "imageSrc": "/inputs/punchL.svg",
         "altText": "Street Fighter light punch icon input",
         "figCaption": "LP"
@@ -710,7 +794,6 @@
         "desc": "Combo that includes mix-up options for confusion"
       }
     ]
-
   },
 
   {
@@ -730,76 +813,91 @@
     "date": "June 2nd, 2023",
     "inputs": [
       {
+        "id": 1,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 2,
         "imageSrc": "/inputs/arrow_left.svg",
         "altText": "Street Fighter left arrow icon input",
         "figCaption": "B"
       },
       {
+        "id": 3,
         "imageSrc": "/inputs/kickH.svg",
         "altText": "Street Fighter heavy kick icon input",
         "figCaption": "HK"
       },
       {
+        "id": 4,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 5,
         "imageSrc": "/inputs/kickL.svg",
         "altText": "Street Fighter light kick icon input",
         "figCaption": "LK"
       },
       {
+        "id": 6,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 7,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 8,
         "imageSrc": "/inputs/arrow_left.svg",
         "altText": "Street Fighter left arrow icon input",
         "figCaption": "B"
       },
       {
+        "id": 9,
         "imageSrc": "/inputs/kickH.svg",
         "altText": "Street Fighter heavy kick icon input",
         "figCaption": "HK"
       },
       {
+        "id": 10,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 11,
         "imageSrc": "/inputs/kickL.svg",
         "altText": "Street Fighter light kick icon input",
         "figCaption": "LK"
       },
       {
+        "id": 12,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 13,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 14,
         "imageSrc": "/inputs/arrow_left.svg",
         "altText": "Street Fighter left arrow icon input",
         "figCaption": "B"
       }
     ],
+
     "tags": [
       {
         "text": "mid-screen",
@@ -841,76 +939,90 @@
     "date": "June 2nd, 2023",
     "inputs": [
       {
+        "id": 1,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 2,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 3,
         "imageSrc": "/inputs/kickH.svg",
         "altText": "Street Fighter heavy kick icon input",
         "figCaption": "HK"
       },
       {
+        "id": 4,
         "imageSrc": "/inputs/punchL.svg",
         "altText": "Street Fighter light punch icon input",
         "figCaption": "LP"
       },
       {
+        "id": 5,
         "imageSrc": "/inputs/arrow_left.svg",
         "altText": "Street Fighter left arrow icon input",
         "figCaption": "B"
       },
       {
+        "id": 6,
         "imageSrc": "/inputs/kickH.svg",
         "altText": "Street Fighter heavy kick icon input",
         "figCaption": "HK"
       },
       {
+        "id": 7,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 8,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 9,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 10,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 11,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 12,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 13,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 14,
         "imageSrc": "/inputs/kickL.svg",
         "altText": "Street Fighter light kick icon input",
         "figCaption": "LK"
       }
-    ],
+    ],    
     "tags": [
       {
         "text": "mid-screen",
@@ -952,71 +1064,85 @@
     "date": "June 2nd, 2023",
     "inputs": [
       {
+        "id": 1,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 2,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 3,
         "imageSrc": "/inputs/punchL.svg",
         "altText": "Street Fighter light punch icon input",
         "figCaption": "LP"
       },
       {
+        "id": 4,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 5,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 6,
         "imageSrc": "/inputs/punchL.svg",
         "altText": "Street Fighter light punch icon input",
         "figCaption": "LP"
       },
       {
+        "id": 7,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 8,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 9,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 10,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 11,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 12,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 13,
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
       },
       {
+        "id": 14,
         "imageSrc": "/inputs/kickM.svg",
         "altText": "Street Fighter medium kick icon input",
         "figCaption": "MK"
@@ -1063,71 +1189,85 @@
     "date": "June 2nd, 2023",
     "inputs": [
       {
+        "id": 1,
         "imageSrc": "/inputs/arrow_left.svg",
         "altText": "Street Fighter left arrow icon input",
         "figCaption": "B"
       },
       {
+        "id": 2,
         "imageSrc": "/inputs/kickM.svg",
         "altText": "Street Fighter medium kick icon input",
         "figCaption": "MK"
       },
       {
+        "id": 3,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 4,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 5,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 6,
         "imageSrc": "/inputs/arrow_left.svg",
         "altText": "Street Fighter left arrow icon input",
         "figCaption": "B"
       },
       {
+        "id": 7,
         "imageSrc": "/inputs/kickM.svg",
         "altText": "Street Fighter medium kick icon input",
         "figCaption": "MK"
       },
       {
+        "id": 8,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 9,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 10,
         "imageSrc": "/inputs/arrow_left.svg",
         "altText": "Street Fighter left arrow icon input",
         "figCaption": "B"
       },
       {
+        "id": 11,
         "imageSrc": "/inputs/kickM.svg",
         "altText": "Street Fighter medium kick icon input",
         "figCaption": "MK"
       },
       {
+        "id": 12,
         "imageSrc": "/inputs/punchH.svg",
         "altText": "Street Fighter heavy punch icon input",
         "figCaption": "HP"
       },
       {
+        "id": 13,
         "imageSrc": "/inputs/arrow_down.svg",
         "altText": "Street Fighter down arrow icon input",
         "figCaption": "D"
       },
       {
+        "id": 14,
         "imageSrc": "/inputs/arrow_left.svg",
         "altText": "Street Fighter left arrow icon input",
         "figCaption": "B"

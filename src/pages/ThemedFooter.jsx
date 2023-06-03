@@ -7,10 +7,10 @@ const ThemedFooter = () => {
   return (
     <>
       <footer className={styles.footer_container}>
-        <h7 className={styles.footer_warningBanner}>
+        <h6 className={styles.footer_warningBanner}>
           combostart.com is an unnoficcial fanmade website and is not affiliated
           with CAPCOM or STREET FIGHTER 6 in any capacity.
-        </h7>
+        </h6>
         <section className={styles.footer_body__container}>
           {/*           <div className={styles.evoAd_container}>
             <div className={styles.evoAd}>

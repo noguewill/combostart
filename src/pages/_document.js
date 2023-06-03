@@ -18,8 +18,12 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <script
+          src="C:\Users\nogue\Documents\Create\sfc\sfcombos\firebaseInit.js"
+          async // Load the script asynchronously
+          defer // Defer the script execution
+        ></script>
       </body>
-      <script src="/firebaseInit.js"></script>
     </Html>
   );
 }

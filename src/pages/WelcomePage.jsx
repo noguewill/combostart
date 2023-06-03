@@ -47,6 +47,7 @@ const WelcomePage = () => {
           <div className={styles.heroRightDiv}>
             <Image
               src="/ryuMainPage.png"
+              alt="Street Fighter character Ryu"
               width={962}
               height={1341}
               style={{
@@ -69,6 +70,7 @@ const WelcomePage = () => {
             <a href="https://twitter.com/ComboStart" target="_blank">
               <Image
                 src="/twitterIcon.svg"
+                alt="Icon for the social media platform Twitter"
                 width={22}
                 height={22}
                 className={styles.socialMediaIcon}
@@ -77,6 +79,7 @@ const WelcomePage = () => {
             <a href="https://www.instagram.com/combostart/" target="_blank">
               <Image
                 src="/instagramIcon.svg"
+                alt="Icon for the social media platform Instagram"
                 width={22}
                 height={22}
                 className={styles.socialMediaIcon}
