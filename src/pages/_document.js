@@ -19,6 +19,7 @@ export default function Document() {
         <Main />
         <NextScript />
       </body>
+      <script src="/firebaseInit.js"></script>
     </Html>
   );
 }

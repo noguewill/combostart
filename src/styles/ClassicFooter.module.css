@@ -1,0 +1,47 @@
+.footer_container {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  align-items: center;
+  width: 100vw;
+  height: 80vh;
+}
+.submenu_parent {
+  display: flex;
+  width: 100%;
+  height: 25rem;
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 7rem;
+}
+.submenu_combosPage_container,
+.submenu_upcoming_container {
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+}
+.submenu_upcoming_container {
+  justify-content: flex-start;
+}
+.submenu_header {
+  font-family: "Kanit";
+  font-size: 1.2rem;
+}
+.submenu_btn {
+  font-size: 1rem;
+  color: #1b1b1bb9;
+}
+.submenu_btn:hover {
+  color: #3b3efc;
+}
+
+.copyright_container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}

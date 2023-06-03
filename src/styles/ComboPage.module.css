@@ -2,8 +2,9 @@
   position: relative;
   display: flex;
   justify-content: center;
+  background: linear-gradient(145.41deg, #2b2b2b 0%, #1c1b1b 99.93%);
 }
-.container::before {
+/* .container::before {
   content: "";
   position: absolute;
   top: 0;
@@ -12,7 +13,7 @@
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 1;
-}
+} */
 .content_container {
   width: 100%;
   display: flex;

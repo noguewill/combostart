@@ -3,7 +3,6 @@ import styles from "@/styles/Home.module.css";
 import WelcomePage from "./WelcomePage";
 import ComboGuides from "./ComboGuides";
 import Cookies from "js-cookie";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function Home() {

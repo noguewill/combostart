@@ -31,11 +31,10 @@
   transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
 .searchBar_searchBtn {
-  position: absolute;
   background-color: #5a5cfd;
   border-radius: 0 4px 4px 0;
   padding: 0.55rem;
-  right: 26.55rem;
+
   width: 3rem;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
@@ -54,14 +53,14 @@
   width: auto;
   font-size: 4rem;
   letter-spacing: 0.1rem;
-  color: #c572ff;
-  text-shadow: 0px 0px 6px #c572ff;
+  color: #c1f3e3;
+  text-shadow: 0px 0px 6px #c1f3e3;
   font-family: "Kanit";
   font-weight: 600;
 }
 .classic__comboSection_header {
   text-shadow: none;
-  color: #5053fc;
+  color: #c1f3e3;
 }
 .search__filterContainer {
   width: 80%;
@@ -133,13 +132,13 @@
 }
 .themed__searchBar_input,
 .classic__searchBar_input {
-  font-family: "Lato";
-  width: 20rem;
-  height: 2.2rem;
+  font-family: "Open Sans";
+  width: 30rem;
+  height: 2.1rem;
   padding: 0.4rem;
   background: rgba(14, 14, 15, 0.7);
-  border: 0.1px solid #fff;
-  border-radius: 4px;
+  border: none;
+  border-radius: 4px 0 0 4px;
 }
 .classic__searchBar_input {
   background-color: #010101;

@@ -1,11 +1,10 @@
 import React, { useReducer, useCallback } from "react";
 import styles from "@/styles/ComboCard.module.css";
 import Image from "next/image";
-import YouTube from "react-youtube";
-import { comboCardData } from "./comboCardData";
+import sf6 from "./gamesData/sf6.json";
 
 // Initialize state object
-const initialState = comboCardData.reduce(
+const initialState = sf6.reduce(
   (acc, card) => ({
     ...acc,
     [card.id]: { count: 0, fill: "#D6D6D6" },
@@ -30,7 +29,7 @@ function reducer(state, action) {
 }
 
 // Define ComboCard component
-const ComboCard = ({ comboCardData }) => {
+const ComboCard = React.memo(({ sf6 }) => {
   // Use useReducer hook to manage state
   const [upvotes, dispatch] = useReducer(reducer, initialState);
 
@@ -45,7 +44,7 @@ const ComboCard = ({ comboCardData }) => {
   // Render ComboCard component
   return (
     <>
-      {comboCardData.map((card) => (
+      {sf6.map((card) => (
         <article key={card.id} className={styles.combocard_container}>
           {/* Render card title */}
           <div className={styles.comboCard__title__container}>
@@ -59,29 +58,6 @@ const ComboCard = ({ comboCardData }) => {
           </div>
 
           <div className={styles.combocard}>
-            {/*             <div className={styles.comboCard_upvote__container}>
-              <button
-                className={styles.upvoteArrow}
-                onClick={() => handleUpvoteClick(card.id)}
-              >
-                <svg
-                  width="15"
-                  height="13"
-                  viewBox="0 0 15 13"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7.5 0L14.8612 12.75H0.138784L7.5 0Z"
-                    fill={upvotes[card.id].fill}
-                  />
-                </svg>
-              </button>
-        
-              <span className={styles.comboCard_upvote__text}>
-                {upvotes[card.id].count}
-              </span>
-            </div> */}
             <div className={styles.combocard_hugger}>
               <div className={styles.content_container}>
                 {/* Render character frame */}
@@ -90,16 +66,9 @@ const ComboCard = ({ comboCardData }) => {
                     {card.charName}
                   </div>
                   <div className={styles.combocard_video}>
-                    {/* Render YouTube video */}
-                    {/*            <YouTube
-                    videoId={card.videoUrl}
-                    height={315}
-                    width={560}
-                    opts={{
-                      controls: 1, // Disable player controls
-                      autoplay: 1, // Automatically start playing
-                    }}
-                  /> */}
+                    <video controls>
+                      <source src={card.videoSrc} type="video/mp4" />
+                    </video>
                   </div>
                 </div>
 
@@ -136,13 +105,16 @@ const ComboCard = ({ comboCardData }) => {
                   {/* Inputs row */}
                   <div className={styles.comboCard_inputs__container}>
                     {card.inputs.map((input) => (
-                      <figure className={styles.input_container}>
+                      <figure
+                        className={styles.input_container}
+                        key={input.imageSrc}
+                      >
                         <Image
                           src={input.imageSrc}
                           alt={input.altText}
                           width={44}
                           height={44}
-                          object-fit="cover"
+                          objectFit="cover"
                         />
                         <figcaption className={styles.input_text}>
                           {input.figCaption}
@@ -159,7 +131,6 @@ const ComboCard = ({ comboCardData }) => {
                       </div>
                     </div>
                   </div>
-                  {/* Bookmark, sharing, and other options section */}
                 </div>
               </div>
               {/* Social combocard options */}
@@ -168,13 +139,14 @@ const ComboCard = ({ comboCardData }) => {
                 <div className={styles.tag_container}>
                   <span className={styles.tag_text}>TAGS:</span>
                   {card.tags.map((tag) => (
-                    <button className={styles.tag_btn}>{tag.text}</button>
+                    <button className={styles.tag_btn} key={tag.text}>
+                      {tag.text}
+                    </button>
                   ))}
                 </div>
                 {/* Container for the social buttons   */}
                 <div className={styles.socialOptions_container}>
-                  <button className={styles.social_bookmark__btn}>
-                    {" "}
+                  {/*            <button className={styles.social_bookmark__btn}>
                     <Image
                       src="/bookmark.svg"
                       alt="Picture of the author"
@@ -183,14 +155,13 @@ const ComboCard = ({ comboCardData }) => {
                     />
                   </button>
                   <button className={styles.social_share__btn}>
-                    {" "}
                     <Image
                       src="/shareIcon.svg"
                       alt="Picture of the author"
                       width={24}
                       height={24}
                     />
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
@@ -199,5 +170,6 @@ const ComboCard = ({ comboCardData }) => {
       ))}
     </>
   );
-};
+});
+
 export default ComboCard;

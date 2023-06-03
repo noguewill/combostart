@@ -1,0 +1,1161 @@
+[
+  {
+    "id": 1,
+    "super": false,
+    "videoSrc": "/comboVideo/DeeJay-Combo off drive rush fwMK-GaleoFGCTwitter.mp4",
+    "punishCounter": true,
+    "driveRushBars": 4,
+    "cardTitle": "Dee Jay fullscreen BnB 19 hits",
+    "comboDamage": 4058,
+    "comboHits": 19,
+    "comboType": "MIDSCREEN",
+    "charName": "Dee Jay",
+    "patchVer": "1.0.0",
+    "notationType": "PC",
+    "author": "DJMaster",
+    "date": "June 2nd, 2023",
+    "inputs": [
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/kickM.svg",
+        "altText": "Street Fighter medium kick icon input",
+        "figCaption": "MK"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/punchL.svg",
+        "altText": "Street Fighter light punch icon input",
+        "figCaption": "LP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/kickL.svg",
+        "altText": "Street Fighter light kick icon input",
+        "figCaption": "LK"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/punchM.svg",
+        "altText": "Street Fighter medium punch icon input",
+        "figCaption": "MP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/kickM.svg",
+        "altText": "Street Fighter medium kick icon input",
+        "figCaption": "MK"
+      },
+      {
+        "imageSrc": "/inputs/punchL.svg",
+        "altText": "Street Fighter light punch icon input",
+        "figCaption": "LP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      }
+    ],
+    "tags": [
+      {
+        "text": "mid-screen",
+        "src": "/",
+        "desc": "Combo performed in the middle of the arena"
+      },
+      {
+        "text": "punish",
+        "src": "/",
+        "desc": "Combo used to punish opponent's mistakes"
+      },
+      {
+        "text": "combo starter",
+        "src": "/",
+        "desc": "Combo that starts off Dee Jay's offense"
+      },
+      {
+        "text": "damage",
+        "src": "/",
+        "desc": "High damage combo"
+      }
+    ]
+  },
+  
+
+  {
+    "id": 2,
+    "super": true,
+    "videoSrc": "/comboVideo/JP-cornerCombo-MrShneizelTwitter.mp4",    
+    "punishCounter": true,
+    "driveRushBars": 6,
+    "cardTitle": "JP setup corner combo into lvl 3",
+    "comboDamage": 4116,
+    "comboHits": 9,
+    "comboType": "CORNER",
+    "charName": "JP",
+    "patchVer": "1.0.0",
+    "notationType": "XBOX",
+    "author": "Ailone",
+    "date": "June 2nd, 2023",
+    "inputs": [
+      {
+        "imageSrc": "/inputs/kickH.svg",
+        "altText": "Street Fighter heavy kick icon input",
+        "figCaption": "HK"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_up.svg",
+        "altText": "Street Fighter quarter-circle forward icon input",
+        "figCaption": "UP"
+      },
+      {
+        "imageSrc": "/inputs/kickM.svg",
+        "altText": "Street Fighter medium kick icon input",
+        "figCaption": "MK"
+      },
+      {
+        "imageSrc": "/inputs/kickH.svg",
+        "altText": "Street Fighter heavy kick icon input",
+        "figCaption": "HK"
+      },
+      {
+        "imageSrc": "/inputs/arrow_left.svg",
+        "altText": "Street Fighter left arrow icon input",
+        "figCaption": "B"
+      },
+      {
+        "imageSrc": "/inputs/punchL.svg",
+        "altText": "Street Fighter light punch icon input",
+        "figCaption": "LP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/kickM.svg",
+        "altText": "Street Fighter medium kick icon input",
+        "figCaption": "MK"
+      },
+      {
+        "imageSrc": "/inputs/kickH.svg",
+        "altText": "Street Fighter heavy kick icon input",
+        "figCaption": "HK"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter quarter-circle forward icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/kickL.svg",
+        "altText": "Street Fighter light kick icon input",
+        "figCaption": "K"
+      }
+    ],    
+    "tags": [
+      {
+        "text": "corner",
+        "src": "/",
+        "desc": "Combo only performed at one of the corners of the arena"
+      },
+      {
+        "text": "high-damage",
+        "src": "/",
+        "desc": "Combo that deals high damage"
+      },
+      {
+        "text": "advanced",
+        "src": "/",
+        "desc": "Combo for advanced players"
+      },
+      {
+        "text": "counter-attack",
+        "src": "/",
+        "desc": "Combo used as a counter-attack"
+      },
+      {
+        "text": "juggle",
+        "src": "/",
+        "desc": "Combo that juggles the opponent in the air"
+      },
+      {
+        "text": "mix-up",
+        "src": "/",
+        "desc": "Combo with mix-up options"
+      },
+      {
+        "text": "combo-ender",
+        "src": "/",
+        "desc": "Combo used as a combo-ender"
+      }
+    ] 
+  },
+
+  {
+    "id": 3,
+    "super": false,
+    "videoSrc": "/comboVideo/Lily-cornerCombo-tkintheglobeTwitter.mp4",
+    "punishCounter": false,
+    "driveRushBars": 3,
+    "cardTitle": "Lily LK combo into special move cancel",
+    "comboDamage": 2375,
+    "comboHits": 6,
+    "comboType": "MIDSCREEN",
+    "charName": "Lily",
+    "patchVer": "1.0.0",
+    "notationType": "PS4",
+    "author": "Gailone_FGC",
+    "date": "June 2nd, 2023",
+    "inputs": [
+      {
+        "imageSrc": "/inputs/kickL.svg",
+        "altText": "Street Fighter light kick icon input",
+        "figCaption": "LK"
+      },
+      {
+        "imageSrc": "/inputs/punchL.svg",
+        "altText": "Street Fighter light punch icon input",
+        "figCaption": "LP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/kickL.svg",
+        "altText": "Street Fighter light kick icon input",
+        "figCaption": "LK"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/kickL.svg",
+        "altText": "Street Fighter light kick icon input",
+        "figCaption": "LK"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/kickL.svg",
+        "altText": "Street Fighter light kick icon input",
+        "figCaption": "LK"
+      },
+      {
+        "imageSrc": "/inputs/punchL.svg",
+        "altText": "Street Fighter light punch icon input",
+        "figCaption": "LP"
+      }
+    ],
+    "tags": [
+      {
+        "text": "corner",
+        "src": "/",
+        "desc": "Combo only performed at one of the corners of the arena"
+      },
+      {
+        "text": "high-damage",
+        "src": "/",
+        "desc": "Combo that deals high damage"
+      },
+      {
+        "text": "advanced",
+        "src": "/",
+        "desc": "Combo for advanced players"
+      },
+      {
+        "text": "counter-attack",
+        "src": "/",
+        "desc": "Combo used as a counter-attack"
+      },
+      {
+        "text": "juggle",
+        "src": "/",
+        "desc": "Combo that juggles the opponent in the air"
+      },
+      {
+        "text": "mix-up",
+        "src": "/",
+        "desc": "Combo with mix-up options"
+      },
+      {
+        "text": "combo-ender",
+        "src": "/",
+        "desc": "Combo used as a combo-ender"
+      }
+    ]
+  },
+
+  {
+    "id": 4,
+    "super": false,
+    "videoSrc": "/comboVideo/Dhalsim-stunCornerCombo-FgcGarnetTwitter.mp4",
+    "punishCounter": true,
+    "driveRushBars": 2,
+    "cardTitle": "Yoga Flame anti-air combo",
+    "comboDamage": 2297,
+    "comboHits": 14,
+    "comboType": "MIDSCREEN",
+    "charName": "Dhalsim",
+    "patchVer": "1.0.0",
+    "notationType": "PS5",
+    "author": "Ravi",
+    "date": "June 2nd, 2023",
+    "inputs": [
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/kickM.svg",
+        "altText": "Street Fighter medium kick icon input",
+        "figCaption": "MK"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/punchL.svg",
+        "altText": "Street Fighter light punch icon input",
+        "figCaption": "LP"
+      },
+      {
+        "imageSrc": "/inputs/kickL.svg",
+        "altText": "Street Fighter light kick icon input",
+        "figCaption": "LK"
+      },
+      {
+        "imageSrc": "/inputs/kickH.svg",
+        "altText": "Street Fighter heavy kick icon input",
+        "figCaption": "HK"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_up.svg",
+        "altText": "Street Fighter quarter-circle forward icon input",
+        "figCaption": "UP"
+      },
+      {
+        "imageSrc": "/inputs/kickM.svg",
+        "altText": "Street Fighter medium kick icon input",
+        "figCaption": "MK"
+      },
+      {
+        "imageSrc": "/inputs/kickH.svg",
+        "altText": "Street Fighter heavy kick icon input",
+        "figCaption": "HK"
+      },
+      {
+        "imageSrc": "/inputs/kickL.svg",
+        "altText": "Street Fighter light kick icon input",
+        "figCaption": "LK"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      }
+    ],
+    "tags": [
+      {
+        "text": "corner",
+        "src": "/",
+        "desc": "Combo only performed at one of the corners of the arena"
+      },
+      {
+        "text": "high-damage",
+        "src": "/",
+        "desc": "Combo that deals high damage"
+      },
+      {
+        "text": "advanced",
+        "src": "/",
+        "desc": "Combo for advanced players"
+      },
+      {
+        "text": "counter-attack",
+        "src": "/",
+        "desc": "Combo used as a counter-attack"
+      },
+      {
+        "text": "juggle",
+        "src": "/",
+        "desc": "Combo that juggles the opponent in the air"
+      },
+      {
+        "text": "mix-up",
+        "src": "/",
+        "desc": "Combo with mix-up options"
+      },
+      {
+        "text": "combo-ender",
+        "src": "/",
+        "desc": "Combo used as a combo-ender"
+      }
+      
+    ]
+  },
+
+  {
+    "id": 5,
+    "super": false,
+    "videoSrc": "/comboVideo/eHonda-fullscreencombostarter-Alioune85Twitter.mp4",
+    "punishCounter": false,
+    "driveRushBars": 6,
+    "cardTitle": "EHonda palmstrike 24 hits corner pressure",
+    "comboDamage": 5191,
+    "comboHits": 24,
+    "comboType": "MIDSCREEN",
+    "charName": "EHonda",
+    "patchVer": "1.0.0",
+    "notationType": "PS4",
+    "author": "benedict_XVI",
+    "date": "June 2nd, 2023",
+    "inputs": [
+      {
+        "imageSrc": "/inputs/arrow_left.svg",
+        "altText": "Street Fighter left arrow icon input",
+        "figCaption": "B"
+      },
+      {
+        "imageSrc": "/inputs/arrow_left.svg",
+        "altText": "Street Fighter left arrow icon input",
+        "figCaption": "B"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/kickM.svg",
+        "altText": "Street Fighter medium kick icon input",
+        "figCaption": "MK"
+      },
+      {
+        "imageSrc": "/inputs/kickH.svg",
+        "altText": "Street Fighter heavy kick icon input",
+        "figCaption": "HK"
+      },
+      {
+        "imageSrc": "/inputs/punchL.svg",
+        "altText": "Street Fighter light punch icon input",
+        "figCaption": "LP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/kickM.svg",
+        "altText": "Street Fighter medium kick icon input",
+        "figCaption": "MK"
+      },
+      {
+        "imageSrc": "/inputs/arrow_left.svg",
+        "altText": "Street Fighter left arrow icon input",
+        "figCaption": "B"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/punchL.svg",
+        "altText": "Street Fighter light punch icon input",
+        "figCaption": "LP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/kickM.svg",
+        "altText": "Street Fighter medium kick icon input",
+        "figCaption": "MK"
+      },
+      {
+        "imageSrc": "/inputs/arrow_left.svg",
+        "altText": "Street Fighter left arrow icon input",
+        "figCaption": "B"
+      }
+    ],
+    "tags": [
+      {
+        "text": "mid-screen",
+        "src": "/",
+        "desc": "Combo performed in the middle of the arena"
+      },
+      {
+        "text": "knockdown",
+        "src": "/",
+        "desc": "Combo ending with a knockdown for advantageous positioning"
+      },
+      {
+        "text": "mix-up",
+        "src": "/",
+        "desc": "Combo that includes mix-up options for confusion"
+      },
+      {
+        "text": "corner escape",
+        "src": "/",
+        "desc": "Combo used to escape the corner position"
+      }
+    ]
+  },
+
+  {
+    "id": 6,
+    "super": false,
+    "videoSrc": "/comboVideo/Blanka-corner-hirasyain77Twitter.mp4",
+    "punishCounter": false,
+    "driveRushBars": 2,
+    "cardTitle": "Blanka ball install anti-air combo",
+    "comboDamage": 3108,
+    "comboHits": 13,
+    "comboType": "MIDSCREEN",
+    "charName": "Blanka",
+    "patchVer": "1.0.0",
+    "notationType": "PC",
+    "author": "iitisjoe",
+    "date": "June 2nd, 2023",
+    "inputs": [
+      {
+        "imageSrc": "/inputs/kickL.svg",
+        "altText": "Street Fighter light kick icon input",
+        "figCaption": "LK"
+      },
+      {
+        "imageSrc": "/inputs/punchL.svg",
+        "altText": "Street Fighter light punch icon input",
+        "figCaption": "LP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/kickL.svg",
+        "altText": "Street Fighter light kick icon input",
+        "figCaption": "LK"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/kickL.svg",
+        "altText": "Street Fighter light kick icon input",
+        "figCaption": "LK"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/kickL.svg",
+        "altText": "Street Fighter light kick icon input",
+        "figCaption": "LK"
+      },
+      {
+        "imageSrc": "/inputs/punchL.svg",
+        "altText": "Street Fighter light punch icon input",
+        "figCaption": "LP"
+      }
+    ],
+    "tags": [
+      {
+        "text": "corner",
+        "src": "/",
+        "desc": "Combo only performed at one of the corners of the arena"
+      },
+      {
+        "text": "punish",
+        "src": "/",
+        "desc": "A punish combo for punishing opponent's mistakes"
+      },
+      {
+        "text": "knockdown",
+        "src": "/",
+        "desc": "Combo ending with a knockdown for advantageous positioning"
+      },
+      {
+        "text": "mix-up",
+        "src": "/",
+        "desc": "Combo that includes mix-up options for confusion"
+      }
+    ]
+
+  },
+
+  {
+    "id": 7,
+    "super": false,
+    "videoSrc": "/comboVideo/ZangiefCorner-AngelFreak_Twitter.mp4",
+    "punishCounter": true,
+    "driveRushBars": 4,
+    "cardTitle": "Zangief Power Bomb Combo",
+    "comboDamage": 4557,
+    "comboHits": 9,
+    "comboType": "MIDSCREEN",
+    "charName": "Zangief",
+    "patchVer": "1.0.0",
+    "notationType": "XBOX",
+    "author": "Sendo_Fendo",
+    "date": "June 2nd, 2023",
+    "inputs": [
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/arrow_left.svg",
+        "altText": "Street Fighter left arrow icon input",
+        "figCaption": "B"
+      },
+      {
+        "imageSrc": "/inputs/kickH.svg",
+        "altText": "Street Fighter heavy kick icon input",
+        "figCaption": "HK"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/kickL.svg",
+        "altText": "Street Fighter light kick icon input",
+        "figCaption": "LK"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/arrow_left.svg",
+        "altText": "Street Fighter left arrow icon input",
+        "figCaption": "B"
+      },
+      {
+        "imageSrc": "/inputs/kickH.svg",
+        "altText": "Street Fighter heavy kick icon input",
+        "figCaption": "HK"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/kickL.svg",
+        "altText": "Street Fighter light kick icon input",
+        "figCaption": "LK"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/arrow_left.svg",
+        "altText": "Street Fighter left arrow icon input",
+        "figCaption": "B"
+      }
+    ],
+    "tags": [
+      {
+        "text": "mid-screen",
+        "src": "/",
+        "desc": "Combo performed in the middle of the arena"
+      },
+      {
+        "text": "power bomb",
+        "src": "/",
+        "desc": "Combo ending with Zangief's power bomb special move"
+      },
+      {
+        "text": "command grab",
+        "src": "/",
+        "desc": "Combo that utilizes Zangief's command grab for additional damage"
+      },
+      {
+        "text": "okizeme",
+        "src": "/",
+        "desc": "Combo that leads to a strong wake-up game and pressure"
+      }
+    ]
+  },
+
+  {
+    "id": 8,
+    "super": true,
+    "videoSrc": "/comboVideo/Cammy-corner shimmy punish counter-Sometimes_FendoTwitter.mp4",    
+    "punishCounter": false,
+    "driveRushBars": 3,
+    "cardTitle": "Cammy spiral arrow combo ender",
+    "comboDamage": 6030,
+    "comboHits": 16,
+    "comboType": "MIDSCREEN",
+    "charName": "Cammy",
+    "patchVer": "1.2.0",
+    "notationType": "XBOX",
+    "author": "Player5",
+    "date": "June 2nd, 2023",
+    "inputs": [
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/kickH.svg",
+        "altText": "Street Fighter heavy kick icon input",
+        "figCaption": "HK"
+      },
+      {
+        "imageSrc": "/inputs/punchL.svg",
+        "altText": "Street Fighter light punch icon input",
+        "figCaption": "LP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_left.svg",
+        "altText": "Street Fighter left arrow icon input",
+        "figCaption": "B"
+      },
+      {
+        "imageSrc": "/inputs/kickH.svg",
+        "altText": "Street Fighter heavy kick icon input",
+        "figCaption": "HK"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/kickL.svg",
+        "altText": "Street Fighter light kick icon input",
+        "figCaption": "LK"
+      }
+    ],
+    "tags": [
+      {
+        "text": "mid-screen",
+        "src": "/",
+        "desc": "Combo performed in the middle of the arena"
+      },
+      {
+        "text": "spiral arrow",
+        "src": "/",
+        "desc": "Combo ending with Cammy's spiral arrow special move"
+      },
+      {
+        "text": "meter burn",
+        "src": "/",
+        "desc": "Combo that utilizes meter to enhance damage"
+      },
+      {
+        "text": "pressure",
+        "src": "/",
+        "desc": "Combo that leads to strong offensive pressure"
+      }
+    ]
+  },
+
+  {
+    "id": 9,
+    "super": false,
+    "videoSrc": "/comboVideo/Marisa-PCcornerFrostXCVITwitter.mp4",
+    "punishCounter": true,
+    "driveRushBars": 4,
+    "cardTitle": "Marisa corner pressure Combo",
+    "comboDamage": 5489,
+    "comboHits": 12,
+    "comboType": "MIDSCREEN",
+    "charName": "Marisa",
+    "patchVer": "1.0.0",
+    "notationType": "XBOX",
+    "author": "Hyatain",
+    "date": "June 2nd, 2023",
+    "inputs": [
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/punchL.svg",
+        "altText": "Street Fighter light punch icon input",
+        "figCaption": "LP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/punchL.svg",
+        "altText": "Street Fighter light punch icon input",
+        "figCaption": "LP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "imageSrc": "/inputs/kickM.svg",
+        "altText": "Street Fighter medium kick icon input",
+        "figCaption": "MK"
+      }
+    ],
+    "tags": [
+      {
+        "text": "mid-screen",
+        "src": "/",
+        "desc": "Combo performed in the middle of the arena"
+      },
+      {
+        "text": "laser",
+        "src": "/",
+        "desc": "Combo involving Marisa's laser special move"
+      },
+      {
+        "text": "punish",
+        "src": "/",
+        "desc": "Combo used to punish opponent's mistakes"
+      },
+      {
+        "text": "pressure",
+        "src": "/",
+        "desc": "Combo that leads to strong offensive pressure"
+      }
+    ]
+  },
+  
+  {
+    "id": 10,
+    "super": true,
+    "videoSrc": "/comboVideo/Manon_cornerComboIntoLvl2-Joey_FGCTwitter.mp4",    
+    "punishCounter": false,
+    "driveRushBars": 4,
+    "cardTitle": "Manon throw loop midscreen into lvl 3",
+    "comboDamage": 4911,
+    "comboHits": 12,
+    "comboType": "MIDSCREEN",
+    "charName": "Manon",
+    "patchVer": "1.0.0",
+    "notationType": "XBOX",
+    "author": "sonSong_",
+    "date": "June 2nd, 2023",
+    "inputs": [
+      {
+        "imageSrc": "/inputs/arrow_left.svg",
+        "altText": "Street Fighter left arrow icon input",
+        "figCaption": "B"
+      },
+      {
+        "imageSrc": "/inputs/kickM.svg",
+        "altText": "Street Fighter medium kick icon input",
+        "figCaption": "MK"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_left.svg",
+        "altText": "Street Fighter left arrow icon input",
+        "figCaption": "B"
+      },
+      {
+        "imageSrc": "/inputs/kickM.svg",
+        "altText": "Street Fighter medium kick icon input",
+        "figCaption": "MK"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/arrow_left.svg",
+        "altText": "Street Fighter left arrow icon input",
+        "figCaption": "B"
+      },
+      {
+        "imageSrc": "/inputs/kickM.svg",
+        "altText": "Street Fighter medium kick icon input",
+        "figCaption": "MK"
+      },
+      {
+        "imageSrc": "/inputs/punchH.svg",
+        "altText": "Street Fighter heavy punch icon input",
+        "figCaption": "HP"
+      },
+      {
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "imageSrc": "/inputs/arrow_left.svg",
+        "altText": "Street Fighter left arrow icon input",
+        "figCaption": "B"
+      }
+    ],
+    "tags": [
+      {
+        "text": "mid-screen",
+        "src": "/",
+        "desc": "Combo performed in the middle of the arena"
+      },
+      {
+        "text": "super",
+        "src": "/",
+        "desc": "Combo utilizing Manon's super move"
+    },
+      {
+        "text": "damage",
+        "src": "/",
+        "desc": "High-damage combo"
+      },
+      {
+        "text": "mix-up",
+        "src": "/",
+        "desc": "Combo featuring mix-up opportunities"
+      }
+    ]
+  } 
+]
+
+

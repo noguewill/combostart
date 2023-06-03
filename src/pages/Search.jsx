@@ -51,12 +51,12 @@ const Search = ({ btnType, onData, onSearch }) => {
               <input
                 className={styles[`${btnType}__searchBar_input`]}
                 type="text"
-                placeholder="Ryu shoryuken superless combo"
+                placeholder="Search for a character name, combo title or tags"
                 value={searchQuery}
                 onChange={handleSearchQueryChange}
               />
 
-              <select
+              {/*       <select
                 className={styles.searchBar_filterBtn}
                 value={selectedOption}
                 onChange={handleDropdownChange}
@@ -64,7 +64,7 @@ const Search = ({ btnType, onData, onSearch }) => {
                 <option value="option1">POPULAR</option>
                 <option value="option2">TRENDING</option>
                 <option value="option3">FOLLOWING</option>
-              </select>
+              </select> */}
 
               <button className={styles.searchBar_searchBtn}>
                 <Image src="/searchIcon.svg" width={15} height={15} />

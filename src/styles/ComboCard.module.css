@@ -340,13 +340,12 @@
     display: none;
   }
   .combocard_video {
-    width: 100%;
-    display: block;
     position: relative;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
     height: 0;
   }
-  .combocard_video iframe {
+
+  .combocard_video video {
     position: absolute;
     top: 0;
     left: 0;

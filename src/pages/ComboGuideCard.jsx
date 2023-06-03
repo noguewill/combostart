@@ -19,6 +19,7 @@ const ComboGuideCard = () => {
             className={styles.cardImage}
             fill
           />
+          <div className={styles.cardWIP}>WIP</div>
         </div>
       </Link>
     ));
@@ -29,8 +30,13 @@ const ComboGuideCard = () => {
 
   const featuredCardElements = featuredCards.map((card) => {
     let cardClassName;
+    let filterOverride;
+    let wipNone;
+
     if (card.id === 1) {
       cardClassName = styles.featuredCard_left;
+      filterOverride = { filter: "none" };
+      wipNone = { display: "none" };
     } else if (card.id === 2) {
       cardClassName = styles.featuredCard_mid;
     } else if (card.id === 3) {
@@ -39,13 +45,20 @@ const ComboGuideCard = () => {
 
     return (
       <Link key={card.id} href={card.src} className={cardClassName}>
+        <div className={styles.cardWIP} style={{ visibility: "hidden" }}>
+          WIP
+        </div>
         <span className={styles.cardTitle}>{card.name}</span>
         <Image
+          style={filterOverride}
           className={styles.cardImage}
           src={card.bgImg}
           alt={card.name}
           fill
         />
+        <div className={styles.cardWIP} style={wipNone}>
+          WIP
+        </div>
       </Link>
     );
   });
@@ -56,18 +69,28 @@ const ComboGuideCard = () => {
 
   const upcomingCardElements = upcomingCards.map((card) => {
     let cardClassName;
+    let videoLink;
     if (card.id === 16) {
       cardClassName = styles.upcoming_left;
+      videoLink = "https://www.youtube.com/watch?v=UZ6eFEjFfJ0";
     } else if (card.id === 17) {
       cardClassName = styles.upcoming_mid;
+      videoLink = "https://www.youtube.com/watch?v=2hPuRQz6IlM";
     } else if (card.id === 18) {
       cardClassName = styles.upcoming_right;
+      videoLink = "https://www.youtube.com/watch?v=Sc3GbTpkAmw";
     }
 
     return (
-      <Link key={card.id} href={card.src} className={cardClassName}>
+      <Link
+        key={card.id}
+        target="_blank"
+        href={videoLink}
+        className={cardClassName}
+      >
         <span className={styles.cardTitle}>{card.name}</span>
         <Image
+          style={{ filter: "none" }}
           className={styles.cardImage}
           src={card.bgImg}
           alt={card.name}

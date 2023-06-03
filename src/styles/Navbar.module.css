@@ -51,7 +51,9 @@
   border-radius: 0.3rem;
   color: #1a1a1a;
 }
-
+.combosPage_submenu_container {
+  width: 35rem;
+}
 .about_submenu_parent {
   display: flex;
   flex-direction: column;
@@ -77,6 +79,7 @@
 
 .combosPage_submenu {
   display: flex;
+  width: auto;
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
@@ -173,7 +176,8 @@
 
   .classic_nav_btn,
   .classic_nav_hoverBtn,
-  .combosPage_submenu_btn {
+  .combosPage_submenu_btn,
+  .combosPage_submenu_btn_disabled {
     color: #1a1a1a;
     font-family: "Kanit";
     font-style: normal;
@@ -185,7 +189,7 @@
     border: none;
     border-radius: 0.25rem;
     background-color: transparent;
-    cursor: pointer;
+
     z-index: 2;
   }
 
@@ -365,7 +369,8 @@
   border-radius: 0.25rem;
 }
 
-.combosPage_submenu_btn {
+.combosPage_submenu_btn,
+.combosPage_submenu_btn_disabled {
   width: auto;
   font-family: "Open Sans";
   font-weight: 600;
@@ -381,7 +386,10 @@
   padding-right: 0;
   cursor: pointer;
 }
-
+.combosPage_submenu_btn_disabled {
+  color: #949393;
+  cursor: default;
+}
 .classic_nav_hoverBtn {
   cursor: default;
 }
