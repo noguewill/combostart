@@ -47,19 +47,19 @@ const ComboCard = () => {
     <>
       {sf6.map((card) => (
         <article key={card.id} className={styles.combocard_container}>
-          {/* Render card title */}
-          <div className={styles.comboCard__title__container}>
-            <h4 className={styles.comboCard_title}>{card.cardTitle}</h4>
-            <a className={styles.comboCard_title__username}>
-              by {card.author} |
-            </a>
-            <a className={styles.comboCard_title__timeStamp}>
-              Updated in {card.date}
-            </a>
-          </div>
-
           <div className={styles.combocard}>
             <div className={styles.combocard_hugger}>
+              {/* Render card title */}
+              <div className={styles.comboCard__title__container}>
+                <h4 className={styles.comboCard_title}>{card.cardTitle}</h4>
+                <a className={styles.comboCard_title__username}>
+                  by {card.author} |
+                </a>
+                <a className={styles.comboCard_title__timeStamp}>
+                  Posted in {card.date}
+                </a>
+              </div>
+
               <div className={styles.content_container}>
                 {/* Render character frame */}
                 <div className={styles.combocard_charFrame__container}>

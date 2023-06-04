@@ -44,7 +44,7 @@ const ComboPage = () => {
 
         <Search btnType={`themed`} onSearch={handleSearch} />
 
-        <ComboCard filteredCombos={filteredCombos} />
+        <ComboCard />
 
         <ThemedFooter />
       </div>
