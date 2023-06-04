@@ -48,6 +48,30 @@ const ComboCard = () => {
       {sf6.map((card) => (
         <article key={card.id} className={styles.combocard_container}>
           <div className={styles.combocard}>
+            {/* Render upvote button */}
+            {/*       <div className={styles.comboCard_upvote__container}>
+              <button
+                className={styles.upvoteArrow}
+                onClick={() => handleUpvoteClick(card.id)}
+              >
+                <svg
+                  width="15"
+                  height="13"
+                  viewBox="0 0 15 13"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7.5 0L14.8612 12.75H0.138784L7.5 0Z"
+                    fill={upvotes[card.id].fill}
+                  />
+                </svg>
+              </button>
+            
+              <span className={styles.comboCard_upvote__text}>
+                {upvotes[card.id].count}
+              </span>
+            </div> */}
             <div className={styles.combocard_hugger}>
               {/* Render card title */}
               <div className={styles.comboCard__title__container}>
@@ -56,10 +80,16 @@ const ComboCard = () => {
                   by {card.author} |
                 </a>
                 <a className={styles.comboCard_title__timeStamp}>
+<<<<<<< HEAD
                   Posted in {card.date}
                 </a>
               </div>
 
+=======
+                  Updated in {card.date}
+                </a>
+              </div>
+>>>>>>> eea14fc2e28ea2f4e8069bd4ffbef8799d253f8d
               <div className={styles.content_container}>
                 {/* Render character frame */}
                 <div className={styles.combocard_charFrame__container}>
