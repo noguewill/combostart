@@ -80,16 +80,10 @@ const ComboCard = () => {
                   by {card.author} |
                 </a>
                 <a className={styles.comboCard_title__timeStamp}>
-<<<<<<< HEAD
                   Posted in {card.date}
                 </a>
               </div>
 
-=======
-                  Updated in {card.date}
-                </a>
-              </div>
->>>>>>> eea14fc2e28ea2f4e8069bd4ffbef8799d253f8d
               <div className={styles.content_container}>
                 {/* Render character frame */}
                 <div className={styles.combocard_charFrame__container}>
