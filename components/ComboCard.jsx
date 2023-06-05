@@ -111,16 +111,19 @@ const ComboCard = () => {
                         {card.driveRushBars}
                       </span>
                     </div>
-                    <div className={styles.comboCard_damage}>
-                      <span className={styles.comboCard_damage__text}>
-                        DAMAGE:
-                      </span>
-                      <span className={styles.comboCard_damageNum__text}>
-                        {card.comboDamage}
-                      </span>
-                      <span className={styles.comboCard_hitNum__text}>
-                        | {card.comboHits} hits
-                      </span>
+                    <div className={styles.comboCard_damage_bar}>
+                      <div className={styles.comboCard_damage_text_container}>
+                        <span className={styles.comboCard_damage__text}>
+                          DAMAGE:
+                        </span>
+                        <span className={styles.comboCard_damageNum__text}>
+                          {card.comboDamage}
+                        </span>
+                        <span className={styles.dmgDot}></span>
+                        <span className={styles.comboCard_hitNum__text}>
+                          {card.comboHits} hits
+                        </span>
+                      </div>
                     </div>
                     <div className={styles.comboCard_comboType}>
                       {card.comboType}
@@ -134,8 +137,8 @@ const ComboCard = () => {
                         <Image
                           src={input.imageSrc}
                           alt={input.altText}
-                          width={44}
-                          height={44}
+                          width={34}
+                          height={34}
                         />
                         <figcaption className={styles.input_text}>
                           {input.figCaption}

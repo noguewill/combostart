@@ -40,7 +40,6 @@
 .comboCard_title {
   font-size: 1.2rem;
   font-weight: 500;
-  font-style: normal;
   font-family: "Lato";
   color: #d9d9d9;
   margin-left: 0;
@@ -50,6 +49,7 @@
 .comboCard_title__timeStamp {
   font-size: 1rem;
   color: #69eec3;
+  font-family: "Lato";
 }
 
 .comboCard_title__username {
@@ -139,7 +139,7 @@
   background-blend-mode: difference;
 }
 
-.comboCard_damage {
+.comboCard_damage_bar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,20 +155,34 @@
   flex-grow: 1;
   transform: skew(-20deg);
 }
-
-.comboCard_damage__text {
-  font-size: 0.5rem;
-  letter-spacing: 0.05rem;
-  transform: skew(20deg);
+.comboCard_damage_text_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.comboCard_damage__text {
+  font-family: "Lato";
+  font-size: 0.55rem;
+  letter-spacing: 0.06rem;
+  transform: skew(20deg);
+}
+.dmgDot {
+  width: 0.2rem;
+  height: 0.2rem;
+  margin-left: 0.4rem;
+  transform: skew(20deg);
+  border-radius: 100%;
+  background-color: #f6f2f2;
+}
 .comboCard_hitNum__text,
 .comboCard_damageNum__text {
   font-family: "Lato";
   font-style: italic;
   font-weight: 900;
   font-size: 1rem;
-  transform: skew(20deg);
+  transform: skew(30deg);
+  margin-bottom: 0.1rem;
 }
 
 .comboCard_bars {
@@ -241,9 +255,11 @@
 }
 
 .input_text {
-  color: #d9d9d9;
+  color: #d6d6d6;
+  letter-spacing: 0.06rem;
+  font-size: 0.8rem;
+  font-family: "Lato";
 }
-
 /*Patch version row */
 .comboCard_patch__container {
   display: flex;
@@ -380,13 +396,6 @@
   .input_container {
     height: 6rem;
   }
-  .comboCard_input_text {
-    color: #d6d6d6;
-    letter-spacing: 0.05rem;
-    font-size: 0.8rem;
-    font-family: Helvetica;
-    font-weight: bold;
-  }
 
   .tag_container {
     width: auto;
@@ -406,8 +415,7 @@
     background-color: transparent;
     border: none;
     color: #69eec3;
-    font-style: italic;
-    font-size: 0.6rem;
-    padding-left: 1rem;
+    font-size: 0.75rem;
+    padding-left: 0.8rem;
   }
 }

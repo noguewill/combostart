@@ -30,24 +30,27 @@ const ComboGuideCard = () => {
     let cardClassName;
     let filterOverride;
     let wipNone;
+    let linkPath;
+    let alias;
 
     if (card.id === 1) {
       cardClassName = styles.featuredCard_left;
       filterOverride = { filter: "none" };
       wipNone = { display: "none" };
+      linkPath = card.src;
+      alias = card.alias;
     } else if (card.id === 2) {
+      alias = "";
+      linkPath = "/ComboHub";
       cardClassName = styles.featuredCard_mid;
     } else if (card.id === 3) {
+      alias = "";
+      linkPath = "/ComboHub";
       cardClassName = styles.featuredCard_right;
     }
 
     return (
-      <Link
-        key={card.id}
-        href={card.src}
-        as={card.alias}
-        className={cardClassName}
-      >
+      <Link key={card.id} href={linkPath} as={alias} className={cardClassName}>
         <div className={styles.cardWIP} style={{ visibility: "hidden" }}>
           WIP
         </div>

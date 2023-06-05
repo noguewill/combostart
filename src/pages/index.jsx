@@ -46,23 +46,6 @@ export default function Home() {
         <link rel="icon" href="/logoMin.ico" />
       </Head>
       <main className={styles.main}>
-        {/*         <div className={styles.mobileMessage}>
-          <h3 style={{ fontSize: "2rem" }}>Hello!</h3>
-          <p>
-            <br />
-            The mobile version of this website is still in{" "}
-            <strong>development</strong>,
-            <br />
-            please access this website on your PC.
-          </p>
-          <Image
-            src="/logo.svg"
-            alt="Combostart logo"
-            width={50}
-            height={50}
-            style={{ marginTop: "2rem" }}
-          />
-        </div> */}
         {showWelcome ? <WelcomePage /> : <ComboHub />}
       </main>
     </>

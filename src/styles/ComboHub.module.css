@@ -3,14 +3,21 @@
   object-fit: fill;
   background-blend-mode: color-burn, normal;
 } */
-.bigboi {
+.page_container {
   background: linear-gradient(145.41deg, #e1e0e0 0%, #aaa9a9 100%);
+}
+.mobileMessage {
+  display: none;
 }
 .container {
   width: 95%;
   margin: 0 auto;
 }
 .rowTitle {
+  font-family: "Kanit";
+  letter-spacing: 0.1rem;
+  font-style: italic;
+  color: #252525;
   margin-top: 3rem;
   margin-bottom: 0.6rem;
 }
@@ -51,11 +58,15 @@
   display: flex;
   justify-content: space-between;
   flex-basis: 31.5%;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 .featuredCard_right {
   display: flex;
   justify-content: space-between;
   flex-basis: 22.5%;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 .featuredCard_left:hover,
 .featuredCard_mid:hover,
@@ -109,7 +120,8 @@
 .card {
   position: relative;
   width: 100%;
-
+  pointer-events: none;
+  cursor: not-allowed;
   padding: 0;
   margin: 0;
   display: flex;
@@ -171,4 +183,22 @@
 }
 .card:hover .cardTitle {
   transform: translateY(0);
+}
+@media (max-width: 480px) {
+  .page_container {
+    display: none;
+  }
+  /* Styles for mobile devices */
+  .mobileMessage {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    background-color: #d6d6d6;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+  }
 }

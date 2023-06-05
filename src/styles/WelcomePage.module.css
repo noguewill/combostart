@@ -1,4 +1,4 @@
-.page {
+.page_container {
   overflow: hidden;
   display: flex;
   flex-direction: row;
@@ -8,6 +8,9 @@
   background: url("/bgTexture.jpg"), #e6e6e6;
   object-fit: fill;
   background-blend-mode: color-burn, normal;
+}
+.mobileMessage {
+  display: none;
 }
 
 .leftColumn {
@@ -299,5 +302,23 @@
 
   .noticeDiv {
     height: 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .page_container {
+    display: none;
+  }
+  /* Styles for mobile devices */
+  .mobileMessage {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    background-color: #d6d6d6;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
   }
 }

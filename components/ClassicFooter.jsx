@@ -7,7 +7,7 @@ const ClassicFooter = () => {
   const renderedGames = hubCardData.map((game) => {
     if (game.attr !== "Upcoming") {
       return (
-        <Link href={game.src} key={game.id}>
+        <Link href={game.src} as={game.alias} key={game.id}>
           <span className={styles.submenu_btn}>
             {game.name.charAt(0).toUpperCase() +
               game.name.slice(1).toLowerCase()}
@@ -51,14 +51,23 @@ const ClassicFooter = () => {
         <div className={styles.submenu_upcoming_container}>
           <h3 className={styles.submenu_header}>Upcoming</h3>
 
-          <Link href="/">
+          <Link
+            target="_blank"
+            href="https://www.youtube.com/watch?v=UZ6eFEjFfJ0"
+          >
             <span className={styles.submenu_btn}>Mortal Kombat 1 (2023)</span>
           </Link>
 
-          <Link href="/">
+          <Link
+            target="_blank"
+            href="https://www.youtube.com/watch?v=2hPuRQz6IlM"
+          >
             <span className={styles.submenu_btn}>Tekken 8</span>
           </Link>
-          <Link href="/">
+          <Link
+            target="_blank"
+            href="https://www.youtube.com/watch?v=Sc3GbTpkAmw"
+          >
             <span className={styles.submenu_btn}>GranBlue Fantasy Rising</span>
           </Link>
           <h3 className={styles.submenu_header}>Support</h3>
@@ -67,9 +76,6 @@ const ClassicFooter = () => {
           </Link>
           <Link href="/">
             <span className={styles.submenu_btn}>Terms and Conditions</span>
-          </Link>
-          <Link href="/">
-            <span className={styles.submenu_btn}>GranBlue Fantasy Rising</span>
           </Link>
         </div>
       </div>

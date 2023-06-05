@@ -22,9 +22,6 @@ const Navbar = ({ loggedIn, btnType, themeOverride, setGameName }) => {
     setGameName(newGameName);
   };
 
-  const hoverStyle = {
-    color: "red",
-  };
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbar_logo__container}>
@@ -53,11 +50,7 @@ const Navbar = ({ loggedIn, btnType, themeOverride, setGameName }) => {
               {/* This is a button section */}
               <div className={styles.combosPage_submenu}>
                 <h1 className={styles.combosPage_submenu_header}>FEATURED</h1>
-                <Link
-                  href="/ComboGuides"
-                  as="streetfighter6"
-                  onClick={() => handleGameName(sf6)}
-                >
+                <Link href="/ComboGuides" onClick={() => handleGameName(sf6)}>
                   <span className={styles.combosPage_submenu_btn}>
                     Street Fighter 6
                   </span>

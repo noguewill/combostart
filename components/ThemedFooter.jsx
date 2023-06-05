@@ -45,7 +45,7 @@ const ThemedFooter = () => {
           {/* Desktop nav buttons */}
           <div className={styles.copyright_text__container}>
             <p className={styles.copyright_text}>
-              All rights reserved sfcombos.com @2023
+              All rights reserved combostart @2023
             </p>
           </div>
 
