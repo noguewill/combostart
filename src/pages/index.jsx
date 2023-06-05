@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import WelcomePage from "./WelcomePage";
-import ComboGuides from "./ComboGuides";
+import ComboHub from "./ComboHub";
 import Cookies from "js-cookie";
 import { useState, useEffect } from "react";
 
@@ -63,7 +63,7 @@ export default function Home() {
             style={{ marginTop: "2rem" }}
           />
         </div> */}
-        {showWelcome ? <WelcomePage /> : <ComboGuides />}
+        {showWelcome ? <WelcomePage /> : <ComboHub />}
       </main>
     </>
   );

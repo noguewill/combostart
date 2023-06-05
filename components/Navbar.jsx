@@ -35,25 +35,29 @@ const Navbar = ({ loggedIn, btnType, themeOverride, setGameName }) => {
 
       <div className={styles.navbar_btn__container}>
         <Link
-          href="/ComboGuides"
+          href="/ComboHub"
           className={styles[`${btnType}_nav_btn`]}
           style={themeOverride}
         >
-          COMBOS HUB
+          COMBO HUB
         </Link>
         <span
-          href="/ComboPage"
+          href="/ComboGuides"
           className={styles[`classic_nav_hoverBtn`]}
           style={themeOverride}
         >
-          COMBOS PAGE {/* Combos Page Submenu */}
+          COMBO GUIDES {/* Combos Page Submenu */}
           <div className={styles.combosPage_submenu_parent}>
             <div className={styles.arrowUp}></div> {/* Arrow Icon */}
             <div className={styles.combosPage_submenu_container}>
               {/* This is a button section */}
               <div className={styles.combosPage_submenu}>
                 <h1 className={styles.combosPage_submenu_header}>FEATURED</h1>
-                <Link href="/ComboPage" onClick={() => handleGameName(sf6)}>
+                <Link
+                  href="ComboGuides"
+                  as="streetfighter6"
+                  onClick={() => handleGameName(sf6)}
+                >
                   <span className={styles.combosPage_submenu_btn}>
                     Street Fighter 6
                   </span>

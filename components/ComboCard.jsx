@@ -1,7 +1,7 @@
 import React, { useReducer, useCallback } from "react";
 import styles from "@/styles/ComboCard.module.css";
 import Image from "next/image";
-import sf6 from "./gamesData/sf6.json";
+import sf6 from "/gamesData/sf6.json";
 
 // Initialize state object
 const initialState = sf6.reduce(

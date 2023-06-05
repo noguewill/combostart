@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100vh;
+  height: 42.6rem;
   color: #1a1919;
   background: url("/bgTexture.jpg"), #e6e6e6;
   object-fit: fill;
@@ -42,7 +42,7 @@
   padding-top: 1rem;
   border-radius: 4px;
   color: #e6e6e6;
-  background-color: #333;
+  background-color: #1a1919;
 }
 
 .container {
@@ -222,15 +222,6 @@
   margin-left: 4.4rem;
   padding-bottom: 1rem;
   width: 10%;
-}
-
-.noticeHeader {
-  margin-top: 0.5rem;
-  font-size: 0.7rem;
-  font-family: "Kanit";
-  font-style: italic;
-  font-weight: 600;
-  color: #d0d0d0;
 }
 
 @media screen and (max-width: 768px) {

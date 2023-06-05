@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/ClassicFooter.module.css";
-import guideCardData from "./gamesData/guideCardData.json";
+import hubCardData from "../gamesData/hubCardData.json";
 
 const ClassicFooter = () => {
-  const renderedGames = guideCardData.map((game) => {
+  const renderedGames = hubCardData.map((game) => {
     if (game.attr !== "Upcoming") {
       return (
         <Link href={game.src} key={game.id}>

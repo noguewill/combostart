@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import guideCardData from "./gamesData/guideCardData.json";
+import hubCardData from "/gamesData/hubCardData.json";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "@/styles/ComboGuides.module.css";
+import styles from "@/styles/ComboHub.module.css";
 
 const ComboGuideCard = () => {
   const [cardLimit, setCardLimit] = useState(10);
-  const cards = guideCardData
+  const cards = hubCardData
     .filter((card) => card.attr !== "Featured" && card.attr !== "Upcoming") // Ignore cards with "Featured" or "Upcoming" attribute
     .slice(0, cardLimit * 3)
     .map((card) => (
@@ -24,9 +24,7 @@ const ComboGuideCard = () => {
       </Link>
     ));
 
-  const featuredCards = guideCardData.filter(
-    (card) => card.attr === "Featured"
-  );
+  const featuredCards = hubCardData.filter((card) => card.attr === "Featured");
 
   const featuredCardElements = featuredCards.map((card) => {
     let cardClassName;
@@ -44,7 +42,12 @@ const ComboGuideCard = () => {
     }
 
     return (
-      <Link key={card.id} href={card.src} className={cardClassName}>
+      <Link
+        key={card.id}
+        href={card.src}
+        as={card.alias}
+        className={cardClassName}
+      >
         <div className={styles.cardWIP} style={{ visibility: "hidden" }}>
           WIP
         </div>
@@ -63,9 +66,7 @@ const ComboGuideCard = () => {
     );
   });
 
-  const upcomingCards = guideCardData.filter(
-    (card) => card.attr === "Upcoming"
-  );
+  const upcomingCards = hubCardData.filter((card) => card.attr === "Upcoming");
 
   const upcomingCardElements = upcomingCards.map((card) => {
     let cardClassName;

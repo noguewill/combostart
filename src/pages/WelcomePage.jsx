@@ -2,7 +2,7 @@ import React from "react";
 import styles from "@/styles/WelcomePage.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import CookieBanner from "./CookieBanner";
+import CookieBanner from "../../components/CookieBanner";
 
 const WelcomePage = () => {
   return (
@@ -71,8 +71,8 @@ const WelcomePage = () => {
               <Image
                 src="/twitterIcon.svg"
                 alt="Icon for the social media platform Twitter"
-                width={22}
-                height={22}
+                width={20}
+                height={20}
                 className={styles.socialMediaIcon}
               />
             </a>
@@ -80,17 +80,11 @@ const WelcomePage = () => {
               <Image
                 src="/instagramIcon.svg"
                 alt="Icon for the social media platform Instagram"
-                width={22}
-                height={22}
+                width={20}
+                height={20}
                 className={styles.socialMediaIcon}
               />
             </a>
-          </div>
-
-          <div className={styles.noticeDivWrapper}>
-            <h4 className={styles.noticeHeader}>
-              FAN WEBSITE | NOT AFFILIATED WITH CAPCOM
-            </h4>
           </div>
         </div>
       </div>
