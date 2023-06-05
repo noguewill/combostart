@@ -29,7 +29,8 @@ function reducer(state, action) {
 }
 
 // Define ComboCard component
-const ComboCard = () => {
+const ComboCard = ({ filteredCombos }) => {
+  const displayedCombos = filteredCombos;
   // Use useReducer hook to manage state
   const [upvotes, dispatch] = useReducer(reducer, initialState);
 
@@ -45,7 +46,7 @@ const ComboCard = () => {
 
   return (
     <>
-      {sf6.map((card) => (
+      {displayedCombos.map((card) => (
         <article key={card.id} className={styles.combocard_container}>
           <div className={styles.combocard}>
             {/* Render upvote button */}

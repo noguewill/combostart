@@ -28,6 +28,7 @@ const ComboGuides = () => {
 
     setFilteredCombos(filteredData);
   };
+  console.log(filteredCombos);
 
   return (
     <div className={styles.container}>
@@ -44,7 +45,7 @@ const ComboGuides = () => {
 
         <Search btnType={`themed`} onSearch={handleSearch} />
 
-        <ComboCard />
+        <ComboCard filteredCombos={filteredCombos} />
 
         <ThemedFooter />
       </div>
