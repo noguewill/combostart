@@ -54,7 +54,7 @@ const Navbar = ({ loggedIn, btnType, themeOverride, setGameName }) => {
               <div className={styles.combosPage_submenu}>
                 <h1 className={styles.combosPage_submenu_header}>FEATURED</h1>
                 <Link
-                  href="ComboGuides"
+                  href="/ComboGuides"
                   as="streetfighter6"
                   onClick={() => handleGameName(sf6)}
                 >
