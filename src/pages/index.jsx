@@ -4,6 +4,9 @@ import WelcomePage from "./WelcomePage";
 import ComboHub from "./ComboHub";
 import Cookies from "js-cookie";
 import { useState, useEffect } from "react";
+import { Amplify, Auth } from "aws-amplify";
+import awsconfig from "src/aws-exports.js";
+Amplify.configure(awsconfig);
 
 export default function Home() {
   const [showWelcome, setShowWelcome] = useState(false);

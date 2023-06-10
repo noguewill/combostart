@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-combostart-dev-74048-authRole",
+      "UnauthRoleArn": "arn:aws:iam::470725907584:role/amplify-combostart-dev-74048-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::470725907584:role/amplify-combostart-dev-74048-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-combostart-dev-74048-deployment",
+      "UnauthRoleName": "amplify-combostart-dev-74048-unauthRole",
+      "StackName": "amplify-combostart-dev-74048",
+      "StackId": "arn:aws:cloudformation:us-east-1:470725907584:stack/amplify-combostart-dev-74048/9c624ad0-0456-11ee-8f31-0ef45c63bc33",
+      "AmplifyAppId": "dw2wcmwce6pkh"
+    },
+    "categories": {
+      "auth": {
+        "combostart6c83e20a": {}
+      }
+    }
+  }
+}

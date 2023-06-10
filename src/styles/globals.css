@@ -18,22 +18,7 @@ a {
   text-decoration: none;
 }
 
-.dropdown-arrow {
-  display: inline-block;
-  margin-left: 0.5rem;
-  margin-right: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 6px 4px 0 4px;
-  border-color: #69eec3 transparent transparent transparent;
-  transition: transform 0.1s ease-in-out;
-}
-
-.dropdown-arrow.up {
-  transform: rotate(180deg);
-}
 input:focus {
   transition: 0.15s ease-in-out;
-  outline: 0.2px solid #69eec3; /* change the color and style as needed */
+  outline: 0.2px solid #3b3efc;
 }

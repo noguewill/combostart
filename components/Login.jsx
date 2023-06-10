@@ -3,10 +3,11 @@ import { useState } from "react";
 import styles from "@/styles/Login.module.css";
 import Image from "next/image";
 import Form from "./Form";
-import SignupOptions from "./SignupOptions";
-const Login = ({ toggleOverlay }) => {
-  const [showSignupForm, setShowSignupForm] = useState(false);
+
+const Login = ({ toggleOverlay, handleVerificationSuccess }) => {
+  const [showSignupForm, setShowSignupForm] = useState(true);
   const [signIn, setSignIn] = useState(false);
+
   return (
     <div className={styles.login_parent}>
       <div className={styles.login_body}>
@@ -18,7 +19,7 @@ const Login = ({ toggleOverlay }) => {
         <div className={styles.signUp_header_wrapper}>
           <div className={styles.signUp_logo}>
             <Image
-              src="/logo.png"
+              src="/logo.svg"
               alt="combostart logo"
               width={60}
               height={40}
@@ -26,48 +27,26 @@ const Login = ({ toggleOverlay }) => {
           </div>
         </div>
 
-        {/* Sign Up Form */}
-        {showSignupForm ? (
-          <Form
-            toggleOverlay={toggleOverlay}
-            signIn={signIn}
-            showSignupForm={showSignupForm}
-          />
-        ) : (
-          <SignupOptions
-            showSignupForm={showSignupForm}
-            setShowSignupForm={setShowSignupForm}
-            signIn={signIn}
-          />
-        )}
+        {/* Sign Up and Sign In Form */}
+        <Form
+          signIn={signIn}
+          showSignupForm={showSignupForm}
+          toggleOverlay={toggleOverlay}
+          handleVerificationSuccess={handleVerificationSuccess}
+        />
 
+        {/* If signIn state is true shows "Go back to sign up" if it's not, it shows "Already have an account?" */}
         <span className={styles.signIn_text}>
-          {showSignupForm ? (
-            <>
-              <span
-                className={styles.backToOptions}
-                onClick={() => setShowSignupForm(!showSignupForm)}
-              >
-                Go back to the other sign up options
-              </span>
-              <br />
-              <span>Already have an account?</span>
-            </>
-          ) : (
-            <span>Already have an account?</span>
-          )}
+          <span>
+            {signIn ? "Go back to sign up" : "Already have an account?"}
+          </span>
+
           {signIn ? (
-            <a
-              className={styles.signIn_link}
-              onClick={() => setSignIn(!signIn)}
-            >
+            <a className={styles.signIn_link} onClick={() => setSignIn(false)}>
               Sign Up
             </a>
           ) : (
-            <a
-              className={styles.signIn_link}
-              onClick={() => setSignIn(!signIn)}
-            >
+            <a className={styles.signIn_link} onClick={() => setSignIn(true)}>
               Sign in
             </a>
           )}

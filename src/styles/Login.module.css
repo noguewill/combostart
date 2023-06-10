@@ -11,12 +11,13 @@
   z-index: 3;
   color: #e6e6e6;
   font-family: "Lato";
+  z-index: 99;
 }
 .login_body {
   width: 28%;
-  background-color: #1a1a1a;
-  padding: 2rem;
-  border-radius: 10px;
+  background-color: #151515;
+  border-radius: 24px;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -61,56 +62,6 @@
   align-self: center;
   margin-bottom: 1rem;
 }
-.signOption_wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-}
-
-.signOption_btn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 1rem;
-  cursor: pointer;
-  width: 100%;
-  font-size: 0.85rem;
-  color: #d6d6d6;
-  background-color: #0e0e0e;
-  font-family: "Lato";
-  font-weight: 600;
-  border: none;
-  border-radius: 4px;
-  height: 3rem;
-  transition: opacity 0.5s ease-in-out;
-  margin: 0.5rem 0 0.5rem 0;
-  border-left: 0.4rem solid transparent;
-}
-.signOption_btn:hover {
-  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
-  transform: translate(0, -0.4rem);
-  /* Shadow */
-  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
-  border-left: 0.4rem solid #ff0000;
-}
-
-.signOption_btn:not(:hover) {
-  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
-}
-
-.signOptionIcon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 4rem;
-  height: 100%;
-  background-color: #1a1a1a;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  border-color: none;
-}
 
 /* Sign In Notice */
 .signIn_text {
@@ -124,6 +75,7 @@
   letter-spacing: 0.03rem;
   margin-left: 0.3rem;
   color: #48aaf0;
+  cursor: pointer;
 }
 .signIn_link:hover {
   text-decoration: underline;

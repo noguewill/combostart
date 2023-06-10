@@ -35,7 +35,7 @@ const ComboGuides = () => {
       <div className={styles.content_container}>
         <Navbar
           btnType={`themed`}
-          loggedIn={true}
+          loggedIn={false}
           themeOverride={{
             color: "#69eec3",
             margin: "0 1rem",

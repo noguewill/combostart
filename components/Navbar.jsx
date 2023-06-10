@@ -4,10 +4,11 @@ import Image from "next/image";
 import styles from "@/styles/Navbar.module.css";
 import Login from "./Login";
 
-const Navbar = ({ loggedIn, btnType, themeOverride, setGameName }) => {
+const Navbar = ({ btnType, themeOverride, setGameName }) => {
   const [showOverlay, setShowOverlay] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const toggleOverlay = () => {
     setShowOverlay((prevShowOverlay) => !prevShowOverlay);
@@ -20,6 +21,10 @@ const Navbar = ({ loggedIn, btnType, themeOverride, setGameName }) => {
   const handleGameName = (newGameName) => {
     // Call setGameName with the desired value
     setGameName(newGameName);
+  };
+
+  const handleVerificationSuccess = () => {
+    setLoggedIn(true);
   };
 
   return (
@@ -220,12 +225,23 @@ const Navbar = ({ loggedIn, btnType, themeOverride, setGameName }) => {
           </div>
         ) : (
           <>
-            {/*<button style={themeOverride} onClick={toggleOverlay}>LOG IN | SIGN UP</button>*/}
+            <button
+              className={styles[`${btnType}_nav_btn`]}
+              style={{ marginLeft: "auto" }}
+              onClick={toggleOverlay}
+            >
+              LOG IN | SIGN UP
+            </button>
           </>
         )}
       </div>
 
-      {showOverlay && <Login toggleOverlay={toggleOverlay} />}
+      {showOverlay && (
+        <Login
+          toggleOverlay={toggleOverlay}
+          handleVerificationSuccess={handleVerificationSuccess}
+        />
+      )}
       {/* Mobile Menu button */}
       <div className={styles.mobileMenu__container}>
         <button
