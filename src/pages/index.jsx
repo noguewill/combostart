@@ -5,24 +5,19 @@ import ComboHub from "./ComboHub";
 import Cookies from "js-cookie";
 import { useState, useEffect } from "react";
 import { Amplify } from "aws-amplify";
-/* import awsconfig from "src/aws-exports.js"; */
-/* Amplify.configure(awsconfig); */
 
 export default function Home() {
   const [showWelcome, setShowWelcome] = useState(false);
-  // 1. State variable to keep track of the user's login status
   const [loggedIn, setLoggedIn] = useState(false);
 
-  // 3. Create a function to check if the user is logged in
   function checkLoggedInStatus() {
-    const token = localStorage.getItem("token"); // or document.cookie, depending on your authentication strategy
-    return token !== null && token !== undefined; // if token is present, return true; otherwise, return false
+    const token = localStorage.getItem("token");
+    return token !== null && token !== undefined;
   }
 
-  // 2. useEffect hook to check if the user is logged in when the component mounts
   useEffect(() => {
-    const isLoggedIn = checkLoggedInStatus(); // call the function to check the login status
-    setLoggedIn(isLoggedIn); // update the state variable with the result
+    const isLoggedIn = checkLoggedInStatus();
+    setLoggedIn(isLoggedIn);
 
     const visited = Cookies.get("visited");
     if (!visited) {
@@ -32,13 +27,15 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    // Set the necessary AWS Amplify configuration
+    // Set the necessary AWS Amplify configuration using environment variables
     Amplify.configure({
-      aws_project_region: process.env.AWS_PROJECT_REGION,
-      aws_cognito_identity_pool_id: process.env.AWS_COGNITO_IDENTITY_POOL_ID,
-      aws_cognito_region: process.env.AWS_COGNITO_REGION,
-      aws_user_pools_id: process.env.AWS_USER_POOLS_ID,
-      aws_user_pools_web_client_id: process.env.AWS_USER_POOLS_WEB_CLIENT_ID,
+      aws_project_region: process.env.NEXT_PUBLIC_AWS_PROJECT_REGION,
+      aws_cognito_identity_pool_id:
+        process.env.NEXT_PUBLIC_AWS_COGNITO_IDENTITY_POOL_ID,
+      aws_cognito_region: process.env.NEXT_PUBLIC_AWS_COGNITO_REGION,
+      aws_user_pools_id: process.env.NEXT_PUBLIC_AWS_USER_POOLS_ID,
+      aws_user_pools_web_client_id:
+        process.env.NEXT_PUBLIC_AWS_USER_POOLS_WEB_CLIENT_ID,
       oauth: {},
       aws_cognito_username_attributes: [],
       aws_cognito_social_providers: [],
