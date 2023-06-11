@@ -28,7 +28,7 @@ export default function Home() {
 
   useEffect(() => {
     // Set the necessary AWS Amplify configuration using environment variables
-    Amplify.configure({
+    const yeah = Amplify.configure({
       aws_project_region: process.env.NEXT_PUBLIC_AWS_PROJECT_REGION,
       aws_cognito_identity_pool_id:
         process.env.NEXT_PUBLIC_AWS_COGNITO_IDENTITY_POOL_ID,
@@ -48,8 +48,8 @@ export default function Home() {
       },
       aws_cognito_verification_mechanisms: ["EMAIL"],
     });
+    console.log(yeah);
   }, []);
-
   return (
     <>
       <Head>
