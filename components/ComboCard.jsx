@@ -1,4 +1,4 @@
-import React, { useReducer, useCallback } from "react";
+import React, { useReducer, useCallback, useState } from "react";
 import styles from "@/styles/ComboCard.module.css";
 import Image from "next/image";
 import sf6 from "/gamesData/sf6.json";
@@ -32,6 +32,11 @@ function reducer(state, action) {
 const ComboCard = ({ filteredCombos }) => {
   // Use useReducer hook to manage state
   const [upvotes, dispatch] = useReducer(reducer, initialState);
+  const [isRow2Visible, setRow2Visible] = useState(false); // New state variable
+
+  const handleExpandClick = () => {
+    setRow2Visible(!isRow2Visible); // Toggle the visibility of row2
+  };
 
   // Define function to handle upvote click
   const handleUpvoteClick = useCallback(
@@ -41,7 +46,10 @@ const ComboCard = ({ filteredCombos }) => {
     [dispatch]
   );
 
-  // Render ComboCard component
+  // Function to determine whether to show the expand button
+  const shouldShowExpandButton = (card) => {
+    return card.inputs.length > 14;
+  };
 
   return (
     <>
@@ -49,7 +57,7 @@ const ComboCard = ({ filteredCombos }) => {
         <article key={card.id} className={styles.combocard_container}>
           <div className={styles.combocard}>
             {/* Render upvote button */}
-            {/*       <div className={styles.comboCard_upvote__container}>
+            <div className={styles.comboCard_upvote__container}>
               <button
                 className={styles.upvoteArrow}
                 onClick={() => handleUpvoteClick(card.id)}
@@ -67,11 +75,11 @@ const ComboCard = ({ filteredCombos }) => {
                   />
                 </svg>
               </button>
-            
+
               <span className={styles.comboCard_upvote__text}>
                 {upvotes[card.id].count}
               </span>
-            </div> */}
+            </div>
             <div className={styles.combocard_hugger}>
               {/* Render card title */}
               <div className={styles.comboCard__title__container}>
@@ -131,8 +139,8 @@ const ComboCard = ({ filteredCombos }) => {
                   </div>
 
                   {/* Inputs row */}
-                  <div className={styles.comboCard_inputs__container}>
-                    {card.inputs.map((input) => (
+                  <div id="row1" className={styles.comboCard_inputs__container}>
+                    {card.inputs.slice(0, 14).map((input) => (
                       <figure className={styles.input_container} key={input.id}>
                         <Image
                           src={input.imageSrc}
@@ -146,7 +154,29 @@ const ComboCard = ({ filteredCombos }) => {
                       </figure>
                     ))}
                   </div>
-
+                  {isRow2Visible && (
+                    <div
+                      id="row2"
+                      className={styles.comboCard_inputs__container}
+                    >
+                      {card.inputs.slice(14, 28).map((input) => (
+                        <figure
+                          className={styles.input_container}
+                          key={input.id}
+                        >
+                          <Image
+                            src={input.imageSrc}
+                            alt={input.altText}
+                            width={34}
+                            height={34}
+                          />
+                          <figcaption className={styles.input_text}>
+                            {input.figCaption}
+                          </figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  )}
                   {/* Patch version row */}
                   <div className={styles.comboCard_patch__container}>
                     <div className={styles.patch_text__container}>
@@ -154,9 +184,19 @@ const ComboCard = ({ filteredCombos }) => {
                         PATCH: {card.patchVer}
                       </div>
                     </div>
+
+                    {shouldShowExpandButton(card) && (
+                      <button
+                        className={styles.expand_btn}
+                        onClick={handleExpandClick}
+                      >
+                        {isRow2Visible ? "Collapse" : "Expand"}
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
+
               {/* Social combocard options */}
               <div className={styles.comboCard_social__container}>
                 {/* Container for the tags */}

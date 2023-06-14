@@ -215,7 +215,7 @@
     font-size: 0.7rem;
     letter-spacing: 0.1rem;
     border: none;
-
+    background-color: transparent;
     border-top: 2px solid transparent;
     border-left: 2px solid transparent;
   }

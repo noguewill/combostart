@@ -11,6 +11,7 @@
   display: flex;
   position: relative;
   justify-content: center;
+  align-items: center;
   width: 100%;
   height: auto;
   flex-grow: 1;
@@ -76,6 +77,8 @@
   justify-content: center;
   padding: 0.2rem;
   margin-right: 0.7rem;
+  height: auto;
+  margin-top: 3rem;
 }
 
 .upvoteArrow {
@@ -281,33 +284,18 @@
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.25);
 }
 
-.expand_btn__container {
-  width: 50%;
-}
-
 .expand_btn {
   cursor: pointer;
   border: none;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: 3.2rem;
+  justify-content: center;
+  width: 5rem;
   background: #69eec3;
   padding-top: 0.2rem;
   font-size: 0.7rem;
-}
-
-.expand_arrowDown {
-  height: 0;
-  width: 0;
-  margin-top: 0.3rem;
-  border-width: 0.6em;
-  border-style: solid;
-  border-top-color: black;
-  border-right-color: transparent;
-  border-bottom-color: transparent;
-  border-left-color: transparent;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  font-family: "Kanit";
 }
 
 /* Social row */

@@ -98,6 +98,90 @@
         "imageSrc": "/inputs/arrow_right.svg",
         "altText": "Street Fighter right arrow icon input",
         "figCaption": "F"
+      },
+      {
+        "id": 15,
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "id": 25,
+        "imageSrc": "/inputs/kickM.svg",
+        "altText": "Street Fighter medium kick icon input",
+        "figCaption": "MK"
+      },
+      {
+        "id": 35,
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "id": 45,
+        "imageSrc": "/inputs/punchL.svg",
+        "altText": "Street Fighter light punch icon input",
+        "figCaption": "LP"
+      },
+      {
+        "id": 55,
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "id": 65,
+        "imageSrc": "/inputs/kickL.svg",
+        "altText": "Street Fighter light kick icon input",
+        "figCaption": "LK"
+      },
+      {
+        "id": 75,
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "id": 85,
+        "imageSrc": "/inputs/punchM.svg",
+        "altText": "Street Fighter medium punch icon input",
+        "figCaption": "MP"
+      },
+      {
+        "id": 95,
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "id": 105,
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
+      },
+      {
+        "id": 115,
+        "imageSrc": "/inputs/kickM.svg",
+        "altText": "Street Fighter medium kick icon input",
+        "figCaption": "MK"
+      },
+      {
+        "id": 125,
+        "imageSrc": "/inputs/punchL.svg",
+        "altText": "Street Fighter light punch icon input",
+        "figCaption": "LP"
+      },
+      {
+        "id": 135,
+        "imageSrc": "/inputs/arrow_down.svg",
+        "altText": "Street Fighter down arrow icon input",
+        "figCaption": "D"
+      },
+      {
+        "id": 145,
+        "imageSrc": "/inputs/arrow_right.svg",
+        "altText": "Street Fighter right arrow icon input",
+        "figCaption": "F"
       }
     ],
     "tags": [
