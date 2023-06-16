@@ -1,0 +1,112 @@
+/* Wrappers */
+.gameTitle_wrapper,
+.gameInfo_input_wrapper,
+.stringsOptions_stringType_wrapper,
+.stringsOptions_comboStrings_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Border style of inputs and buttons alike */
+.borderStyle,
+.gameInfo_input,
+.stringsOptions_comboStrings,
+.gameTitle_input,
+.stringsOptions_stringType {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 12px;
+  background: transparent;
+  border: 1px solid #3b3efc;
+  text-align: center;
+}
+
+.content_container {
+  margin-top: 2rem;
+  display: flex;
+  font-family: "Lato";
+}
+
+.authorPost_info_container {
+  margin: 0 3rem;
+}
+
+.authorPost_who_info {
+  font-family: "kanit";
+  font-style: italic;
+}
+
+.authorPost_draft_notice {
+  font-size: 0.8rem;
+}
+
+.form_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 60%;
+  height: 50rem;
+  padding: 0 2rem;
+  background-color: blanchedalmond;
+  border-radius: 8px;
+}
+
+.gameInfo_input_container {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+  margin-top: 1.2rem;
+}
+
+.gameInfo_input {
+  width: 6rem;
+  height: 2.2rem;
+  padding: 1rem;
+}
+
+.gameTitle_input {
+  width: 30rem;
+}
+
+/* Strings option section */
+.stringsOptions_container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #d6d6d6;
+  padding: 1rem;
+}
+
+.stringsOptions_comboStrings {
+  width: 36rem;
+  height: 3rem;
+  font-size: 1rem;
+  letter-spacing: 0.08rem;
+}
+
+.stringsOptions_stringType_wrapper {
+  margin-top: 0.7rem;
+}
+
+.submitPost_btn {
+  width: 80%;
+  font-family: "Kanit";
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  margin: 0.8rem 0;
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #6164f3;
+  color: #d6d6d6;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+
+.submitPost_btn:hover {
+  background-color: #3b3efc;
+}

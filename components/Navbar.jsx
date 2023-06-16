@@ -160,6 +160,7 @@ const Navbar = ({ btnType, themeOverride, setGameName }) => {
             </p>
           </div>
         </span>
+
         {/* Only show if the user is logged in */}
         {loggedIn ? (
           <div

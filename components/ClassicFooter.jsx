@@ -74,8 +74,8 @@ const ClassicFooter = () => {
           <Link href="/">
             <span className={styles.submenu_btn}>Feedback</span>
           </Link>
-          <Link href="/">
-            <span className={styles.submenu_btn}>Terms and Conditions</span>
+          <Link href="/Tos">
+            <span className={styles.submenu_btn}>Terms of Service </span>
           </Link>
         </div>
       </div>
