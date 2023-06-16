@@ -47,6 +47,7 @@ const Form = ({
       // Handle sign-up error
       console.log("Error signing up:", error);
       setErrorState(error.message);
+      console.log(error);
     }
   };
 

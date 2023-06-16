@@ -16,6 +16,7 @@ const SignUpForm = ({
       onSubmit={handleSignUpSubmit}
     >
       <h3 style={{ textAlign: "center" }}>Create a COMBOSTART account</h3>
+      <h2>{errorState}</h2>
       <div className={styles.label_wrapper}>
         <div>
           <span> Username</span>
