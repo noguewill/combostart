@@ -19,8 +19,8 @@ const Tos = () => {
             <br />
             These Terms of Service (&quot;Terms&quot;) govern your access to and
             use of the COMBOSTART website and services (collectively referred to
-            as the &quot;"Service"). Please read these Terms carefully before
-            using the Service.
+            as the &quot;Service&quot;). Please read these Terms carefully
+            before using the Service.
             <br />
             <br />
             Acceptance of Terms
@@ -104,10 +104,11 @@ const Tos = () => {
             <br />
             Disclaimer of Warranties
             <br />
-            The Service is provided on an "as is" and "as available" basis.
-            COMBOSTART does not warrant that the Service will be uninterrupted,
-            error-free, or secure. COMBOSTART disclaims all warranties of any
-            kind, whether express, implied, or statutory, regarding the Service.
+            The Service is provided on an &quot;as is&quot; and &quot;as
+            available&quot; basis. COMBOSTART does not warrant that the Service
+            will be uninterrupted, error-free, or secure. COMBOSTART disclaims
+            all warranties of any kind, whether express, implied, or statutory,
+            regarding the Service.
             <br />
             <br />
             Limitation of Liability
