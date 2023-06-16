@@ -17,10 +17,10 @@ const Tos = () => {
             <br />
             Welcome to COMBOSTART!
             <br />
-            These Terms of Service ("Terms") govern your access to and use of
-            the COMBOSTART website and services (collectively referred to as the
-            "Service"). Please read these Terms carefully before using the
-            Service.
+            These Terms of Service (&quot;Terms&quot;) govern your access to and
+            use of the COMBOSTART website and services (collectively referred to
+            as the &quot;"Service"). Please read these Terms carefully before
+            using the Service.
             <br />
             <br />
             Acceptance of Terms
