@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "@/styles/Newpost.module.css";
 import Image from "next/image";
 import Navbar from "/components/Navbar";
 import ClassicFooter from "/components/ClassicFooter";
 
 const NewPost = () => {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <div style={{ backgroundColor: "#d6d6d6" }}>
       <Navbar btnType="classic" />

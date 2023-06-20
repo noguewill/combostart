@@ -3,13 +3,14 @@ import ClassicFooter from "/components/ClassicFooter";
 import styles from "@/styles/Tos.module.css";
 
 const Tos = () => {
+  const { theme } = useContext(ThemeContext);
   return (
-    <div style={{ backgroundColor: "#d6d6d6" }}>
+    <div>
       <Navbar btnType={`classic`} />
-      <div className={styles.tos_container}>
+      <div className={styles[`${theme}tos_container`]}>
         <h1 className={styles.tos_header}>TERMS OF SERVICE</h1>
-        <div className={styles.tos_body_parent}>
-          <p className={styles.tos_body}>
+        <div className={styles[`${theme}tos_body_parent`]}>
+          <p className={styles[`${theme}tos_body`]}>
             Terms of Service for COMBOSTART
             <br />
             Effective Date: JUNE 12, 2023 (06/12/23)

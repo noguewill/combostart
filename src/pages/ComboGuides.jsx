@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "@/styles/ComboGuides.module.css";
+import { ThemeContext } from "./ThemeContext";
 import Search from "/components/Search";
 import ThemedFooter from "/components/ThemedFooter";
 import Navbar from "/components/Navbar";
@@ -7,6 +8,7 @@ import ComboCard from "/components/ComboCard";
 import sf6 from "/gamesData/sf6.json";
 
 const ComboGuides = () => {
+  const { theme } = useContext(ThemeContext);
   const [filteredCombos, setFilteredCombos] = useState(sf6);
 
   const handleSearch = (searchQuery) => {
@@ -28,27 +30,16 @@ const ComboGuides = () => {
 
     setFilteredCombos(filteredData);
   };
-  console.log(filteredCombos);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.content_container}>
-        <Navbar
-          btnType={`themed`}
-          loggedIn={false}
-          themeOverride={{
-            color: "#69eec3",
-            margin: "0 1rem",
-            padding: " 0.3rem 0.5rem",
-          }}
-        />
+    <div className={styles[`${theme}container`]}>
+      <Navbar loggedIn={false} />
 
-        <Search btnType={`themed`} onSearch={handleSearch} />
+      <Search onSearch={handleSearch} />
 
-        <ComboCard filteredCombos={filteredCombos} />
+      <ComboCard filteredCombos={filteredCombos} />
 
-        <ThemedFooter />
-      </div>
+      <ThemedFooter />
     </div>
   );
 };

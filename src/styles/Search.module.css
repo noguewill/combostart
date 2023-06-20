@@ -48,20 +48,16 @@
   border: none;
 }
 
-.themed__comboSection_header,
-.classic__comboSection_header {
+.comboSection_header {
   width: auto;
   font-size: 4rem;
   letter-spacing: 0.1rem;
-  color: #c1f3e3;
-  text-shadow: 0px 0px 6px #c1f3e3;
+  color: #5263fa;
+  text-shadow: 0px 0px 6px #5263fa;
   font-family: "Kanit";
   font-weight: 600;
 }
-.classic__comboSection_header {
-  text-shadow: none;
-  color: #c1f3e3;
-}
+
 .search__filterContainer {
   width: 80%;
   display: flex;
@@ -123,28 +119,29 @@
   border-left: 0.2rem solid red;
 }
 
-.themed__searchBar_container,
-.classic__searchBar_container {
+.searchBar_container {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.themed__searchBar_input,
-.classic__searchBar_input {
+
+.searchBar_input,
+.light_theme_searchBar_input {
   font-family: "Open Sans";
   width: 30rem;
   height: 2.1rem;
   padding: 0.4rem;
-  background: rgba(14, 14, 15, 0.7);
+  background-color: #1a1a1a;
   border: none;
+  color: #ebebeb;
   border-radius: 4px 0 0 4px;
 }
-.classic__searchBar_input {
-  background-color: #010101;
-  border: none;
-  border: 0.13rem solid transparent;
+.light_theme_searchBar_input {
+  background-color: #aeaeae;
+  color: #1f1f1f;
 }
+
 .classic__searchBar_input:focus {
   border: 0.13rem solid red;
   caret-color: red;

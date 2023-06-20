@@ -1,10 +1,13 @@
-import { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ThemeContext } from "../src/pages/ThemeContext";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/Navbar.module.css";
 import Login from "./Login";
 
-const Navbar = ({ btnType, themeOverride, setGameName }) => {
+const Navbar = ({ setGameName }) => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   const [showOverlay, setShowOverlay] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -36,17 +39,31 @@ const Navbar = ({ btnType, themeOverride, setGameName }) => {
       </div>
 
       <div className={styles.navbar_btn__container}>
-        <Link
-          href="/ComboHub"
-          className={styles[`${btnType}_nav_btn`]}
-          style={themeOverride}
-        >
+        {/* Add toggle button */}
+        <div className={styles.themeToggle_btn_container}>
+          <button
+            className={styles.themeToggle_btn}
+            onClick={toggleTheme}
+            style={{
+              background: theme === "light_theme_" ? "#292929" : "#ebebeb",
+            }}
+          ></button>
+          <span
+            className={styles.themeToggle_btn_text}
+            style={{
+              color: theme === "light_theme_" ? "#292929" : "#ebebeb",
+            }}
+          >
+            {theme === "light_theme_" ? "Dark" : "Light"}
+          </span>
+        </div>
+        <Link href="/ComboHub" className={styles[`${theme}nav_btn`]}>
           COMBO HUB
         </Link>
         <span
+          id={styles.combosPageBtn}
           href="/ComboGuides"
-          className={styles[`classic_nav_hoverBtn`]}
-          style={themeOverride}
+          className={styles[`${theme}nav_hoverBtn`]}
         >
           COMBO GUIDES {/* Combos Page Submenu */}
           <div className={styles.combosPage_submenu_parent}>
@@ -61,13 +78,13 @@ const Navbar = ({ btnType, themeOverride, setGameName }) => {
                   </span>
                 </Link>
 
-                <Link href="/">
+                <Link href="/" className={styles.submenu_link}>
                   <span className={styles.combosPage_submenu_btn_disabled}>
                     Tekken 7 (<span style={{ color: "#fcd12a" }}>WIP</span>)
                   </span>
                 </Link>
 
-                <Link href="/">
+                <Link href="/" className={styles.submenu_link}>
                   <span className={styles.combosPage_submenu_btn_disabled}>
                     Mortal Kombat 11 (
                     <span style={{ color: "#fcd12a" }}>WIP</span>)
@@ -80,20 +97,20 @@ const Navbar = ({ btnType, themeOverride, setGameName }) => {
                 style={{ marginLeft: "0.9rem", marginRight: "0.9rem" }}
               >
                 <h1 className={styles.combosPage_submenu_header}>ONGOING</h1>
-                <Link href="/">
+                <Link href="/" className={styles.submenu_link}>
                   <span className={styles.combosPage_submenu_btn_disabled}>
                     Guilty Gear Strive (
                     <span style={{ color: "#fcd12a" }}>WIP</span>)
                   </span>
                 </Link>
 
-                <Link href="/">
+                <Link href="/" className={styles.submenu_link}>
                   <span className={styles.combosPage_submenu_btn_disabled}>
                     The King of Fighters XV (
                     <span style={{ color: "#fcd12a" }}>WIP</span>)
                   </span>
                 </Link>
-                <Link href="/">
+                <Link href="/" className={styles.submenu_link}>
                   <span className={styles.combosPage_submenu_btn_disabled}>
                     Smash Bros Ultimate (
                     <span style={{ color: "#fcd12a" }}>WIP</span>)
@@ -137,8 +154,7 @@ const Navbar = ({ btnType, themeOverride, setGameName }) => {
         <span
           id={styles.aboutBtn}
           href="/About"
-          className={styles[`classic_nav_hoverBtn`]}
-          style={themeOverride}
+          className={styles[`${theme}nav_hoverBtn`]}
         >
           ABOUT {/* Combos Page Submenu */}
           <div className={styles.about_submenu_parent}>
@@ -196,11 +212,9 @@ const Navbar = ({ btnType, themeOverride, setGameName }) => {
                 </svg>
               </button>
             </div>
-            <span className={styles[`${btnType}_profileBtn_username`]}>
-              WilhelmDM
-            </span>
+            <span className={styles.profileBtn_username}>WilhelmDM</span>
             {isOpen && (
-              <div className={styles.dropdownMenu}>
+              <div className={styles[`${theme}dropdownMenu`]}>
                 <div className={styles.dropdown_container}>
                   <button className={styles.dropdown_item_btn}>PROFILE</button>
                   <button className={styles.dropdown_item_btn}>MY POSTS</button>
@@ -227,7 +241,7 @@ const Navbar = ({ btnType, themeOverride, setGameName }) => {
         ) : (
           <>
             <button
-              className={styles[`${btnType}_nav_btn`]}
+              className={styles[`${theme}nav_btn`]}
               style={{ marginLeft: "auto" }}
               onClick={toggleOverlay}
             >

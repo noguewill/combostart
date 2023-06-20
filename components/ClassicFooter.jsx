@@ -1,9 +1,12 @@
+import React, { useContext } from "react";
+import { ThemeContext } from "../src/pages/ThemeContext";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/ClassicFooter.module.css";
 import hubCardData from "../gamesData/hubCardData.json";
 
 const ClassicFooter = () => {
+  const { theme } = useContext(ThemeContext);
   const renderedGames = hubCardData.map((game) => {
     if (game.attr !== "Upcoming") {
       return (
@@ -19,7 +22,7 @@ const ClassicFooter = () => {
   });
 
   return (
-    <footer className={styles.footer_container}>
+    <footer className={styles[`${theme}footer_container`]}>
       <div className={styles.submenu_parent}>
         <div>
           <h4

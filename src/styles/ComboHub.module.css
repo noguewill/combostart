@@ -4,8 +4,13 @@
   background-blend-mode: color-burn, normal;
 } */
 .page_container {
-  background: linear-gradient(145.41deg, #e1e0e0 0%, #aaa9a9 100%);
+  /*   background: linear-gradient(145.41deg, #e1e0e0 0%, #aaa9a9 100%); */
+  background-color: #292929;
 }
+.light_theme_page_container {
+  background-color: #dcdcdc;
+}
+
 .mobileMessage {
   display: none;
 }
@@ -13,13 +18,17 @@
   width: 95%;
   margin: 0 auto;
 }
-.rowTitle {
+.rowTitle,
+.light_theme_rowTitle {
   font-family: "Kanit";
   letter-spacing: 0.1rem;
   font-style: italic;
-  color: #252525;
+  color: #dcdcdc;
   margin-top: 3rem;
   margin-bottom: 0.6rem;
+}
+.light_theme_rowTitle {
+  color: #1f1f1f;
 }
 
 .featuredRow,
@@ -139,11 +148,10 @@
   margin: 0;
 }
 .cardWIP {
-  background-color: #252525;
+  background-color: #1f1f1f;
   width: 2.5rem;
   height: 1.5rem;
   position: relative;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,6 +163,7 @@
   border-radius: 2px;
   z-index: 98;
 }
+
 .cardImage {
   filter: grayscale(100%);
   display: block;
@@ -165,7 +174,7 @@
 }
 .cardTitle {
   visibility: hidden;
-  background-color: #0f0f0fd5;
+  background-color: #1f1f1f;
   width: auto;
   border-radius: 10px;
   height: 2.5rem;
@@ -194,7 +203,7 @@
     width: 100vw;
     height: 100vh;
     text-align: center;
-    background-color: #d6d6d6;
+    background-color: #dcdcdc;
     z-index: 99;
     display: flex;
     flex-direction: column;

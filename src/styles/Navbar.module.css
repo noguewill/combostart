@@ -8,11 +8,6 @@
 .navbar_logo__container {
   display: flex;
   align-items: center;
-  z-index: 4;
-}
-
-.navbar_logo {
-  position: relative;
 }
 
 .combosPage_submenu_parent,
@@ -22,20 +17,19 @@
   visibility: hidden;
 }
 
-.classic_nav_hoverBtn:hover .combosPage_submenu_parent {
-  visibility: visible;
-  opacity: 1;
-  transition-delay: 0s;
-}
-
-.classic_nav_hoverBtn:not(:hover) .combosPage_submenu_parent {
+#combosPageBtn:not(:hover) .combosPage_submenu_parent {
   transition-delay: 50ms;
 }
 
-#aboutBtn:hover .about_submenu_parent {
+#aboutBtn:hover .about_submenu_parent,
+#combosPageBtn:hover .combosPage_submenu_parent {
   visibility: visible;
   opacity: 1;
   transition-delay: 0s;
+}
+#aboutBtn,
+#combosPageBtn {
+  cursor: default;
 }
 
 .combosPage_submenu_container,
@@ -46,10 +40,11 @@
   background-color: #f8f8f8;
   width: 30rem;
   top: 4.2rem;
-  left: 14.5rem;
+  left: 15.5rem;
   padding: 1.2rem 1rem;
   border-radius: 0.3rem;
   color: #1a1a1a;
+  z-index: 99;
 }
 .combosPage_submenu_container {
   width: 35rem;
@@ -64,12 +59,13 @@
   font-weight: 600;
   letter-spacing: 0;
   padding: 1rem 0;
+  left: 13.5rem;
 }
 
 .arrowUp {
   position: absolute;
   top: 3.7rem;
-  left: 16.5rem;
+  left: 18.5rem;
   width: 0;
   height: 0;
   border-left: 0.5rem solid transparent;
@@ -89,7 +85,7 @@
   font-size: 0.9rem;
   font-family: "Kanit";
   font-style: italic;
-  color: #000;
+  color: #1f1f1f;
 }
 
 .combosPage_submenu_btn {
@@ -160,22 +156,60 @@
     align-items: center;
     width: 100%;
   }
-
-  .themed_nav_btn,
-  .classic_nav_btn {
+  .themeToggle_btn_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .themeToggle_btn {
     cursor: pointer;
-    font-family: "Lato";
-    font-size: 0.8rem;
-    margin-right: 2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 100%;
+    border: none;
+  }
+  .themeToggle_btn_text {
+    font-size: 0.6rem;
+  }
+  .nav_btn,
+  .nav_hoverBtn,
+  .light_theme_nav_btn,
+  .light_theme_nav_hoverBtn {
+    cursor: pointer;
+    font-family: "kanit";
+    font-size: 0.65rem;
+    letter-spacing: 0.07rem;
+    margin-right: 0.5rem;
     padding: 0.3rem 0.5rem;
-    color: #f1f0f0;
-    background-color: rgba(0, 0, 0, 0.6);
-    border: 0.5px solid #505050;
+    color: #ebebeb;
+    border: none;
+    background: transparent;
+    border-radius: 4px;
+    transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+  }
+  .nav_hoverBtn {
+    cursor: default;
+  }
+  .light_theme_nav_btn,
+  .light_theme_nav_hoverBtn {
+    color: #1f1f1f;
+  }
+  .nav_btn:not(:hover) {
+    transition: all 0.1s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+  }
+  .nav_btn:hover {
+    background-color: #ebebeb;
+    color: #1f1f1f;
+    transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+  }
+  .light_theme_nav_btn:hover {
+    background-color: #1f1f1f;
+    color: #ebebeb;
     transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
   }
 
-  .classic_nav_btn,
-  .classic_nav_hoverBtn,
   .combosPage_submenu_btn,
   .combosPage_submenu_btn_disabled {
     color: #1a1a1a;
@@ -189,40 +223,10 @@
     border: none;
     border-radius: 0.25rem;
     background-color: transparent;
-
     z-index: 2;
   }
-
-  /* Hover buttons */
-  .classic_nav_btn:hover {
-    background-color: #1a1919;
-    color: #e6e6e6;
-    transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
-  }
-
   .combosPage_submenu_btn:hover {
-    color: #f84242;
-  }
-
-  .classic_nav_btn:not(:hover) {
-    transition: all 0.1s cubic-bezier(0.2, 0.5, 0.8, 0.9);
-  }
-
-  .themed_nav_btn {
-    font-family: "Kanit";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 0.7rem;
-    letter-spacing: 0.1rem;
-    border: none;
-    background-color: transparent;
-    border-top: 2px solid transparent;
-    border-left: 2px solid transparent;
-  }
-
-  .themed_nav_btn:hover {
-    border-top: 2px solid #69eec3;
-    border-left: 2px solid #69eec3;
+    color: #5263fa;
   }
 
   .profileBtn_container {
@@ -232,47 +236,13 @@
     justify-content: center;
   }
 
-  .themed_profileBtn {
-    cursor: pointer;
-    width: 4rem;
-    height: 3.5rem;
-    margin-bottom: 0.4rem;
-  }
-
-  .themed_profileBtn_username,
-  .themed_profileBtn_logOut,
-  .classic_profileBtn_username,
-  .classic_profileBtn_logOut {
+  .profileBtn_username {
     font-family: "Kanit";
     font-style: italic;
     font-weight: 600;
     line-height: 12px;
     font-size: 0.75rem;
-    color: #69eec3;
-  }
-
-  .classic_profileBtn_username,
-  .classic_profileBtn_logOut {
-    color: black;
-  }
-
-  .themed_profileBtn_logOut,
-  .classic_profileBtn_logOut {
-    font-weight: 400;
-    font-size: 0.7rem;
-    background: transparent;
-    border: none;
-    text-align: left;
-    cursor: pointer;
-  }
-
-  .classic_profileBtn_logOut:hover {
-    color: #f84242;
-    text-decoration: 1px underline #f84242;
-  }
-
-  .themed_profileBtn_logOut:hover {
-    text-decoration: 1px underline #69eec3;
+    color: #5263fa;
   }
 }
 
@@ -314,8 +284,11 @@
   width: auto;
   top: 2%;
   right: 1.3%;
-  background-color: #d6d6d6;
+  background-color: #dcdcdc;
   border-radius: 4px;
+}
+.light_theme_dropdownMenu {
+  background-color: #292929;
 }
 
 .dropdown_container,
@@ -339,18 +312,19 @@
   letter-spacing: 0.03rem;
   cursor: pointer;
   padding: 0.2rem;
-  margin-bottom: 0.2rem;
   background-color: transparent;
   border: none;
   transition: all 0.1s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
-
+.submenu_link {
+  margin-bottom: 0.1rem;
+}
 .submenu_item_btn {
   font-size: 0.7rem;
 }
 
 .dropdown_logout_btn {
-  color: #f84242;
+  color: #fb4b4e;
   font-size: 0.85rem;
   align-self: center;
   text-align: center;
@@ -358,8 +332,8 @@
 }
 
 .dropdown_logout_btn:hover {
-  background-color: #f84242;
-  color: #d6d6d6;
+  background-color: #f32a2a;
+  color: white;
 }
 
 .dropdown_item_btn:hover,
@@ -388,8 +362,5 @@
 }
 .combosPage_submenu_btn_disabled {
   color: #949393;
-  cursor: default;
-}
-.classic_nav_hoverBtn {
   cursor: default;
 }

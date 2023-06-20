@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { ThemeContext } from "../src/pages/ThemeContext";
 import hubCardData from "/gamesData/hubCardData.json";
 import Link from "next/link";
 import Image from "next/image";
@@ -6,6 +7,8 @@ import styles from "@/styles/ComboHub.module.css";
 
 const ComboGuideCard = () => {
   const [cardLimit, setCardLimit] = useState(10);
+  const { theme } = useContext(ThemeContext);
+
   const cards = hubCardData
     .filter((card) => card.attr !== "Featured" && card.attr !== "Upcoming") // Ignore cards with "Featured" or "Upcoming" attribute
     .slice(0, cardLimit * 3)
@@ -106,14 +109,14 @@ const ComboGuideCard = () => {
 
   return (
     <>
-      <h2 className={styles.rowTitle}>FEATURED</h2>
+      <h2 className={styles[`${theme}rowTitle`]}>FEATURED</h2>
       <div className={styles.featuredRow}>{featuredCardElements}</div>
 
-      <h2 className={styles.rowTitle}>UPCOMING</h2>
+      <h2 className={styles[`${theme}rowTitle`]}>UPCOMING</h2>
       <div className={styles.upcomingRow}>{upcomingCardElements}</div>
 
       {/* Ongoing row */}
-      <h2 className={styles.rowTitle} style={{ marginTop: "2rem" }}>
+      <h2 className={styles[`${theme}rowTitle`]} style={{ marginTop: "2rem" }}>
         ONGOING
       </h2>
       <div className={styles.ongoingRow}>{cards.slice(0, cardLimit * 3)}</div>

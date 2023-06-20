@@ -49,8 +49,11 @@
   width: 60%;
   height: 50rem;
   padding: 0 2rem;
-  background-color: blanchedalmond;
+  background-color: #1f1f1f;
   border-radius: 8px;
+}
+.light_theme_form_container {
+  background-color: #aeaeae;
 }
 
 .gameInfo_input_container {
@@ -77,8 +80,11 @@
   align-items: center;
   width: 100%;
   border-radius: 8px;
-  background-color: #d6d6d6;
+  background-color: #292929;
   padding: 1rem;
+}
+.light_theme_stringsOptions_container {
+  background-color: #dcdcdc;
 }
 
 .stringsOptions_comboStrings {
@@ -102,7 +108,7 @@
   border-radius: 5px;
   border: none;
   background-color: #6164f3;
-  color: #d6d6d6;
+  color: white;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }

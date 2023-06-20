@@ -5,24 +5,37 @@
   align-items: center;
   width: 100%;
   height: 100vh;
+  background-color: #292929;
 }
+.light_theme_tos_container {
+  background-color: #aeaeae;
+}
+
 .tos_header {
   font-size: 2rem;
-  color: #535353;
+  color: #5263fa;
   font-family: "Kanit";
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
+
 .tos_body_parent {
   display: flex;
   justify-content: center;
   overflow-x: hidden;
-  background-color: #535353;
+  background-color: #1f1f1f;
   margin-bottom: 5rem;
+}
+.light_theme_tos_body_parent {
+  background-color: #dcdcdc;
 }
 
 .tos_body {
   font-family: "Lato";
   max-width: 60rem;
   padding: 1rem;
+  color: #dcdcdc;
+}
+.light_theme_tos_body {
+  color: #1f1f1f;
 }

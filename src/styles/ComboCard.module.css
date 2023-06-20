@@ -38,18 +38,22 @@
   width: auto;
 }
 
-.comboCard_title {
+.comboCard_title,
+.light_theme_comboCard_title {
   font-size: 1.2rem;
   font-weight: 500;
   font-family: "Lato";
-  color: #d9d9d9;
+  color: #dcdcdc;
   margin-left: 0;
+}
+.light_theme_comboCard_title {
+  color: #1f1f1f;
 }
 
 .comboCard_title__username,
 .comboCard_title__timeStamp {
   font-size: 1rem;
-  color: #69eec3;
+  color: #5263fa;
   font-family: "Lato";
 }
 
@@ -62,11 +66,15 @@
 }
 
 /* Combocard content section */
-.content_container {
+.content_container,
+.light_theme_content_container {
   display: flex;
   width: 100%;
-  background-color: #171717;
-  border: 1px solid #ee5e96;
+  background-color: transparent;
+  border: 1px solid #5263fa;
+}
+.light_theme_content_container {
+  background-color: #aeaeae;
 }
 
 /* Combocard upvote section */
@@ -74,30 +82,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 0.2rem;
   margin-right: 0.7rem;
-  height: auto;
   margin-top: 3rem;
 }
 
 .upvoteArrow {
   position: relative;
-  margin-left: 0.3rem;
   cursor: pointer;
-  background-color: transparent;
+  background: #1f1f1f;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 100%;
   border: none;
+  text-align: center;
 }
 
-.comboCard_upvote__text {
-  font-size: 0.82rem;
-  font-style: italic;
-  font-weight: 700;
-  font-family: "Lato";
-  color: #d9d9d9;
-  line-height: 19px;
+.comboCard_upvote__text,
+.light_theme_comboCard_upvote__text {
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "Kanit";
+  color: #dcdcdc;
   width: auto;
-  padding: 0.2rem;
+}
+.light_theme_comboCard_upvote__text {
+  font-size: 1rem;
+  color: #1f1f1f;
 }
 
 /* Combocard body section */
@@ -132,7 +142,7 @@
   font-weight: 700;
   font-family: "Kanit";
   line-height: 42px;
-  color: #d9d9d9;
+  color: #dcdcdc;
   background: linear-gradient(
     112.16deg,
     #e64e8d 15.06%,
@@ -154,10 +164,11 @@
     #d5204e 64.61%,
     #ea2557 100%
   );
-  color: #f6f2f2;
+  color: white;
   flex-grow: 1;
   transform: skew(-20deg);
 }
+
 .comboCard_damage_text_container {
   display: flex;
   align-items: center;
@@ -176,7 +187,7 @@
   margin-left: 0.4rem;
   transform: skew(20deg);
   border-radius: 100%;
-  background-color: #f6f2f2;
+  background-color: white;
 }
 .comboCard_hitNum__text,
 .comboCard_damageNum__text {
@@ -229,14 +240,18 @@
   margin-left: 0.2rem;
 }
 
-.comboCard_comboType {
+.comboCard_comboType,
+.light_theme_comboCard_comboType {
   font-family: "Kanit";
   font-style: italic;
   font-weight: 600;
   line-height: 21px;
-  color: #f6f2f2;
+  color: white;
   font-size: 0.8rem;
   flex-basis: 10%;
+}
+.light_theme_comboCard_comboType {
+  color: #1f1f1f;
 }
 
 /* Input row */
@@ -257,12 +272,17 @@
   height: 4rem;
 }
 
-.input_text {
-  color: #d6d6d6;
+.input_text,
+.light_theme_input_text {
+  color: #ebebeb;
   letter-spacing: 0.06rem;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-family: "Lato";
 }
+.light_theme_input_text {
+  color: #1f1f1f;
+}
+
 /*Patch version row */
 .comboCard_patch__container {
   display: flex;
@@ -356,14 +376,18 @@
     width: 100%;
     height: 100%;
   }
-  .comboCard_charName {
+  .comboCard_charName,
+  .light_theme_comboCard_charName {
     display: block;
     font-family: "Kanit";
     font-style: italic;
     font-weight: 600;
     line-height: 21px;
-    color: #f6f2f2;
+    color: white;
     font-size: 0.8rem;
+  }
+  .light_theme_comboCard_charName {
+    color: #1f1f1f;
   }
 
   /* Info elements */
@@ -395,14 +419,14 @@
   }
   .tag_text {
     font-family: "Kanit";
-    color: #69eec3;
+    color: #5263fa;
     font-style: italic;
     font-size: 0.9rem;
   }
   .tag_btn {
     background-color: transparent;
     border: none;
-    color: #69eec3;
+    color: #5263fa;
     font-size: 0.75rem;
     padding-left: 0.8rem;
   }

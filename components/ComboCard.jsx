@@ -1,4 +1,5 @@
-import React, { useReducer, useCallback, useState } from "react";
+import React, { useReducer, useCallback, useState, useContext } from "react";
+import { ThemeContext } from "../src/pages/ThemeContext";
 import styles from "@/styles/ComboCard.module.css";
 import Image from "next/image";
 import sf6 from "/gamesData/sf6.json";
@@ -20,7 +21,7 @@ function reducer(state, action) {
         ...state,
         [action.id]: {
           count: state[action.id].count === 0 ? 1 : 0,
-          fill: state[action.id].count === 0 ? "#69EEC3" : "#D6D6D6",
+          fill: state[action.id].count === 0 ? "#5263fa" : "#D6D6D6",
         },
       };
     default:
@@ -30,6 +31,7 @@ function reducer(state, action) {
 
 // Define ComboCard component
 const ComboCard = ({ filteredCombos }) => {
+  const { theme } = useContext(ThemeContext);
   // Use useReducer hook to manage state
   const [upvotes, dispatch] = useReducer(reducer, initialState);
   const [isRow2Visible, setRow2Visible] = useState(false); // New state variable
@@ -63,8 +65,8 @@ const ComboCard = ({ filteredCombos }) => {
                 onClick={() => handleUpvoteClick(card.id)}
               >
                 <svg
-                  width="15"
-                  height="13"
+                  width="12"
+                  height="10"
                   viewBox="0 0 15 13"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -76,26 +78,28 @@ const ComboCard = ({ filteredCombos }) => {
                 </svg>
               </button>
 
-              <span className={styles.comboCard_upvote__text}>
+              <span className={styles[`${theme}comboCard_upvote__text`]}>
                 {upvotes[card.id].count}
               </span>
             </div>
             <div className={styles.combocard_hugger}>
               {/* Render card title */}
               <div className={styles.comboCard__title__container}>
-                <h4 className={styles.comboCard_title}>{card.cardTitle}</h4>
+                <h4 className={styles[`${theme}comboCard_title`]}>
+                  {card.cardTitle}
+                </h4>
                 <a className={styles.comboCard_title__username}>
-                  by {card.author} |
+                  {card.author} |
                 </a>
                 <a className={styles.comboCard_title__timeStamp}>
                   Posted in {card.date}
                 </a>
               </div>
 
-              <div className={styles.content_container}>
+              <div className={styles[`${theme}content_container`]}>
                 {/* Render character frame */}
                 <div className={styles.combocard_charFrame__container}>
-                  <div className={styles.comboCard_charName}>
+                  <div className={styles[`${theme}comboCard_charName`]}>
                     {card.charName}
                   </div>
                   <div className={styles.combocard_video}>
@@ -108,9 +112,6 @@ const ComboCard = ({ filteredCombos }) => {
                 {/* Combo Information row */}
                 <div className={styles.combocard_body__container}>
                   <div className={styles.comboCard_info__container}>
-                    <div className={styles.comboCard_charName__mobile}>
-                      {card.charName}
-                    </div>
                     <div className={styles.comboCard_super}>
                       <span style={{ zIndex: 1 }}>S</span>
                     </div>
@@ -133,7 +134,7 @@ const ComboCard = ({ filteredCombos }) => {
                         </span>
                       </div>
                     </div>
-                    <div className={styles.comboCard_comboType}>
+                    <div className={styles[`${theme}comboCard_comboType`]}>
                       {card.comboType}
                     </div>
                   </div>
@@ -148,7 +149,7 @@ const ComboCard = ({ filteredCombos }) => {
                           width={34}
                           height={34}
                         />
-                        <figcaption className={styles.input_text}>
+                        <figcaption className={styles[`${theme}input_text`]}>
                           {input.figCaption}
                         </figcaption>
                       </figure>
@@ -170,7 +171,7 @@ const ComboCard = ({ filteredCombos }) => {
                             width={34}
                             height={34}
                           />
-                          <figcaption className={styles.input_text}>
+                          <figcaption className={styles[`${theme}input_text`]}>
                             {input.figCaption}
                           </figcaption>
                         </figure>

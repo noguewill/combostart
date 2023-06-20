@@ -3,14 +3,12 @@
   padding: 0;
   margin: 0;
 }
-/* body {
-  background: rgba(23, 23, 23, 0.92);
-} */
+
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background: rgba(23, 23, 23, 0.9);
+  font-family: "Lato", "sans-serif";
 }
 
 a {
@@ -22,3 +20,35 @@ input:focus {
   transition: 0.15s ease-in-out;
   outline: 0.2px solid #3b3efc;
 }
+
+/* Light theme */
+/* BG #DCDCDC */
+/* Foreground:  #AEAEAE */
+/* Accent #5263FA */
+
+/* Dark theme */
+/* BG #292929 */
+/* Foreground:  #1F1F1F */
+/* Accent #5263FA */
+
+/* Failed/Error state: #FB4B4E */
+/* Success State: #5AFF15 */
+
+/* Needs the theme */
+/* comboHub */
+/* ComboGuideCard */
+/* ClassicFooter */
+/* ComboGuides */
+/* NewPost */
+/* ComboCard */
+/* Navbar */
+/* Tos */
+
+/* DONE CSS */
+/* NewPost */
+/* ComboHub */
+/* ComboGuideCard */
+/* ClassicFooter */
+/* ComboCard */
+/* Navbar */
+/* Tos */

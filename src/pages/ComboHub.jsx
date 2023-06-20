@@ -1,9 +1,13 @@
+import React, { useContext } from "react";
+import { ThemeContext } from "./ThemeContext";
 import styles from "@/styles/ComboHub.module.css";
 import Navbar from "/components/Navbar";
 import ComboGuideCard from "/components/ComboGuideCard";
 import ClassicFooter from "/components/ClassicFooter";
 
 const ComboHub = () => {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <>
       <div className={styles.mobileMessage}>
@@ -21,7 +25,7 @@ const ComboHub = () => {
         />
       </div>
       {/* BUMP */}
-      <div className={styles.page_container}>
+      <div className={styles[`${theme}page_container`]}>
         <Navbar btnType={`classic`} />
         {/*  <Search btnType={`classic`} onData={handleDataFromChild} /> */}
         <div className={styles.container}>
