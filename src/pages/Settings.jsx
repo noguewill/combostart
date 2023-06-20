@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { ThemeContext } from "../../components/ThemeContext";
 import styles from "@/styles/Settings.module.css";
 import Navbar from "/components/Navbar";
 import ClassicFooter from "/components/ClassicFooter";

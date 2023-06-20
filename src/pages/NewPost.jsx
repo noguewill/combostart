@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
+import { ThemeContext } from "../../components/ThemeContext";
 import styles from "@/styles/Newpost.module.css";
-import Image from "next/image";
 import Navbar from "/components/Navbar";
 import ClassicFooter from "/components/ClassicFooter";
 
