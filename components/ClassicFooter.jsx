@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "../src/pages/ThemeContext";
+import { ThemeContext } from "./ThemeContext";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/ClassicFooter.module.css";

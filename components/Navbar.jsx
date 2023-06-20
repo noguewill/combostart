@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { ThemeContext } from "../src/pages/ThemeContext";
+import { ThemeContext } from "./ThemeContext";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/Navbar.module.css";

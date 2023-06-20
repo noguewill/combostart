@@ -1,5 +1,5 @@
 import React, { useReducer, useCallback, useState, useContext } from "react";
-import { ThemeContext } from "../src/pages/ThemeContext";
+import { ThemeContext } from "./ThemeContext";
 import styles from "@/styles/ComboCard.module.css";
 import Image from "next/image";
 import sf6 from "/gamesData/sf6.json";

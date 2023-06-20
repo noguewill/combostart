@@ -1,5 +1,5 @@
 import React, { useState, useRef, useContext } from "react";
-import { ThemeContext } from "../src/pages/ThemeContext";
+import { ThemeContext } from "./ThemeContext";
 import styles from "@/styles/Search.module.css";
 import { useRouter } from "next/router";
 import Image from "next/image";

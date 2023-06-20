@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import styles from "@/styles/ComboGuides.module.css";
-import { ThemeContext } from "./ThemeContext";
+import { ThemeContext } from "../../components/ThemeContext";
 import Search from "/components/Search";
 import ThemedFooter from "/components/ThemedFooter";
 import Navbar from "/components/Navbar";

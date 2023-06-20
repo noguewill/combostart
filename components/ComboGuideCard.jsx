@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { ThemeContext } from "../src/pages/ThemeContext";
+import { ThemeContext } from "./ThemeContext";
 import hubCardData from "/gamesData/hubCardData.json";
 import Link from "next/link";
 import Image from "next/image";

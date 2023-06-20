@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "./ThemeContext";
+import { ThemeContext } from "../../components/ThemeContext";
 import styles from "@/styles/ComboHub.module.css";
 import Navbar from "/components/Navbar";
 import ComboGuideCard from "/components/ComboGuideCard";
