@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/Navbar.module.css";
 import Login from "./Login";
+import ThemeToggleBtn from "./ThemeToggleBtn";
 
 const Navbar = ({ setGameName }) => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -40,23 +41,7 @@ const Navbar = ({ setGameName }) => {
 
       <div className={styles.navbar_btn__container}>
         {/* Add toggle button */}
-        <div className={styles.themeToggle_btn_container}>
-          <button
-            className={styles.themeToggle_btn}
-            onClick={toggleTheme}
-            style={{
-              background: theme === "light_theme_" ? "#292929" : "#ebebeb",
-            }}
-          ></button>
-          <span
-            className={styles.themeToggle_btn_text}
-            style={{
-              color: theme === "light_theme_" ? "#292929" : "#ebebeb",
-            }}
-          >
-            {theme === "light_theme_" ? "Dark" : "Light"}
-          </span>
-        </div>
+
         <Link href="/ComboHub" className={styles[`${theme}nav_btn`]}>
           COMBO HUB
         </Link>
@@ -239,15 +224,15 @@ const Navbar = ({ setGameName }) => {
             )}
           </div>
         ) : (
-          <>
+          <div className={styles.authNavContainer}>
+            <ThemeToggleBtn theme={theme} toggleTheme={toggleTheme} />
             <button
               className={styles[`${theme}nav_btn`]}
-              style={{ marginLeft: "auto" }}
               onClick={toggleOverlay}
             >
               LOG IN | SIGN UP
             </button>
-          </>
+          </div>
         )}
       </div>
 
@@ -256,86 +241,6 @@ const Navbar = ({ setGameName }) => {
           toggleOverlay={toggleOverlay}
           handleVerificationSuccess={handleVerificationSuccess}
         />
-      )}
-      {/* Mobile Menu button */}
-      <div className={styles.mobileMenu__container}>
-        <button
-          className={styles.menuContainer__menuBtn}
-          onClick={() => setShowMenu(!showMenu)}
-        >
-          {showMenu ? (
-            <svg
-              width="28"
-              height="19"
-              viewBox="0 0 14 13"
-              fill="none"
-              xmlns="http:www.w3.org/2000/svg"
-            >
-              <rect
-                x="2.22266"
-                width="15.6282"
-                height="1.87538"
-                transform="rotate(45 2.22266 0)"
-                fill="#FE5959"
-              />
-              <rect
-                x="0.94873"
-                y="11.3663"
-                width="15.6282"
-                height="1.87538"
-                transform="rotate(-45 0.94873 11.3663)"
-                fill="#FE5959"
-              />
-            </svg>
-          ) : (
-            <svg
-              width="28"
-              height="19"
-              viewBox="0 0 28 19"
-              fill="none"
-              xmlns="http:www.w3.org/2000/svg"
-            >
-              <rect width="27.9412" height="3.35294" fill="#FE5959" />
-              <rect
-                y="7.82352"
-                width="27.9412"
-                height="3.35294"
-                fill="#FE5959"
-              />
-              <rect
-                y="15.6471"
-                width="27.9412"
-                height="3.35294"
-                fill="#FE5959"
-              />
-            </svg>
-          )}
-          <h6 className={styles.menuBtn__text}>
-            {showMenu ? "CLOSE" : "MENU"}
-          </h6>
-        </button>
-      </div>
-
-      {showMenu && (
-        <div className={styles.mobileMenu__navParent}>
-          <div className={styles.mobileMenu__navContainer}>
-            <button className={styles.mobileMenu__navContainer__btn}>
-              LOG IN
-            </button>
-            <button className={styles.mobileMenu__navContainer__btn}>
-              COMBOS
-            </button>
-            <button className={styles.mobileMenu__navContainer__btn}>
-              CHARACTERS
-            </button>
-            <button className={styles.mobileMenu__navContainer__btn}>
-              COMMUNITY
-            </button>
-            <button className={styles.mobileMenu__navContainer__btn}>
-              ABOUT
-            </button>
-          </div>
-        </div>
       )}
     </nav>
   );

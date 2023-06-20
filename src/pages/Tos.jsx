@@ -7,9 +7,9 @@ import styles from "@/styles/Tos.module.css";
 const Tos = () => {
   const { theme } = useContext(ThemeContext);
   return (
-    <div>
+    <div className={styles[`${theme}tos_parent`]}>
       <Navbar btnType={`classic`} />
-      <div className={styles[`${theme}tos_container`]}>
+      <div className={styles.tos_container}>
         <h1 className={styles.tos_header}>TERMS OF SERVICE</h1>
         <div className={styles[`${theme}tos_body_parent`]}>
           <p className={styles[`${theme}tos_body`]}>

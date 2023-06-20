@@ -1,11 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { ThemeContext } from "./ThemeContext";
 import hubCardData from "/gamesData/hubCardData.json";
+import sf6Data from "/gamesData/sf6.json";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/ComboHub.module.css";
 
 const ComboGuideCard = () => {
+  const [isHovered, setIsHovered] = useState(false);
+  let hoverTimeoutRef = useRef(null);
   const [cardLimit, setCardLimit] = useState(10);
   const { theme } = useContext(ThemeContext);
 
@@ -52,22 +55,63 @@ const ComboGuideCard = () => {
       cardClassName = styles.featuredCard_right;
     }
 
+    const handleMouseEnter = () => {
+      hoverTimeoutRef.current = setTimeout(() => {
+        setIsHovered(true);
+      }, 1000);
+    };
+
+    const handleMouseLeave = () => {
+      clearTimeout(hoverTimeoutRef.current);
+      setIsHovered(false);
+    };
+
+    const getVideoSource = () => {
+      const sf6Card = sf6Data.find((item) => item.id === card.id);
+      if (sf6Card) {
+        return sf6Card.videoSrc;
+      }
+      return "";
+    };
     return (
-      <Link key={card.id} href={linkPath} as={alias} className={cardClassName}>
-        <div className={styles.cardWIP} style={{ visibility: "hidden" }}>
-          WIP
-        </div>
-        <span className={styles.cardTitle}>{card.name}</span>
-        <Image
-          style={filterOverride}
-          className={styles.cardImage}
-          src={card.bgImg}
-          alt={card.name}
-          fill
-        />
-        <div className={styles.cardWIP} style={wipNone}>
-          WIP
-        </div>
+      <Link
+        key={card.id}
+        href={linkPath}
+        as={alias}
+        className={cardClassName}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        {isHovered && card.id === 1 ? (
+          <>
+            <span className={styles.cardTitle}>{card.name}</span>
+            <video
+              src={getVideoSource()}
+              alt={card.name}
+              className={styles[`${isHovered}cardVideo`]}
+              autoPlay
+              muted
+              loop
+            />
+          </>
+        ) : (
+          <>
+            <div className={styles.cardWIP} style={{ visibility: "hidden" }}>
+              WIP
+            </div>
+            <span className={styles.cardTitle}>{card.name}</span>
+            <Image
+              style={filterOverride}
+              className={styles.cardImage}
+              src={card.bgImg}
+              alt={card.name}
+              fill
+            />
+            <div className={styles.cardWIP} style={wipNone}>
+              WIP
+            </div>
+          </>
+        )}
       </Link>
     );
   });

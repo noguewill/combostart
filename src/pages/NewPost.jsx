@@ -8,8 +8,8 @@ const NewPost = () => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div style={{ backgroundColor: "#d6d6d6" }}>
-      <Navbar btnType="classic" />
+    <div className={styles[`${theme}post_parent`]}>
+      <Navbar />
       <main className={styles.content_container}>
         <div className={styles.authorPost_info_container}>
           <h2>
@@ -18,7 +18,7 @@ const NewPost = () => {
           </h2>
           <h3 className={styles.authorPost_draft_notice}>Draft saved</h3>
         </div>
-        <form className={styles.form_container}>
+        <form className={styles[`${theme}form_container`]}>
           <div className={styles.gameInfo_input_container}>
             {/* Input to select the game */}
             <div className={styles.gameInfo_input_wrapper}>
@@ -58,7 +58,7 @@ const NewPost = () => {
             />
           </div>
 
-          <div className={styles.stringsOptions_container}>
+          <div className={styles[`${theme}stringsOptions_container`]}>
             {/* Input for selecting the type the way the strings are displayed for the viewer of the post */}
             <div className={styles.stringsOptions_stringType_wrapper}>
               <span>String input type</span>
@@ -120,7 +120,7 @@ const NewPost = () => {
           </div>
 
           {/* Combo tags section */}
-          <div className={styles.stringsOptions_container}>
+          <div className={styles[`${theme}stringsOptions_container`]}>
             {/* Input for selecting the type the way the strings are displayed for the viewer of the post */}
             <div className={styles.stringsOptions_stringType_wrapper}>
               <span>Tags</span>

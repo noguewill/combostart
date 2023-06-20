@@ -1,14 +1,13 @@
-/* .bigboi {
-  background: url("/bgTexture.jpg"), #e6e6e6;
-  object-fit: fill;
-  background-blend-mode: color-burn, normal;
-} */
 .page_container {
-  /*   background: linear-gradient(145.41deg, #e1e0e0 0%, #aaa9a9 100%); */
   background-color: #292929;
 }
 .light_theme_page_container {
   background-color: #dcdcdc;
+}
+
+.page_container,
+.light_theme_page_container {
+  transition: background-color 0.6s cubic-bezier(0.7, 0, 0.3, 1);
 }
 
 .mobileMessage {
@@ -147,6 +146,7 @@
   padding: 0;
   margin: 0;
 }
+
 .cardWIP {
   background-color: #1f1f1f;
   width: 2.5rem;
@@ -164,7 +164,8 @@
   z-index: 98;
 }
 
-.cardImage {
+.cardImage,
+.cardVideo {
   filter: grayscale(100%);
   display: block;
   width: 100%;
@@ -172,11 +173,22 @@
   transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
   object-fit: cover;
 }
+.cardVideo {
+  filter: none;
+  /*   opacity: 0;
+  transition: opacity 15s; */
+}
+.truecardVideo {
+  /*   opacity: 1;
+  filter: grayscale(100%); */
+}
+
 .cardTitle {
   visibility: hidden;
   background-color: #1f1f1f;
   width: auto;
   border-radius: 10px;
+  position: absolute;
   height: 2.5rem;
   padding: 0.5rem;
   margin-top: 0.5rem;

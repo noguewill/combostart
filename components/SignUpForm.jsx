@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import styles from "@/styles/Form.module.css";
 import Image from "next/image";
 
@@ -8,6 +9,26 @@ const SignUpForm = ({
   handleSignUpSubmit,
   errorState,
 }) => {
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+
+  const handleEmailChange = (event) => {
+    const email = event.target.value;
+    setEmail(email);
+    setEmailError(validateEmail(email));
+  };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.com$/;
+    if (!email) {
+      return "Email is required";
+    }
+    if (!emailRegex.test(email)) {
+      return "Invalid email format or domain";
+    }
+    return "";
+  };
+
   return (
     <form
       className={`${styles.signUp_form} ${
@@ -47,9 +68,16 @@ const SignUpForm = ({
             id="email"
             name="email"
             required
-            className={styles.email_input}
+            className={`${styles.email_input} ${
+              emailError ? styles.error : ""
+            }`}
+            onChange={handleEmailChange}
+            value={email}
           />
         </label>
+        {emailError && (
+          <span className={styles.error_message}>{emailError}</span>
+        )}
       </div>
 
       <div className={styles.label_wrapper}>
