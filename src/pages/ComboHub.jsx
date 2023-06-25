@@ -3,7 +3,7 @@ import { ThemeContext } from "../../components/ThemeContext";
 import styles from "@/styles/ComboHub.module.css";
 import Navbar from "/components/Navbar";
 import ComboGuideCard from "/components/ComboGuideCard";
-import ClassicFooter from "/components/ClassicFooter";
+import Footer from "/components/Footer";
 
 const ComboHub = () => {
   const { theme } = useContext(ThemeContext);
@@ -31,7 +31,7 @@ const ComboHub = () => {
         <div className={styles.container}>
           <ComboGuideCard />
         </div>
-        <ClassicFooter />
+        <Footer />
       </div>
     </>
   );

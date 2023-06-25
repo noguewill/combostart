@@ -3,7 +3,7 @@ import { ThemeContext } from "./ThemeContext";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/Navbar.module.css";
-import Login from "./Login";
+import AuthenticationBody from "./Authentication/AuthenticationBody";
 import ThemeToggleBtn from "./ThemeToggleBtn";
 
 const Navbar = ({ setGameName }) => {
@@ -28,6 +28,10 @@ const Navbar = ({ setGameName }) => {
   };
 
   const handleVerificationSuccess = () => {
+    setLoggedIn(true);
+  };
+
+  const handleAuthenticationSuccess = () => {
     setLoggedIn(true);
   };
 
@@ -237,9 +241,9 @@ const Navbar = ({ setGameName }) => {
       </div>
 
       {showOverlay && (
-        <Login
+        <AuthenticationBody
           toggleOverlay={toggleOverlay}
-          handleVerificationSuccess={handleVerificationSuccess}
+          onAuthenticationSuccess={handleAuthenticationSuccess}
         />
       )}
     </nav>

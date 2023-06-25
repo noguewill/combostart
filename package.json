@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@aws-amplify/ui-react": "^4.6.4",
+    "@aws-sdk/client-dynamodb": "^3.358.0",
     "@react-spring/web": "^9.7.2",
     "aws-amplify": "^5.2.5",
     "dotenv": "^16.2.0",
@@ -19,6 +20,7 @@
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.45.0",
     "react-youtube": "^10.1.0"
   }
 }

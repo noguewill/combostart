@@ -9,7 +9,7 @@ const Form = ({
   showSignupForm,
   signIn,
   toggleOverlay,
-  onVerificationSuccess,
+  onAuthenticationSuccess,
 }) => {
   const router = useRouter();
 
@@ -47,7 +47,7 @@ const Form = ({
       // Handle sign-up error
       console.log("Error signing up:", error);
       setErrorState(error.message);
-      console.log(error);
+      console.log(e);
     }
   };
 
@@ -85,6 +85,7 @@ const Form = ({
     <>
       {signIn ? (
         <SignInForm
+          onAuthenticationSuccess={onAuthenticationSuccess}
           showPassword={showPassword}
           setShowPassword={setShowPassword}
           showSignupForm={showSignupForm}

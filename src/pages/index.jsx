@@ -28,7 +28,7 @@ export default function Home() {
 
   useEffect(() => {
     // Set the necessary AWS Amplify configuration using environment variables
-    const awsmobile = Amplify.configure({
+    Amplify.configure({
       aws_access_key_id: process.env.AWS_ACCESS_KEY_ID,
       aws_secret_access_Key: process.env.AWS_SECRET_ACCESS_KEY,
       aws_project_region: process.env.AWS_PROJECT_REGION,

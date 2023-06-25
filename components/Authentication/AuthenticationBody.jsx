@@ -4,7 +4,7 @@ import styles from "@/styles/Login.module.css";
 import Image from "next/image";
 import Form from "./Form";
 
-const Login = ({ toggleOverlay, handleVerificationSuccess }) => {
+const AuthenticationBody = ({ toggleOverlay, onAuthenticationSuccess }) => {
   const [showSignupForm, setShowSignupForm] = useState(true);
   const [signIn, setSignIn] = useState(false);
 
@@ -32,7 +32,7 @@ const Login = ({ toggleOverlay, handleVerificationSuccess }) => {
           signIn={signIn}
           showSignupForm={showSignupForm}
           toggleOverlay={toggleOverlay}
-          handleVerificationSuccess={handleVerificationSuccess}
+          onAuthenticationSuccess={onAuthenticationSuccess}
         />
 
         {/* If signIn state is true shows "Go back to sign up" if it's not, it shows "Already have an account?" */}
@@ -56,4 +56,4 @@ const Login = ({ toggleOverlay, handleVerificationSuccess }) => {
   );
 };
 
-export default Login;
+export default AuthenticationBody;

@@ -9,26 +9,6 @@ const SignUpForm = ({
   handleSignUpSubmit,
   errorState,
 }) => {
-  const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState("");
-
-  const handleEmailChange = (event) => {
-    const email = event.target.value;
-    setEmail(email);
-    setEmailError(validateEmail(email));
-  };
-
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.com$/;
-    if (!email) {
-      return "Email is required";
-    }
-    if (!emailRegex.test(email)) {
-      return "Invalid email format or domain";
-    }
-    return "";
-  };
-
   return (
     <form
       className={`${styles.signUp_form} ${
@@ -45,17 +25,23 @@ const SignUpForm = ({
         <label htmlFor="username">
           <input
             className={styles.username_input}
+            autoComplete="off"
             type="text"
             id="username"
             name="username"
+            placeholder="Maximum 10 characters"
             required
           />
         </label>
-        {errorState === "Username is already in use" ? (
-          <span className={styles.usernameExistNotice}>
-            This username is already in use.
-          </span>
-        ) : null}
+        <span className={styles.errorMessage}>
+          {errorState === "User already exists"
+            ? "Username already in use"
+            : ""}
+          {errorState ===
+          "1 validation error detected: Value at 'username' failed to satisfy constraint: Member must satisfy regular expression pattern: [p{L}p{M}p{S}p{N}p{P}]+"
+            ? "Invalid username, try again."
+            : ""}
+        </span>
       </div>
 
       <div className={styles.label_wrapper}>
@@ -68,16 +54,9 @@ const SignUpForm = ({
             id="email"
             name="email"
             required
-            className={`${styles.email_input} ${
-              emailError ? styles.error : ""
-            }`}
-            onChange={handleEmailChange}
-            value={email}
+            className={styles.email_input}
           />
         </label>
-        {emailError && (
-          <span className={styles.error_message}>{emailError}</span>
-        )}
       </div>
 
       <div className={styles.label_wrapper}>
@@ -91,8 +70,15 @@ const SignUpForm = ({
               type={showPassword ? "text" : "password"}
               name="password"
               required
+              placeholder="Minimum 8 characters"
               className={styles.password_input}
             />
+            <span className={styles.errorMessage}>
+              {errorState ===
+              "Password did not conform with policy: Password not long enough"
+                ? "Password not long enough."
+                : ""}
+            </span>
           </label>
           <button
             className={styles.passwordEye_btn}
@@ -121,12 +107,13 @@ const SignUpForm = ({
           className={styles.tos_checkbox}
           type="checkbox"
           id="terms-checkbox"
+          required
         />
         <span className={styles.tos_text}>
           I Agree with COMBOSTART&apos;s
           <a
             className={styles.tos_link}
-            href="https://www.combostart.vercel.app/terms-of-service"
+            href="https://www.combostart.vercel.app/Tos"
           >
             Terms of Service
           </a>

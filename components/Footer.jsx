@@ -5,7 +5,7 @@ import Link from "next/link";
 import styles from "@/styles/ClassicFooter.module.css";
 import hubCardData from "../gamesData/hubCardData.json";
 
-const ClassicFooter = () => {
+const Footer = () => {
   const { theme } = useContext(ThemeContext);
   const renderedGames = hubCardData.map((game) => {
     if (game.attr !== "Upcoming") {
@@ -97,4 +97,4 @@ const ClassicFooter = () => {
     </footer>
   );
 };
-export default ClassicFooter;
+export default Footer;

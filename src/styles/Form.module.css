@@ -73,7 +73,10 @@
 .password_hoverBtn {
   cursor: default;
 }
-
+.errorMessage {
+  font-size: 0.7rem;
+  color: #f73737;
+}
 .dialog,
 .username_dialog {
   z-index: 2;
