@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { ThemeContext } from "../../components/ThemeContext";
 import styles from "@/styles/Settings.module.css";
 import Navbar from "/components/Navbar";
-import ClassicFooter from "/components/ClassicFooter";
+import Footer from "/components/Footer";
 
 const Settings = () => {
   const { theme } = useContext(ThemeContext);
@@ -47,7 +47,7 @@ const Settings = () => {
         </div>
         <button className={styles.signOut_btn}>Sign Out</button>
       </div>
-      <ClassicFooter />
+      <Footer />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../../components/ThemeContext";
 import Navbar from "/components/Navbar";
-import ClassicFooter from "/components/ClassicFooter";
+import Footer from "/components/Footer";
 import styles from "@/styles/Tos.module.css";
 
 const Tos = () => {
@@ -263,7 +263,7 @@ const Tos = () => {
         </div>
       </div>
 
-      <ClassicFooter />
+      <Footer />
     </div>
   );
 };

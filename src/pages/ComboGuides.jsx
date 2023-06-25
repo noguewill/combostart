@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import styles from "@/styles/ComboGuides.module.css";
 import { ThemeContext } from "../../components/ThemeContext";
 import Search from "/components/Search";
-import ThemedFooter from "/components/ThemedFooter";
+import Footer from "/components/Footer";
 import Navbar from "/components/Navbar";
 import ComboCard from "/components/ComboCard";
 import sf6 from "/gamesData/sf6.json";
@@ -39,7 +39,7 @@ const ComboGuides = () => {
 
       <ComboCard filteredCombos={filteredCombos} />
 
-      <ThemedFooter />
+      <Footer />
     </div>
   );
 };

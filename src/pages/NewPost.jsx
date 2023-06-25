@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { ThemeContext } from "../../components/ThemeContext";
 import styles from "@/styles/Newpost.module.css";
 import Navbar from "/components/Navbar";
-import ClassicFooter from "/components/ClassicFooter";
+import Footer from "/components/Footer";
 
 const NewPost = () => {
   const { theme } = useContext(ThemeContext);
@@ -135,7 +135,7 @@ const NewPost = () => {
           <button className={styles.submitPost_btn}>SUBMIT POST</button>
         </form>
       </main>
-      <ClassicFooter />
+      <Footer />
     </div>
   );
 };
