@@ -1,3 +1,16 @@
+.notificationMessage_container {
+  width: auto;
+  margin: 1.5rem;
+  background-color: #232323;
+  padding: 0.8rem;
+  border-radius: 8px;
+}
+.notificationMessage {
+  color: #dcdcdc;
+  font-family: "Lato";
+  letter-spacing: 0.03rem;
+}
+
 .login_parent {
   position: fixed;
   top: 0;
@@ -6,7 +19,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   z-index: 3;
   color: #e6e6e6;

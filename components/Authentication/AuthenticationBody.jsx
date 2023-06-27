@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "@/styles/Login.module.css";
 import Image from "next/image";
 import Form from "./Form";
@@ -7,9 +7,48 @@ import Form from "./Form";
 const AuthenticationBody = ({ toggleOverlay, onAuthenticationSuccess }) => {
   const [showSignupForm, setShowSignupForm] = useState(true);
   const [signIn, setSignIn] = useState(false);
+  const [status, setStatus] = useState("");
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    setMessage(handleStatusMessaging());
+    console.log(status);
+  }, [status]);
+  console.log(message);
+  const handleStatusMessaging = () => {
+    if (status === "verify") {
+      return (
+        <>
+          You've <span style={{ color: "#93f367" }}>successfully</span> signed
+          up! Redirecting...
+        </>
+      );
+    } else if (status === "success") {
+      return (
+        <>
+          Successful sign-up! Check your e-mail to
+          <span style={{ color: "#eee345" }}> verify </span>
+          your account and complete your account creation.
+        </>
+      );
+    } else {
+      return (
+        <>
+          An <span style={{ color: "#f54848" }}> error</span> has occurred.
+          Please try again later. Error #3309
+        </>
+      );
+    }
+  };
 
   return (
     <div className={styles.login_parent}>
+      <div
+        className={styles.notificationMessage_container}
+        style={{ visibility: "hidden" }}
+      >
+        <h4 className={styles.notificationMessage}>{message}</h4>
+      </div>
       <div className={styles.login_body}>
         {/* Button when clicked closes the modal */}
         <button className={styles.close_btn} onClick={toggleOverlay}>
@@ -33,6 +72,7 @@ const AuthenticationBody = ({ toggleOverlay, onAuthenticationSuccess }) => {
           showSignupForm={showSignupForm}
           toggleOverlay={toggleOverlay}
           onAuthenticationSuccess={onAuthenticationSuccess}
+          setStatus={setStatus}
         />
 
         {/* If signIn state is true shows "Go back to sign up" if it's not, it shows "Already have an account?" */}

@@ -10,6 +10,7 @@ const Form = ({
   signIn,
   toggleOverlay,
   onAuthenticationSuccess,
+  setStatus,
 }) => {
   const router = useRouter();
 
@@ -42,12 +43,13 @@ const Form = ({
       console.log("Sign up successful");
       setUsername(username); // Set the username state
       // Proceed with sending the confirmation code to the user's email
+      setStatus("verify");
       setShowVerifyModal(true);
     } catch (error) {
       // Handle sign-up error
+      setStatus("failure", error);
       console.log("Error signing up:", error);
       setErrorState(error.message);
-      console.log(e);
     }
   };
 
@@ -66,9 +68,10 @@ const Form = ({
       await Auth.confirmSignUp(username, verificationCode);
       console.log("Success");
       setVerificationComplete(true);
-      onVerificationSuccess();
+      setStatus("success");
       router.push("/ComboHub"); // Redirect to "/"
     } catch (error) {
+      setStatus("failure", error);
       console.log("Error confirming sign-up:", error);
     }
   };

@@ -74,6 +74,7 @@
   cursor: default;
 }
 .errorMessage {
+  text-align: center;
   font-size: 0.7rem;
   color: #f73737;
 }

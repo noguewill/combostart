@@ -10,7 +10,7 @@ const VerificationModal = () => {
     e.preventDefault();
     try {
       await Auth.confirmSignUp(username, verificationCode); // Provide the username in the confirmSignUp call
-      console.log("Success");
+      console.log("Success ye");
     } catch (error) {
       console.log("Error confirming sign-up:", error);
     }

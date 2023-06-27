@@ -1,18 +1,40 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { ThemeContext } from "./ThemeContext";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/Navbar.module.css";
 import AuthenticationBody from "./Authentication/AuthenticationBody";
 import ThemeToggleBtn from "./ThemeToggleBtn";
+import { awsmobile } from "components/Authentication/amplifyHandler";
+import { Auth } from "aws-amplify";
+import { useRouter } from "next/router";
 
 const Navbar = ({ setGameName }) => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const router = useRouter();
 
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const [showOverlay, setShowOverlay] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    awsmobile;
+    const checkAuth = async () => {
+      try {
+        const user = await Auth.currentAuthenticatedUser();
+        // Session is active, the user is authenticated
+        setCurrentUser(user);
+        console.log(user);
+      } catch (error) {
+        // No active session, redirect to the sign-in page
+        console.log(error);
+      }
+    };
+
+    checkAuth();
+  }, []);
 
   const toggleOverlay = () => {
     setShowOverlay((prevShowOverlay) => !prevShowOverlay);
@@ -27,12 +49,21 @@ const Navbar = ({ setGameName }) => {
     setGameName(newGameName);
   };
 
-  const handleVerificationSuccess = () => {
+  const handleAuthenticationSuccess = () => {
     setLoggedIn(true);
   };
 
-  const handleAuthenticationSuccess = () => {
-    setLoggedIn(true);
+  const handleSignOut = async () => {
+    try {
+      await Auth.signOut();
+      // User has been successfully signed out
+      router.push("/ComboHub"); // Redirect to "/"
+      window.location.reload(); // Refresh the page
+      // Perform any additional actions or navigate to a different page if needed
+    } catch (error) {
+      // An error occurred during the sign-out process
+      console.log("Error signing out:", error);
+    }
   };
 
   return (
@@ -167,20 +198,13 @@ const Navbar = ({ setGameName }) => {
         </span>
 
         {/* Only show if the user is logged in */}
-        {loggedIn ? (
-          <div
-            className={styles.profileBtn_container}
-            style={{ display: "none" }} /* TEMPORARY TEMPORARY TEMPORARY */
-          >
-            <div className={styles.navbar_profileBtn}>
-              <Image
-                src="/ryuAvatar.png"
-                alt="Upvote arrow"
-                width={56}
-                height={55}
-                style={{ border: "2px solid #69eec3" }}
-                priority
-              />
+        <div className={styles.authNavContainer}>
+          <ThemeToggleBtn theme={theme} toggleTheme={toggleTheme} />
+          {currentUser !== null ? (
+            <div className={styles.profileBtn_container}>
+              <span className={styles.profileBtn_username}>
+                {currentUser.username}
+              </span>
               <button
                 className={styles.arrow_btn}
                 onClick={() => handleDropdownClick()}
@@ -200,44 +224,44 @@ const Navbar = ({ setGameName }) => {
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </button>
+
+              {isOpen && (
+                <div className={styles[`${theme}dropdownMenu`]}>
+                  <div
+                    className={styles.submenu_container}
+                    style={{ alignItems: "flex-start", fontSize: "0.2rem" }}
+                  >
+                    <Link href="/Settings">
+                      <button className={styles.submenu_item_btn}>
+                        SETTINGS
+                      </button>
+                    </Link>
+                    <Link href="/Tos">
+                      <button className={styles.submenu_item_btn}>
+                        TERMS OF SERVICE
+                      </button>
+                    </Link>
+                    <button
+                      className={styles.dropdown_logout_btn}
+                      onClick={handleSignOut}
+                    >
+                      LOG OUT
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
-            <span className={styles.profileBtn_username}>WilhelmDM</span>
-            {isOpen && (
-              <div className={styles[`${theme}dropdownMenu`]}>
-                <div className={styles.dropdown_container}>
-                  <button className={styles.dropdown_item_btn}>PROFILE</button>
-                  <button className={styles.dropdown_item_btn}>MY POSTS</button>
-                  <button className={styles.dropdown_item_btn}>
-                    SAVED POSTS
-                  </button>
-                </div>
-                <hr style={{ width: "100%" }} />
-                <div
-                  className={styles.submenu_container}
-                  style={{ alignItems: "flex-start", fontSize: "0.2rem" }}
-                >
-                  <button className={styles.submenu_item_btn}>SETTINGS</button>
-                  <button className={styles.submenu_item_btn}>
-                    TERMS AND CONDITIONS
-                  </button>
-                  <button className={styles.dropdown_logout_btn}>
-                    LOG OUT
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-        ) : (
-          <div className={styles.authNavContainer}>
-            <ThemeToggleBtn theme={theme} toggleTheme={toggleTheme} />
-            <button
-              className={styles[`${theme}nav_btn`]}
-              onClick={toggleOverlay}
-            >
-              LOG IN | SIGN UP
-            </button>
-          </div>
-        )}
+          ) : (
+            <>
+              <button
+                className={styles[`${theme}nav_btn`]}
+                onClick={toggleOverlay}
+              >
+                LOG IN | SIGN UP
+              </button>
+            </>
+          )}
+        </div>
       </div>
 
       {showOverlay && (
