@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "@/styles/Login.module.css";
 import Image from "next/image";
 import Form from "./Form";
@@ -10,32 +10,36 @@ const AuthenticationBody = ({ toggleOverlay, onAuthenticationSuccess }) => {
   const [status, setStatus] = useState("");
   const [message, setMessage] = useState("");
 
-  useEffect(() => {
-    setMessage(handleStatusMessaging());
-    console.log(status);
-  }, [status]);
-  console.log(message);
   const handleStatusMessaging = () => {
     if (status === "verify") {
       return (
         <>
-          You've <span style={{ color: "#93f367" }}>successfully</span> signed
-          up! Redirecting...
+          <span>
+            {" "}
+            Youve <span style={{ color: "#93f367" }}>successfully</span> signed
+            up! Redirecting...
+          </span>
         </>
       );
     } else if (status === "success") {
       return (
         <>
-          Successful sign-up! Check your e-mail to
-          <span style={{ color: "#eee345" }}> verify </span>
-          your account and complete your account creation.
+          <span>
+            {" "}
+            Successful sign-up! Check your e-mail to
+            <span style={{ color: "#eee345" }}> verify </span>
+            your account and complete your account creation.
+          </span>
         </>
       );
     } else {
       return (
         <>
-          An <span style={{ color: "#f54848" }}> error</span> has occurred.
-          Please try again later. Error #3309
+          <span>
+            {" "}
+            An <span style={{ color: "#f54848" }}> error</span> has occurred.
+            Please try again later. Error #3309
+          </span>
         </>
       );
     }

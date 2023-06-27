@@ -7,7 +7,6 @@ import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { Auth } from "aws-amplify";
 import { useRouter } from "next/router";
 import jwt from "jsonwebtoken";
-import { getErrorMessage } from "./authUtils/errorHandling";
 
 const storeToken = async (token, expirationTime) => {
   const client = new DynamoDBClient({

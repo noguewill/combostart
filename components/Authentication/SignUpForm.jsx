@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "@/styles/Form.module.css";
 import Image from "next/image";
 
@@ -20,7 +20,7 @@ const SignUpForm = ({
       <h2>{errorState}</h2>
       <div className={styles.label_wrapper}>
         <div>
-          <span> Username</span>
+          <span>Username</span>
         </div>
         <label htmlFor="username">
           <input
