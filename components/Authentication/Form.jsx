@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useRouter } from "next/router";
 import styles from "@/styles/Form.module.css";
 import SignUpForm from "./SignUpForm";
 import SignInForm from "./SignInForm";
@@ -8,12 +7,10 @@ import { Auth } from "aws-amplify";
 const Form = ({
   showSignupForm,
   signIn,
-  toggleOverlay,
+  setSignIn,
   onAuthenticationSuccess,
-  setStatus,
+  setNotificationText,
 }) => {
-  const router = useRouter();
-
   const [showPassword, setShowPassword] = useState(false);
   const [showVerifyModal, setShowVerifyModal] = useState(false);
   const [verificationCode, setVerificationCode] = useState("");
@@ -43,11 +40,13 @@ const Form = ({
       console.log("Sign up successful");
       setUsername(username); // Set the username state
       // Proceed with sending the confirmation code to the user's email
-      setStatus("verify");
+      setNotificationText(
+        "Confirm the verification of your account by entering the code that you received on your e-mail."
+      );
       setShowVerifyModal(true);
     } catch (error) {
       // Handle sign-up error
-      setStatus("failure", error);
+      setNotificationText("Error:", error.message);
       console.log("Error signing up:", error);
       setErrorState(error.message);
     }
@@ -56,8 +55,9 @@ const Form = ({
   async function resendConfirmationCode() {
     try {
       await Auth.resendSignUp(username);
-      console.log("code resent successfully");
+      setNotificationText(<span>Code sent! Check your e-mail</span>);
     } catch (err) {
+      setNotificationText("Error resending code:", err.message);
       console.log("error resending code: ", err);
     }
   }
@@ -68,10 +68,15 @@ const Form = ({
       await Auth.confirmSignUp(username, verificationCode);
       console.log("Success");
       setVerificationComplete(true);
-      setStatus("success");
-      router.push("/ComboHub"); // Redirect to "/"
+      setNotificationText(
+        <span>
+          Account<span style={{ color: "#93f367" }}> confirmed</span>! Enter
+          your credentials to continue to Combostart.
+        </span>
+      );
+      setSignIn(true);
     } catch (error) {
-      setStatus("failure", error);
+      setNotificationText("Error:", error.message);
       console.log("Error confirming sign-up:", error);
     }
   };
@@ -92,6 +97,7 @@ const Form = ({
           showPassword={showPassword}
           setShowPassword={setShowPassword}
           showSignupForm={showSignupForm}
+          setNotificationText={setNotificationText}
         />
       ) : !showVerifyModal ? (
         <SignUpForm

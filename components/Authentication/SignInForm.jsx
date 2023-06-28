@@ -1,95 +1,28 @@
 import React, { useState } from "react";
 import styles from "@/styles/Form.module.css";
 import Image from "next/image";
-/* import { signIn } from "./authUtils/authHandler"; */
-/* import { storeToken } from "./authUtils/tokenUtils"; */
-import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
-import { Auth } from "aws-amplify";
-import { useRouter } from "next/router";
-import jwt from "jsonwebtoken";
-
-const storeToken = async (token, expirationTime) => {
-  const client = new DynamoDBClient({
-    region: "us-east-1",
-    credentials: {
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    },
-  });
-
-  const params = {
-    TableName: "TokenId",
-    Item: {
-      userToken: { S: token },
-      expirationTime: { N: expirationTime.toString() },
-    },
-  };
-
-  try {
-    await client.send(new PutItemCommand(params));
-    console.log("Token stored successfully");
-  } catch (error) {
-    console.error("Error storing token:", error);
-    throw error;
-  }
-};
+import {
+  handleSignInSubmit,
+  handleSigninSuccess,
+} from "./authUtils/authHandler";
 
 const SignInForm = ({
   showSignupForm,
   showPassword,
   setShowPassword,
   onAuthenticationSuccess,
+  setNotificationText,
 }) => {
   const [errorMessage, setErrorMessage] = useState("");
-  const router = useRouter();
-
-  const signIn = async (username, password) => {
-    try {
-      const user = await Auth.signIn(username, password);
-      console.log("Sign-in successful");
-      return user;
-    } catch (error) {
-      console.error("Sign-in error:", error.message);
-      const message = error.message;
-      setErrorMessage(message);
-      throw error;
-    }
-  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const username = e.target.username.value;
-    const password = e.target.password.value;
-
-    try {
-      const user = await signIn(username, password);
-      const session = await Auth.currentSession();
-      const idToken = session.getIdToken().getJwtToken();
-
-      // Verify the JWT token
-      const decodedToken = jwt.decode(idToken);
-      if (decodedToken && decodedToken.exp) {
-        // Get the token expiration timestamp
-        const expirationTime = decodedToken.exp * 1000; // Convert to milliseconds
-
-        // Store the session token in DynamoDB
-        await storeToken(idToken, expirationTime);
-
-        // Redirect to the desired page
-        router.push("/");
-      } else {
-        console.error("Invalid token");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleSigninSuccess = () => {
-    // Call the onAuthenticationSuccess callback from props
-    if (typeof onAuthenticationSuccess === "function") {
-      onAuthenticationSuccess();
-    }
+    handleSignInSubmit(e, onAuthenticationSuccess);
+    setNotificationText(
+      <span>
+        Sign-in<span style={{ color: "#93f367" }}> successful </span>
+        Redirecting...
+      </span>
+    );
   };
 
   return (

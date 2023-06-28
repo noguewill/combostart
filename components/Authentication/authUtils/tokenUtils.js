@@ -1,6 +1,6 @@
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 
-export const storeToken = async (token) => {
+export const storeToken = async (token, expirationTime) => {
   const client = new DynamoDBClient({
     region: "us-east-1",
     credentials: {
@@ -13,6 +13,7 @@ export const storeToken = async (token) => {
     TableName: "TokenId",
     Item: {
       userToken: { S: token },
+      expirationTime: { N: expirationTime.toString() },
     },
   };
 
