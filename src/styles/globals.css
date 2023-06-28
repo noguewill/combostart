@@ -21,34 +21,16 @@ input:focus {
   outline: 0.2px solid #3b3efc;
 }
 
-/* Light theme */
-/* BG #DCDCDC */
-/* Foreground:  #AEAEAE */
-/* Accent #5263FA */
+/* Target the placeholder of an input element */
+input::placeholder {
+  /* Add your styles here */
+  color: gray;
+  font-style: italic;
+}
 
-/* Dark theme */
-/* BG #292929 */
-/* Foreground:  #1F1F1F */
-/* Accent #5263FA */
-
-/* Failed/Error state: #FB4B4E */
-/* Success State: #5AFF15 */
-
-/* Needs the theme */
-/* comboHub */
-/* ComboGuideCard */
-/* ClassicFooter */
-/* ComboGuides */
-/* NewPost */
-/* ComboCard */
-/* Navbar */
-/* Tos */
-
-/* DONE CSS */
-/* NewPost */
-/* ComboHub */
-/* ComboGuideCard */
-/* ClassicFooter */
-/* ComboCard */
-/* Navbar */
-/* Tos */
+/* Target the placeholder of a select element */
+select::placeholder {
+  /* Add your styles here */
+  color: gray;
+  font-style: italic;
+}

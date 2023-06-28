@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-evenly;
   padding-bottom: 0.7rem;
+  position: relative;
 }
 
 .navbar_logo__container {

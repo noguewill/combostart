@@ -8,14 +8,14 @@ const Tos = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <div className={styles[`${theme}tos_parent`]}>
-      <Navbar btnType={`classic`} />
+      <Navbar />
       <div className={styles.tos_container}>
         <h1 className={styles.tos_header}>TERMS OF SERVICE</h1>
         <div className={styles[`${theme}tos_body_parent`]}>
           <p className={styles[`${theme}tos_body`]}>
             Terms of Service for COMBOSTART
             <br />
-            Effective Date: JUNE 12, 2023 (06/12/23)
+            Effective Date: JUNE 30, 2023 (06/30/23)
             <br />
             <br />
             Welcome to COMBOSTART!
@@ -116,8 +116,6 @@ const Tos = () => {
             <br />
             Limitation of Liability
             <br />
-            Limitation of Liability
-            <br />
             To the maximum extent permitted by law, COMBOSTART and its
             affiliates, officers, directors, employees, and agents shall not be
             liable for any indirect, incidental, special, consequential, or
@@ -137,10 +135,10 @@ const Tos = () => {
             Governing Law and Jurisdiction
             <br />
             These Terms shall be governed by and construed in accordance with
-            the laws of [Jurisdiction]. Any legal action or proceeding arising
-            out of or relating to these Terms or the Service shall be
-            exclusively brought in the courts located in [Jurisdiction], and you
-            consent to the personal jurisdiction of such courts.
+            the laws of Brazil. Any legal action or proceeding arising out of or
+            relating to these Terms or the Service shall be exclusively brought
+            in the courts located in Brazil, and you consent to the personal
+            jurisdiction of such courts.
             <br />
             <br />
             Severability
@@ -162,8 +160,7 @@ const Tos = () => {
             COMBOSTART respects the intellectual property rights of others and
             expects its users to do the same. If you believe that your
             copyrighted work has been infringed upon on the Service, please
-            follow the procedures outlined in our Copyright Policy to report the
-            infringement.
+            contact COMBOSTART via e-mail or social media.
             <br />
             <br />
             User Conduct
@@ -191,25 +188,23 @@ const Tos = () => {
             Indemnification
             <br />
             You agree to indemnify, defend, and hold harmless COMBOSTART and its
-            affiliates, officers, directors, employees, and agents from and
-            against any claims, liabilities, damages, losses, costs, or expenses
-            arising out of or in connection with your use of the Service,
-            violation of these Terms, or infringement of any rights of any other
-            person or entity.
+            creator against any claims, liabilities, damages, losses, costs, or
+            expenses arising out of or in connection with your use of the
+            Service, violation of these Terms, or infringement of any rights of
+            any other person or entity.
             <br />
             <br />
             Modifications to the Service
             <br />
             COMBOSTART reserves the right to modify, suspend, or discontinue the
-            Service, or any part thereof, at any time and without prior notice.
-            You agree that COMBOSTART shall not be liable to you or any third
-            party for any modification, suspension, or discontinuance of the
-            Service.
+            Service, or any part thereof,with prior notice. You agree that
+            COMBOSTART shall not be liable to you or any third party for any
+            modification, suspension, or discontinuance of the Service.
             <br />
             <br />
             Language
             <br />
-            The primary language of these Terms is [Language]. If there is any
+            The primary language of these Terms is English. If there is any
             inconsistency or discrepancy between the English version and any
             translated version, the English version shall prevail.
             <br />
@@ -230,7 +225,8 @@ const Tos = () => {
             will be clearly stated on the Service.
             <br />
             b. By accessing and using premium content or participating in
-            Patreon subscriptions, you agree to abide by the terms and
+            Patreon subscriptions, or any type of financial transaction where
+            the beneficiary is COMBOSTART you agree to abide by the terms and
             conditions set forth by COMBOSTART and any additional terms
             specified for Patreon subscriptions or donations.
             <br />
@@ -258,7 +254,7 @@ const Tos = () => {
             <br />
             <br />
             If you have any questions or concerns about these Terms, please
-            contact us at [contact email].
+            contact us at any of our social media accounts.
           </p>
         </div>
       </div>

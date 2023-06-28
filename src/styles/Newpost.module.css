@@ -13,11 +13,18 @@
 /* Wrappers */
 .gameTitle_wrapper,
 .gameInfo_input_wrapper,
+.light_theme_gameInfo_input_wrapper,
 .stringsOptions_stringType_wrapper,
 .stringsOptions_comboStrings_wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.gameInfo_input_wrapper {
+  color: #ebebeb;
+}
+.light_theme_gameInfo_input_wrapper {
+  color: #1f1f1f;
 }
 
 /* Border style of inputs and buttons alike */
@@ -25,13 +32,69 @@
 .gameInfo_input,
 .stringsOptions_comboStrings,
 .gameTitle_input,
-.stringsOptions_stringType {
-  padding: 0.5rem;
-  margin-top: 0.5rem;
-  border-radius: 12px;
-  background: transparent;
+.light_theme_gameInfo_input,
+.light_theme_stringsOptions_comboStrings,
+.light_theme_gameTitle_input,
+.selectDropdownContainer,
+.light_theme_selectDropdownContainer {
+  background-color: #1f1f1f;
+  color: #ebebeb;
+  border: none;
   border: 1px solid #3b3efc;
+  padding: 0.5rem;
+  border-radius: 8px;
   text-align: center;
+  margin-top: 0.3rem;
+}
+.light_theme_gameInfo_input,
+.light_theme_stringsOptions_comboStrings,
+.light_theme_gameTitle_input,
+.light_theme_selectDropdownContainer {
+  color: #1f1f1f;
+  background-color: #dcdcdc;
+}
+
+.stringsOptions_stringType,
+.light_theme_stringsOptions_stringType {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  background: transparent;
+  color: #ebebeb;
+  border: none;
+}
+.light_theme_stringsOptions_stringType {
+  color: #1f1f1f;
+}
+
+.stringsOptions_stringType option {
+  font-size: 0.9rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: auto;
+  background-color: #1f1f1f;
+}
+.light_theme_stringsOptions_stringType option {
+  background-color: #dcdcdc;
+}
+
+.selectDropdownContainer,
+.light_theme_selectDropdownContainer {
+  margin-top: 0.3rem;
+  border: 1px solid #3b3efc;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-radius: 8px;
+  padding: 0.3rem;
+  background-color: #1f1f1f;
+}
+.light_theme_selectDropdownContainer {
+  background-color: #dcdcdc;
 }
 
 .content_container {
@@ -77,13 +140,15 @@
   margin-top: 1.2rem;
 }
 
-.gameInfo_input {
+.gameInfo_input,
+.light_theme_gameInfo_input {
   width: 6rem;
   height: 2.2rem;
   padding: 1rem;
 }
 
-.gameTitle_input {
+.gameTitle_input,
+.light_theme_gameTitle_input {
   width: 30rem;
 }
 
@@ -102,7 +167,8 @@
   background-color: #aeaeae;
 }
 
-.stringsOptions_comboStrings {
+.stringsOptions_comboStrings,
+.light_theme_stringsOptions_comboStrings {
   width: 36rem;
   height: 3rem;
   font-size: 1rem;
@@ -116,7 +182,7 @@
 .submitPost_btn {
   width: 80%;
   font-family: "Kanit";
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: 0.1rem;
   margin: 0.8rem 0;
   padding: 0.8rem;
@@ -130,4 +196,22 @@
 
 .submitPost_btn:hover {
   background-color: #3b3efc;
+}
+.submitPost_btn:disabled {
+  /* Styles for disabled button */
+  background-color: gray;
+  color: white;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.comboInfo_input_container {
+  display: flex;
+  justify-content: space-around;
+  width: 82%;
+}
+
+.placeholderOption {
+  font-style: normal;
+  color: #ebebeb;
 }
