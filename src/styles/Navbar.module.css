@@ -285,16 +285,19 @@
   transform: rotate(180deg);
 }
 
-.dropdownMenu {
+.dropdownMenu,
+.light_theme_dropdownMenu {
   position: absolute;
   width: auto;
-  top: 10%;
+  top: 3.5rem;
   right: 2.3%;
   background-color: #dcdcdc;
+  color: #1f1f1f;
   border-radius: 4px;
 }
 .light_theme_dropdownMenu {
-  background-color: #292929;
+  color: #ebebeb;
+  background-color: #aeaeae;
 }
 
 .dropdown_container,
