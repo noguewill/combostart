@@ -25,6 +25,7 @@ const Form = ({
   const handleSignUpSubmit = async (e) => {
     e.preventDefault();
 
+    const DisplayName = e.target.displayname.value;
     const username = e.target.username.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
@@ -35,6 +36,7 @@ const Form = ({
         password,
         attributes: {
           email,
+          "custom:DisplayName": DisplayName, // Replace 'DisplayName' with the actual value
         },
       });
       console.log("Sign up successful");

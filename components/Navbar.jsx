@@ -203,7 +203,7 @@ const Navbar = ({ setGameName }) => {
           {currentUser !== null ? (
             <div className={styles.profileBtn_container}>
               <span className={styles.profileBtn_username}>
-                {currentUser.username}
+                {currentUser.attributes["custom:DisplayName"]}
               </span>
               <button
                 className={styles.arrow_btn}

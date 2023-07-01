@@ -8,31 +8,42 @@ import VerificationModal from "components/Authentication/VerificationModal";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
+// Import necessary dependencies and components
+
 const Settings = () => {
   const { theme } = useContext(ThemeContext);
   const [notificationText, setNotificationText] = useState("");
   const [userAttributes, setUserAttributes] = useState(null);
-  const [emailEditMode, setEmailEditMode] = useState(false);
-  const [usernameEditMode, setUsernameEditMode] = useState(false);
   const [newEmail, setNewEmail] = useState("");
-  const [newUsername, setNewUsername] = useState("");
-  const [showVerificationModal, setShowVerificationModal] = useState(false);
-  const [loading, setLoading] = useState(false);
 
-  /* Password states */
+  /* State changes */
+  const [emailEditMode, setEmailEditMode] = useState(false);
+  const [displaynameEditMode, setDisplaynameEditMode] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [showVerificationModal, setShowVerificationModal] = useState(false);
+
+  /* Name properties */
+  const [currentUserName, setCurrentUserName] = useState("");
+  const [newDisplayName, setNewDisplayName] = useState("");
+
+  // Password states
   const [changePassword, setChangePassword] = useState(false);
   const [showOldPassword, setShowOldPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
+  const [verificationCode, setVerificationCode] = useState(""); // Add verificationCode state
 
   const router = useRouter();
 
   useEffect(() => {
     const fetchUserAttributes = async () => {
       try {
-        const user = await Auth.currentAuthenticatedUser();
-        setUserAttributes(user);
+        await Auth.currentAuthenticatedUser();
+        const userInfo = await Auth.currentUserInfo();
+
+        setCurrentUserName(userInfo.username);
+        setUserAttributes(userInfo);
       } catch (error) {
         // Handle error or redirect to the sign-in page
         console.log(error);
@@ -41,6 +52,33 @@ const Settings = () => {
 
     fetchUserAttributes();
   }, []);
+
+  async function updateUserDisplayName() {
+    const user = await Auth.currentAuthenticatedUser();
+
+    await Auth.updateUserAttributes(user, {
+      "custom:DisplayName": newDisplayName,
+    })
+      .then(() => {
+        setDisplaynameEditMode(false);
+        console.log("Display name updated successfully");
+        setNotificationText("Display name updated successfully");
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log("Error updating display name:", error);
+        if (
+          error.message ===
+          "user.custom:DisplayName: String must be no longer than 10 characters"
+        ) {
+          setNotificationText(
+            "Your Display name must be no longer than 10 characters"
+          );
+        } else {
+          setNotificationText("Error: Invalid display name");
+        }
+      });
+  }
 
   const handleSignOut = async () => {
     try {
@@ -81,71 +119,34 @@ const Settings = () => {
     }
   };
 
-  const handleEditEmail = () => {
-    setEmailEditMode(true);
-    setNewEmail(userAttributes.attributes.email);
-  };
+  async function updateUserEmail() {
+    const user = await Auth.currentAuthenticatedUser();
 
-  const handleSaveEmail = async () => {
-    try {
-      setLoading(true); // Show the loading icon
-      await Auth.updateUserAttributes(userAttributes, {
-        email: newEmail,
+    await Auth.updateUserAttributes(user, {
+      email: newEmail,
+    })
+      .then(() => {
+        console.log("a verification code is sent");
+        setNotificationText("a verification code is sent");
+        setShowVerificationModal(true);
+      })
+      .catch((e) => {
+        console.log("failed with error", e);
+        setNotificationText("Error", error.message);
       });
-      setEmailEditMode(false);
-      setShowVerificationModal(true); // Show the verification modal
-    } catch (error) {
-      // Handle error while updating email
-      console.log(error);
-    } finally {
-      setLoading(false); // Hide the loading icon
-    }
-  };
-
-  const handleVerificationCodeConfirmation = async (verificationCode) => {
-    try {
-      await Auth.verifyCurrentUserAttributeSubmit("email", verificationCode);
-      setShowVerificationModal(false); // Hide the verification modal
-      setUserAttributes({
-        ...userAttributes,
-        attributes: {
-          ...userAttributes.attributes,
-          email: newEmail,
-        },
-      });
-    } catch (error) {
-      // Handle verification code confirmation error
-      console.log(error);
-    }
-  };
-
-  const handleEditUsername = () => {
-    setUsernameEditMode(true);
-    setNewUsername(userAttributes.username);
-  };
-
-  const handleSaveUsername = async () => {
-    try {
-      await Auth.updateUserAttributes(userAttributes, {
-        preferred_username: newUsername,
-      });
-      setUsernameEditMode(false);
-      setUserAttributes({ ...userAttributes, username: newUsername });
-    } catch (error) {
-      // Handle error while updating username
-      console.log(error);
-    }
-  };
+  }
 
   return (
     <div className={styles[`${theme}settings_container`]}>
+      <Navbar />
       {showVerificationModal && (
         <VerificationModal
-          onVerificationCodeConfirmation={handleVerificationCodeConfirmation}
-          onCancel={() => setShowVerificationModal(false)}
+          newEmail={newEmail}
+          emailEditMode={emailEditMode}
+          currentUserName={currentUserName}
+          setNotificationText={setNotificationText}
         />
       )}
-      <Navbar />
       <div className={styles.modal_parent}>
         <div
           className={styles.notificationMessage_container}
@@ -159,29 +160,58 @@ const Settings = () => {
         </div>
         <div className={styles.modal_container}>
           <div className={styles[`${theme}settingsRow`]}>
-            <div className={styles.settingTitle_container}>
-              <span className={styles.settingOption_text}>USERNAME</span>
-              <h3 className={styles.settingsOption}>
-                {userAttributes && userAttributes.username}
-              </h3>
-            </div>
-            <button className={styles.settingBtn} onClick={handleEditUsername}>
-              Edit Username
-            </button>
+            {userAttributes && (
+              <>
+                {displaynameEditMode ? (
+                  <>
+                    <input
+                      type="text"
+                      className={styles.usernameInput}
+                      value={newDisplayName}
+                      maxLength={10}
+                      onChange={(e) => setNewDisplayName(e.target.value)}
+                    />
+                    <button
+                      className={styles.saveBtn}
+                      onClick={updateUserDisplayName}
+                    >
+                      SAVE
+                    </button>
+                  </>
+                ) : (
+                  <div className={styles.settingTitle_container}>
+                    <span className={styles.settingOption_text}>
+                      DISPLAY NAME
+                    </span>
+                    <h3 className={styles.settingsOption}>
+                      {userAttributes.attributes["custom:DisplayName"]}
+                    </h3>
+                  </div>
+                )}
+                <button
+                  className={styles.settingBtn}
+                  onClick={() => setDisplaynameEditMode(true)}
+                >
+                  Edit Display Name
+                </button>
+              </>
+            )}
           </div>
+
+          {/* E-mail section */}
           <div className={styles[`${theme}settingsRow`]}>
             {emailEditMode ? (
               <>
                 <input
                   type="email"
                   className={styles.emailInput}
-                  value={newEmail}
+                  value={newEmail.toString()} // Convert the value to a string
                   onChange={(e) => setNewEmail(e.target.value)}
                 />
                 {loading ? (
                   <div className={styles.loadingIcon}>Loading...</div> // Render the loading icon
                 ) : (
-                  <button className={styles.saveBtn} onClick={handleSaveEmail}>
+                  <button className={styles.saveBtn} onClick={updateUserEmail}>
                     SAVE
                   </button>
                 )}
@@ -194,7 +224,10 @@ const Settings = () => {
                 </h3>
               </div>
             )}
-            <button className={styles.settingBtn} onClick={handleEditEmail}>
+            <button
+              className={styles.settingBtn}
+              onClick={() => setEmailEditMode(true)}
+            >
               Change E-mail
             </button>
           </div>
@@ -224,28 +257,30 @@ const Settings = () => {
                         placeholder="Current Password"
                         maxLength={16}
                       />
-                    </label>
-                    <button
-                      className={styles.passwordEye_btn}
-                      type="button"
-                      onClick={() => setShowOldPassword(!showOldPassword)}
-                    >
-                      <Image
-                        className={styles.eye_icon}
-                        src={
+                      <span
+                        className={
                           showOldPassword
-                            ? "/signUpPasswordEye.svg"
-                            : "/signUpPasswordClosedEye.svg"
+                            ? styles.password_icon_show
+                            : styles.password_icon_hide
                         }
-                        alt="eye"
-                        width={20}
-                        height={20}
-                      />
-                    </button>
+                        onClick={() => setShowOldPassword(!showOldPassword)}
+                      >
+                        <Image
+                          src={
+                            showOldPassword
+                              ? "/icons/hide_password.svg"
+                              : "/icons/show_password.svg"
+                          }
+                          alt={
+                            showOldPassword ? "Hide password" : "Show password"
+                          }
+                          width={20}
+                          height={20}
+                        />
+                      </span>
+                    </label>
                   </div>
-
                   {/* Input for the new password */}
-
                   <div className={styles.password_container}>
                     <label htmlFor="password" className={styles.password_label}>
                       {/* Input for the new password */}
@@ -253,57 +288,59 @@ const Settings = () => {
                         type={showNewPassword ? "text" : "password"}
                         name="newPassword"
                         required
-                        className={styles.password_input}
                         onChange={(e) => setNewPassword(e.target.value)}
+                        className={styles.password_input}
                         placeholder="New Password"
                         maxLength={16}
                       />
-                    </label>
-                    <button
-                      className={styles.passwordEye_btn}
-                      type="button"
-                      onClick={() => setShowNewPassword(!showNewPassword)}
-                    >
-                      <Image
-                        className={styles.eye_icon}
-                        src={
+                      <span
+                        className={
                           showNewPassword
-                            ? "/signUpPasswordEye.svg"
-                            : "/signUpPasswordClosedEye.svg"
+                            ? styles.password_icon_show
+                            : styles.password_icon_hide
                         }
-                        alt="eye"
-                        width={20}
-                        height={20}
-                      />
-                    </button>
+                        onClick={() => setShowNewPassword(!showNewPassword)}
+                      >
+                        <Image
+                          src={
+                            showNewPassword
+                              ? "/icons/hide_password.svg"
+                              : "/icons/show_password.svg"
+                          }
+                          alt={
+                            showNewPassword ? "Hide password" : "Show password"
+                          }
+                          width={20}
+                          height={20}
+                        />
+                      </span>
+                    </label>
                   </div>
-                  {/* Save button */}
-                  <button
-                    className={styles.saveBtn}
-                    onClick={handleChangePassword}
-                  >
-                    Save
-                  </button>
+                  {/* Input for the verification code */}
+                  <div className={styles.password_container}>
+                    <label
+                      htmlFor="verificationCode"
+                      className={styles.password_label}
+                    >
+                      <input
+                        type="text"
+                        name="verificationCode"
+                        required
+                        onChange={(e) => setVerificationCode(e.target.value)}
+                        className={styles.password_input}
+                        placeholder="Verification Code"
+                      />
+                    </label>
+                  </div>
                 </div>
               )}
             </div>
             <button
-              className={
-                changePassword ? styles.settingBtn_cancel : styles.settingBtn
-              }
+              className={styles.settingBtn}
               onClick={() => setChangePassword(!changePassword)}
             >
               {changePassword ? "Cancel" : "Change Password"}
             </button>
-          </div>
-        </div>
-        <div className={styles.subscriptionSection} style={{ display: "none" }}>
-          <div className={styles[`${theme}settingsRow`]}>
-            <div className={styles.settingTitle_container}>
-              <span className={styles.settingOption_text}>Subscription</span>
-              <h3 className={styles.settingsOption}>Standard</h3>
-            </div>
-            <button className={styles.settingBtn}>Upgrade to Premium</button>
           </div>
         </div>
         <button

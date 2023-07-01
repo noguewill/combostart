@@ -2,17 +2,38 @@ import { Auth } from "aws-amplify";
 import { useState } from "react";
 import styles from "@/styles/Form.module.css";
 
-const VerificationModal = () => {
+const VerificationModal = ({
+  newEmail,
+  setNotificationText,
+  emailEditMode,
+  currentUserName,
+}) => {
   const [verificationCode, setVerificationCode] = useState("");
-  const [username, setUsername] = useState(""); // Add a state for the username
+  const [username, setUsername] = useState("");
 
   const handleVerificationSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await Auth.confirmSignUp(username, verificationCode); // Provide the username in the confirmSignUp call
-      console.log("Success ye");
-    } catch (error) {
-      console.log("Error confirming sign-up:", error);
+
+    const user = await Auth.currentAuthenticatedUser();
+    if (emailEditMode) {
+      // User wants to change the current e-mail
+      try {
+        await Auth.verifyCurrentUserAttributeSubmit("email", verificationCode);
+        console.log("Email verification success");
+        setNotificationText("E-mail verified!");
+      } catch (error) {
+        console.log(newEmail, verificationCode);
+        setNotificationText("Error: " + error.message);
+        console.log("Email verification failed with error ye", error);
+      }
+    } else {
+      // User wants to sign-up for the first time
+      try {
+        await Auth.confirmSignUp(username, verificationCode); // Provide the username in the confirmSignUp call
+        console.log("Success ye");
+      } catch (error) {
+        console.log("Error confirming sign-up:", error);
+      }
     }
   };
 

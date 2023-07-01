@@ -18,6 +18,31 @@ const SignUpForm = ({
     >
       <h3 style={{ textAlign: "center" }}>Create a COMBOSTART account</h3>
       <h2>{errorState}</h2>
+
+      <div className={styles.label_wrapper}>
+        <div>
+          <span>Display Name</span>
+        </div>
+        <label htmlFor="displayname">
+          <input
+            className={styles.username_input}
+            type="text"
+            id="displayname"
+            name="displayname"
+            placeholder="Min 4/Max 10 characters"
+            required
+          />
+        </label>
+        <span className={styles.errorMessage}>
+          {errorState === "User already exists"
+            ? "Display name already in use"
+            : ""}
+          {errorState ===
+          "1 validation error detected: Value at 'Display name' failed to satisfy constraint: Member must satisfy regular expression pattern: [p{L}p{M}p{S}p{N}p{P}]+"
+            ? "Invalid Display name, try again."
+            : ""}
+        </span>
+      </div>
       <div className={styles.label_wrapper}>
         <div>
           <span>Username</span>
