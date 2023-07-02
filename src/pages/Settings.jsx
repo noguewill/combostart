@@ -32,7 +32,6 @@ const Settings = () => {
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  const [verificationCode, setVerificationCode] = useState(""); // Add verificationCode state
 
   const router = useRouter();
 
@@ -160,83 +159,88 @@ const Settings = () => {
         </div>
         <div className={styles.modal_container}>
           <div className={styles[`${theme}settingsRow`]}>
-            {userAttributes && (
-              <>
-                {displaynameEditMode ? (
-                  <>
-                    <input
-                      type="text"
-                      className={styles.usernameInput}
-                      value={newDisplayName}
-                      maxLength={10}
-                      onChange={(e) => setNewDisplayName(e.target.value)}
-                    />
-                    <button
-                      className={styles.saveBtn}
-                      onClick={updateUserDisplayName}
-                    >
-                      SAVE
-                    </button>
-                  </>
-                ) : (
-                  <div className={styles.settingTitle_container}>
-                    <span className={styles.settingOption_text}>
-                      DISPLAY NAME
-                    </span>
-                    <h3 className={styles.settingsOption}>
-                      {userAttributes.attributes["custom:DisplayName"]}
-                    </h3>
-                  </div>
-                )}
+            {displaynameEditMode ? (
+              <div className={styles.settingTitle_container}>
+                <span className={styles.settingOption_text}>
+                  CHANGE DISPLAY NAME
+                </span>
+                <label htmlFor="name" className={styles.email_label}>
+                  <input
+                    type="text"
+                    className={styles.password_input}
+                    value={newDisplayName}
+                    maxLength={10}
+                    onChange={(e) => setNewDisplayName(e.target.value)}
+                  />
+                </label>
                 <button
-                  className={styles.settingBtn}
-                  onClick={() => setDisplaynameEditMode(true)}
+                  className={styles.saveBtn}
+                  onClick={updateUserDisplayName}
                 >
-                  Edit Display Name
+                  Save
                 </button>
-              </>
+              </div>
+            ) : (
+              <div className={styles.settingTitle_container}>
+                <span className={styles.settingOption_text}>DISPLAY NAME</span>
+                <h3 className={styles.settingsOption}>
+                  {userAttributes.attributes["custom:DisplayName"]}
+                </h3>
+              </div>
             )}
+
+            <button
+              className={
+                displaynameEditMode
+                  ? styles.settingBtn_cancel
+                  : styles.settingBtn
+              }
+              onClick={() => setDisplaynameEditMode(!displaynameEditMode)}
+            >
+              {displaynameEditMode ? "Cancel" : " Edit Display Name"}
+            </button>
           </div>
+
           {/* E-mail section */}
           <div className={styles[`${theme}settingsRow`]}>
             <div className={styles.settingTitle_container}>
-              {emailEditMode ? (
-                <>
-                  <input
-                    type="email"
-                    className={styles.emailInput}
-                    value={newEmail.toString()} // Convert the value to a string
-                    onChange={(e) => setNewEmail(e.target.value)}
-                  />
-                  {loading ? (
-                    <div className={styles.loadingIcon}>Loading...</div> // Render the loading icon
-                  ) : (
-                    <button
-                      className={styles.saveBtn}
-                      onClick={updateUserEmail}
-                    >
-                      SAVE
-                    </button>
-                  )}
-                </>
-              ) : (
+              {!emailEditMode ? (
                 <>
                   <span className={styles.settingOption_text}>E-MAIL</span>
                   <h3 className={styles.settingsOption}>
                     {userAttributes && userAttributes.attributes["email"]}
                   </h3>
                 </>
+              ) : (
+                <>
+                  <span className={styles.settingOption_text}>
+                    CHANGE E-MAIL
+                  </span>
+                  <label htmlFor="email" className={styles.email_label}>
+                    <input
+                      type="email"
+                      className={styles.password_input}
+                      value={newEmail.toString()} // Convert the value to a string
+                      onChange={(e) => setNewEmail(e.target.value)}
+                    />
+                  </label>
+                  <button className={styles.saveBtn} onClick={updateUserEmail}>
+                    Save
+                  </button>
+                </>
               )}
             </div>
             <button
-              className={styles.settingBtn}
-              onClick={() => setEmailEditMode(true)}
+              className={
+                emailEditMode ? styles.settingBtn_cancel : styles.settingBtn
+              }
+              onClick={() => setEmailEditMode(!emailEditMode)}
             >
-              Change E-mail
+              {emailEditMode ? "Cancel" : "Change E-mail"}
             </button>
           </div>
 
-          {/*    /* Change Password */}
+          {/* Change Password */}
 
           <div className={styles[`${theme}settingsRow`]}>
             <div className={styles.settingTitle_container}>
@@ -246,13 +250,13 @@ const Settings = () => {
                   <h3 className={styles.settingsOption}>****************</h3>
                 </>
               ) : (
-                <div>
+                <>
                   <span className={styles.settingOption_text}>
                     CHANGE PASSWORD
                   </span>
                   {/* Input for the old password */}
                   <div className={styles.password_container}>
-                    <label htmlFor="password" className={styles.password_label}>
+                    <label htmlFor="password">
                       {/* Input for the old password */}
                       <input
                         type={showOldPassword ? "text" : "password"}
@@ -286,7 +290,7 @@ const Settings = () => {
                   {/* Input for the new password */}
 
                   <div className={styles.password_container}>
-                    <label htmlFor="password" className={styles.password_label}>
+                    <label htmlFor="password">
                       {/* Input for the new password */}
                       <input
                         type={showNewPassword ? "text" : "password"}
@@ -323,7 +327,7 @@ const Settings = () => {
                   >
                     Save
                   </button>
-                </div>
+                </>
               )}
             </div>
             <button
