@@ -2,24 +2,21 @@ import { Auth } from "aws-amplify";
 import { storeToken } from "./tokenUtils";
 import jwt from "jsonwebtoken";
 
-export const signIn = async (username, password) => {
-  try {
-    const user = await Auth.signIn(username, password);
-    console.log("Sign-in successful");
-    return user;
-  } catch (error) {
-    console.error("Sign-in error:", error.message);
-    throw error;
-  }
-};
-
-export const handleSignInSubmit = async (e, onAuthenticationSuccess) => {
+export const handleSignInSubmit = async (e, setNotificationText) => {
   e.preventDefault();
   const username = e.target.username.value;
   const password = e.target.password.value;
 
   try {
-    const user = await signIn(username, password);
+    const user = await Auth.signIn(username, password);
+    console.log("Sign-in successful");
+    setNotificationText(
+      <span>
+        Sign-in<span style={{ color: "#93f367" }}> successful </span>
+        Redirecting...
+      </span>
+    );
+
     const session = await Auth.currentSession();
     const idToken = session.getIdToken().getJwtToken();
 
@@ -37,14 +34,6 @@ export const handleSignInSubmit = async (e, onAuthenticationSuccess) => {
     }
   } catch (error) {
     console.log(error);
-  }
-
-  handleSigninSuccess(onAuthenticationSuccess);
-};
-
-export const handleSigninSuccess = (onAuthenticationSuccess) => {
-  // Call the onAuthenticationSuccess callback
-  if (typeof onAuthenticationSuccess === "function") {
-    onAuthenticationSuccess();
+    setNotificationText("Error:", error.message);
   }
 };

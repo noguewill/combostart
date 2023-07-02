@@ -4,13 +4,7 @@ import SignUpForm from "./SignUpForm";
 import SignInForm from "./SignInForm";
 import { Auth } from "aws-amplify";
 
-const Form = ({
-  showSignupForm,
-  signIn,
-  setSignIn,
-  onAuthenticationSuccess,
-  setNotificationText,
-}) => {
+const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showVerifyModal, setShowVerifyModal] = useState(false);
   const [verificationCode, setVerificationCode] = useState("");
@@ -95,7 +89,6 @@ const Form = ({
     <>
       {signIn ? (
         <SignInForm
-          onAuthenticationSuccess={onAuthenticationSuccess}
           showPassword={showPassword}
           setShowPassword={setShowPassword}
           showSignupForm={showSignupForm}

@@ -1,28 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "@/styles/Form.module.css";
 import Image from "next/image";
-import {
-  handleSignInSubmit,
-  handleSigninSuccess,
-} from "./authUtils/authHandler";
+import { handleSignInSubmit } from "./authUtils/authHandler";
 
 const SignInForm = ({
   showSignupForm,
   showPassword,
   setShowPassword,
-  onAuthenticationSuccess,
   setNotificationText,
 }) => {
-  const [errorMessage, setErrorMessage] = useState("");
-
   const handleSubmit = async (e) => {
-    handleSignInSubmit(e, onAuthenticationSuccess);
-    setNotificationText(
-      <span>
-        Sign-in<span style={{ color: "#93f367" }}> successful </span>
-        Redirecting...
-      </span>
-    );
+    e.preventDefault(); // Prevent the form from submitting normally
+
+    try {
+      await handleSignInSubmit(e, setNotificationText);
+
+      // Optional: You can add additional logic here after successful sign-in
+    } catch (error) {
+      setNotificationText("An error occurred. Please try again."); // Set the error message
+    }
   };
 
   return (
@@ -32,7 +28,6 @@ const SignInForm = ({
       }`}
       onSubmit={handleSubmit}
     >
-      <span className={styles.errorMessage}>{<p>{errorMessage}</p>}</span>
       <div className={styles.label_wrapper}>
         <div>
           <span>USERNAME</span>
@@ -84,11 +79,7 @@ const SignInForm = ({
         </div>
       </div>
 
-      <button
-        type="submit"
-        className={styles.submit_btn}
-        onClick={handleSigninSuccess}
-      >
+      <button type="submit" className={styles.submit_btn}>
         SUBMIT
       </button>
     </form>

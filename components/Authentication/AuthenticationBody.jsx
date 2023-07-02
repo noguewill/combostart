@@ -43,7 +43,6 @@ const AuthenticationBody = ({ toggleOverlay, onAuthenticationSuccess }) => {
           setSignIn={setSignIn}
           showSignupForm={showSignupForm}
           toggleOverlay={toggleOverlay}
-          onAuthenticationSuccess={onAuthenticationSuccess}
           setNotificationText={setNotificationText}
         />
 
