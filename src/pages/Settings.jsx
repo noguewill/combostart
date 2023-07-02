@@ -13,7 +13,7 @@ import Image from "next/image";
 const Settings = () => {
   const { theme } = useContext(ThemeContext);
   const [notificationText, setNotificationText] = useState("");
-  const [userAttributes, setUserAttributes] = useState(null);
+  const [userAttributes, setUserAttributes] = useState("");
   const [newEmail, setNewEmail] = useState("");
 
   /* State changes */
@@ -125,8 +125,8 @@ const Settings = () => {
       email: newEmail,
     })
       .then(() => {
-        console.log("a verification code is sent");
-        setNotificationText("a verification code is sent");
+        console.log("Verification has been sent to your new e-mail");
+        setNotificationText("Verification has been sent to your new e-mail");
         setShowVerificationModal(true);
       })
       .catch((e) => {
@@ -143,6 +143,7 @@ const Settings = () => {
           newEmail={newEmail}
           emailEditMode={emailEditMode}
           currentUserName={currentUserName}
+          notificationText={notificationText}
           setNotificationText={setNotificationText}
         />
       )}
@@ -184,7 +185,8 @@ const Settings = () => {
               <div className={styles.settingTitle_container}>
                 <span className={styles.settingOption_text}>DISPLAY NAME</span>
                 <h3 className={styles.settingsOption}>
-                  {userAttributes.attributes["custom:DisplayName"]}
+                  {userAttributes &&
+                    userAttributes.attributes["custom:DisplayName"]}
                 </h3>
               </div>
             )}

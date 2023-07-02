@@ -217,3 +217,111 @@
 .show {
   opacity: 1;
 }
+
+/* Verification stuff */
+
+.notificationMessage_container {
+  width: auto;
+  margin: 1.5rem;
+  background-color: #232323;
+  padding: 0.8rem;
+  border-radius: 8px;
+}
+.notificationMessage {
+  color: #dcdcdc;
+  font-family: "Lato";
+  letter-spacing: 0.03rem;
+}
+
+.login_parent {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+  color: #e6e6e6;
+  font-family: "Lato";
+  z-index: 99;
+}
+.login_body {
+  width: 28%;
+  background-color: #151515;
+  border-radius: 24px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.close_btn {
+  width: 2rem;
+  height: 2rem;
+  padding-bottom: 0.3rem;
+  text-align: center;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.2rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #e6e6e6;
+}
+.close_btn:hover {
+  color: #1a1a1a;
+  background-color: #d6d6d6;
+  border-radius: 100%;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+.close_btn:not(:hover) {
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+
+.signUp_header_wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.signUp_logo {
+  margin-bottom: 1rem;
+}
+
+.signUp_message {
+  align-self: center;
+  margin-bottom: 1rem;
+}
+
+/* Sign In Notice */
+.signIn_text {
+  align-self: center;
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+.signIn_link {
+  font-weight: 600;
+  letter-spacing: 0.03rem;
+  margin-left: 0.3rem;
+  color: #48aaf0;
+  cursor: pointer;
+}
+.signIn_link:hover {
+  text-decoration: underline;
+}
+.backToOptions {
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
+  color: #48aaf0;
+  cursor: pointer;
+}
+.backToOptions:hover {
+  text-decoration: underline;
+}
