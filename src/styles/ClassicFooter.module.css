@@ -44,6 +44,10 @@
   font-size: 1rem;
   margin-top: 1rem;
 }
+.submenu_btn_disabled {
+  pointer-events: none;
+  color: #aeaeae;
+}
 
 .submenu_btn:hover {
   color: #3b3efc;

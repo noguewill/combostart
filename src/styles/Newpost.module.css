@@ -215,3 +215,13 @@
   font-style: normal;
   color: #ebebeb;
 }
+.tagTextOptional,
+.light_theme_tagTextOptional {
+  color: #aeaeae;
+  font-size: 0.7rem;
+  margin-right: 1.5rem;
+  margin-left: 0.2rem;
+}
+.light_theme_tagTextOptional {
+  color: #292929;
+}

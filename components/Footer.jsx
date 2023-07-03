@@ -8,12 +8,22 @@ import hubCardData from "../gamesData/hubCardData.json";
 const Footer = () => {
   const { theme } = useContext(ThemeContext);
   const renderedGames = hubCardData.map((game) => {
-    if (game.attr !== "Upcoming") {
+    if (game.name === "STREET FIGHTER 6") {
       return (
         <Link href={game.src} as={game.alias} key={game.id}>
           <span className={styles.submenu_btn}>
             {game.name.charAt(0).toUpperCase() +
               game.name.slice(1).toLowerCase()}
+          </span>
+        </Link>
+      );
+    } else if (game.attr !== "Upcoming" && game.name !== "STREET FIGHTER 6") {
+      return (
+        <Link href={""} key={game.id} className={styles.submenu_btn_disabled}>
+          <span>
+            {game.name.charAt(0).toUpperCase() +
+              game.name.slice(1).toLowerCase()}
+            (WIP)
           </span>
         </Link>
       );
@@ -80,9 +90,7 @@ const Footer = () => {
             <span className={styles.submenu_btn}>GranBlue Fantasy Rising</span>
           </Link>
           <h3 className={styles.submenu_header}>Support</h3>
-          <Link href="/">
-            <span className={styles.submenu_btn}>Feedback</span>
-          </Link>
+
           <Link href="/Tos">
             <span className={styles.submenu_btn}>Terms of Service </span>
           </Link>

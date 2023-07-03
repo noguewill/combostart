@@ -18,6 +18,7 @@ const Navbar = ({ setGameName }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const [userDisplayName, setUserDisplayName] = useState("");
 
   useEffect(() => {
     awsmobile;
@@ -26,7 +27,7 @@ const Navbar = ({ setGameName }) => {
         const user = await Auth.currentAuthenticatedUser();
         // Session is active, the user is authenticated
         setCurrentUser(user);
-        console.log(user);
+        setUserDisplayName(user.attributes["custom:DisplayName"]);
       } catch (error) {
         // No active session, redirect to the sign-in page
         console.log(error);
@@ -51,6 +52,10 @@ const Navbar = ({ setGameName }) => {
 
   const handleAuthenticationSuccess = () => {
     setLoggedIn(true);
+  };
+
+  const navigateToNewPost = () => {
+    router.push("/NewPost", { userDisplayName });
   };
 
   const handleSignOut = async () => {
@@ -201,56 +206,64 @@ const Navbar = ({ setGameName }) => {
         <div className={styles.authNavContainer}>
           <ThemeToggleBtn theme={theme} toggleTheme={toggleTheme} />
           {currentUser !== null ? (
-            <div className={styles.profileBtn_container}>
-              <span className={styles.profileBtn_username}>
-                {currentUser.attributes["custom:DisplayName"]}
-              </span>
+            <>
               <button
-                className={styles.arrow_btn}
-                onClick={() => handleDropdownClick()}
+                onClick={navigateToNewPost}
+                className={styles[`${theme}nav_btn`]}
               >
-                <svg
-                  className={
-                    isOpen ? `${styles.icon} ${styles.rotated}` : styles.icon
-                  }
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M6 9l6 6 6-6" />
-                </svg>
+                New Post
               </button>
-
-              {isOpen && (
-                <div className={styles[`${theme}dropdownMenu`]}>
-                  <div
-                    className={styles.submenu_container}
-                    style={{ alignItems: "flex-start", fontSize: "0.2rem" }}
+              <div className={styles.profileBtn_container}>
+                <span className={styles.profileBtn_username}>
+                  {userDisplayName}
+                </span>
+                <button
+                  className={styles.arrow_btn}
+                  onClick={() => handleDropdownClick()}
+                >
+                  <svg
+                    className={
+                      isOpen ? `${styles.icon} ${styles.rotated}` : styles.icon
+                    }
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
-                    <Link href="/Settings">
-                      <button className={styles.submenu_item_btn}>
-                        SETTINGS
-                      </button>
-                    </Link>
-                    <Link href="/Tos">
-                      <button className={styles.submenu_item_btn}>
-                        TERMS OF SERVICE
-                      </button>
-                    </Link>
-                    <button
-                      className={styles.dropdown_logout_btn}
-                      onClick={handleSignOut}
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+
+                {isOpen && (
+                  <div className={styles[`${theme}dropdownMenu`]}>
+                    <div
+                      className={styles.submenu_container}
+                      style={{ alignItems: "flex-start", fontSize: "0.2rem" }}
                     >
-                      LOG OUT
-                    </button>
+                      <Link href="/Settings">
+                        <button className={styles.submenu_item_btn}>
+                          SETTINGS
+                        </button>
+                      </Link>
+                      <Link href="/Tos">
+                        <button className={styles.submenu_item_btn}>
+                          TERMS OF SERVICE
+                        </button>
+                      </Link>
+                      <button
+                        className={styles.dropdown_logout_btn}
+                        onClick={handleSignOut}
+                      >
+                        LOG OUT
+                      </button>
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            </>
           ) : (
             <>
               <button

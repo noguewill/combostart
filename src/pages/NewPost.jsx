@@ -3,8 +3,12 @@ import { ThemeContext } from "../../components/ThemeContext";
 import styles from "@/styles/Newpost.module.css";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { useRouter } from "next/router";
 
 const NewPost = () => {
+  const router = useRouter();
+  const { userDisplayName } = router.query;
+
   const { theme } = useContext(ThemeContext);
   const [damage, setDamage] = useState("");
   const [hits, setHits] = useState("");
@@ -12,6 +16,8 @@ const NewPost = () => {
   const [screenPosition, setScreenPosition] = useState("");
   const [character, setCharacter] = useState("");
   const [stringType, setStringType] = useState("");
+  const [hasSuper, setHasSuper] = useState("");
+  const [driveBars, setDriveBars] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
@@ -20,9 +26,11 @@ const NewPost = () => {
         screenPosition !== "" &&
         character !== "" &&
         damage !== "" &&
-        hits !== ""
+        hits !== "" &&
+        driveBars !== "" &&
+        hasSuper !== ""
     );
-  }, [game, screenPosition, character, damage, hits]);
+  }, [game, screenPosition, character, damage, hits, driveBars, hasSuper]);
 
   const handleDamageChange = (event) => {
     let input = event.target.value;
@@ -56,6 +64,14 @@ const NewPost = () => {
     setCharacter(event.target.value);
   };
 
+  const handleHasSuper = (event) => {
+    setHasSuper(event.target.value);
+  };
+
+  const handleDriveBars = (event) => {
+    setDriveBars(event.target.value);
+  };
+
   const handleStringTypeChange = (event) => {
     setStringType(event.target.value);
   };
@@ -72,6 +88,8 @@ const NewPost = () => {
     setScreenPosition("");
     setCharacter("");
     setStringType("");
+    setHasSuper(false);
+    setDriveBars(0);
     setIsFormValid(false);
   };
 
@@ -81,7 +99,7 @@ const NewPost = () => {
       <main className={styles.content_container}>
         <div className={styles.authorPost_info_container}>
           <h2>
-            Posting as
+            Posting as {userDisplayName}
             <span className={styles.authorPost_who_info}></span>
           </h2>
           <h3 className={styles.authorPost_draft_notice}>Draft saved</h3>
@@ -209,8 +227,8 @@ const NewPost = () => {
               <span>Combo has super?</span>
               <div className={styles[`${theme}selectDropdownContainer`]}>
                 <select
-                  value={stringType}
-                  onChange={handleStringTypeChange}
+                  value={hasSuper}
+                  onChange={handleHasSuper}
                   className={styles[`${theme}stringsOptions_stringType`]}
                   required
                 >
@@ -227,8 +245,8 @@ const NewPost = () => {
               <span>Drive Rush bars</span>
               <div className={styles[`${theme}selectDropdownContainer`]}>
                 <select
-                  value={stringType}
-                  onChange={handleStringTypeChange}
+                  value={driveBars}
+                  onChange={handleDriveBars}
                   className={styles[`${theme}stringsOptions_stringType`]}
                   required
                 >
@@ -275,13 +293,17 @@ const NewPost = () => {
 
           <div className={styles[`${theme}stringsOptions_container`]}>
             <div className={styles.stringsOptions_stringType_wrapper}>
-              <span>Tags</span>
+              <span style={{ marginLeft: "auto" }}>
+                Tags
+                <span className={styles[`${theme}tagTextOptional`]}>
+                  ( optional )
+                </span>
+              </span>
               <div className={styles[`${theme}selectDropdownContainer`]}>
                 <input
                   className={styles[`${theme}stringsOptions_stringType`]}
                   type="text"
                   placeholder="Mixup"
-                  required
                 />
               </div>
             </div>

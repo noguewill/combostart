@@ -77,7 +77,7 @@
     "bgImg": "/granbluefantasycoverArt.jpg",
     "name": "GRANBLUE FANTASY VERSUS",
     "src": "/ComboGuides",
-    "alias": "streetfighter6", 
+    "alias": "granbluefantasyversus", 
     "attr": "ongoing"
   },
   {
@@ -85,7 +85,7 @@
     "bgImg": "/brawlhallacoverArt.jpg",
     "name": "BRAWLHALLA",
     "src": "/ComboGuides",
-    "alias": "streetfighter6", 
+    "alias": "brawlhalla", 
     "attr": "ongoing"
   },
   {
@@ -93,7 +93,7 @@
     "bgImg": "/meltybloodcoverArt.jpg",
     "name": "MELTY BLOOD: TYPE LUMINA",
     "src": "/ComboGuides",
-    "alias": "streetfighter6", 
+    "alias": "meltybloodtypelumina", 
     "attr": "ongoing"
   },
   {
@@ -101,7 +101,7 @@
     "bgImg": "/umvsc3coverArt.jpg",
     "name": "ULTIMATE MARVEL VS CAPCOM 3",
     "src": "/ComboGuides",
-    "alias": "streetfighter6", 
+    "alias": "umvc3", 
     "attr": "ongoing"
   },
   {
@@ -109,7 +109,7 @@
     "bgImg": "/mkxcoverArt.jpg",
     "name": "MORTAL KOMBAT X",
     "src": "/ComboGuides",
-    "alias": "streetfighter6", 
+    "alias": "mortalkombatx", 
     "attr": "ongoing"
   },
   {
@@ -117,7 +117,7 @@
     "bgImg": "/smashbrosultimatecoverArt.webp",
     "name": "SUPER SMASH BROS. ULTIMATE",
     "src": "/ComboGuides",
-    "alias": "streetfighter6", 
+    "alias": "supersmashbrosultimate", 
     "attr": "ongoing"
   },
   {
@@ -125,7 +125,7 @@
     "bgImg": "/mkOne2023m.jpg",
     "name": "MORTAL KOMBAT 1(2023)",
     "src": "/ComboGuides",
-    "alias": "streetfighter6", 
+    "alias": "mortalkombatone", 
     "attr": "Upcoming"
   },
   {
@@ -141,7 +141,7 @@
     "bgImg": "/granblueFantasyRising.jpg",
     "name": "Granblue Fantasy Rising",
     "src": "/ComboGuides",
-    "alias": "streetfighter6", 
+    "alias": "granbluefantasyrising", 
     "attr": "Upcoming"
   }
 ]
