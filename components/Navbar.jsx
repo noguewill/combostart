@@ -97,7 +97,7 @@ const Navbar = ({ setGameName }) => {
               {/* This is a button section */}
               <div className={styles.combosPage_submenu}>
                 <h1 className={styles.combosPage_submenu_header}>FEATURED</h1>
-                <Link href="/ComboGuides" onClick={() => handleGameName(sf6)}>
+                <Link href="/ComboGuides" onClick={() => handleGameName("sf6")}>
                   <span className={styles.combosPage_submenu_btn}>
                     Street Fighter 6
                   </span>
@@ -211,7 +211,7 @@ const Navbar = ({ setGameName }) => {
                 onClick={navigateToNewPost}
                 className={styles[`${theme}nav_btn`]}
               >
-                New Post
+                NEW POST +
               </button>
               <div className={styles.profileBtn_container}>
                 <span className={styles.profileBtn_username}>
