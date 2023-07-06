@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { Auth } from "aws-amplify";
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
-const { v4: uuidv4 } = require("uuid");
+import { profanityCheck } from "components/ProfanityFilter";
 
 const NewPost = () => {
   const [userDisplayName, setUserDisplayName] = useState("");
@@ -23,11 +23,12 @@ const NewPost = () => {
   const [hasSuper, setHasSuper] = useState("Yes");
   const [driveBars, setDriveBars] = useState(4);
   const [isFormValid, setIsFormValid] = useState(true);
+  const [postNotification, setPostNotification] = useState("");
 
   useEffect(() => {
     const fetchUserAttributes = async () => {
       try {
-        const yeah = await Auth.currentAuthenticatedUser();
+        await Auth.currentAuthenticatedUser();
         const userInfo = await Auth.currentUserInfo();
         setUserDisplayName(userInfo.attributes["custom:DisplayName"]);
         setUserSub(userInfo.attributes["sub"]);
@@ -105,6 +106,14 @@ const NewPost = () => {
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
       },
     });
+
+    if (profanityCheck(postTitle) || profanityCheck(comboStrings)) {
+      setPostNotification(
+        "Input contains profanity. Please revise your inputs."
+      );
+      console.log(postNotification);
+      return; // Exit the function and prevent form submission
+    }
 
     function generateUniqueId(sub) {
       // Extract numbers from userSub
