@@ -15,7 +15,6 @@
     "@aws-sdk/client-dynamodb": "^3.358.0",
     "@react-spring/web": "^9.7.2",
     "aws-amplify": "^5.2.5",
-    "dotenv": "^16.2.0",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "js-cookie": "^3.0.1",
@@ -23,10 +22,11 @@
     "next": "13.2.4",
     "obscenity": "^0.1.4",
     "react": "18.2.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.45.0",
-    "react-youtube": "^10.1.0",
-    "uuid": "^9.0.0"
+    "react-tag-input": "^6.8.1",
+    "react-youtube": "^10.1.0"
   },
   "devDependencies": {
     "@types/istanbul-lib-coverage": "^2.0.4"

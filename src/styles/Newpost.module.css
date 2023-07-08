@@ -19,6 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 .gameInfo_input_wrapper {
   color: #ebebeb;
@@ -30,8 +31,11 @@
 /* Border style of inputs and buttons alike */
 .borderStyle,
 .gameInfo_input,
+.hitsInfo_input,
+.dmgInfo_input,
 .stringsOptions_comboStrings,
 .gameTitle_input,
+.light_theme_dmgInfo_input .light_theme_hitsInfo_input,
 .light_theme_gameInfo_input,
 .light_theme_stringsOptions_comboStrings,
 .light_theme_gameTitle_input,
@@ -43,10 +47,11 @@
   border: 1px solid #3b3efc;
   padding: 0.5rem;
   border-radius: 8px;
-  text-align: center;
   margin-top: 0.3rem;
 }
 .light_theme_gameInfo_input,
+.light_theme_dmgInfo_input,
+.light_theme_hitsInfo_input,
 .light_theme_stringsOptions_comboStrings,
 .light_theme_gameTitle_input,
 .light_theme_selectDropdownContainer {
@@ -54,13 +59,23 @@
   background-color: #dcdcdc;
 }
 
+.dmgInfo_input {
+  width: 3.4rem;
+  text-align: center;
+}
+.hitsInfo_input {
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+}
+
 .stringsOptions_stringType,
 .light_theme_stringsOptions_stringType {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   padding: 0;
+  text-align: center;
   background: transparent;
   color: #ebebeb;
   border: none;
@@ -82,35 +97,39 @@
 }
 
 .selectDropdownContainer,
-.light_theme_selectDropdownContainer {
+.light_theme_selectDropdownContainer,
+.tagInput,
+.light_theme_tagInput {
   margin-top: 0.3rem;
   border: 1px solid #3b3efc;
   display: flex;
   justify-content: center;
-  text-align: center;
   align-items: center;
   border-radius: 8px;
   padding: 0.3rem;
+  color: #ebebeb;
   background-color: #1f1f1f;
 }
 .light_theme_selectDropdownContainer {
   background-color: #dcdcdc;
 }
+.selectDropdownContainer,
+.light_theme_selectDropdownContainer {
+  text-align: center;
+}
+
+.tagInput {
+  width: 6.7rem;
+  text-align: center;
+}
+.light_theme_tagInput {
+  color: #1f1f1f;
+}
 
 .content_container {
   margin-top: 2rem;
   display: flex;
-  font-family: "Lato";
-}
-
-.authorPost_info_container {
-  margin: 0 3rem;
-}
-
-.authorPost_who_info {
-  font-family: "kanit";
-  font-style: italic;
-  color: #6164f3;
+  justify-content: center;
 }
 
 .authorPost_draft_notice {
@@ -169,14 +188,10 @@
 
 .stringsOptions_comboStrings,
 .light_theme_stringsOptions_comboStrings {
-  width: 36rem;
-  height: 3rem;
-  font-size: 1rem;
+  width: 100%;
+  height: 2.5rem;
+  font-size: 0.7rem;
   letter-spacing: 0.08rem;
-}
-
-.stringsOptions_stringType_wrapper {
-  margin-top: 0.7rem;
 }
 
 .submitPost_btn {
@@ -207,6 +222,7 @@
 
 .comboInfo_input_container {
   display: flex;
+  align-items: center;
   justify-content: space-around;
   width: 82%;
 }
@@ -215,13 +231,39 @@
   font-style: normal;
   color: #ebebeb;
 }
+
+/* Tag input styling */
 .tagTextOptional,
 .light_theme_tagTextOptional {
   color: #aeaeae;
   font-size: 0.7rem;
-  margin-right: 1.5rem;
   margin-left: 0.2rem;
 }
 .light_theme_tagTextOptional {
   color: #292929;
+}
+
+.tagInput_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tagItem {
+  padding: 0.35rem;
+  background-color: #6164f3;
+  border-radius: 4px;
+  color: #ebebeb;
+  font-size: 0.7rem;
+  font-family: "Lato";
+  font-weight: 600;
+  letter-spacing: 0.04rem;
+  margin: 0.3rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+
+.tagItem:hover {
+  background-color: #f13f39;
 }

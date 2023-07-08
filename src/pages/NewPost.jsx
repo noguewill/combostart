@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { ThemeContext } from "../../components/ThemeContext";
 import styles from "@/styles/Newpost.module.css";
 import Navbar from "../../components/Navbar";
+import TagInput from "components/PostCreation/TagInput";
 import Footer from "../../components/Footer";
 import { Auth } from "aws-amplify";
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
@@ -12,18 +13,27 @@ const NewPost = () => {
   const [userSub, setUserSub] = useState(null);
   const { theme } = useContext(ThemeContext);
   /* Form Inputs states */
-  const [damage, setDamage] = useState("6000");
-  const [hits, setHits] = useState("12");
+  const [damage, setDamage] = useState("");
+  const [hits, setHits] = useState("");
   const [game, setGame] = useState("Street Fighter 6");
-  const [screenPosition, setScreenPosition] = useState("Corner");
+  const [screenPosition, setScreenPosition] = useState("");
   const [character, setCharacter] = useState("Luke");
-  const [postTitle, setPostTitle] = useState("Luke does things");
+  const [postTitle, setPostTitle] = useState("");
   const [comboStrings, setComboStrings] = useState("QCF,QCF + H");
   const [stringType, setStringType] = useState("Text");
   const [hasSuper, setHasSuper] = useState("Yes");
   const [driveBars, setDriveBars] = useState(4);
+  const [tags, setTags] = useState([]);
   const [isFormValid, setIsFormValid] = useState(true);
   const [postNotification, setPostNotification] = useState("");
+
+  const currentDate = new Date();
+  const hours = currentDate.getHours();
+  const minutes = currentDate.getMinutes();
+  const seconds = currentDate.getSeconds();
+  const day = currentDate.getDate();
+  const month = currentDate.getMonth() + 1;
+  const year = currentDate.getFullYear();
 
   useEffect(() => {
     const fetchUserAttributes = async () => {
@@ -44,12 +54,22 @@ const NewPost = () => {
       game !== "" &&
         screenPosition !== "" &&
         character !== "" &&
+        postTitle !== "" &&
+        comboStrings !== "" &&
+        hasSuper !== "" &&
         damage !== "" &&
-        hits !== "" &&
-        driveBars !== 0 &&
-        hasSuper !== ""
+        hits !== ""
     );
-  }, [game, screenPosition, character, damage, hits, driveBars, hasSuper]);
+  }, [
+    game,
+    screenPosition,
+    character,
+    postTitle,
+    comboStrings,
+    hasSuper,
+    damage,
+    hits,
+  ]);
 
   /* Handling the inputs values of the form */
   const handleDamageChange = (event) => {
@@ -99,6 +119,9 @@ const NewPost = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    const time = `${hours}:${minutes}:${seconds}`;
+    const date = `${day}/${month}/${year}`;
+
     const client = new DynamoDBClient({
       region: "us-east-1",
       credentials: {
@@ -107,11 +130,11 @@ const NewPost = () => {
       },
     });
 
-    if (profanityCheck(postTitle) || profanityCheck(comboStrings)) {
+    if (profanityCheck(postTitle)) {
       setPostNotification(
         "Input contains profanity. Please revise your inputs."
       );
-      console.log(postNotification);
+      console.log("oops", postNotification);
       return; // Exit the function and prevent form submission
     }
 
@@ -134,7 +157,8 @@ const NewPost = () => {
 
     // Prepare the item to be inserted into the DynamoDB table
     const comboInfo = {
-      id: { N: postId }, // Generate a UUID using the `uuid` library
+      id: { N: postId },
+      User: { S: userDisplayName },
       Game: { S: game },
       ScreenPosition: { S: screenPosition },
       Character: { S: character },
@@ -144,6 +168,9 @@ const NewPost = () => {
       DriveBars: { N: driveBars.toString() },
       PostTitle: { S: postTitle },
       ComboStrings: { S: comboStrings },
+      Tags: { S: tags.join(",") },
+      SubmissionTime: { S: time },
+      SubmissionDate: { S: date },
     };
 
     const params = {
@@ -165,37 +192,23 @@ const NewPost = () => {
       setHasSuper("");
       setDriveBars(0);
       setIsFormValid(false);
+      setTags([]);
       event.target.reset();
 
       console.log("Item inserted successfully into DynamoDB");
     } catch (error) {
       console.error("Error inserting item into DynamoDB:", error);
     }
+  };
 
-    // Reset form fields after submission
-    setDamage("");
-    setHits("");
-    setGame("Street Fighter 6");
-    setScreenPosition("");
-    setCharacter("");
-    setStringType("");
-    setHasSuper(false);
-    setDriveBars(0);
-    setIsFormValid(false);
-    event.target.reset();
+  const handleRemoveTag = (tag) => {
+    setTags(tags.filter((t) => t !== tag));
   };
 
   return (
     <div className={styles[`${theme}post_parent`]}>
       <Navbar userDisplayName={userDisplayName} />
       <main className={styles.content_container}>
-        <div className={styles.authorPost_info_container}>
-          <h2>
-            Posting as {userDisplayName}
-            <span className={styles.authorPost_who_info}></span>
-          </h2>
-          <h3 className={styles.authorPost_draft_notice}>Draft saved</h3>
-        </div>
         <form
           className={styles[`${theme}form_container`]}
           onSubmit={handleSubmit}
@@ -287,7 +300,7 @@ const NewPost = () => {
           </div>
 
           <div className={styles[`${theme}stringsOptions_container`]}>
-            <div className={styles.stringsOptions_stringType_wrapper}>
+            {/*     <div className={styles.stringsOptions_stringType_wrapper}>
               <span>Combo input</span>
               <div className={styles[`${theme}selectDropdownContainer`]}>
                 <select
@@ -303,7 +316,7 @@ const NewPost = () => {
                   <option value="Selectable">Selectable</option>
                 </select>
               </div>
-            </div>
+            </div> */}
 
             <div className={styles.stringsOptions_comboStrings_wrapper}>
               <span>Combo strings</span>
@@ -365,12 +378,13 @@ const NewPost = () => {
                 Damage
               </label>
               <input
-                className={styles[`${theme}gameInfo_input`]}
+                className={styles[`${theme}dmgInfo_input`]}
                 placeholder="5600"
                 type="text"
                 id="damage"
                 value={damage}
                 onChange={handleDamageChange}
+                autoComplete="off"
                 required
               />
             </div>
@@ -382,30 +396,15 @@ const NewPost = () => {
               <input
                 value={hits}
                 onChange={handleHitsChange}
-                className={styles[`${theme}gameInfo_input`]}
+                className={styles[`${theme}hitsInfo_input`]}
                 placeholder="11"
+                autoComplete="off"
                 required
               />
             </div>
           </div>
 
-          <div className={styles[`${theme}stringsOptions_container`]}>
-            <div className={styles.stringsOptions_stringType_wrapper}>
-              <span style={{ marginLeft: "auto" }}>
-                Tags
-                <span className={styles[`${theme}tagTextOptional`]}>
-                  ( optional )
-                </span>
-              </span>
-              <div className={styles[`${theme}selectDropdownContainer`]}>
-                <input
-                  className={styles[`${theme}stringsOptions_stringType`]}
-                  type="text"
-                  placeholder="Mixup"
-                />
-              </div>
-            </div>
-          </div>
+          <TagInput tags={tags} setTags={setTags} removeTag={handleRemoveTag} />
 
           <button className={styles.submitPost_btn} disabled={!isFormValid}>
             SUBMIT POST
