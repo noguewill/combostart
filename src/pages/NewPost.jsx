@@ -7,6 +7,8 @@ import Footer from "../../components/Footer";
 import { Auth } from "aws-amplify";
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { profanityCheck } from "components/ProfanityFilter";
+import PostTitle from "components/PostCreation/PostTitle";
+import ComboStringsInput from "components/PostCreation/ComboStringsInput";
 
 const NewPost = () => {
   const [userDisplayName, setUserDisplayName] = useState("");
@@ -17,11 +19,11 @@ const NewPost = () => {
   const [hits, setHits] = useState("");
   const [game, setGame] = useState("Street Fighter 6");
   const [screenPosition, setScreenPosition] = useState("");
-  const [character, setCharacter] = useState("Luke");
+  const [character, setCharacter] = useState("");
   const [postTitle, setPostTitle] = useState("");
-  const [comboStrings, setComboStrings] = useState("QCF,QCF + H");
+  const [comboStrings, setComboStrings] = useState([]);
   const [stringType, setStringType] = useState("Text");
-  const [hasSuper, setHasSuper] = useState("Yes");
+  const [hasSuper, setHasSuper] = useState(false);
   const [driveBars, setDriveBars] = useState(4);
   const [tags, setTags] = useState([]);
   const [isFormValid, setIsFormValid] = useState(true);
@@ -103,13 +105,10 @@ const NewPost = () => {
     setPostTitle(event.target.value);
   };
   const handleHasSuper = (event) => {
-    setHasSuper(event.target.value === "Yes");
+    setHasSuper(event.target.value === "Yes" ? true : false);
   };
   const handleDriveBars = (event) => {
     setDriveBars(parseInt(event.target.value));
-  };
-  const handleComboStringsChange = (event) => {
-    setComboStrings(event.target.value);
   };
 
   const handleStringTypeChange = (event) => {
@@ -204,6 +203,9 @@ const NewPost = () => {
   const handleRemoveTag = (tag) => {
     setTags(tags.filter((t) => t !== tag));
   };
+  const handleRemoveString = (string) => {
+    setComboStrings(comboStrings.filter((s) => s !== string));
+  };
 
   return (
     <div className={styles[`${theme}post_parent`]}>
@@ -280,6 +282,7 @@ const NewPost = () => {
                   <option value="Luke">Luke</option>
                   <option value="Manon">Manon</option>
                   <option value="Marisa">Marisa</option>
+                  <option value="Rashid">Rashid</option>
                   <option value="Ryu">Ryu</option>
                   <option value="Zangief">Zangief</option>
                 </select>
@@ -287,49 +290,18 @@ const NewPost = () => {
             </div>
           </div>
 
-          <div className={styles.gameTitle_wrapper}>
-            <span>Post title</span>
-            <input
-              className={styles[`${theme}gameTitle_input`]}
-              type="text"
-              placeholder="Ryu superless 11hits combo"
-              value={postTitle}
-              onChange={handlePostTitleChange}
-              required
-            />
-          </div>
+          <PostTitle
+            theme={theme}
+            postTitle={postTitle}
+            handlePostTitleChange={handlePostTitleChange}
+          />
 
-          <div className={styles[`${theme}stringsOptions_container`]}>
-            {/*     <div className={styles.stringsOptions_stringType_wrapper}>
-              <span>Combo input</span>
-              <div className={styles[`${theme}selectDropdownContainer`]}>
-                <select
-                  value={stringType}
-                  onChange={handleStringTypeChange}
-                  className={styles[`${theme}stringsOptions_stringType`]}
-                  required
-                >
-                  <option value="" disabled>
-                    Select
-                  </option>
-                  <option value="Text">Text</option>
-                  <option value="Selectable">Selectable</option>
-                </select>
-              </div>
-            </div> */}
-
-            <div className={styles.stringsOptions_comboStrings_wrapper}>
-              <span>Combo strings</span>
-              <input
-                className={styles[`${theme}stringsOptions_comboStrings`]}
-                type="text"
-                placeholder="asdasdasdasdasdasd"
-                value={comboStrings}
-                onChange={handleComboStringsChange}
-                required
-              />
-            </div>
-          </div>
+          <ComboStringsInput
+            theme={theme}
+            comboStrings={comboStrings}
+            setComboStrings={setComboStrings}
+            removeString={handleRemoveString}
+          />
 
           <div className={styles.comboInfo_input_container}>
             <div className={styles.stringsOptions_stringType_wrapper}>
@@ -404,7 +376,12 @@ const NewPost = () => {
             </div>
           </div>
 
-          <TagInput tags={tags} setTags={setTags} removeTag={handleRemoveTag} />
+          <TagInput
+            theme={theme}
+            tags={tags}
+            setTags={setTags}
+            removeTag={handleRemoveTag}
+          />
 
           <button className={styles.submitPost_btn} disabled={!isFormValid}>
             SUBMIT POST

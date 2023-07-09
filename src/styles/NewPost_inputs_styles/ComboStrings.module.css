@@ -1,0 +1,102 @@
+.stringsOptions_stringType_wrapper,
+.stringsOptions_comboStrings_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.stringsOptions_stringType,
+.light_theme_stringsOptions_stringType {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  text-align: center;
+  background: transparent;
+  color: #ebebeb;
+  border: none;
+}
+.light_theme_stringsOptions_stringType {
+  color: #1f1f1f;
+}
+
+.stringsOptions_stringType option {
+  font-size: 0.9rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: auto;
+  background-color: #1f1f1f;
+}
+.light_theme_stringsOptions_stringType option {
+  background-color: #dcdcdc;
+}
+
+/* Strings option section */
+.stringsOptions_container,
+.light_theme_stringsOptions_container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #292929;
+  padding: 1rem;
+}
+.light_theme_stringsOptions_container {
+  background-color: #aeaeae;
+}
+
+.stringsOptions_comboStrings,
+.light_theme_stringsOptions_comboStrings {
+  width: 100%;
+  height: 2.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.08rem;
+}
+.stringsOptions_comboStrings {
+  background-color: #1f1f1f;
+  color: #ebebeb;
+  border: none;
+  padding: 0.3rem;
+  border-radius: 4px;
+  width: 6.5rem;
+}
+.light_theme_stringsOptions_comboStrings {
+  color: #1f1f1f;
+  background-color: #dcdcdc;
+}
+
+.stringInput_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+  width: auto;
+  border: 1px solid #3b3efc;
+}
+
+.stringItem {
+  width: auto;
+  display: flex;
+  padding: 0.2rem;
+  justify-content: center;
+  align-items: center;
+  background-color: #6164f3;
+  border-radius: 4px;
+  color: #ebebeb;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.07rem;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+
+.stringItem:hover {
+  background-color: #f13f39;
+}

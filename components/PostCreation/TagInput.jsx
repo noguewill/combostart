@@ -1,10 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import styles from "@/styles/Newpost.module.css";
-import { ThemeContext } from "../../components/ThemeContext";
 import { profanityCheck } from "components/ProfanityFilter";
 
-const TagInput = ({ tags, setTags, removeTag }) => {
-  const { theme } = useContext(ThemeContext);
+const TagInput = ({ theme, tags, setTags, removeTag }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleInputKeyDown = (event) => {
