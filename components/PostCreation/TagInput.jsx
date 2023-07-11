@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "@/styles/Newpost.module.css";
-import { profanityCheck } from "components/ProfanityFilter";
+import { profanityCheck } from "../ProfanityFilter";
 
 const TagInput = ({ theme, tags, setTags, removeTag }) => {
   const [inputValue, setInputValue] = useState("");

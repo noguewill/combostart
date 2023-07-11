@@ -56,10 +56,10 @@ const ComboCard = ({ filteredCombos }) => {
   return (
     <>
       {filteredCombos.map((card) => (
-        <article key={card.id} className={styles.combocard_container}>
+        <article key={card.id?.N} className={styles.combocard_container}>
           <div className={styles.combocard}>
             {/* Render upvote button */}
-            <div className={styles.comboCard_upvote__container}>
+            {/*             <div className={styles.comboCard_upvote__container}>
               <button
                 className={styles.upvoteArrow}
                 onClick={() => handleUpvoteClick(card.id)}
@@ -81,18 +81,18 @@ const ComboCard = ({ filteredCombos }) => {
               <span className={styles[`${theme}comboCard_upvote__text`]}>
                 {upvotes[card.id].count}
               </span>
-            </div>
+            </div> */}
             <div className={styles.combocard_hugger}>
               {/* Render card title */}
               <div className={styles.comboCard__title__container}>
                 <h4 className={styles[`${theme}comboCard_title`]}>
-                  {card.cardTitle}
+                  {card.PostTitle?.S}
                 </h4>
                 <a className={styles.comboCard_title__username}>
-                  {card.author} |
+                  {card.User?.S} |
                 </a>
                 <a className={styles.comboCard_title__timeStamp}>
-                  Posted in {card.date}
+                  Posted in {card.SubmissionDate?.S}
                 </a>
               </div>
 
@@ -100,12 +100,12 @@ const ComboCard = ({ filteredCombos }) => {
                 {/* Render character frame */}
                 <div className={styles.combocard_charFrame__container}>
                   <div className={styles[`${theme}comboCard_charName`]}>
-                    {card.charName}
+                    {card.Character?.S}
                   </div>
                   <div className={styles.combocard_video}>
-                    <video controls>
+                    {/*                     <video controls>
                       <source src={card.videoSrc} type="video/mp4" />
-                    </video>
+                    </video> */}
                   </div>
                 </div>
 
@@ -117,7 +117,7 @@ const ComboCard = ({ filteredCombos }) => {
                     </div>
                     <div className={styles.comboCard_bars}>
                       <span className={styles.comboCard_bars__text}>
-                        {card.driveRushBars}
+                        {card.DriveBars?.N}
                       </span>
                     </div>
                     <div className={styles.comboCard_damage_bar}>
@@ -126,21 +126,21 @@ const ComboCard = ({ filteredCombos }) => {
                           DAMAGE:
                         </span>
                         <span className={styles.comboCard_damageNum__text}>
-                          {card.comboDamage}
+                          {card.Damage?.N}
                         </span>
                         <span className={styles.dmgDot}></span>
                         <span className={styles.comboCard_hitNum__text}>
-                          {card.comboHits} hits
+                          {card.Hits?.N} hits
                         </span>
                       </div>
                     </div>
                     <div className={styles[`${theme}comboCard_comboType`]}>
-                      {card.comboType}
+                      {card.ScreenPosition?.S}
                     </div>
                   </div>
 
                   {/* Inputs row */}
-                  <div id="row1" className={styles.comboCard_inputs__container}>
+                  {/* <div id="row1" className={styles.comboCard_inputs__container}>
                     {card.inputs.slice(0, 14).map((input) => (
                       <figure className={styles.input_container} key={input.id}>
                         <Image
@@ -177,23 +177,23 @@ const ComboCard = ({ filteredCombos }) => {
                         </figure>
                       ))}
                     </div>
-                  )}
+                  )} */}
                   {/* Patch version row */}
                   <div className={styles.comboCard_patch__container}>
                     <div className={styles.patch_text__container}>
                       <div className={styles.patch__text}>
-                        PATCH: {card.patchVer}
+                        PATCH: {/* {card.patchVer} */}
                       </div>
                     </div>
 
-                    {shouldShowExpandButton(card) && (
+                    {/*           {shouldShowExpandButton(card) && (
                       <button
                         className={styles.expand_btn}
                         onClick={handleExpandClick}
                       >
                         {isRow2Visible ? "Collapse" : "Expand"}
                       </button>
-                    )}
+                    )} */}
                   </div>
                 </div>
               </div>
@@ -201,14 +201,12 @@ const ComboCard = ({ filteredCombos }) => {
               {/* Social combocard options */}
               <div className={styles.comboCard_social__container}>
                 {/* Container for the tags */}
-                <div className={styles.tag_container}>
+                {/*          <div className={styles.tag_container}>
                   <span className={styles.tag_text}>TAGS:</span>
-                  {card.tags.map((tag) => (
-                    <button className={styles.tag_btn} key={tag.text}>
-                      {tag.text}
-                    </button>
+                  {card.Tags?.S.map((tag) => (
+                    <button className={styles.tag_btn}>{tag}</button>
                   ))}
-                </div>
+                </div> */}
                 {/* Container for the social buttons   */}
                 <div className={styles.socialOptions_container}>
                   {/*            <button className={styles.social_bookmark__btn}>

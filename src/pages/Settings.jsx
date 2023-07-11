@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import { ThemeContext } from "../../components/ThemeContext";
 import styles from "@/styles/Settings.module.css";
-import Navbar from "components/Navbar";
-import Footer from "components/Footer";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import VerificationModal from "../../components/Authentication/VerificationModal";
 import { Auth } from "aws-amplify";
-import VerificationModal from "components/Authentication/VerificationModal";
 import { useRouter } from "next/router";
 import Image from "next/image";
 

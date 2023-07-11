@@ -1,14 +1,14 @@
 import React, { useContext, useState, useEffect } from "react";
-import { ThemeContext } from "../../components/ThemeContext";
 import styles from "@/styles/Newpost.module.css";
+import { ThemeContext } from "../../components/ThemeContext";
 import Navbar from "../../components/Navbar";
-import TagInput from "components/PostCreation/TagInput";
+import TagInput from "../../components/PostCreation/TagInput";
 import Footer from "../../components/Footer";
+import { profanityCheck } from "../../components/ProfanityFilter";
+import PostTitle from "../../components/PostCreation/PostTitle";
+import ComboStringsInput from "../../components/PostCreation/ComboStringsInput";
 import { Auth } from "aws-amplify";
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
-import { profanityCheck } from "components/ProfanityFilter";
-import PostTitle from "components/PostCreation/PostTitle";
-import ComboStringsInput from "components/PostCreation/ComboStringsInput";
 
 const NewPost = () => {
   const [userDisplayName, setUserDisplayName] = useState("");
@@ -203,8 +203,9 @@ const NewPost = () => {
   const handleRemoveTag = (tag) => {
     setTags(tags.filter((t) => t !== tag));
   };
-  const handleRemoveString = (string) => {
-    setComboStrings(comboStrings.filter((s) => s !== string));
+
+  const handleRemoveString = (index) => {
+    setComboStrings(comboStrings.filter((_, i) => i !== index));
   };
 
   return (

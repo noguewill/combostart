@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from "@/styles/Navbar.module.css";
 import AuthenticationBody from "./Authentication/AuthenticationBody";
 import ThemeToggleBtn from "./ThemeToggleBtn";
-import { awsmobile } from "components/Authentication/amplifyHandler";
+import { awsmobile } from "./Authentication/amplifyHandler";
 import { Auth } from "aws-amplify";
 import { useRouter } from "next/router";
 

@@ -11,7 +11,6 @@
   "dependencies": {
     "@aws-amplify/auth": "^5.5.1",
     "@aws-amplify/core": "^5.5.1",
-    "@aws-amplify/ui-react": "^4.6.4",
     "@aws-sdk/client-dynamodb": "^3.358.0",
     "@react-spring/web": "^9.7.2",
     "aws-amplify": "^5.2.5",
@@ -22,13 +21,7 @@
     "next": "13.2.4",
     "obscenity": "^0.1.4",
     "react": "18.2.0",
-    "react-dnd": "^16.0.1",
-    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "18.2.0",
-    "react-tag-input": "^6.8.1",
     "react-youtube": "^10.1.0"
-  },
-  "devDependencies": {
-    "@types/istanbul-lib-coverage": "^2.0.4"
   }
 }
