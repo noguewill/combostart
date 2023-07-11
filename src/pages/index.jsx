@@ -1,19 +1,15 @@
 import Head from "next/head";
+import { useState, useEffect } from "react";
 import styles from "@/styles/Home.module.css";
 import WelcomePage from "./WelcomePage";
 import ComboHub from "./ComboHub";
 import Cookies from "js-cookie";
-import { useState, useEffect } from "react";
-import { awsmobile } from "components/Authentication/amplifyHandler";
-import withSessionCheck from "components/withSessionCheck";
+import withSessionCheck from "../../components/withSessionCheck";
 
 function Home() {
   const [showWelcome, setShowWelcome] = useState(false);
 
   useEffect(() => {
-    // Set the necessary AWS Amplify configuration using environment variables
-    awsmobile;
-
     const visited = Cookies.get("visited");
     if (!visited) {
       Cookies.set("visited", "true", { expires: 7 });
