@@ -5,23 +5,19 @@ import Image from "next/image";
 import styles from "@/styles/Navbar.module.css";
 import AuthenticationBody from "./Authentication/AuthenticationBody";
 import ThemeToggleBtn from "./ThemeToggleBtn";
-import { awsmobile } from "./Authentication/amplifyHandler";
 import { Auth } from "aws-amplify";
 import { useRouter } from "next/router";
 
-const Navbar = ({ setGameName }) => {
+const Navbar = () => {
   const router = useRouter();
 
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [showOverlay, setShowOverlay] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [userDisplayName, setUserDisplayName] = useState("");
 
   useEffect(() => {
-    awsmobile;
     const checkAuth = async () => {
       try {
         const user = await Auth.currentAuthenticatedUser();
@@ -45,24 +41,11 @@ const Navbar = ({ setGameName }) => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
   };
 
-  const handleGameName = (newGameName) => {
-    // Call setGameName with the desired value
-    setGameName(newGameName);
-  };
-
-  const handleAuthenticationSuccess = () => {
-    setLoggedIn(true);
-  };
-
-  const navigateToNewPost = () => {
-    router.push("/NewPost", { userDisplayName });
-  };
-
   const handleSignOut = async () => {
     try {
       await Auth.signOut();
       // User has been successfully signed out
-      router.push("/ComboHub"); // Redirect to "/"
+      router.push("/"); // Redirect to "/"
       window.location.reload(); // Refresh the page
       // Perform any additional actions or navigate to a different page if needed
     } catch (error) {
@@ -81,8 +64,7 @@ const Navbar = ({ setGameName }) => {
 
       <div className={styles.navbar_btn__container}>
         {/* Add toggle button */}
-
-        <Link href="/ComboHub" className={styles[`${theme}nav_btn`]}>
+        <Link href="/" className={styles[`${theme}nav_btn`]}>
           COMBO HUB
         </Link>
         <span
@@ -97,7 +79,7 @@ const Navbar = ({ setGameName }) => {
               {/* This is a button section */}
               <div className={styles.combosPage_submenu}>
                 <h1 className={styles.combosPage_submenu_header}>FEATURED</h1>
-                <Link href="/ComboGuides" onClick={() => handleGameName("sf6")}>
+                <Link href="/ComboGuides">
                   <span className={styles.combosPage_submenu_btn}>
                     Street Fighter 6
                   </span>
@@ -176,11 +158,7 @@ const Navbar = ({ setGameName }) => {
             </div>
           </div>
         </span>
-        <span
-          id={styles.aboutBtn}
-          href="/About"
-          className={styles[`${theme}nav_hoverBtn`]}
-        >
+        <span id={styles.aboutBtn} className={styles[`${theme}nav_hoverBtn`]}>
           ABOUT {/* Combos Page Submenu */}
           <div className={styles.about_submenu_parent}>
             <div
@@ -201,18 +179,14 @@ const Navbar = ({ setGameName }) => {
             </p>
           </div>
         </span>
-
         {/* Only show if the user is logged in */}
         <div className={styles.authNavContainer}>
           <ThemeToggleBtn theme={theme} toggleTheme={toggleTheme} />
           {currentUser !== null ? (
             <>
-              <button
-                onClick={navigateToNewPost}
-                className={styles[`${theme}nav_btn`]}
-              >
+              <Link href="/NewPost" className={styles[`${theme}nav_btn`]}>
                 NEW POST +
-              </button>
+              </Link>
               <div className={styles.profileBtn_container}>
                 <span className={styles.profileBtn_username}>
                   {userDisplayName}
@@ -277,12 +251,7 @@ const Navbar = ({ setGameName }) => {
         </div>
       </div>
 
-      {showOverlay && (
-        <AuthenticationBody
-          toggleOverlay={toggleOverlay}
-          onAuthenticationSuccess={handleAuthenticationSuccess}
-        />
-      )}
+      {showOverlay && <AuthenticationBody toggleOverlay={toggleOverlay} />}
     </nav>
   );
 };

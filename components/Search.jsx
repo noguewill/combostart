@@ -1,22 +1,12 @@
 import React, { useState, useRef, useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
 import styles from "@/styles/Search.module.css";
-import { useRouter } from "next/router";
 import Image from "next/image";
 
 const Search = ({ onSearch }) => {
   const { theme } = useContext(ThemeContext);
-
-  const router = useRouter();
-  const pathname = router.pathname;
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
   const debounceTimerRef = useRef(null);
-
-  const handleOptionSelect = (option) => {
-    // Handle the selected option
-    console.log(`Selected option: ${option}`);
-  };
 
   const handleSearchQueryChange = (e) => {
     // Update the search query and debounce the onSearch callback
@@ -27,10 +17,6 @@ const Search = ({ onSearch }) => {
     debounceTimerRef.current = setTimeout(() => {
       onSearch(value);
     }, 300); // Adjust the debounce delay as needed
-  };
-
-  const handleDropdownChange = (event) => {
-    setSelectedOption(event.target.value);
   };
 
   return (

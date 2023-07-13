@@ -47,11 +47,11 @@ const ComboGuideCard = () => {
       alias = card.alias;
     } else if (card.id === 2) {
       alias = "";
-      linkPath = "/ComboHub";
+      linkPath = "/";
       cardClassName = styles.featuredCard_mid;
     } else if (card.id === 3) {
       alias = "";
-      linkPath = "/ComboHub";
+      linkPath = "/";
       cardClassName = styles.featuredCard_right;
     }
 
