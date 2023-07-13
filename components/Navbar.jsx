@@ -65,7 +65,7 @@ const Navbar = () => {
       <div className={styles.navbar_btn__container}>
         {/* Add toggle button */}
         <Link href="/" className={styles[`${theme}nav_btn`]}>
-          COMBO HUB
+          HOME
         </Link>
         <span
           id={styles.combosPageBtn}

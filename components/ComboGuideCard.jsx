@@ -37,20 +37,16 @@ const ComboGuideCard = () => {
     let filterOverride;
     let wipNone;
     let linkPath;
-    let alias;
 
     if (card.id === 1) {
       cardClassName = styles.featuredCard_left;
       filterOverride = { filter: "none" };
       wipNone = { display: "none" };
       linkPath = card.src;
-      alias = card.alias;
     } else if (card.id === 2) {
-      alias = "";
       linkPath = "/";
       cardClassName = styles.featuredCard_mid;
     } else if (card.id === 3) {
-      alias = "";
       linkPath = "/";
       cardClassName = styles.featuredCard_right;
     }
@@ -77,7 +73,6 @@ const ComboGuideCard = () => {
       <Link
         key={card.id}
         href={linkPath}
-        as={alias}
         className={cardClassName}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

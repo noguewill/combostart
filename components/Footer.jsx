@@ -34,7 +34,7 @@ const Footer = () => {
   return (
     <footer className={styles[`${theme}footer_container`]}>
       <div className={styles.submenu_parent}>
-        <div>
+        <div className={styles.langOptions_container}>
           <h4
             style={{
               fontSize: "1.5rem",
