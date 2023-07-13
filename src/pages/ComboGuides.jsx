@@ -29,7 +29,7 @@ const ComboGuides = () => {
         const response = await client.send(new ScanCommand(params));
         // Set the retrieved data in your component state or use it as needed
         setDisplayedCombos(response.Items);
-        console.log("Success, data received:", comboRawData);
+        console.log("Success, data received:", displayedCombos[1].Tags?.S);
       } catch (error) {
         console.error("Error retrieving data from DynamoDB:", error);
       }

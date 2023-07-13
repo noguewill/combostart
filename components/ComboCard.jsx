@@ -102,11 +102,20 @@ const ComboCard = ({ displayedCombos }) => {
                   <div className={styles[`${theme}comboCard_charName`]}>
                     {card.Character?.S}
                   </div>
-                  <div className={styles.combocard_video}>
-                    {/*                     <video controls>
+                  {/*                 <div className={styles.combocard_video}>
+                                        <video controls>
                       <source src={card.videoSrc} type="video/mp4" />
-                    </video> */}
-                  </div>
+                    </video>
+                  </div> */}
+
+                  <Image
+                    className={styles.charAvatar_img}
+                    src="/comboAvatars/sf6/sf6_charAvatar_Cammy.png"
+                    /* src={`"/comboAvatars/sf6/sf6_charAvatar_${card.Character?.S}.png"`} */
+                    alt="blanka"
+                    width={100}
+                    height={100}
+                  />
                 </div>
 
                 {/* Combo Information row */}
@@ -182,7 +191,7 @@ const ComboCard = ({ displayedCombos }) => {
                   <div className={styles.comboCard_patch__container}>
                     <div className={styles.patch_text__container}>
                       <div className={styles.patch__text}>
-                        PATCH: {/* {card.patchVer} */}
+                        PATCH: 1.0.0{/* {card.patchVer} */}
                       </div>
                     </div>
 
@@ -201,12 +210,11 @@ const ComboCard = ({ displayedCombos }) => {
               {/* Social combocard options */}
               <div className={styles.comboCard_social__container}>
                 {/* Container for the tags */}
-                {/*          <div className={styles.tag_container}>
+                <div className={styles.tag_container}>
                   <span className={styles.tag_text}>TAGS:</span>
-                  {card.Tags?.S.map((tag) => (
-                    <button className={styles.tag_btn}>{tag}</button>
-                  ))}
-                </div> */}
+
+                  <button className={styles.tag_btn}>{card.Tags?.S}</button>
+                </div>
                 {/* Container for the social buttons   */}
                 <div className={styles.socialOptions_container}>
                   {/*            <button className={styles.social_bookmark__btn}>
