@@ -110,8 +110,7 @@ const ComboCard = ({ displayedCombos }) => {
 
                   <Image
                     className={styles.charAvatar_img}
-                    src="/comboAvatars/sf6/sf6_charAvatar_Cammy.png"
-                    /* src={`"/comboAvatars/sf6/sf6_charAvatar_${card.Character?.S}.png"`} */
+                    src={`/comboAvatars/sf6/sf6_charAvatar_${card.Character?.S}.png`}
                     alt="blanka"
                     width={100}
                     height={100}
