@@ -105,7 +105,7 @@ const NewPost = () => {
     setPostTitle(event.target.value);
   };
   const handleHasSuper = (event) => {
-    setHasSuper(event.target.value === "Yes" ? true : false);
+    setHasSuper(event.target.value);
   };
   const handleDriveBars = (event) => {
     setDriveBars(parseInt(event.target.value));
@@ -317,8 +317,8 @@ const NewPost = () => {
                   <option value="" disabled>
                     Select
                   </option>
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
+                  <option value={true}>Yes</option>
+                  <option value={false}>No</option>
                 </select>
               </div>
             </div>
