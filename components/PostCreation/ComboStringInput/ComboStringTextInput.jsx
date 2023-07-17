@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import styles from "@/styles/NewPost_inputs_styles/ComboStrings.module.css";
+import styles from "@/styles/NewPost_inputs_styles/ComboStringTextInput.module.css";
 
-const ComboStringsInput = ({
+const ComboStringsTextInput = ({
   theme,
   comboStrings,
   setComboStrings,
@@ -104,4 +104,4 @@ const ComboStringsInput = ({
   );
 };
 
-export default ComboStringsInput;
+export default ComboStringsTextInput;

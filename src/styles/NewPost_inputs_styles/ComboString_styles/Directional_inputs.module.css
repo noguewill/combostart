@@ -1,0 +1,76 @@
+/* Directionals */
+.directionals_section {
+  display: flex;
+  flex-direction: column;
+}
+.directionals_container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+.directionals_column {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.directional_btn {
+  width: 2.3rem;
+  height: 2.3rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.3rem;
+  border-radius: 8px;
+  margin: 0.2rem;
+  transition: all 0.11s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+.directional_btn:hover {
+  background-color: #0d0d0d;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+.neutalDot {
+  background-color: #aeaeae;
+  border-radius: 100%;
+  width: 1.3rem;
+  height: 1.3rem;
+  margin: 0.2rem;
+}
+/* Acronym directionals(e.g: QCB) */
+.directionals_acronyms_container {
+  display: flex;
+  justify-content: space-around;
+}
+.directionals_acronyms_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.directional_acronym_btn,
+.light_theme_directional_acronym_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 1.5rem;
+  margin-bottom: 0.6rem;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem;
+  text-align: center;
+  background-color: #0d0d0d;
+  cursor: pointer;
+  color: #ebebeb;
+}
+.light_theme_directional_acronym_btn {
+  color: #1f1f1f;
+  background-color: #aeaeae;
+}
+.directional_acronym_btn:hover {
+  background-color: #292929;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+/* Acronym directionals(e.g: QCB) END */
+/* Directionals END */

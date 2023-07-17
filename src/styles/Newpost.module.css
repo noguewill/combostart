@@ -1,14 +1,14 @@
 .post_parent {
-  background-color: #292929;
+  background-color: #0d0d0d;
   color: #ebebeb;
 }
 .light_theme_post_parent {
-  color: #292929;
+  color: #0d0d0d;
   background-color: #aeaeae;
 }
 .post_parent,
 .light_theme_post_parent {
-  transition: background-color 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+  transition: background-color 0.7s cubic-bezier(0.7, 0, 0.3, 1);
 }
 /* Wrappers */
 .gameTitle_wrapper,
@@ -142,10 +142,10 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 60%;
-  height: 50rem;
-  padding: 0 2rem;
-  background-color: #1f1f1f;
+  width: 65rem;
+  height: 70rem;
+  padding: 0 1rem;
+  background-color: #292929;
   border-radius: 8px;
 }
 .light_theme_form_container {
@@ -177,10 +177,10 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+  width: 55%;
   border-radius: 8px;
-  background-color: #292929;
-  padding: 1rem;
+  background-color: #1f1f1f;
+  padding: 0.5rem;
 }
 .light_theme_stringsOptions_container {
   background-color: #aeaeae;
@@ -195,7 +195,7 @@
 }
 
 .submitPost_btn {
-  width: 80%;
+  width: 50%;
   font-family: "Kanit";
   font-weight: bold;
   letter-spacing: 0.1rem;

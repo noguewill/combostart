@@ -6,7 +6,7 @@ import TagInput from "../../components/PostCreation/TagInput";
 import Footer from "../../components/Footer";
 import { profanityCheck } from "../../components/ProfanityFilter";
 import PostTitle from "../../components/PostCreation/PostTitle";
-import ComboStringsInput from "../../components/PostCreation/ComboStringsInput";
+import ComboStringSelectiveInput from "../../components/PostCreation/ComboStringInput/ComboStringSelectiveInput";
 import { Auth } from "aws-amplify";
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 
@@ -297,13 +297,6 @@ const NewPost = () => {
             handlePostTitleChange={handlePostTitleChange}
           />
 
-          <ComboStringsInput
-            theme={theme}
-            comboStrings={comboStrings}
-            setComboStrings={setComboStrings}
-            removeString={handleRemoveString}
-          />
-
           <div className={styles.comboInfo_input_container}>
             <div className={styles.stringsOptions_stringType_wrapper}>
               <span>Combo has super?</span>
@@ -376,7 +369,7 @@ const NewPost = () => {
               />
             </div>
           </div>
-
+          <ComboStringSelectiveInput theme={theme} />
           <TagInput
             theme={theme}
             tags={tags}

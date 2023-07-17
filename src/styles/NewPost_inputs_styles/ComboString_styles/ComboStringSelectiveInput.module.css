@@ -1,0 +1,172 @@
+.container,
+.light_theme_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 1.3rem;
+  padding-bottom: 1.3rem;
+  background-color: #1f1f1f;
+  color: #ebebeb;
+  border-radius: 8px;
+}
+.light_theme_container {
+  background-color: #aeaeae;
+  font-weight: 400;
+  color: #1f1f1f;
+}
+
+/* Header */
+.header_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.help_btn,
+.light_theme_help_btn {
+  background-color: #0d0d0d;
+  color: #ebebeb;
+  width: 0.8rem;
+  height: 0.8rem;
+  padding: 0.55rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  cursor: pointer;
+  border: none;
+  margin-right: 0.2rem;
+}
+.light_theme_help_btn {
+  color: #1f1f1f;
+  background-color: #aeaeae;
+}
+
+.header {
+  font-size: 1rem;
+  font-family: "kanit";
+}
+/* Header end */
+
+/* Combo input buttons */
+.comboBtns_container,
+.light_theme_comboBtns_container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  color: #ebebeb;
+}
+.light_theme_comboBtns_container {
+  color: #1f1f1f;
+}
+.addInput_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3d59fd;
+  width: 1.1rem;
+  height: 1.1rem;
+  padding: 1.1rem;
+  color: #ebebeb;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.addInput_btn:hover {
+  background-color: #1e3ffc;
+  transition: all 0.1s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+
+.addString_btn {
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  border: none;
+  background-color: #3d59fd;
+  cursor: pointer;
+  color: #ebebeb;
+}
+.addString_btn:hover {
+  background-color: #1e3ffc;
+  transition: all 0.3s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+
+.saveStrings_btn {
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  padding: 0.6rem;
+  border: none;
+  background-color: #3d59fd;
+  cursor: pointer;
+  color: #ebebeb;
+}
+.saveStrings_btn:hover {
+  background-color: #1e3ffc;
+  transition: all 0.3s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+
+/* Combo input buttons */
+.buttonInputs_container {
+  display: flex;
+}
+.buttonInputs_row_container {
+  display: flex;
+  width: 32rem;
+  flex-direction: column;
+}
+.buttonInputs_row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonInput_container {
+  width: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+}
+.buttonInput {
+  width: 3.1rem;
+  height: 3.1rem;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+.buttonInput:hover {
+  background-color: #0d0d0d;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+
+.mechanicsColumn_container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Actual combo strings */
+
+.comboStrings_container {
+  background-color: #292929;
+  height: 8.5rem;
+  width: 98.5%;
+  padding: 0.2rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
