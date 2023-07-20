@@ -323,7 +323,10 @@ const ComboStringSelectiveInput = ({ theme }) => {
                     {item.type === "text" ? (
                       item.value
                     ) : (
-                      <div className={styles.comboString_string_container}>
+                      <div
+                        key={innerIndex}
+                        className={styles.comboString_string_container}
+                      >
                         <Image
                           src={`/inputs/${item.value}.svg`}
                           width={32}
@@ -354,7 +357,10 @@ const ComboStringSelectiveInput = ({ theme }) => {
                   </button>
                 </div>
               ) : (
-                <div className={styles.comboString_string_container}>
+                <div
+                  key={index}
+                  className={styles.comboString_string_container}
+                >
                   <Image
                     src={`/inputs/${item.value}.svg`}
                     width={32}
