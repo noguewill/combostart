@@ -307,7 +307,7 @@ const ComboStringSelectiveInput = ({ theme }) => {
       {(inputValue.length > 0 || comboString.length > 0) && (
         <div className={styles.comboStrings_container}>
           {comboString.map((subArray, outerIndex) => (
-            <div className={styles.comboString_wrapper}>
+            <div key={outerIndex} className={styles.comboString_wrapper}>
               <input
                 className={styles.comboString_input}
                 type="text"
