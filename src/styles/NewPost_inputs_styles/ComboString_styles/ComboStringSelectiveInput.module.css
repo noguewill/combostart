@@ -3,7 +3,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
   padding-top: 1.3rem;
   padding-bottom: 1.3rem;
@@ -21,8 +20,19 @@
 .header_container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 100%;
+  margin-bottom: 1rem;
+}
+.back_btn {
+  font-size: 0.6rem;
+  color: #3d59fd;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.back_btn:hover {
+  text-decoration: underline;
 }
 
 .help_btn,
@@ -46,6 +56,8 @@
 }
 
 .header {
+  display: flex;
+  align-items: center;
   font-size: 1rem;
   font-family: "kanit";
 }
@@ -55,7 +67,7 @@
 .comboBtns_container,
 .light_theme_comboBtns_container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
   color: #ebebeb;
@@ -175,27 +187,51 @@
   margin: 0.5rem;
 }
 .buttonInput {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   cursor: pointer;
   border: none;
+  border-radius: 8px;
   background-color: transparent;
 }
 .buttonInput:hover {
-  background-color: #0d0d0d;
+  background-color: #3d59fd;
   transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
 .buttonInput_text {
   font-size: 0.6rem;
-  padding: 0;
-  margin: 0;
   width: 7rem;
   text-align: center;
+}
+
+.mechanicButtonInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  padding: 0.3rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.mechanicButtonInput:hover {
+  background-color: #3d59fd;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+.mechanicButton_text {
+  font-size: 0.65rem;
+  text-align: center;
+  color: #ebebeb;
+  width: 5rem;
+  margin-top: -0.2rem;
 }
 
 .mechanicsColumn_container {
   display: flex;
   flex-direction: column;
+  height: 18rem;
 }
 
 /* Actual combo strings */
@@ -252,4 +288,56 @@
 .comboString_text {
   margin-top: 0.3rem;
   font-size: 0.8rem;
+}
+
+/* Initial State items */
+
+.initialState_container {
+  /* div */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #1f1f1f;
+}
+.inititialState_header {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.initialState_btn_wrapper {
+  /* div */
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+  background-color: #292929;
+  padding: 0.5rem;
+}
+
+.inititialState_btn {
+  /* button */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 4rem;
+  padding: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  border-radius: 8px;
+}
+.inititialState_btn:hover {
+  background-color: #3d59fd;
+}
+.inititialState_btn_text {
+  color: #ebebeb;
+  font-size: 0.7rem;
+  margin-top: 0.3rem;
+  font-family: "Kanit";
 }
