@@ -8,73 +8,65 @@ const DirectionalInputs = ({ theme, handleInputValue }) => {
       <div className={styles.directionals_container}>
         <div className={styles.directionals_column}>
           <Image
-            id="upback"
             className={styles.directional_btn}
-            src="/inputs/arrow_up.svg"
+            src="/inputs/UB.svg"
             width={42}
             height={42}
-            onClick={handleInputValue}
+            onClick={() => handleInputValue("UB")}
           />
           <Image
-            id="back"
             className={styles.directional_btn}
-            src="/inputs/arrow_up.svg"
+            src="/inputs/B.svg"
             width={42}
             height={42}
-            onClick={handleInputValue}
+            onClick={() => handleInputValue("B")}
           />
           <Image
-            id="downback"
             className={styles.directional_btn}
-            src="/inputs/arrow_up.svg"
+            src="/inputs/DB.svg"
             width={42}
             height={42}
-            onClick={handleInputValue}
+            onClick={() => handleInputValue("DB")}
           />
         </div>
         <div className={styles.directionals_column}>
           <Image
-            id="up"
             className={styles.directional_btn}
-            src="/inputs/arrow_up.svg"
+            src="/inputs/UP.svg"
             width={42}
             height={42}
-            onClick={handleInputValue}
+            onClick={() => handleInputValue("UP")}
           />
           <span className={styles.neutalDot}></span>
           <Image
-            id="down"
             className={styles.directional_btn}
-            src="/inputs/arrow_up.svg"
+            src="/inputs/D.svg"
             width={42}
             height={42}
-            onClick={handleInputValue}
+            onClick={() => handleInputValue("D")}
           />
         </div>
         <div className={styles.directionals_column}>
           <Image
-            id="upforward"
             className={styles.directional_btn}
-            src="/inputs/arrow_up.svg"
+            src="/inputs/UF.svg"
             width={42}
             height={42}
-            onClick={handleInputValue}
+            onClick={() => handleInputValue("UF")}
           />
           <Image
-            id="forward"
             className={styles.directional_btn}
-            src="/inputs/arrow_up.svg"
+            src="/inputs/F.svg"
             width={42}
             height={42}
-            onClick={handleInputValue}
+            onClick={() => handleInputValue("F")}
           />
           <Image
-            id="downforward"
             className={styles.directional_btn}
-            src="/inputs/arrow_up.svg"
+            src="/inputs/DF.svg"
             width={42}
             height={42}
-            onClick={handleInputValue}
+            onClick={() => handleInputValue("DF")}
           />
         </div>
       </div>
@@ -82,32 +74,28 @@ const DirectionalInputs = ({ theme, handleInputValue }) => {
       <div className={styles.directionals_acronyms_container}>
         <div className={styles.directionals_aconyms_row}>
           <button
-            id="QCF"
             className={styles[`${theme}directional_acronym_btn`]}
-            onClick={handleInputValue}
+            onClick={() => handleInputValue("QCF")}
           >
             QCF
           </button>
           <button
-            id="QCB"
             className={styles[`${theme}directional_acronym_btn`]}
-            onClick={handleInputValue}
+            onClick={() => handleInputValue("QCB")}
           >
             QCB
           </button>
         </div>
         <div className={styles.directionals_aconyms_row}>
           <button
-            id="HCF"
             className={styles[`${theme}directional_acronym_btn`]}
-            onClick={handleInputValue}
+            onClick={() => handleInputValue("HCF")}
           >
             HCF
           </button>
           <button
-            id="HCB"
             className={styles[`${theme}directional_acronym_btn`]}
-            onClick={handleInputValue}
+            onClick={() => handleInputValue("HCB")}
           >
             HCB
           </button>

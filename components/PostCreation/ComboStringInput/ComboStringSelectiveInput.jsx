@@ -161,10 +161,10 @@ const ComboStringSelectiveInput = ({ theme }) => {
             <div className={styles.buttonInput_container}>
               <button
                 className={styles.buttonInput}
-                onClick={() => handleInputValue("oPunch")}
+                onClick={() => handleInputValue("PP")}
               >
                 <Image
-                  src="/inputs/Punch.svg"
+                  src="/inputs/PP.svg"
                   width={32}
                   height={32}
                   alt="Overdrive Punch"
@@ -233,10 +233,10 @@ const ComboStringSelectiveInput = ({ theme }) => {
             <div className={styles.buttonInput_container}>
               <button
                 className={styles.buttonInput}
-                onClick={() => handleInputValue("okick")}
+                onClick={() => handleInputValue("KK")}
               >
                 <Image
-                  src="/inputs/Kick.svg"
+                  src="/inputs/KK.svg"
                   width={32}
                   height={32}
                   alt="Overdrive Kick"
@@ -253,29 +253,44 @@ const ComboStringSelectiveInput = ({ theme }) => {
               className={styles.buttonInput}
               onClick={() => handleInputValue("cancel")}
             >
-              <Image src="/inputs/P.svg" width={32} height={32} alt="cancel" />
+              <Image
+                src="/inputs/cancel.svg"
+                width={50}
+                height={50}
+                alt="Cancel"
+              />
             </button>
             <span className={styles.buttonInput_text}>CANCEL ( xx )</span>
           </div>
           <div className={styles.buttonInput_container}>
-            <Image
-              src="/inputs/PC.svg"
-              width={32}
-              height={32}
+            <button
               className={styles.buttonInput}
-              alt="Yeah"
-            />
-            <span>Punch</span>
+              onClick={() => handleInputValue("PDR")}
+            >
+              <Image
+                src="/inputs/PDR.svg"
+                width={50}
+                height={50}
+                alt="PARRY INTO DRIVE RUSH"
+              />
+            </button>
+            <span className={styles.buttonInput_text} style={{ width: "auto" }}>
+              PARRY INTO DRIVE RUSH
+            </span>
           </div>
           <div className={styles.buttonInput_container}>
-            <Image
-              src="/inputs/DR.svg"
-              width={32}
-              height={32}
+            <button
               className={styles.buttonInput}
-              alt="Yeah"
-            />
-            <span>Punch</span>
+              onClick={() => handleInputValue("DR")}
+            >
+              <Image
+                src="/inputs/DR.svg"
+                width={42}
+                height={42}
+                alt="Drive Rush"
+              />
+            </button>
+            <span className={styles.buttonInput_text}>Drive Rush</span>
           </div>
         </div>
       </main>
