@@ -101,6 +101,14 @@ const DirectionalInputs = ({ theme, handleInputValue }) => {
           </button>
         </div>
       </div>
+      <div className={styles.directionals_aconyms_row}>
+        <button
+          className={styles[`${theme}dp_acronym_btn`]}
+          onClick={() => handleInputValue("DP")}
+        >
+          DP
+        </button>
+      </div>
     </div>
   );
 };

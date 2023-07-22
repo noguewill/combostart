@@ -160,6 +160,13 @@
   background-color: #1e3ffc;
   transition: all 0.3s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
+.saveStrings_btn:disabled {
+  /* Styles for disabled button */
+  background-color: gray;
+  color: white;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 /* String handling buttons END */
 
 /* Combo input buttons */

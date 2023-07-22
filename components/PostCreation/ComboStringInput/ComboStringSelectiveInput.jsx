@@ -9,6 +9,7 @@ const ComboStringSelectiveInput = ({ theme }) => {
   const [isPlusOnly, setIsPlusOnly] = useState(false);
   const [askInitialState, setAskInitialState] = useState(true);
   const [initialState, setInitialState] = useState("");
+  const [isComboValid, setIsComboValid] = useState(false);
 
   const handleInputValue = (val) => {
     if (val === "+") {
@@ -57,11 +58,14 @@ const ComboStringSelectiveInput = ({ theme }) => {
 
   useEffect(() => {
     initialState !== "" ? setAskInitialState(false) : setAskInitialState(true);
+
     // Check if the inputValue contains only the "+" sign
     const isPlusOnlyValue =
       inputValue.length === 1 && inputValue[0].value === "+";
     setIsPlusOnly(isPlusOnlyValue);
-  }, [inputValue, initialState]);
+
+    setIsComboValid(comboString.length >= 3); // check if comboString length is greater than or equal to 3
+  }, [inputValue, initialState, comboString]);
 
   const handleRemoveInputValue = (index) => {
     setInputValue((prevInputValue) => {
@@ -70,6 +74,7 @@ const ComboStringSelectiveInput = ({ theme }) => {
       return updatedInputValue;
     });
 
+    // Prevent form submission
     event.preventDefault();
   };
 
@@ -433,6 +438,7 @@ const ComboStringSelectiveInput = ({ theme }) => {
                     className={styles.comboString_input}
                     type="text"
                     placeholder="FULLY CHARGED"
+                    maxLength={15}
                   />
                   <div
                     key={outerIndex}
@@ -502,7 +508,7 @@ const ComboStringSelectiveInput = ({ theme }) => {
           )}
 
           {(inputValue.length > 0 || comboString.length > 0) && (
-            <button className={styles.saveStrings_btn}>
+            <button className={styles.saveStrings_btn} disabled={!isComboValid}>
               SAVE COMBO STRINGS
             </button>
           )}

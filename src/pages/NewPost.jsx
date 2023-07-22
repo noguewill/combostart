@@ -22,7 +22,6 @@ const NewPost = () => {
   const [character, setCharacter] = useState("");
   const [postTitle, setPostTitle] = useState("");
   const [comboStrings, setComboStrings] = useState([]);
-  const [stringType, setStringType] = useState("Text");
   const [hasSuper, setHasSuper] = useState(false);
   const [driveBars, setDriveBars] = useState(4);
   const [tags, setTags] = useState([]);
@@ -109,10 +108,6 @@ const NewPost = () => {
   };
   const handleDriveBars = (event) => {
     setDriveBars(parseInt(event.target.value));
-  };
-
-  const handleStringTypeChange = (event) => {
-    setStringType(event.target.value);
   };
 
   const handleSubmit = async (event) => {
@@ -202,10 +197,6 @@ const NewPost = () => {
 
   const handleRemoveTag = (tag) => {
     setTags(tags.filter((t) => t !== tag));
-  };
-
-  const handleRemoveString = (index) => {
-    setComboStrings(comboStrings.filter((_, i) => i !== index));
   };
 
   return (
