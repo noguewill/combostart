@@ -22,6 +22,7 @@ const NewPost = () => {
   const [character, setCharacter] = useState("");
   const [postTitle, setPostTitle] = useState("");
   const [comboStrings, setComboStrings] = useState([]);
+  const [comboNotes, setcomboNotes] = useState([]);
   const [hasSuper, setHasSuper] = useState(false);
   const [driveBars, setDriveBars] = useState(4);
   const [tags, setTags] = useState([]);
@@ -360,7 +361,13 @@ const NewPost = () => {
               />
             </div>
           </div>
-          <ComboStringSelectiveInput theme={theme} />
+          <ComboStringSelectiveInput
+            theme={theme}
+            comboStrings={comboStrings}
+            setComboStrings={setComboStrings}
+            comboNotes={comboNotes}
+            setcomboNotes={setcomboNotes}
+          />
           <TagInput
             theme={theme}
             tags={tags}
