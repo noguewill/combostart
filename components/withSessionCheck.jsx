@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { Auth } from "aws-amplify";
+import awsmobile from "./Authentication/amplifyHandler";
 
 const withSessionCheck = (WrappedComponent) => {
   const SessionCheckWrapper = (props) => {
     const [currentUser, setCurrentUser] = useState(null);
 
     useEffect(() => {
+      awsmobile;
       const checkAuth = async () => {
         try {
           const user = await Auth.currentAuthenticatedUser();

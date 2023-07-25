@@ -7,6 +7,7 @@ import AuthenticationBody from "./Authentication/AuthenticationBody";
 import ThemeToggleBtn from "./ThemeToggleBtn";
 import { Auth } from "aws-amplify";
 import { useRouter } from "next/router";
+import awsmobile from "./Authentication/amplifyHandler";
 
 const Navbar = () => {
   const router = useRouter();
@@ -18,6 +19,7 @@ const Navbar = () => {
   const [userDisplayName, setUserDisplayName] = useState("");
 
   useEffect(() => {
+    awsmobile;
     const checkAuth = async () => {
       try {
         const user = await Auth.currentAuthenticatedUser();
@@ -26,7 +28,7 @@ const Navbar = () => {
         setUserDisplayName(user.attributes["custom:DisplayName"]);
       } catch (error) {
         // No active session, redirect to the sign-in page
-        console.log(error);
+        console.log("Navbar:", error);
       }
     };
 

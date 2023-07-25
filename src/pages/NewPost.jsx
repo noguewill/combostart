@@ -57,7 +57,7 @@ const NewPost = () => {
         screenPosition !== "" &&
         character !== "" &&
         postTitle !== "" &&
-        comboStrings !== "" &&
+        comboStrings.length >= 3 &&
         hasSuper !== "" &&
         damage !== "" &&
         hits !== ""

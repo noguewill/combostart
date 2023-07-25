@@ -8,7 +8,7 @@ export const handleSignInSubmit = async (e, setNotificationText) => {
   const password = e.target.password.value;
 
   try {
-    const user = await Auth.signIn(username, password);
+    await Auth.signIn(username, password);
     console.log("Sign-in successful");
     setNotificationText(
       <span>

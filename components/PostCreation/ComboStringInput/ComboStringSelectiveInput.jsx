@@ -97,8 +97,6 @@ const ComboStringSelectiveInput = ({
     event.preventDefault();
   };
 
-  const handleSaveComboStrings = () => {};
-
   return (
     <div className={styles[`${theme}container`]}>
       {!isComboSaved ? (
@@ -106,7 +104,7 @@ const ComboStringSelectiveInput = ({
           {askInitialState ? (
             <div className={styles.initialState_container}>
               <h2 className={styles.inititialState_header}>
-                What is the initial state where the combo needs to start at?
+                What is the initial state the combo needs to start at?
               </h2>
               <div className={styles.initialState_btn_wrapper}>
                 <button
@@ -553,6 +551,9 @@ const ComboStringSelectiveInput = ({
         <SavedComboStrings
           comboStrings={comboStrings}
           setIsComboSaved={setIsComboSaved}
+          setComboStrings={setComboStrings}
+          setInputValue={setInputValue}
+          setInitialState={setInitialState}
         />
       )}
     </div>

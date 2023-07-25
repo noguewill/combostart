@@ -2,7 +2,25 @@ import React from "react";
 import styles from "@/styles/NewPost_inputs_styles/ComboString_styles/ComboStringSelectiveInput.module.css";
 import Image from "next/image";
 
-const SavedComboStrings = ({ comboStrings, setIsComboSaved }) => {
+const SavedComboStrings = ({
+  comboStrings,
+  setComboStrings,
+  setInputValue,
+  setIsComboSaved,
+  setInitialState,
+}) => {
+  const handleReset = () => {
+    const confirmReset = window.confirm(
+      "Are you sure you want to reset these saved combo strings?"
+    );
+    if (confirmReset) {
+      setComboStrings([]);
+      setInputValue([]);
+      setIsComboSaved(false);
+      setInitialState("");
+    }
+  };
+
   return (
     <div className={styles.savedComboStrings_container}>
       <h2>COMBO STRINGS</h2>
@@ -43,7 +61,9 @@ const SavedComboStrings = ({ comboStrings, setIsComboSaved }) => {
         >
           EDIT
         </button>
-        <button className={styles.reset_btn}>RESET</button>
+        <button className={styles.reset_btn} onClick={handleReset}>
+          RESET
+        </button>
       </div>
     </div>
   );
