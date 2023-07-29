@@ -259,29 +259,36 @@
 .comboCard_inputs__container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 1rem 0 2rem;
+  padding: 0 1rem 0 0;
   flex-grow: 1;
 }
+.comboStringRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 0.1rem;
+}
+.comboString,
+.light_theme_comboString {
+  color: #ebebeb;
+  margin: 0.8rem;
+}
+.light_theme_comboString {
+  color: #1f1f1f;
+}
 
-.input_container {
+.comboString_string_container {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
-  width: 4rem;
-  height: 4rem;
 }
 
-.input_text,
-.light_theme_input_text {
-  color: #ebebeb;
+.input_text {
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
   letter-spacing: 0.06rem;
-  font-size: 0.95rem;
-  font-family: "Lato";
-}
-.light_theme_input_text {
-  color: #1f1f1f;
+  font-size: 0.7rem;
+  font-family: "Kanit";
 }
 
 /*Patch version row */
@@ -407,9 +414,7 @@
 .comboCard_comboType {
   font-size: 0.8rem;
 }
-.comboCard_inputs__container {
-  padding: 0 2rem;
-}
+
 .input_container {
   height: 6rem;
 }

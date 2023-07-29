@@ -9,6 +9,7 @@ import PostTitle from "../../components/PostCreation/PostTitle";
 import ComboStringSelectiveInput from "../../components/PostCreation/ComboStringInput/ComboStringSelectiveInput";
 import { Auth } from "aws-amplify";
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
+import awsmobile from "../../components/Authentication/amplifyHandler";
 
 const NewPost = () => {
   const [userDisplayName, setUserDisplayName] = useState("");
@@ -38,6 +39,7 @@ const NewPost = () => {
   const year = currentDate.getFullYear();
 
   useEffect(() => {
+    awsmobile;
     const fetchUserAttributes = async () => {
       try {
         await Auth.currentAuthenticatedUser();
@@ -162,7 +164,7 @@ const NewPost = () => {
       HasSuper: { BOOL: hasSuper },
       DriveBars: { N: driveBars.toString() },
       PostTitle: { S: postTitle },
-      ComboStrings: { S: comboStrings },
+      ComboStrings: { S: JSON.stringify(comboStrings) },
       Tags: { S: tags.join(",") },
       SubmissionTime: { S: time },
       SubmissionDate: { S: date },
@@ -183,7 +185,6 @@ const NewPost = () => {
       setGame("Street Fighter 6");
       setScreenPosition("");
       setCharacter("");
-      setStringType("");
       setHasSuper("");
       setDriveBars(0);
       setIsFormValid(false);
@@ -199,7 +200,6 @@ const NewPost = () => {
   const handleRemoveTag = (tag) => {
     setTags(tags.filter((t) => t !== tag));
   };
-
   return (
     <div className={styles[`${theme}post_parent`]}>
       <Navbar userDisplayName={userDisplayName} />
@@ -386,3 +386,4 @@ const NewPost = () => {
 };
 
 export default NewPost;
+/* [{"item1":{"type":"image","value":"P"},"item2":{"type":"text","value":"+"},"item3":{"type":"image","value":"K"}},{"item1":{"type":"image","value":"LK"},"item2":{"type":"image","value":"LK"},"item3":{"type":"image","value":"LK"}},{"item1":{"type":"image","value":"MP"},"item2":{"type":"image","value":"PP"},"item3":{"type":"image","value":"PDR"},"item4":{"type":"image","value":"cancel"}}] */

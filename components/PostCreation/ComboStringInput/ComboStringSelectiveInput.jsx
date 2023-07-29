@@ -29,7 +29,7 @@ const ComboStringSelectiveInput = ({
     setIsComboValid(comboStrings.length >= 3); // check if comboString length is greater than or equal to 3
   }, [inputValue, initialState, comboStrings]);
 
-  const handleInputValue = (val) => {
+  const handleInputValue = (val, desc) => {
     if (val === "+") {
       if (inputValue.length === 0) {
         setIsPlusOnly(true); // "+" is added alone, disable "ADD STRING" button
@@ -44,7 +44,7 @@ const ComboStringSelectiveInput = ({
       setIsPlusOnly(false); // Reset the isPlusOnly state when a non-"+" value is added
       setInputValue((prevInputValue) => [
         ...prevInputValue,
-        { type: "image", value: val },
+        { type: "image", value: val, alt: desc },
       ]);
     }
     // Prevent form submission
@@ -56,19 +56,25 @@ const ComboStringSelectiveInput = ({
       inputValue.length === 1 && inputValue[0].value === "+";
 
     if (inputValue.length > 0 && !isPlusOnlyValue) {
-      const newComboString = inputValue.map((item) => item.value).join(", ");
-      setComboStrings((prevComboString) => [...prevComboString, inputValue]);
+      const newComboString = inputValue.reduce((acc, item) => {
+        acc.push({ type: item.type, value: item.value, alt: item.alt });
+        return acc;
+      }, []);
+      setComboStrings((prevComboStrings) => [
+        ...prevComboStrings,
+        newComboString,
+      ]);
       setInputValue([]);
+      console.log("ComboStrings:", comboStrings);
     }
-    // Prevent form submission
-    event.preventDefault();
   }, [inputValue]);
 
+  // Modify handleRemoveComboString function to remove the object from comboStrings
   const handleRemoveComboString = (index) => {
-    setComboStrings((prevComboString) => {
-      const updatedComboString = [...prevComboString];
-      updatedComboString.splice(index, 1);
-      return updatedComboString;
+    setComboStrings((prevComboStrings) => {
+      const updatedComboStrings = [...prevComboStrings];
+      updatedComboStrings.splice(index, 1);
+      return updatedComboStrings;
     });
     // Prevent form submission
     event.preventDefault();
@@ -209,7 +215,7 @@ const ComboStringSelectiveInput = ({
 
                 <button
                   className={styles.addInput_btn}
-                  onClick={() => handleInputValue("+")}
+                  onClick={() => handleInputValue("+", "+")}
                 >
                   +
                 </button>
@@ -219,7 +225,7 @@ const ComboStringSelectiveInput = ({
                     <div className={styles.buttonInput_container}>
                       <button
                         className={styles.buttonInput}
-                        onClick={() => handleInputValue("P")}
+                        onClick={() => handleInputValue("P", "Any punch")}
                       >
                         <Image
                           src="/inputs/P.svg"
@@ -233,7 +239,7 @@ const ComboStringSelectiveInput = ({
                     <div className={styles.buttonInput_container}>
                       <button
                         className={styles.buttonInput}
-                        onClick={() => handleInputValue("LP")}
+                        onClick={() => handleInputValue("LP", "Light Punch")}
                       >
                         <Image
                           src="/inputs/LP.svg"
@@ -249,7 +255,7 @@ const ComboStringSelectiveInput = ({
                     <div className={styles.buttonInput_container}>
                       <button
                         className={styles.buttonInput}
-                        onClick={() => handleInputValue("MP")}
+                        onClick={() => handleInputValue("MP", "Medium Punch")}
                       >
                         <Image
                           src="/inputs/MP.svg"
@@ -265,7 +271,7 @@ const ComboStringSelectiveInput = ({
                     <div className={styles.buttonInput_container}>
                       <button
                         className={styles.buttonInput}
-                        onClick={() => handleInputValue("HP")}
+                        onClick={() => handleInputValue("HP", "Heavy Punch")}
                       >
                         <Image
                           src="/inputs/HP.svg"
@@ -281,7 +287,9 @@ const ComboStringSelectiveInput = ({
                     <div className={styles.buttonInput_container}>
                       <button
                         className={styles.buttonInput}
-                        onClick={() => handleInputValue("PP")}
+                        onClick={() =>
+                          handleInputValue("PP", "Overdrive Punch")
+                        }
                       >
                         <Image
                           src="/inputs/PP.svg"
@@ -299,7 +307,7 @@ const ComboStringSelectiveInput = ({
                     <div className={styles.buttonInput_container}>
                       <button
                         className={styles.buttonInput}
-                        onClick={() => handleInputValue("K")}
+                        onClick={() => handleInputValue("K", "Any kick")}
                       >
                         <Image
                           src="/inputs/K.svg"
@@ -313,7 +321,7 @@ const ComboStringSelectiveInput = ({
                     <div className={styles.buttonInput_container}>
                       <button
                         className={styles.buttonInput}
-                        onClick={() => handleInputValue("LK")}
+                        onClick={() => handleInputValue("LK", "Light Kick")}
                       >
                         <Image
                           src="/inputs/LK.svg"
@@ -329,7 +337,7 @@ const ComboStringSelectiveInput = ({
                     <div className={styles.buttonInput_container}>
                       <button
                         className={styles.buttonInput}
-                        onClick={() => handleInputValue("MK")}
+                        onClick={() => handleInputValue("MK", "Medium Kick")}
                       >
                         <Image
                           src="/inputs/MK.svg"
@@ -345,7 +353,7 @@ const ComboStringSelectiveInput = ({
                     <div className={styles.buttonInput_container}>
                       <button
                         className={styles.buttonInput}
-                        onClick={() => handleInputValue("HK")}
+                        onClick={() => handleInputValue("HK", "Heavy Kick")}
                       >
                         <Image
                           src="/inputs/HK.svg"
@@ -361,7 +369,7 @@ const ComboStringSelectiveInput = ({
                     <div className={styles.buttonInput_container}>
                       <button
                         className={styles.buttonInput}
-                        onClick={() => handleInputValue("KK")}
+                        onClick={() => handleInputValue("KK", "Overdrive Kick")}
                       >
                         <Image
                           src="/inputs/KK.svg"
@@ -381,7 +389,7 @@ const ComboStringSelectiveInput = ({
                   <div className={styles.buttonInput_container}>
                     <button
                       className={styles.mechanicButtonInput}
-                      onClick={() => handleInputValue("cancel")}
+                      onClick={() => handleInputValue("cancel", "cancel")}
                     >
                       <Image
                         src="/inputs/cancel.svg"
@@ -397,7 +405,9 @@ const ComboStringSelectiveInput = ({
                   <div className={styles.buttonInput_container}>
                     <button
                       className={styles.mechanicButtonInput}
-                      onClick={() => handleInputValue("PDR")}
+                      onClick={() =>
+                        handleInputValue("PDR", "PARRY INTO DRIVE RUSH")
+                      }
                     >
                       <Image
                         src="/inputs/PDR.svg"
@@ -413,7 +423,7 @@ const ComboStringSelectiveInput = ({
                   <div className={styles.buttonInput_container}>
                     <button
                       className={styles.mechanicButtonInput}
-                      onClick={() => handleInputValue("DR")}
+                      onClick={() => handleInputValue("DR", "Drive Rush")}
                     >
                       <Image
                         src="/inputs/DR.svg"
@@ -455,7 +465,7 @@ const ComboStringSelectiveInput = ({
               </div>
               {(inputValue.length > 0 || comboStrings.length > 0) && (
                 <div className={styles.comboStrings_container}>
-                  {comboStrings.map((subArray, outerIndex) => (
+                  {comboStrings.map((comboString, outerIndex) => (
                     <div
                       key={outerIndex}
                       className={styles.comboString_wrapper}
@@ -473,28 +483,35 @@ const ComboStringSelectiveInput = ({
                         className={styles.comboStringRow}
                         onClick={() => handleRemoveComboString(outerIndex)}
                       >
-                        {subArray.map((item, innerIndex) => (
-                          <div key={innerIndex} className={styles.comboString}>
-                            {item.type === "text" ? (
-                              item.value
-                            ) : (
-                              <div
-                                key={innerIndex}
-                                className={styles.comboString_string_container}
-                              >
-                                <Image
-                                  src={`/inputs/${item.value}.svg`}
-                                  width={32}
-                                  height={32}
-                                  alt={item.value}
-                                />
-                                <span className={styles.comboString_text}>
-                                  {item.value}
-                                </span>
-                              </div>
-                            )}
-                          </div>
-                        ))}
+                        {Object.entries(comboString).map(
+                          ([itemKey, itemValue], innerIndex) => (
+                            <div
+                              key={innerIndex}
+                              className={styles.comboString}
+                            >
+                              {itemValue.type === "text" ? (
+                                itemValue.value
+                              ) : (
+                                <div
+                                  key={innerIndex}
+                                  className={
+                                    styles.comboString_string_container
+                                  }
+                                >
+                                  <Image
+                                    src={`/inputs/${itemValue.value}.svg`}
+                                    width={32}
+                                    height={32}
+                                    alt={itemValue.value}
+                                  />
+                                  <span className={styles.comboString_text}>
+                                    {itemValue.value}
+                                  </span>
+                                </div>
+                              )}
+                            </div>
+                          )
+                        )}
                       </div>
                     </div>
                   ))}

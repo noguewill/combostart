@@ -1,20 +1,25 @@
-import React, { useReducer, useCallback, useState, useContext } from "react";
+import React, {
+  useReducer,
+  useCallback,
+  useState,
+  useContext,
+  useEffect,
+} from "react";
 import { ThemeContext } from "./ThemeContext";
 import styles from "@/styles/ComboCard.module.css";
 import Image from "next/image";
-import sf6 from "/gamesData/sf6.json";
 
 // Initialize state object
-const initialState = sf6.reduce(
+/* const initialState = sf6.reduce(
   (acc, card) => ({
     ...acc,
     [card.id]: { count: 0, fill: "#D6D6D6" },
   }),
   {}
-);
+); */
 
 // Define reducer function for updating state
-function reducer(state, action) {
+/* function reducer(state, action) {
   switch (action.type) {
     case "UPVOTE":
       return {
@@ -27,13 +32,33 @@ function reducer(state, action) {
     default:
       throw new Error();
   }
-}
+} */
 
 // Define ComboCard component
 const ComboCard = ({ displayedCombos }) => {
+  const [parsedComboStrings, setParsedComboStrings] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (displayedCombos.length > 0) {
+        const { ComboStrings } = displayedCombos[0];
+
+        if (ComboStrings && ComboStrings.S) {
+          try {
+            setParsedComboStrings(JSON.parse(ComboStrings.S));
+          } catch (error) {
+            console.error("Error parsing ComboStrings:", error);
+          }
+        }
+      }
+    };
+
+    fetchData();
+  }, [displayedCombos]);
+
   const { theme } = useContext(ThemeContext);
   // Use useReducer hook to manage state
-  const [upvotes, dispatch] = useReducer(reducer, initialState);
+  /*   const [upvotes, dispatch] = useReducer(reducer, initialState); */
   const [isRow2Visible, setRow2Visible] = useState(false); // New state variable
 
   const handleExpandClick = () => {
@@ -41,12 +66,12 @@ const ComboCard = ({ displayedCombos }) => {
   };
 
   // Define function to handle upvote click
-  const handleUpvoteClick = useCallback(
+  /*   const handleUpvoteClick = useCallback(
     (id) => {
       dispatch({ type: "UPVOTE", id });
     },
     [dispatch]
-  );
+  ); */
 
   // Function to determine whether to show the expand button
   const shouldShowExpandButton = (card) => {
@@ -146,8 +171,43 @@ const ComboCard = ({ displayedCombos }) => {
                       {card.ScreenPosition?.S}
                     </div>
                   </div>
-
                   {/* Inputs row */}
+                  <div className={styles.comboCard_inputs__container}>
+                    {parsedComboStrings.map((combo, comboIndex) => (
+                      <div key={comboIndex} className={styles.comboStringRow}>
+                        {combo.map((val, index) => (
+                          <div
+                            key={index}
+                            className={styles[`${theme}comboString`]}
+                          >
+                            {val.type === "text" ? (
+                              val.value
+                            ) : (
+                              <>
+                                <figure
+                                  className={
+                                    styles.comboString_string_container
+                                  }
+                                >
+                                  <Image
+                                    src={`/inputs/${val.value}.svg`}
+                                    alt={val.alt}
+                                    width={34}
+                                    height={34}
+                                  />
+                                  <figcaption className={styles.input_text}>
+                                    {val.value}
+                                  </figcaption>
+                                </figure>
+                              </>
+                            )}
+                          </div>
+                        ))}
+                        <span>--</span>
+                        {/* ARROW */}
+                      </div>
+                    ))}
+                  </div>
                   {/* <div id="row1" className={styles.comboCard_inputs__container}>
                     {card.inputs.slice(0, 14).map((input) => (
                       <figure className={styles.input_container} key={input.id}>
@@ -185,7 +245,7 @@ const ComboCard = ({ displayedCombos }) => {
                         </figure>
                       ))}
                     </div>
-                  )} */}
+                  )} 
                   {/* Patch version row */}
                   <div className={styles.comboCard_patch__container}>
                     <div className={styles.patch_text__container}>
