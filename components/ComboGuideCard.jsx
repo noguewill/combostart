@@ -116,15 +116,12 @@ const ComboGuideCard = () => {
   const upcomingCardElements = upcomingCards.map((card) => {
     let cardClassName;
     let videoLink;
-    if (card.id === 16) {
+    if (card.id === 13) {
       cardClassName = styles.upcoming_left;
       videoLink = "https://www.youtube.com/watch?v=UZ6eFEjFfJ0";
-    } else if (card.id === 17) {
-      cardClassName = styles.upcoming_mid;
-      videoLink = "https://www.youtube.com/watch?v=2hPuRQz6IlM";
-    } else if (card.id === 18) {
+    } else if (card.id === 14) {
       cardClassName = styles.upcoming_right;
-      videoLink = "https://www.youtube.com/watch?v=Sc3GbTpkAmw";
+      videoLink = "https://www.youtube.com/watch?v=2hPuRQz6IlM";
     }
 
     return (

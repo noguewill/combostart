@@ -45,7 +45,6 @@
 .featuredCard_mid,
 .featuredCard_right,
 .upcoming_left,
-.upcoming_mid,
 .upcoming_right {
   display: flex;
   justify-content: center;
@@ -80,7 +79,6 @@
 .featuredCard_mid:hover,
 .featuredCard_right:hover,
 .upcoming_left,
-.upcoming_mid,
 .upcoming_right {
   transform: scale(1.03);
 }
@@ -88,8 +86,7 @@
 .upcoming_left:hover .cardTitle {
   visibility: visible;
 }
-.featuredCard_mid:hover .cardTitle,
-.upcoming_mid:hover .cardTitle {
+.featuredCard_mid:hover .cardTitle {
   visibility: visible;
 }
 .featuredCard_right:hover .cardTitle,
@@ -100,22 +97,20 @@
 .upcoming_left:hover .cardImage {
   transform: scale(1.1);
 }
-.featuredCard_mid:hover .cardImage,
-.upcoming_mid:hover .cardImage {
+.featuredCard_mid:hover .cardImage {
   transform: scale(1.1);
 }
 .featuredCard_right:hover .cardImage,
 .upcoming_right:hover .cardImage {
   transform: scale(1.1);
 }
+
 .upcoming_left {
-  flex-basis: 39%;
+  flex-basis: 48%;
 }
-.upcoming_mid {
-  flex-basis: 30.5%;
-}
+
 .upcoming_right {
-  flex-basis: 21.5%;
+  flex-basis: 48%;
 }
 
 .ongoingRow {

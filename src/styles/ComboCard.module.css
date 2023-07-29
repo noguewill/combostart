@@ -259,19 +259,16 @@
 .comboCard_inputs__container {
   display: flex;
   align-items: center;
-  padding: 0 1rem 0 0;
   flex-grow: 1;
 }
 .comboStringRow {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  margin-left: 0.1rem;
 }
 .comboString,
 .light_theme_comboString {
   color: #ebebeb;
-  margin: 0.8rem;
+  margin: 0.4rem;
 }
 .light_theme_comboString {
   color: #1f1f1f;
@@ -281,6 +278,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.plusSign {
+  margin-left: -0.4rem;
+  margin-right: -1rem;
+}
+.comboArrow,
+.light_theme_comboArrow {
+  border: solid #5263fa;
+  border-width: 0 0.125rem 0.125rem 0;
+  display: inline-block;
+  padding: 0.15rem;
+  margin-left: 0.5rem;
+  margin-right: 0.8rem;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.light_theme_comboArrow {
+  border: solid #1f1f1f;
 }
 
 .input_text {

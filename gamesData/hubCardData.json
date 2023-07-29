@@ -63,24 +63,10 @@
     "src": "/ComboGuides",
     "attr": "ongoing"
   },
+
+
   {
     "id": 10,
-    "bgImg": "/granbluefantasycoverArt.jpg",
-    "name": "GRANBLUE FANTASY VERSUS",
-    "src": "/ComboGuides",
-    "alias": "granbluefantasyversus", 
-    "attr": "ongoing"
-  },
-  {
-    "id": 11,
-    "bgImg": "/brawlhallacoverArt.jpg",
-    "name": "BRAWLHALLA",
-    "src": "/ComboGuides",
-    "alias": "brawlhalla", 
-    "attr": "ongoing"
-  },
-  {
-    "id": 12,
     "bgImg": "/meltybloodcoverArt.jpg",
     "name": "MELTY BLOOD: TYPE LUMINA",
     "src": "/ComboGuides",
@@ -88,7 +74,7 @@
     "attr": "ongoing"
   },
   {
-    "id": 13,
+    "id": 11,
     "bgImg": "/umvsc3coverArt.jpg",
     "name": "ULTIMATE MARVEL VS CAPCOM 3",
     "src": "/ComboGuides",
@@ -96,23 +82,16 @@
     "attr": "ongoing"
   },
   {
-    "id": 14,
+    "id": 12,
     "bgImg": "/mkxcoverArt.jpg",
     "name": "MORTAL KOMBAT X",
     "src": "/ComboGuides",
     "alias": "mortalkombatx", 
     "attr": "ongoing"
   },
+  
   {
-    "id": 15,
-    "bgImg": "/smashbrosultimatecoverArt.webp",
-    "name": "SUPER SMASH BROS. ULTIMATE",
-    "src": "/ComboGuides",
-    "alias": "supersmashbrosultimate", 
-    "attr": "ongoing"
-  },
-  {
-    "id": 16,
+    "id": 13,
     "bgImg": "/mkOne2023m.jpg",
     "name": "MORTAL KOMBAT 1(2023)",
     "src": "/ComboGuides",
@@ -120,18 +99,10 @@
     "attr": "Upcoming"
   },
   {
-    "id": 17,
+    "id": 14,
     "bgImg": "/tekken8.webp",
     "name": "TEKKEN 8",
     "src": "/ComboGuides",
-    "attr": "Upcoming"
-  },
-  {
-    "id": 18,
-    "bgImg": "/granblueFantasyRising.jpg",
-    "name": "Granblue Fantasy Rising",
-    "src": "/ComboGuides",
-    "alias": "granbluefantasyrising", 
     "attr": "Upcoming"
   }
 ]

@@ -1,19 +1,15 @@
 import Head from "next/head";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import styles from "@/styles/Home.module.css";
-import WelcomePage from "./WelcomePage";
 import ComboHub from "./ComboHub";
 import Cookies from "js-cookie";
 import withSessionCheck from "../../components/withSessionCheck";
 
 function Home() {
-  const [showWelcome, setShowWelcome] = useState(false);
-
   useEffect(() => {
     const visited = Cookies.get("visited");
     if (!visited) {
       Cookies.set("visited", "true", { expires: 7 });
-      setShowWelcome(true);
     }
   }, []);
 
@@ -35,7 +31,7 @@ function Home() {
         <link rel="icon" href="/logoMin.ico" />
       </Head>
       <main className={styles.main}>
-        {showWelcome ? <WelcomePage /> : <ComboHub />}
+        <ComboHub />
       </main>
     </>
   );

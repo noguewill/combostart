@@ -26,8 +26,7 @@ const ComboHub = () => {
       </div>
       {/* BUMP */}
       <div className={styles[`${theme}page_container`]}>
-        <Navbar btnType={`classic`} />
-        {/*  <Search btnType={`classic`} onData={handleDataFromChild} /> */}
+        <Navbar />
         <div className={styles.container}>
           <ComboGuideCard />
         </div>

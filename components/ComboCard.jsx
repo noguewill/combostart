@@ -1,42 +1,13 @@
-import React, {
-  useReducer,
-  useCallback,
-  useState,
-  useContext,
-  useEffect,
-} from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { ThemeContext } from "./ThemeContext";
 import styles from "@/styles/ComboCard.module.css";
 import Image from "next/image";
 
-// Initialize state object
-/* const initialState = sf6.reduce(
-  (acc, card) => ({
-    ...acc,
-    [card.id]: { count: 0, fill: "#D6D6D6" },
-  }),
-  {}
-); */
-
-// Define reducer function for updating state
-/* function reducer(state, action) {
-  switch (action.type) {
-    case "UPVOTE":
-      return {
-        ...state,
-        [action.id]: {
-          count: state[action.id].count === 0 ? 1 : 0,
-          fill: state[action.id].count === 0 ? "#5263fa" : "#D6D6D6",
-        },
-      };
-    default:
-      throw new Error();
-  }
-} */
-
 // Define ComboCard component
 const ComboCard = ({ displayedCombos }) => {
+  const { theme } = useContext(ThemeContext);
   const [parsedComboStrings, setParsedComboStrings] = useState([]);
+  const [isRow2Visible, setRow2Visible] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,22 +27,14 @@ const ComboCard = ({ displayedCombos }) => {
     fetchData();
   }, [displayedCombos]);
 
-  const { theme } = useContext(ThemeContext);
-  // Use useReducer hook to manage state
-  /*   const [upvotes, dispatch] = useReducer(reducer, initialState); */
-  const [isRow2Visible, setRow2Visible] = useState(false); // New state variable
+  // Function to determine whether to show the comboArrow
+  const shouldShowComboArrow = (currentIndex) => {
+    return currentIndex < parsedComboStrings.length - 1;
+  };
 
   const handleExpandClick = () => {
     setRow2Visible(!isRow2Visible); // Toggle the visibility of row2
   };
-
-  // Define function to handle upvote click
-  /*   const handleUpvoteClick = useCallback(
-    (id) => {
-      dispatch({ type: "UPVOTE", id });
-    },
-    [dispatch]
-  ); */
 
   // Function to determine whether to show the expand button
   const shouldShowExpandButton = (card) => {
@@ -84,11 +47,8 @@ const ComboCard = ({ displayedCombos }) => {
         <article key={card.id?.N} className={styles.combocard_container}>
           <div className={styles.combocard}>
             {/* Render upvote button */}
-            {/*             <div className={styles.comboCard_upvote__container}>
-              <button
-                className={styles.upvoteArrow}
-                onClick={() => handleUpvoteClick(card.id)}
-              >
+            <div className={styles.comboCard_upvote__container}>
+              <button className={styles.upvoteArrow}>
                 <svg
                   width="12"
                   height="10"
@@ -98,15 +58,16 @@ const ComboCard = ({ displayedCombos }) => {
                 >
                   <path
                     d="M7.5 0L14.8612 12.75H0.138784L7.5 0Z"
-                    fill={upvotes[card.id].fill}
+                    fill={"#ebebeb"}
                   />
                 </svg>
               </button>
 
               <span className={styles[`${theme}comboCard_upvote__text`]}>
-                {upvotes[card.id].count}
+                0
               </span>
-            </div> */}
+            </div>
+
             <div className={styles.combocard_hugger}>
               {/* Render card title */}
               <div className={styles.comboCard__title__container}>
@@ -127,11 +88,6 @@ const ComboCard = ({ displayedCombos }) => {
                   <div className={styles[`${theme}comboCard_charName`]}>
                     {card.Character?.S}
                   </div>
-                  {/*                 <div className={styles.combocard_video}>
-                                        <video controls>
-                      <source src={card.videoSrc} type="video/mp4" />
-                    </video>
-                  </div> */}
 
                   <Image
                     className={styles.charAvatar_img}
@@ -181,7 +137,9 @@ const ComboCard = ({ displayedCombos }) => {
                             className={styles[`${theme}comboString`]}
                           >
                             {val.type === "text" ? (
-                              val.value
+                              <span className={styles.plusSign}>
+                                {val.value}
+                              </span>
                             ) : (
                               <>
                                 <figure
@@ -203,26 +161,13 @@ const ComboCard = ({ displayedCombos }) => {
                             )}
                           </div>
                         ))}
-                        <span>--</span>
-                        {/* ARROW */}
+                        {shouldShowComboArrow(comboIndex) && (
+                          <span className={styles[`${theme}comboArrow`]}></span>
+                        )}
                       </div>
                     ))}
                   </div>
-                  {/* <div id="row1" className={styles.comboCard_inputs__container}>
-                    {card.inputs.slice(0, 14).map((input) => (
-                      <figure className={styles.input_container} key={input.id}>
-                        <Image
-                          src={input.imageSrc}
-                          alt={input.altText}
-                          width={34}
-                          height={34}
-                        />
-                        <figcaption className={styles[`${theme}input_text`]}>
-                          {input.figCaption}
-                        </figcaption>
-                      </figure>
-                    ))}
-                  </div>
+                  {/* 
                   {isRow2Visible && (
                     <div
                       id="row2"

@@ -23,7 +23,6 @@ const Footer = () => {
           <span>
             {game.name.charAt(0).toUpperCase() +
               game.name.slice(1).toLowerCase()}
-            (WIP)
           </span>
         </Link>
       );

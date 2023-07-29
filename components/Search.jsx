@@ -29,9 +29,6 @@ const Search = ({ onSearch }) => {
       {/* Main section of the Search Section */}
       <div className={styles.search_main__container}>
         <div className={styles.search_container__child}>
-          {/* Mobile Combos Header Text */}
-          <h1 className={styles.comboSection_header}>COMBO GUIDES</h1>
-
           <div>
             <label className={styles.searchBar_container}>
               <input
