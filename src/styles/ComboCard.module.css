@@ -1,163 +1,232 @@
-/* Combocard parent element */
-.combocard_container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
+/* Input row */
 
-/* Combocard child elements */
-.combocard {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  flex-grow: 1;
-  z-index: 10;
-}
-
-.combocard_charFrame {
-  display: none;
-}
-
-/* Combocard title section */
-.comboCard__title__container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 87%;
-  margin: 3rem 0 1rem;
-}
-
-.combocard_hugger {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-width: 80%;
-}
-
-.comboCard_title,
-.light_theme_comboCard_title {
-  font-size: 1.2rem;
-  font-weight: 500;
-  font-family: "Lato";
-  color: #dcdcdc;
-  margin-left: 0;
-}
-.light_theme_comboCard_title {
-  color: #1f1f1f;
-}
-
-.comboCard_title__username,
-.comboCard_title__timeStamp {
-  font-size: 1rem;
-  color: #5263fa;
-  font-family: "Lato";
-}
-
-.comboCard_title__username {
-  margin-left: 0.5rem;
-}
-
-.comboCard_title__timeStamp {
-  margin-left: 0.2rem;
-}
-
-/* Combocard content section */
-.content_container,
-.light_theme_content_container {
-  display: flex;
-  width: 100%;
-  background-color: transparent;
-  border: 1px solid #5263fa;
-}
-.light_theme_content_container {
-  background-color: #aeaeae;
-}
-
-/* Combocard upvote section */
-.comboCard_upvote__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 0.7rem;
-  margin-top: 3rem;
-}
-
-.upvoteArrow {
-  position: relative;
+.expand_btn {
   cursor: pointer;
-  background: #1f1f1f;
-  width: 1.35rem;
-  height: 1.35rem;
-  border-radius: 100%;
   border: none;
-  text-align: center;
-}
-
-.comboCard_upvote__text,
-.light_theme_comboCard_upvote__text {
-  font-size: 1rem;
-  font-weight: bold;
-  font-family: "Kanit";
-  color: #dcdcdc;
-  width: auto;
-}
-.light_theme_comboCard_upvote__text {
-  font-size: 1rem;
-  color: #1f1f1f;
-}
-
-/* Combocard body section */
-.combocard_body__container {
   display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-items: center;
+  justify-content: center;
+  width: 5rem;
+  background: #69eec3;
+  padding-top: 0.2rem;
+  font-size: 0.7rem;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  font-family: "Kanit";
 }
 
-/* Combocard info elements */
-.comboCard_info__container {
+/* Social row */
+.comboCard_social__container {
+  visibility: hidden;
+  align-items: center;
+  position: relative;
+  margin-left: 0.5rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  text-align: center;
+  padding-top: 0.5rem;
+  top: -10px;
+  transition: all 0.1s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
 
-/* Combocard 3 main children rows */
-.comboCard_charName {
-  display: none;
+.comboCard_hugger:hover .comboCard_social__container {
+  top: 0;
+  visibility: visible;
 }
 
-.comboCard_super {
+.comboCard_hugger:not(:hover) .comboCard_social__container {
+  transition: all 0.1s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+
+.social_bookmark__btn,
+.social_share__btn {
+  background-color: transparent;
+  border: none;
+  width: 2rem;
+  height: 1.3rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.tag_container {
+  width: auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 3rem;
-  height: 1.8rem;
-  font-size: 1.3rem;
-  font-style: italic;
-  font-weight: 700;
+  justify-content: space-evenly;
+}
+.socialOptions_container {
+  width: auto;
+}
+.tag_text {
   font-family: "Kanit";
-  line-height: 42px;
-  color: #dcdcdc;
-  background: linear-gradient(
-    112.16deg,
-    #e64e8d 15.06%,
-    #f974a2 45.48%,
-    #ff91b4 75.91%
-  );
-  background-blend-mode: difference;
+  color: #5263fa;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+.tag_btn {
+  background-color: transparent;
+  border: none;
+  color: #5263fa;
+  font-size: 0.75rem;
+  padding-left: 0.8rem;
 }
 
-.comboCard_damage_bar {
+/* Major containers */
+.comboCard_wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+/* Upvote container */
+.upvote_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 4.5rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+.upvote_btn,
+.downvote_btn {
+  width: 0;
+  height: 0;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-bottom: 0.8rem solid #ebebeb;
+  background-color: transparent;
+  cursor: pointer;
+}
+.upvotes {
+  font-size: 1rem;
+  color: #ebebeb;
+  font-family: "Kanit";
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.downvote_btn {
+  border-bottom: 0;
+  border-top: 0.8rem solid #ebebeb;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+}
+
+.comboCard_hugger {
+  display: flex;
+  flex-direction: column;
+}
+.comboCard_container {
+  display: flex;
+  width: 100%;
+}
+
+/* Post title container */
+.postTitle_container {
+  display: flex;
+  align-items: center;
+  color: #ebebeb;
+  margin-bottom: 1rem;
+}
+.postTitle {
+  font-family: "Kanit";
+  font-size: 1rem;
+  margin-right: 0.3rem;
+}
+.postedBy {
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+.postedBy_authorName {
+  color: #5263fa; /* ACCENT COLOR */
+  font-family: "Kanit";
+  margin-right: 0.2rem;
+  margin-left: 0.1rem;
+}
+.patchVersion {
+  background-color: #292929;
+  border-radius: 4px;
+  color: #fad843;
+  font-size: 0.55rem;
+  padding: 0.3rem;
+  margin-left: 1rem;
+  margin-top: 0.2rem;
+}
+
+/* Avatar section */
+.avatar_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 7rem;
+}
+.avatar_name {
+  color: #ebebeb;
+  font-family: "Kanit";
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.6rem;
+}
+.avatar_frame {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 1.8rem;
+  width: 100%;
+  height: 6.8rem;
+}
+.avatar_img {
+  border-radius: 8px;
+  position: absolute;
+  object-fit: cover;
+}
+
+/* Stats and combo container */
+.statsAndCombo_container {
+  display: flex;
+  margin-left: 0.8rem;
+  flex-direction: column;
+}
+
+/* Stats section */
+.stats_container {
+  display: flex;
+  align-items: center;
+  color: #ebebeb;
+  margin-bottom: 0.3rem;
+}
+
+.mechanic_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 2rem;
+  margin-top: 0.5rem;
+}
+.mechanic,
+.driveRush {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background-color: deeppink;
+
+  width: 3.2rem;
+  font-size: 1rem;
+  font-family: "Kanit";
+}
+.mechanic_text {
+  font-size: 0.5rem;
+}
+.driveRush {
+  background-color: #55d860;
+  border-radius: 4px;
+  width: 2rem;
+}
+
+.dmg_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
   background: linear-gradient(
     90deg,
     #a11629 1.52%,
@@ -165,110 +234,62 @@
     #d5204e 64.61%,
     #ea2557 100%
   );
-  color: white;
-  flex-grow: 1;
-  transform: skew(-20deg);
+  color: #ebebeb;
+  padding: 0.3rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
 }
 
-.comboCard_damage_text_container {
+.dmg_stat_container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
 }
-
-.comboCard_damage__text {
-  font-family: "Lato";
-  font-size: 0.55rem;
-  letter-spacing: 0.06rem;
-  transform: skew(20deg);
+.dmg_stat_text {
+  font-size: 0.6rem;
 }
-.dmgDot {
-  width: 0.2rem;
-  height: 0.2rem;
-  margin-left: 0.4rem;
-  transform: skew(20deg);
+.dmg_dot {
+  width: 0.25rem;
+  height: 0.25rem;
+  margin-left: 0.6rem;
+  margin-right: 0.6rem;
   border-radius: 100%;
   background-color: white;
 }
-.comboCard_hitNum__text,
-.comboCard_damageNum__text {
-  font-family: "Lato";
-  font-style: italic;
-  font-weight: 900;
-  font-size: 1rem;
-  transform: skew(30deg);
-  margin-bottom: 0.1rem;
+.dmg_stat_number {
+  font-size: 1.1rem;
+  font-family: "kanit";
+  margin-left: 0.6rem;
 }
 
-.comboCard_bars {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1.3rem;
-  height: 1.8rem;
-  background: linear-gradient(130.32deg, #8ee024 -0.16%, #44b201 95.95%);
-  color: #d9d9d9;
-  font-family: "Kanit";
-  font-style: italic;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  transform: skew(-20deg);
+.screenPos {
+  font-size: 0.9rem;
+  margin-left: 1.1rem;
 }
+/* Stat section END */
 
-.comboCard_bars__text {
-  transform: skew(20deg);
-}
-
-.comboCard_super::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 1;
-  width: 2.4rem;
-  height: 100%;
-  background: linear-gradient(
-    112.16deg,
-    #e64e8d 15.06%,
-    #f974a2 45.48%,
-    #ff91b4 75.91%
-  );
-  background-blend-mode: difference;
-  transform: skew(-20deg) scaleX(0.7);
-}
-
-.comboCard_hitNum__text {
-  margin-left: 0.2rem;
-}
-
-.comboCard_comboType,
-.light_theme_comboCard_comboType {
-  font-family: "Kanit";
-  font-style: italic;
-  font-weight: 600;
-  line-height: 21px;
-  color: white;
-  font-size: 0.8rem;
-  flex-basis: 10%;
-}
-.light_theme_comboCard_comboType {
-  color: #1f1f1f;
-}
-
-/* Input row */
+/* ComboCard Inputs Container */
 .comboCard_inputs__container {
   display: flex;
   align-items: center;
   flex-grow: 1;
+  background-color: #0f0f0f;
+  border-radius: 8px;
+  flex-wrap: wrap; /* Add flex-wrap property */
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+  padding: 0.5rem; /* Adjust the padding as needed */
 }
+
 .comboStringRow {
   display: flex;
   align-items: center;
 }
+
 .comboString,
 .light_theme_comboString {
   color: #ebebeb;
   margin: 0.4rem;
+  white-space: nowrap; /* Prevent text from wrapping */
 }
 .light_theme_comboString {
   color: #1f1f1f;
@@ -299,159 +320,5 @@
 }
 
 .input_text {
-  margin-top: 0.3rem;
   font-size: 0.8rem;
-  letter-spacing: 0.06rem;
-  font-size: 0.7rem;
-  font-family: "Kanit";
-}
-
-/*Patch version row */
-.comboCard_patch__container {
-  display: flex;
-  align-items: flex-end;
-}
-
-.patch_text__container {
-  width: 50%;
-}
-
-.patch__text {
-  text-align: center;
-  font: italic 600 0.75rem/1 "Kanit";
-  letter-spacing: 0.02em;
-  color: #d9d9d9;
-  padding: 0.1rem 0;
-  width: 20%;
-  background: #4ba6fb;
-  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.25);
-}
-
-.expand_btn {
-  cursor: pointer;
-  border: none;
-  display: flex;
-  justify-content: center;
-  width: 5rem;
-  background: #69eec3;
-  padding-top: 0.2rem;
-  font-size: 0.7rem;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  font-family: "Kanit";
-}
-
-/* Social row */
-.comboCard_social__container {
-  visibility: hidden;
-  align-items: center;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  padding-top: 0.5rem;
-  top: -10px;
-  transition: all 0.1s cubic-bezier(0.2, 0.5, 0.8, 0.9);
-}
-
-.combocard_hugger:hover .comboCard_social__container {
-  top: 0;
-  visibility: visible;
-}
-
-.combocard_hugger:not(:hover) .comboCard_social__container {
-  transition: all 0.1s cubic-bezier(0.2, 0.5, 0.8, 0.9);
-}
-
-.social_bookmark__btn,
-.social_share__btn {
-  background-color: transparent;
-  border: none;
-  width: 2rem;
-  height: 1.3rem;
-  cursor: pointer;
-  margin-right: 1rem;
-}
-
-/* Character frame */
-.combocard_charFrame__container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  border-right: 1px solid #ee5e96;
-}
-.comboCard_charName__mobile {
-  display: none;
-}
-.combocard_video {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
-}
-
-.combocard_video video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.charAvatar_img {
-  position: relative;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-}
-.comboCard_charName,
-.light_theme_comboCard_charName {
-  display: block;
-  font-family: "Kanit";
-  font-style: italic;
-  font-weight: 600;
-  line-height: 21px;
-  color: white;
-  font-size: 0.8rem;
-}
-.light_theme_comboCard_charName {
-  color: #1f1f1f;
-}
-
-/* Info elements */
-.comboCard_super {
-  width: 2rem;
-}
-.comboCard_bars {
-  width: 4rem;
-  font-size: 0.9rem;
-}
-
-.comboCard_comboType {
-  font-size: 0.8rem;
-}
-
-.input_container {
-  height: 6rem;
-}
-
-.tag_container {
-  width: auto;
-  display: flex;
-  justify-content: space-evenly;
-}
-.socialOptions_container {
-  width: auto;
-}
-.tag_text {
-  font-family: "Kanit";
-  color: #5263fa;
-  font-style: italic;
-  font-size: 0.9rem;
-}
-.tag_btn {
-  background-color: transparent;
-  border: none;
-  color: #5263fa;
-  font-size: 0.75rem;
-  padding-left: 0.8rem;
 }
