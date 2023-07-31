@@ -5,10 +5,37 @@ import Search from "/components/Search";
 import Footer from "/components/Footer";
 import Navbar from "/components/Navbar";
 import ComboCard from "/components/ComboCard";
-import { DynamoDBClient, ScanCommand } from "@aws-sdk/client-dynamodb";
+import {
+  DynamoDBClient,
+  ScanCommand,
+  PutItemCommand,
+  GetItemCommand,
+} from "@aws-sdk/client-dynamodb";
+import { Auth } from "aws-amplify";
+import awsmobile from "../../components/Authentication/amplifyHandler";
+
+/* const votesInfo = {
+  Id: { N: postId },
+  UserId: { S: UserId },
+  VoteVal: { BOOL: vote },
+};
+
+const params = {
+  TableName: "postVotes",
+  Item: votesInfo,
+}; */
+
+/*   try {
+  // Insert the item into the DynamoDB table
+  await client.send(new PutItemCommand(params));
+} catch(error) {
+  console.log("Error sending votes:", error);
+} */
 
 const ComboGuides = () => {
   const { theme } = useContext(ThemeContext);
+  const [userId, setUserId] = useState("");
+  const [postId, setPostId] = useState("");
   const [displayedCombos, setDisplayedCombos] = useState([]);
 
   useEffect(() => {
@@ -20,23 +47,26 @@ const ComboGuides = () => {
       },
     });
 
-    const params = {
+    const comboParams = {
       TableName: "CombosSF6",
     };
 
     const fetchData = async () => {
+      awsmobile;
       try {
-        const response = await client.send(new ScanCommand(params));
-        // Set the retrieved data in your component state or use it as needed
+        const userInfo = await Auth.currentUserInfo();
+        setUserId(userInfo.attributes.sub);
+
+        const response = await client.send(new ScanCommand(comboParams));
         setDisplayedCombos(response.Items);
-        console.log("Success, data received:", displayedCombos[1].Tags?.S);
+        console.log("Success, data received:", displayedCombos);
       } catch (error) {
         console.error("Error retrieving data from DynamoDB:", error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [,]);
 
   const handleSearch = (searchQuery) => {
     const formattedSearchQuery = searchQuery.toLowerCase().replace(/-/g, "");
@@ -63,7 +93,11 @@ const ComboGuides = () => {
 
       <Search onSearch={handleSearch} />
 
-      <ComboCard displayedCombos={displayedCombos} />
+      <ComboCard
+        displayedCombos={displayedCombos}
+        userId={userId}
+        theme={theme}
+      />
 
       <Footer />
     </div>

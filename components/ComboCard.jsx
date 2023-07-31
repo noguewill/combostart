@@ -1,11 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
-import { ThemeContext } from "./ThemeContext";
+import React, { useState, useEffect } from "react";
 import styles from "@/styles/ComboCard.module.css";
 import Image from "next/image";
 
-// Define ComboCard component
-const ComboCard = ({ displayedCombos }) => {
-  const { theme } = useContext(ThemeContext);
+const ComboCard = ({ displayedCombos, theme, userId }) => {
   const [parsedComboStrings, setParsedComboStrings] = useState([]);
   const [isRow2Visible, setRow2Visible] = useState(false);
 
@@ -41,6 +38,18 @@ const ComboCard = ({ displayedCombos }) => {
     return card.inputs.length > 14;
   };
 
+  /* 
+  const handleVoting =(parentId) => {
+    Look up postId with parentId
+    lookup in the object, the userId
+    if it finds, check if it's an upvote or a downvote,
+
+
+    if (userId is found in the)
+  } 
+  
+  */
+
   return (
     <>
       {displayedCombos.map((card) => (
@@ -64,7 +73,6 @@ const ComboCard = ({ displayedCombos }) => {
               <p className={styles.patchVersion}>PATCH: 1.0.0</p>
             </header>
 
-            {/* ComboCard container */}
             <section className={styles.comboCard_container}>
               <div className={styles.avatar_container}>
                 <h4 className={styles.avatar_name}> {card.Character?.S}</h4>
