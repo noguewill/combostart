@@ -9,7 +9,7 @@ import PostTitle from "../../components/PostCreation/PostTitle";
 import ComboStringSelectiveInput from "../../components/PostCreation/ComboStringInput/ComboStringSelectiveInput";
 import { Auth } from "aws-amplify";
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
-import awsmobile from "../../components/Authentication/amplifyHandler";
+import { awsmobile } from "../../components/Authentication/amplifyHandler";
 
 const NewPost = () => {
   const [userDisplayName, setUserDisplayName] = useState("");

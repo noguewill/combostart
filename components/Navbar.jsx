@@ -7,7 +7,7 @@ import AuthenticationBody from "./Authentication/AuthenticationBody";
 import ThemeToggleBtn from "./ThemeToggleBtn";
 import { Auth } from "aws-amplify";
 import { useRouter } from "next/router";
-import awsmobile from "./Authentication/amplifyHandler";
+import { awsmobile } from "./Authentication/amplifyHandler";
 
 const Navbar = () => {
   const router = useRouter();

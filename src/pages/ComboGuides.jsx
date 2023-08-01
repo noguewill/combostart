@@ -12,7 +12,7 @@ import {
   GetItemCommand,
 } from "@aws-sdk/client-dynamodb";
 import { Auth } from "aws-amplify";
-import awsmobile from "../../components/Authentication/amplifyHandler";
+import { awsmobile } from "../../components/Authentication/amplifyHandler";
 
 /* const votesInfo = {
   Id: { N: postId },

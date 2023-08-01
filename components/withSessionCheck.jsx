@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Auth } from "aws-amplify";
-import awsmobile from "./Authentication/amplifyHandler";
+import { awsmobile } from "./Authentication/amplifyHandler";
 
 const withSessionCheck = (WrappedComponent) => {
   const SessionCheckWrapper = (props) => {
