@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from "react";
+import React, { useState, useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
 import hubCardData from "/gamesData/hubCardData.json";
 import Link from "next/link";
@@ -27,56 +27,15 @@ const ComboGuideCard = () => {
       </Link>
     ));
 
-  const featuredCards = hubCardData.filter((card) => card.attr === "Featured");
-
-  const featuredCardElements = featuredCards.map((card) => {
-    let cardClassName;
-    let filterOverride;
-    let wipNone;
-    let linkPath;
-
-    if (card.id === 1) {
-      cardClassName = styles.featuredCard_left;
-      filterOverride = { filter: "none" };
-      wipNone = { display: "none" };
-      linkPath = card.src;
-    } else if (card.id === 2) {
-      linkPath = "/";
-      cardClassName = styles.featuredCard_mid;
-    } else if (card.id === 3) {
-      linkPath = "/";
-      cardClassName = styles.featuredCard_right;
-    }
-
-    return (
-      <Link key={card.id} href={linkPath} className={cardClassName}>
-        <div className={styles.cardWIP} style={{ visibility: "hidden" }}>
-          WIP
-        </div>
-        <span className={styles.cardTitle}>{card.name}</span>
-        <Image
-          style={filterOverride}
-          className={styles.cardImage}
-          src={card.bgImg}
-          alt={card.name}
-          fill
-        />
-        <div className={styles.cardWIP} style={wipNone}>
-          WIP
-        </div>
-      </Link>
-    );
-  });
-
   const upcomingCards = hubCardData.filter((card) => card.attr === "Upcoming");
 
   const upcomingCardElements = upcomingCards.map((card) => {
     let cardClassName;
     let videoLink;
-    if (card.id === 13) {
+    if (card.id === 5) {
       cardClassName = styles.upcoming_left;
       videoLink = "https://www.youtube.com/watch?v=UZ6eFEjFfJ0";
-    } else if (card.id === 14) {
+    } else if (card.id === 6) {
       cardClassName = styles.upcoming_right;
       videoLink = "https://www.youtube.com/watch?v=2hPuRQz6IlM";
     }
@@ -103,7 +62,18 @@ const ComboGuideCard = () => {
   return (
     <>
       <h2 className={styles[`${theme}rowTitle`]}>FEATURED</h2>
-      <div className={styles.featuredRow}>{featuredCardElements}</div>
+      <div className={styles.featuredRow}>
+        <Link href="/ComboGuides" className={styles.featuredCard_left}>
+          <span className={styles.cardTitle}>STREET FIGHTER 6</span>
+          <Image
+            className={styles.cardImage}
+            src="/gameCovers/sf6coverArt.webp"
+            alt="street fighter 6"
+            fill
+          />
+        </Link>
+        ;
+      </div>
 
       <h2 className={styles[`${theme}rowTitle`]}>UPCOMING</h2>
       <div className={styles.upcomingRow}>{upcomingCardElements}</div>
