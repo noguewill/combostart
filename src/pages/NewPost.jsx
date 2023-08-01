@@ -386,4 +386,3 @@ const NewPost = () => {
 };
 
 export default NewPost;
-/* [{"item1":{"type":"image","value":"P"},"item2":{"type":"text","value":"+"},"item3":{"type":"image","value":"K"}},{"item1":{"type":"image","value":"LK"},"item2":{"type":"image","value":"LK"},"item3":{"type":"image","value":"LK"}},{"item1":{"type":"image","value":"MP"},"item2":{"type":"image","value":"PP"},"item3":{"type":"image","value":"PDR"},"item4":{"type":"image","value":"cancel"}}] */

@@ -114,8 +114,8 @@ const SignUpForm = ({
               className={styles.eye_icon}
               src={
                 showPassword
-                  ? "/signUpPasswordEye.svg"
-                  : "/signUpPasswordClosedEye.svg"
+                  ? "/icons/signUpPasswordEye.svg"
+                  : "/icons/signUpPasswordClosedEye.svg"
               }
               alt="eye"
               width={20}

@@ -17,7 +17,7 @@ const ComboHub = () => {
           <strong>development</strong>, please access this website on your PC.
         </p>
         <img
-          src="/logo.svg"
+          src="/icons/logo.svg"
           alt="Combostart logo"
           width={50}
           height={50}

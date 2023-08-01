@@ -29,7 +29,7 @@ const AuthenticationBody = ({ toggleOverlay, onAuthenticationSuccess }) => {
         <div className={styles.signUp_header_wrapper}>
           <div className={styles.signUp_logo}>
             <Image
-              src="/logo.svg"
+              src="/icons/logo.svg"
               alt="combostart logo"
               width={60}
               height={40}

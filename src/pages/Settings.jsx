@@ -279,8 +279,8 @@ const Settings = () => {
                         className={styles.eye_icon}
                         src={
                           showOldPassword
-                            ? "/signUpPasswordEye.svg"
-                            : "/signUpPasswordClosedEye.svg"
+                            ? "/icons/signUpPasswordEye.svg"
+                            : "/icons/signUpPasswordClosedEye.svg"
                         }
                         alt="eye"
                         width={20}
@@ -313,8 +313,8 @@ const Settings = () => {
                         className={styles.eye_icon}
                         src={
                           showNewPassword
-                            ? "/signUpPasswordEye.svg"
-                            : "/signUpPasswordClosedEye.svg"
+                            ? "/icons/signUpPasswordEye.svg"
+                            : "/icons/signUpPasswordClosedEye.svg"
                         }
                         alt="eye"
                         width={20}

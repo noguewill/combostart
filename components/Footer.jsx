@@ -96,7 +96,12 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.copyright_container}>
-        <Image src="/logo.svg" alt="Combostart logo" width={50} height={50} />
+        <Image
+          src="/icons/logo.svg"
+          alt="Combostart logo"
+          width={50}
+          height={50}
+        />
         <span style={{ fontSize: "0.65rem" }}>
           ALL RIGHTS RESERVED COMBOSTART 2023
         </span>

@@ -29,26 +29,14 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
     return currentIndex < parsedComboStrings.length - 1;
   };
 
-  const handleExpandClick = () => {
+  /*   const handleExpandClick = () => {
     setRow2Visible(!isRow2Visible); // Toggle the visibility of row2
   };
-
-  // Function to determine whether to show the expand button
+ */
+  /*   // Function to determine whether to show the expand button
   const shouldShowExpandButton = (card) => {
     return card.inputs.length > 14;
-  };
-
-  /* 
-  const handleVoting =(parentId) => {
-    Look up postId with parentId
-    lookup in the object, the userId
-    if it finds, check if it's an upvote or a downvote,
-
-
-    if (userId is found in the)
-  } 
-  
-  */
+  }; */
 
   return (
     <>

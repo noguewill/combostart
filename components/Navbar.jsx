@@ -60,7 +60,12 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.navbar_logo__container}>
         <Link href="/" className={styles.navbar_logo}>
-          <Image src="/logo.svg" width={50} height={50} alt="ComboStart Logo" />
+          <Image
+            src="/icons/logo.svg"
+            width={50}
+            height={50}
+            alt="ComboStart Logo"
+          />
         </Link>
       </div>
 

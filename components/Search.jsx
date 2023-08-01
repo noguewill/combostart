@@ -41,7 +41,7 @@ const Search = ({ onSearch }) => {
 
               <button className={styles.searchBar_searchBtn}>
                 <Image
-                  src="/searchIcon.svg"
+                  src="/icons/searchIcon.svg"
                   alt="Search icon"
                   width={15}
                   height={15}

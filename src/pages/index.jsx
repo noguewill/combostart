@@ -16,7 +16,7 @@ function Home() {
   return (
     <>
       <Head>
-        <title>COMBOSTART</title>
+        <title>Combostart - Where the combos are</title>
         <meta
           name="description"
           content="Combos for various fighting videogames"
@@ -28,7 +28,7 @@ function Home() {
           href="https://fonts.gstatic.com"
           crossOrigin="true"
         />
-        <link rel="icon" href="/logoMin.ico" />
+        <link rel="icon" href="/icons/logoMin.ico" />
       </Head>
       <main className={styles.main}>
         <ComboHub />
