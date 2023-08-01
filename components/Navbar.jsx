@@ -91,19 +91,6 @@ const Navbar = () => {
                     Street Fighter 6
                   </span>
                 </Link>
-
-                <Link href="/" className={styles.submenu_link}>
-                  <span className={styles.combosPage_submenu_btn_disabled}>
-                    Tekken 7 (<span style={{ color: "#fcd12a" }}>WIP</span>)
-                  </span>
-                </Link>
-
-                <Link href="/" className={styles.submenu_link}>
-                  <span className={styles.combosPage_submenu_btn_disabled}>
-                    Mortal Kombat 11 (
-                    <span style={{ color: "#fcd12a" }}>WIP</span>)
-                  </span>
-                </Link>
               </div>
 
               <div
@@ -113,20 +100,18 @@ const Navbar = () => {
                 <h1 className={styles.combosPage_submenu_header}>ONGOING</h1>
                 <Link href="/" className={styles.submenu_link}>
                   <span className={styles.combosPage_submenu_btn_disabled}>
+                    Tekken 7 (<span style={{ color: "#fcd12a" }}>WIP</span>)
+                  </span>
+                </Link>
+                <Link href="/" className={styles.submenu_link}>
+                  <span className={styles.combosPage_submenu_btn_disabled}>
                     Guilty Gear Strive (
                     <span style={{ color: "#fcd12a" }}>WIP</span>)
                   </span>
                 </Link>
-
                 <Link href="/" className={styles.submenu_link}>
                   <span className={styles.combosPage_submenu_btn_disabled}>
-                    The King of Fighters XV (
-                    <span style={{ color: "#fcd12a" }}>WIP</span>)
-                  </span>
-                </Link>
-                <Link href="/" className={styles.submenu_link}>
-                  <span className={styles.combosPage_submenu_btn_disabled}>
-                    Smash Bros Ultimate (
+                    Dragon Ball Fighterz (
                     <span style={{ color: "#fcd12a" }}>WIP</span>)
                   </span>
                 </Link>
@@ -156,11 +141,7 @@ const Navbar = () => {
                   target="_blank"
                   href="https://www.youtube.com/watch?v=Sc3GbTpkAmw"
                   style={{ color: "#8a8a8a" }}
-                >
-                  <span className={styles.combosPage_submenu_btn}>
-                    GranBlue Fantasy: Rising
-                  </span>
-                </Link>
+                ></Link>
               </div>
             </div>
           </div>

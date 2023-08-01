@@ -62,17 +62,17 @@ const ComboGuideCard = () => {
   return (
     <>
       <h2 className={styles[`${theme}rowTitle`]}>FEATURED</h2>
-      <div className={styles.featuredRow}>
-        <Link href="/ComboGuides" className={styles.featuredCard_left}>
+      <div className={styles.featured_container}>
+        <Link href="/ComboGuides" className={styles.featuredCard}>
           <span className={styles.cardTitle}>STREET FIGHTER 6</span>
           <Image
-            className={styles.cardImage}
+            className={styles.featured_img}
             src="/gameCovers/sf6coverArt.webp"
             alt="street fighter 6"
-            fill
+            width={920}
+            height={920}
           />
         </Link>
-        ;
       </div>
 
       <h2 className={styles[`${theme}rowTitle`]}>UPCOMING</h2>
