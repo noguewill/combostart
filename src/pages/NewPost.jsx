@@ -10,6 +10,7 @@ import ComboStringSelectiveInput from "../../components/PostCreation/ComboString
 import { Auth } from "aws-amplify";
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { awsmobile } from "../../components/Authentication/amplifyHandler";
+import { v4 as uuidv4 } from "uuid";
 
 const NewPost = () => {
   const [userDisplayName, setUserDisplayName] = useState("");
@@ -29,6 +30,7 @@ const NewPost = () => {
   const [tags, setTags] = useState([]);
   const [isFormValid, setIsFormValid] = useState(true);
   const [postNotification, setPostNotification] = useState("");
+  const voteCount = 1;
 
   const currentDate = new Date();
   const hours = currentDate.getHours();
@@ -135,29 +137,12 @@ const NewPost = () => {
       return; // Exit the function and prevent form submission
     }
 
-    function generateUniqueId(sub) {
-      // Extract numbers from userSub
-      const userNumbers = sub.replace(/\D/g, "");
-
-      // Get current timestamp and date
-      const timestamp = Date.now();
-
-      // Concatenate userNumbers, timestamp, and date
-      const uniqueId = `${userNumbers}${timestamp}`;
-
-      return uniqueId;
-    }
-
-    // Usage example
-
-    const postId = generateUniqueId(userSub);
-
     // Prepare the item to be inserted into the DynamoDB table
     const comboInfo = {
-      id: { N: postId },
+      postId: { S: uuidv4() },
       User: { S: userDisplayName },
       Game: { S: game },
-      ScreenPosition: { S: screenPosition },
+      ScreenPosition: { S: screenPosition.toUpperCase() },
       Character: { S: character },
       Damage: { N: damage.toString() },
       Hits: { N: hits },
@@ -168,10 +153,11 @@ const NewPost = () => {
       Tags: { S: tags.join(",") },
       SubmissionTime: { S: time },
       SubmissionDate: { S: date },
+      VoteCount: { N: voteCount.toString() },
     };
 
     const params = {
-      TableName: "CombosSF6",
+      TableName: "combosSF6",
       Item: comboInfo,
     };
 

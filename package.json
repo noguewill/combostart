@@ -11,9 +11,9 @@
   "dependencies": {
     "@aws-amplify/auth": "^5.5.5",
     "@aws-amplify/core": "^5.7.0",
-    "aws-amplify": "^5.2.5",
     "@aws-sdk/client-dynamodb": "^3.358.0",
     "@react-spring/web": "^9.7.2",
+    "aws-amplify": "^5.2.5",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "fuse.js": "^6.6.2",
@@ -23,6 +23,7 @@
     "obscenity": "^0.1.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-youtube": "^10.1.0"
+    "react-youtube": "^10.1.0",
+    "uuid": "^9.0.0"
   }
 }

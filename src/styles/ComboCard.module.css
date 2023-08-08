@@ -85,8 +85,10 @@
   margin-left: 3rem;
   margin-right: 3rem;
 }
-.upvote_btn,
-.downvote_btn {
+.upvote_btn_,
+.upvote_btn_upvote,
+.downvote_btn_,
+.downvote_btn_downvote {
   width: 0;
   height: 0;
   border-left: 0.5rem solid transparent;
@@ -95,6 +97,10 @@
   background-color: transparent;
   cursor: pointer;
 }
+.upvote_btn_upvote {
+  border-bottom: 0.8rem solid #5263fa;
+}
+
 .upvotes {
   font-size: 1rem;
   color: #ebebeb;
@@ -102,11 +108,14 @@
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
-.downvote_btn {
+.downvote_btn_ {
   border-bottom: 0;
   border-top: 0.8rem solid #ebebeb;
   border-left: 0.5rem solid transparent;
   border-right: 0.5rem solid transparent;
+}
+.downvote_btn_downvote {
+  border-bottom: 0.8rem solid #5263fa;
 }
 
 .comboCard_hugger {

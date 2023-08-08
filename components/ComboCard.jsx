@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styles from "@/styles/ComboCard.module.css";
 import Image from "next/image";
+import { recordVote, removeVote, updateVoteCount } from "./dataSend";
+import { fetchVoteData } from "./dataFetch";
 
 const ComboCard = ({ displayedCombos, theme, userId }) => {
   const [parsedComboStrings, setParsedComboStrings] = useState([]);
-  const [isRow2Visible, setRow2Visible] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,23 +30,78 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
     return currentIndex < parsedComboStrings.length - 1;
   };
 
-  /*   const handleExpandClick = () => {
-    setRow2Visible(!isRow2Visible); // Toggle the visibility of row2
+  const handleUpvote = async (postId) => {
+    try {
+      const voteData = await fetchVoteData(postId);
+
+      console.log("Vote data:", voteData);
+
+      if (voteData.length > 0) {
+        // User has already voted for this post
+        if (voteData[0].voteType.S === "upvote") {
+          console.log("User previously upvoted");
+          // If the user previously upvoted, cancel the upvote
+          await removeVote(postId, userId, "upvote");
+          console.log("Vote removed after upvote cancellation");
+        } else if (voteData[0].voteType.S === "downvote") {
+          console.log("User previously downvoted");
+          // If the user previously downvoted, remove the downvote and add upvote
+          await removeVote(postId, userId, "downvote");
+          await recordVote(postId, userId, "upvote");
+          console.log("Upvote registered after downvote cancellation");
+        }
+      } else {
+        console.log("User has not voted before");
+        await recordVote(postId, userId, "upvote");
+      }
+    } catch (error) {
+      console.error("Error handling upvote:", error);
+    }
   };
- */
-  /*   // Function to determine whether to show the expand button
-  const shouldShowExpandButton = (card) => {
-    return card.inputs.length > 14;
-  }; */
+
+  const handleDownvote = async (postId) => {
+    try {
+      const voteData = await fetchVoteData(postId);
+
+      console.log("Vote data:", voteData);
+
+      if (voteData.length > 0) {
+        // User has already voted for this post
+        if (voteData[0].voteType.S === "downvote") {
+          console.log("User previously downvoted");
+          // If the user previously downvoted, cancel the downvote
+          await removeVote(postId, userId, "downvote");
+          console.log("Vote removed after downvote cancellation");
+        } else if (voteData[0].voteType.S === "upvote") {
+          console.log("User previously upvoted");
+          // If the user previously upvoted, remove the upvote and add downvote
+          await removeVote(postId, userId, "upvote");
+          await recordVote(postId, userId, "downvote");
+          console.log("Downvote registered after upvote cancellation");
+        }
+      } else {
+        console.log("User has not voted before");
+        await recordVote(postId, userId, "downvote");
+      }
+    } catch (error) {
+      console.error("Error handling downvote:", error);
+    }
+  };
 
   return (
     <>
       {displayedCombos.map((card) => (
-        <main key={card.id?.N} className={styles.comboCard_wrapper}>
+        <main key={card.postId?.S} className={styles.comboCard_wrapper}>
           <section className={styles.upvote_container}>
-            <button className={styles.upvote_btn}></button>
-            <span className={styles.upvotes}>69</span>
-            <button className={styles.downvote_btn}></button>
+            <button
+              className={styles.upvote_btn_}
+              onClick={() => handleUpvote(card.postId?.S)}
+            ></button>
+            <span className={styles.upvotes}>{card.VoteCount?.N}</span>
+            <button
+              className={styles.downvote_btn_}
+              onClick={() => handleDownvote(card.postId?.S)}
+            ></button>
           </section>
 
           <article className={styles.comboCard_hugger}>
@@ -67,8 +123,8 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
                 <div className={styles.avatar_frame}>
                   <Image
                     src={`/comboAvatars/sf6/sf6_charAvatar_${card.Character?.S}.png`}
-                    width={100}
-                    height={100}
+                    width={101}
+                    height={101}
                     className={styles.avatar_img}
                     alt={card.Character?.S}
                   />
