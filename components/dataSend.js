@@ -14,19 +14,35 @@ const client = new DynamoDBClient({
 });
 
 export const recordVote = async (postId, userId, voteType) => {
-  const voteInfo = {
-    postId: { S: postId },
-    userId: { S: userId },
-    voteType: { S: voteType },
-  };
-
-  const params = {
-    TableName: "postVotes",
-    Item: voteInfo,
-  };
-
   try {
+    /* Sending data to the postVotes table */
+    const voteInfo = {
+      postId: { S: postId }, // Use postId as a key
+      userId: { S: userId },
+      voteType: { S: voteType },
+    };
+    const params = {
+      TableName: "postVotes",
+      Item: voteInfo,
+    };
+
+    /* Sending data to the userData table */
+    const userVoteHistoryUpdate = {
+      [postId]: { S: voteType }, // Use postId as a key
+    };
+    const userTableParams = {
+      TableName: "userData",
+      Key: {
+        userId: { S: userId },
+      },
+      UpdateExpression: "SET UserVoteHistory = :history",
+      ExpressionAttributeValues: {
+        ":history": { M: userVoteHistoryUpdate },
+      },
+    };
+
     await client.send(new PutItemCommand(params));
+    await client.send(new UpdateItemCommand(userTableParams));
 
     // Increment or decrement the VoteCount of the corresponding post
     if (voteType === "upvote") {
@@ -52,6 +68,22 @@ export const removeVote = async (postId, userId, voteType) => {
     };
 
     await client.send(new DeleteItemCommand(voteParams));
+
+    const userVoteHistoryUpdate = {
+      [postId]: { NULL: true }, // Remove the entry by setting it to NULL
+    };
+    const userTableParams = {
+      TableName: "userData",
+      Key: {
+        userId: { S: userId },
+      },
+      UpdateExpression: "REMOVE UserVoteHistory.#post",
+      ExpressionAttributeNames: {
+        "#post": postId, // Specify the post ID as the attribute name
+      },
+    };
+
+    await client.send(new UpdateItemCommand(userTableParams));
 
     // Increment or decrement the VoteCount of the corresponding post
     if (voteType === "upvote") {

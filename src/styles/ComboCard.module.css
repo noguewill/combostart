@@ -115,7 +115,10 @@
   border-right: 0.5rem solid transparent;
 }
 .downvote_btn_downvote {
-  border-bottom: 0.8rem solid #5263fa;
+  border-bottom: 0;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-top: 0.8rem solid #5263fa;
 }
 
 .comboCard_hugger {

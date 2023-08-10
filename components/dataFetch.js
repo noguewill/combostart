@@ -1,6 +1,10 @@
 import { Auth } from "aws-amplify";
 import { awsmobile } from "./Authentication/amplifyHandler";
-import { DynamoDBClient, ScanCommand } from "@aws-sdk/client-dynamodb";
+import {
+  DynamoDBClient,
+  ScanCommand,
+  GetItemCommand,
+} from "@aws-sdk/client-dynamodb";
 
 const client = new DynamoDBClient({
   region: "us-east-1",
@@ -37,31 +41,39 @@ export const fetchComboData = async () => {
   }
 };
 
-export const fetchVoteData = async (postId) => {
+export const fetchVoteData = async (postId, userId) => {
   try {
-    // Construct a FilterExpression to filter the scan results by 'postId'
-    const filterExpression = "postId = :postId";
-    const expressionAttributeValues = {
-      ":postId": { S: postId }, // Use { S: postId } to specify it as a String attribute value
-    };
-    const voteParams = {
-      TableName: "postVotes",
-      FilterExpression: filterExpression,
-      ExpressionAttributeValues: expressionAttributeValues,
+    // Retrieve the user's vote history from the 'userData' table
+    const userVoteHistoryParams = {
+      TableName: "userData",
+      Key: {
+        userId: { S: userId },
+      },
     };
 
-    const response = await client.send(new ScanCommand(voteParams));
+    const userVoteHistoryResponse = await client.send(
+      new GetItemCommand(userVoteHistoryParams)
+    );
 
-    // Check if 'Items' array exists and has elements
-    if (response.Items && response.Items.length > 0) {
-      console.log("Success, voting data received:", response.Items);
-      return response.Items;
+    // Check if the user's vote history is available
+    const userVoteHistory = userVoteHistoryResponse.Item?.UserVoteHistory;
+    if (userVoteHistory) {
+      const voteTypeObject = userVoteHistory?.M[postId]; // Get the object for the specific post
+      if (voteTypeObject && voteTypeObject.S) {
+        console.log("Success, voting data received:", voteTypeObject.S);
+        return voteTypeObject.S; // Return the voteType as a string
+      } else {
+        console.log(
+          "PostId matches, the user voted, here's his vote:",
+          voteTypeObject.S
+        );
+        return null;
+      }
     } else {
-      console.log("No voting data found for postId:", postId);
-      return [];
+      console.log("User's vote history not found");
+      return null;
     }
   } catch (error) {
-    console.error("Error retrieving data from DynamoDB:", error);
-    return []; // Return an empty array in case of an error
+    return null; // Return null in case of an error
   }
 };
