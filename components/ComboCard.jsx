@@ -8,6 +8,7 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
   const [parsedComboStrings, setParsedComboStrings] = useState([]);
   const [currentVotes, setCurrentVotes] = useState(1);
   const [renderedPostIds, setRenderedPostIds] = useState([]); // State to store rendered post IDs
+  const [isMatching, setIsMatching] = useState(""); // Add this state for className logic
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,9 +25,22 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
         }
       }
     };
+    const didUserVote = async () => {
+      const results = await Promise.all(
+        renderedPostIds.map((value) => fetchVoteData(value, userId))
+      );
+      if (results.every((result) => result === "upvote")) {
+        setIsMatching("upvote");
+      } else if (results.every((result) => result === "downvote")) {
+        setIsMatching("downvote");
+      } else {
+        setIsMatching("");
+      }
+    };
 
+    didUserVote();
     fetchData();
-  }, [displayedCombos]);
+  }, [displayedCombos, renderedPostIds]);
 
   // Function to determine whether to show the comboArrow element icon
   const shouldShowComboArrow = (currentIndex) => {
@@ -40,10 +54,12 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
       if (voteData === "upvote") {
         console.log("User previously upvoted");
         setCurrentVotes(currentVotes - 1);
+        setIsMatching("");
         await removeVote(postId, userId, "upvote");
         console.log("Vote removed after upvote cancellation");
       } else if (voteData === "downvote") {
         console.log("User previously downvoted");
+        setIsMatching("upvote");
         await removeVote(postId, userId, "downvote");
         await recordVote(postId, userId, "upvote");
         setCurrentVotes(currentVotes + 2);
@@ -52,9 +68,11 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
         console.log("User has not voted before");
         await recordVote(postId, userId, "upvote");
         setCurrentVotes(currentVotes + 1);
+        setIsMatching("upvote");
       }
     } catch (error) {
       console.error("Error handling upvote:", error);
+      setIsMatching("");
     }
   };
 
@@ -65,6 +83,7 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
       if (voteData === "downvote") {
         console.log("User previously downvoted");
         setCurrentVotes(currentVotes + 1);
+        setIsMatching("");
         await removeVote(postId, userId, "downvote");
         console.log("Vote removed after downvote cancellation");
       } else if (voteData === "upvote") {
@@ -72,14 +91,17 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
         await removeVote(postId, userId, "upvote");
         await recordVote(postId, userId, "downvote");
         setCurrentVotes(currentVotes - 2);
+        setIsMatching("downvote");
         console.log("Downvote registered after upvote cancellation");
       } else {
         console.log("User has not voted before");
         await recordVote(postId, userId, "downvote");
         setCurrentVotes(currentVotes - 1);
+        setIsMatching("downvote");
       }
     } catch (error) {
       console.error("Error handling downvote:", error);
+      setIsMatching("");
     }
   };
 
@@ -94,12 +116,16 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
           <main key={card.postId?.S} className={styles.comboCard_wrapper}>
             <section className={styles.upvote_container}>
               <button
-                className={styles.upvote_btn_}
+                className={`${styles.upvote_btn_} ${
+                  isMatching === "upvote" ? styles.upvote_btn_upvote : ""
+                }`}
                 onClick={() => handleUpvote(card.postId?.S)}
               ></button>
               <span className={styles.upvotes}>{currentVotes}</span>
               <button
-                className={styles.downvote_btn_}
+                className={`${styles.downvote_btn_} ${
+                  isMatching === "downvote" ? styles.downvote_btn_downvote : ""
+                }`}
                 onClick={() => handleDownvote(card.postId?.S)}
               ></button>
             </section>
