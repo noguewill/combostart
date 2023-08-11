@@ -11,7 +11,7 @@ import { awsmobile } from "./Authentication/amplifyHandler";
 
 const Navbar = () => {
   const router = useRouter();
-
+  const currentRoute = router.asPath; // The current route URL
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [showOverlay, setShowOverlay] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -71,81 +71,27 @@ const Navbar = () => {
 
       <div className={styles.navbar_btn__container}>
         {/* Add toggle button */}
-        <Link href="/" className={styles[`${theme}nav_btn`]}>
+        <Link
+          href="/"
+          className={
+            currentRoute === "/"
+              ? styles[`${theme}nav_btn_focus`]
+              : styles[`${theme}nav_btn`]
+          }
+        >
           HOME
         </Link>
-        <span
-          id={styles.combosPageBtn}
-          href="/ComboGuides"
-          className={styles[`${theme}nav_hoverBtn`]}
-        >
-          COMBO GUIDES {/* Combos Page Submenu */}
-          <div className={styles.combosPage_submenu_parent}>
-            <div className={styles.arrowUp}></div> {/* Arrow Icon */}
-            <div className={styles.combosPage_submenu_container}>
-              {/* This is a button section */}
-              <div className={styles.combosPage_submenu}>
-                <h1 className={styles.combosPage_submenu_header}>FEATURED</h1>
-                <Link href="/ComboGuides">
-                  <span className={styles.combosPage_submenu_btn}>
-                    Street Fighter 6
-                  </span>
-                </Link>
-              </div>
 
-              <div
-                className={styles.combosPage_submenu}
-                style={{ marginLeft: "0.9rem", marginRight: "0.9rem" }}
-              >
-                <h1 className={styles.combosPage_submenu_header}>ONGOING</h1>
-                <Link href="/" className={styles.submenu_link}>
-                  <span className={styles.combosPage_submenu_btn_disabled}>
-                    Tekken 7 (<span style={{ color: "#fcd12a" }}>WIP</span>)
-                  </span>
-                </Link>
-                <Link href="/" className={styles.submenu_link}>
-                  <span className={styles.combosPage_submenu_btn_disabled}>
-                    Guilty Gear Strive (
-                    <span style={{ color: "#fcd12a" }}>WIP</span>)
-                  </span>
-                </Link>
-                <Link href="/" className={styles.submenu_link}>
-                  <span className={styles.combosPage_submenu_btn_disabled}>
-                    Dragon Ball Fighterz (
-                    <span style={{ color: "#fcd12a" }}>WIP</span>)
-                  </span>
-                </Link>
-              </div>
-              {/* This is a button section */}
-              <div className={styles.combosPage_submenu}>
-                <h1 className={styles.combosPage_submenu_header}>UPCOMING</h1>
-                <Link
-                  target="_blank"
-                  href="https://www.youtube.com/watch?v=UZ6eFEjFfJ0"
-                  style={{ color: "#8a8a8a" }}
-                >
-                  <span className={styles.combosPage_submenu_btn}>
-                    Mortal Kombat 1 (2023)
-                  </span>
-                </Link>
-                <Link
-                  target="_blank"
-                  href="https://www.youtube.com/watch?v=2hPuRQz6IlM"
-                  style={{ color: "#8a8a8a" }}
-                >
-                  <span className={styles.combosPage_submenu_btn}>
-                    Tekken 8
-                  </span>
-                </Link>
-                <Link
-                  target="_blank"
-                  href="https://www.youtube.com/watch?v=Sc3GbTpkAmw"
-                  style={{ color: "#8a8a8a" }}
-                ></Link>
-              </div>
-            </div>
-          </div>
-        </span>
+        <Link
+          href="/ComboGuides"
+          className={
+            currentRoute === "/ComboGuides"
+              ? styles[`${theme}nav_btn_focus`]
+              : styles[`${theme}nav_btn`]
+          }
+        >
+          COMBO GUIDES
+        </Link>
         <span id={styles.aboutBtn} className={styles[`${theme}nav_hoverBtn`]}>
           ABOUT {/* Combos Page Submenu */}
           <div className={styles.about_submenu_parent}>

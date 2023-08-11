@@ -6,7 +6,7 @@ import { fetchVoteData } from "./dataFetch";
 
 const ComboCard = ({ displayedCombos, theme, userId }) => {
   const [parsedComboStrings, setParsedComboStrings] = useState([]);
-  const [currentVotes, setCurrentVotes] = useState(1);
+  const [currentVotes, setCurrentVotes] = useState(null);
   const [renderedPostIds, setRenderedPostIds] = useState([]); // State to store rendered post IDs
   const [isMatching, setIsMatching] = useState(""); // Add this state for className logic
 

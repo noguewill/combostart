@@ -198,7 +198,9 @@
   .nav_btn,
   .nav_hoverBtn,
   .light_theme_nav_btn,
-  .light_theme_nav_hoverBtn {
+  .light_theme_nav_hoverBtn,
+  .nav_btn_focus,
+  .light_theme_nav_btn_focus {
     cursor: pointer;
     font-family: "kanit";
     font-size: 0.65rem;
@@ -214,10 +216,17 @@
   .nav_hoverBtn {
     cursor: default;
   }
+  .nav_btn_focus {
+    background-color: #ebebeb;
+    color: #1f1f1f;
+    transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+  }
   .light_theme_nav_btn,
-  .light_theme_nav_hoverBtn {
+  .light_theme_nav_hoverBtn,
+  .light_theme_nav_btn_focus {
     color: #1f1f1f;
   }
+
   .nav_btn:not(:hover) {
     transition: all 0.1s cubic-bezier(0.2, 0.5, 0.8, 0.9);
   }
@@ -226,7 +235,8 @@
     color: #1f1f1f;
     transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
   }
-  .light_theme_nav_btn:hover {
+  .light_theme_nav_btn:hover,
+  .light_theme_nav_btn_focus {
     background-color: #1f1f1f;
     color: #ebebeb;
     transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
