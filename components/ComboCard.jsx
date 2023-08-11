@@ -94,18 +94,12 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
           <main key={card.postId?.S} className={styles.comboCard_wrapper}>
             <section className={styles.upvote_container}>
               <button
-                className={`${styles.upvote_btn_} ${
-                  userVoteData === "upvote" ? styles.upvote_btn_upvote : ""
-                }`}
+                className={styles.upvote_btn_}
                 onClick={() => handleUpvote(card.postId?.S)}
               ></button>
               <span className={styles.upvotes}>{currentVotes}</span>
               <button
-                className={`${styles.downvote_btn_} ${
-                  userVoteData === "downvote"
-                    ? styles.downvote_btn_downvote
-                    : ""
-                }`}
+                className={styles.downvote_btn_}
                 onClick={() => handleDownvote(card.postId?.S)}
               ></button>
             </section>
