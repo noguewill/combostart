@@ -215,22 +215,29 @@
   margin-top: 0.5rem;
 }
 .mechanic,
-.driveRush {
+.driveRush,
+.initialState {
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 4px;
+  padding: 0.2rem;
   background-color: deeppink;
 
-  width: 3.2rem;
+  width: auto;
   font-size: 1rem;
   font-family: "Kanit";
 }
 .mechanic_text {
-  font-size: 0.5rem;
+  font-size: 0.55rem;
 }
 .driveRush {
   background-color: #55d860;
+  border-radius: 4px;
+  width: 2rem;
+}
+.initialState {
+  background-color: #000;
   border-radius: 4px;
   width: 2rem;
 }
@@ -269,12 +276,16 @@
   border-radius: 100%;
   background-color: white;
 }
-.dmg_stat_number {
+.dmg_stat_number,
+.dmg_stat_dmgPercent {
   font-size: 1.1rem;
   font-family: "kanit";
   margin-left: 0.6rem;
 }
-
+.dmg_stat_dmgPercent {
+  margin-left: 0;
+  margin-right: 0.2rem;
+}
 .screenPos {
   font-size: 0.9rem;
   margin-left: 1.1rem;

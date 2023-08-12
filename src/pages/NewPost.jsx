@@ -18,8 +18,6 @@ const NewPost = () => {
   const { theme } = useContext(ThemeContext);
 
   /* Form Inputs states */
-  const [damage, setDamage] = useState("");
-  const [hits, setHits] = useState("");
   const [game, setGame] = useState("Street Fighter 6");
   const [screenPosition, setScreenPosition] = useState("");
   const [character, setCharacter] = useState("");
@@ -27,7 +25,10 @@ const NewPost = () => {
   const [comboStrings, setComboStrings] = useState([]);
   const [comboNotes, setcomboNotes] = useState([]);
   const [hasSuper, setHasSuper] = useState("");
-  const [driveBars, setDriveBars] = useState(4);
+  const [driveBars, setDriveBars] = useState(0);
+  const [damage, setDamage] = useState("");
+  const [dmgPercent, setDamagePercent] = useState(0);
+  const [hits, setHits] = useState("");
   const [tags, setTags] = useState([]);
   const [initialState, setInitialState] = useState("");
   const voteCount = 1;
@@ -114,6 +115,11 @@ const NewPost = () => {
       setDamage(newDamage);
     }
   };
+
+  const handleDmgPercentage = () => {
+    setDamagePercent();
+  };
+
   const handleHitsChange = (event) => {
     let input = event.target.value;
     input = input.replace(/\D/g, ""); // Remove non-numeric characters
@@ -141,6 +147,7 @@ const NewPost = () => {
       return; // Exit the function and prevent form submission
     }
 
+    const dmgPercentVal = (damage / 10000) * 100;
     // Prepare the item to be inserted into the DynamoDB table
     const comboInfo = {
       postId: { S: uuidv4() },
@@ -150,6 +157,7 @@ const NewPost = () => {
       ScreenPosition: { S: screenPosition.toUpperCase() },
       Character: { S: character },
       Damage: { N: damage.toString() },
+      DmgPercent: { N: dmgPercentVal.toString() },
       Hits: { N: hits },
       HasSuper: { S: hasSuper },
       DriveBars: { N: driveBars.toString() },
@@ -171,20 +179,21 @@ const NewPost = () => {
       await client.send(new PutItemCommand(params));
 
       // Reset form fields after successful submission
-      setDamage("");
-      setHits("");
+      setInitialState("");
       setGame("Street Fighter 6");
       setScreenPosition("");
       setCharacter("");
       setHasSuper("");
-      setDriveBars(0);
+      setDriveBars("");
+      setDamage("");
+      setHits("");
       setIsFormValid(false);
       setTags([]);
       event.target.reset();
 
-      console.log("Item inserted successfully into DynamoDB");
+      console.log("Combo post inserted successfully into DynamoDB");
     } catch (error) {
-      console.error("Error inserting item into DynamoDB:", error);
+      console.error("Error inserting combo post into DynamoDB:", error);
     }
   };
 

@@ -160,7 +160,7 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
                   <section className={styles.stats_container}>
                     {/* Mechanics */}
                     <div className={styles.mechanic_container}>
-                      <div className={styles.mechanic}>LVL 1</div>
+                      <div className={styles.mechanic}>{card.HasSuper?.S}</div>
                       <span className={styles.mechanic_text}>SUPER ART</span>
                     </div>
                     <div className={styles.mechanic_container}>
@@ -168,6 +168,19 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
                         {card.DriveBars?.N}
                       </div>
                       <span className={styles.mechanic_text}>DRIVE RUSH</span>
+                    </div>
+                    <div className={styles.mechanic_container}>
+                      <div className={styles.initialState}>
+                        <Image
+                          src={`/inputs/${card.InitialState?.S}.svg`}
+                          width={26}
+                          height={26}
+                          alt={card.InitialState?.S}
+                        />
+                      </div>
+                      <span className={styles.mechanic_text}>
+                        INITIAL STATE
+                      </span>
                     </div>
                     <div className={styles.dmg_container}>
                       <div className={styles.dmg_stat_container}>
@@ -181,8 +194,10 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
                           {card.Hits?.N}
                         </span>
                         <div className={styles.dmg_dot}></div>
-                        <span className={styles.dmg_stat_text}>PERCENTAGE</span>
-                        <span className={styles.dmg_stat_number}>40%</span>
+                        <span className={styles.dmg_stat_dmgPercent}>
+                          {card.DmgPercent?.N}%
+                        </span>
+                        <span className={styles.dmg_stat_text}>OF HP</span>
                       </div>
                     </div>
                     <div className={styles.screenPos}>
