@@ -48,8 +48,6 @@ const Navbar = () => {
       await Auth.signOut();
       // User has been successfully signed out
       router.push("/"); // Redirect to "/"
-      window.location.reload(); // Refresh the page
-      // Perform any additional actions or navigate to a different page if needed
     } catch (error) {
       // An error occurred during the sign-out process
       console.log("Error signing out:", error);
@@ -101,15 +99,13 @@ const Navbar = () => {
             ></div>
             {/* Arrow Icon */} {/* This is a button section */}
             <p style={{ maxWidth: "27rem" }}>
-              Combostart is a beginner-friendly community-driven combo <br />
-              sharing platform
-              <span style={{ fontWeight: "800" }}> tailored </span> specifically
-              for fighting game players <br /> of all skill levels. <br />
-              Whether you&apos;re a
-              <span style={{ fontWeight: "800" }}> casual </span> player or a
-              seasoned pro, Combostart provides a welcoming space where you can
-              <span style={{ fontWeight: "800" }}>easily</span> learn, discover,
-              and explore combos for a variety of popular fighting games.
+              Combostart is a beginner-friendly community driven combo <br />
+              <span style={{ fontWeight: "800" }}> sharing </span> platform
+              tailored for players of all skill levels.
+              <br /> Whether you&apos;re a casual or a seasoned pro, we provide
+              a space where you can
+              <span style={{ fontWeight: "800" }}> easily</span> learn and
+              discover combos for a variety of fighting games.
             </p>
           </div>
         </span>
@@ -118,7 +114,14 @@ const Navbar = () => {
           <ThemeToggleBtn theme={theme} toggleTheme={toggleTheme} />
           {currentUser !== null ? (
             <>
-              <Link href="/NewPost" className={styles[`${theme}nav_btn`]}>
+              <Link
+                href="/NewPost"
+                className={
+                  currentRoute === "/NewPost"
+                    ? styles[`${theme}nav_btn_focus`]
+                    : styles[`${theme}nav_btn`]
+                }
+              >
                 NEW POST +
               </Link>
               <div className={styles.profileBtn_container}>

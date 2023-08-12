@@ -16,6 +16,7 @@ const NewPost = () => {
   const [userDisplayName, setUserDisplayName] = useState("");
   const [userSub, setUserSub] = useState(null);
   const { theme } = useContext(ThemeContext);
+
   /* Form Inputs states */
   const [damage, setDamage] = useState("");
   const [hits, setHits] = useState("");
@@ -25,12 +26,14 @@ const NewPost = () => {
   const [postTitle, setPostTitle] = useState("");
   const [comboStrings, setComboStrings] = useState([]);
   const [comboNotes, setcomboNotes] = useState([]);
-  const [hasSuper, setHasSuper] = useState(false);
+  const [hasSuper, setHasSuper] = useState("");
   const [driveBars, setDriveBars] = useState(4);
   const [tags, setTags] = useState([]);
+  const [initialState, setInitialState] = useState("");
+  const voteCount = 1;
+
   const [isFormValid, setIsFormValid] = useState(true);
   const [postNotification, setPostNotification] = useState("");
-  const voteCount = 1;
 
   const currentDate = new Date();
   const hours = currentDate.getHours();
@@ -78,23 +81,8 @@ const NewPost = () => {
   ]);
 
   /* Handling the inputs values of the form */
-  const handleDamageChange = (event) => {
-    let input = event.target.value;
-    input = input.replace(/\D/g, ""); // Remove non-numeric characters
-    input = input.slice(0, 5); // Limit input to 5 characters
-    const newDamage = input === "" ? null : parseInt(input);
-
-    if (newDamage !== null && newDamage > 10000) {
-      setDamage("10000");
-    } else {
-      setDamage(newDamage);
-    }
-  };
-  const handleHitsChange = (event) => {
-    let input = event.target.value;
-    input = input.replace(/\D/g, ""); // Remove non-numeric characters
-    input = input.slice(0, 2); // Limit input to 2 characters
-    setHits(input);
+  const handleInitialState = (val) => {
+    setInitialState(val);
   };
   const handleGameChange = (event) => {
     setGame(event.target.value);
@@ -114,10 +102,26 @@ const NewPost = () => {
   const handleDriveBars = (event) => {
     setDriveBars(parseInt(event.target.value));
   };
+  const handleDamageChange = (event) => {
+    let input = event.target.value;
+    input = input.replace(/\D/g, ""); // Remove non-numeric characters
+    input = input.slice(0, 5); // Limit input to 5 characters
+    const newDamage = input === "" ? null : parseInt(input);
+
+    if (newDamage !== null && newDamage > 10000) {
+      setDamage("10000");
+    } else {
+      setDamage(newDamage);
+    }
+  };
+  const handleHitsChange = (event) => {
+    let input = event.target.value;
+    input = input.replace(/\D/g, ""); // Remove non-numeric characters
+    input = input.slice(0, 2); // Limit input to 2 characters
+    setHits(input);
+  };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-
     const time = `${hours}:${minutes}:${seconds}`;
     const date = `${day}/${month}/${year}`;
 
@@ -141,12 +145,13 @@ const NewPost = () => {
     const comboInfo = {
       postId: { S: uuidv4() },
       User: { S: userDisplayName },
+      InitialState: { S: initialState },
       Game: { S: game },
       ScreenPosition: { S: screenPosition.toUpperCase() },
       Character: { S: character },
       Damage: { N: damage.toString() },
       Hits: { N: hits },
-      HasSuper: { BOOL: hasSuper },
+      HasSuper: { S: hasSuper },
       DriveBars: { N: driveBars.toString() },
       PostTitle: { S: postTitle },
       ComboStrings: { S: JSON.stringify(comboStrings) },
@@ -245,6 +250,7 @@ const NewPost = () => {
                   <option value="" disabled>
                     Select
                   </option>
+                  <option value="Aki">Aki</option>
                   <option value="Blanka">Blanka</option>
                   <option value="Cammy">Cammy</option>
                   <option value="Chun-Li">Chun Li</option>
@@ -277,7 +283,7 @@ const NewPost = () => {
 
           <div className={styles.comboInfo_input_container}>
             <div className={styles.stringsOptions_stringType_wrapper}>
-              <span>Combo has super?</span>
+              <span>Super?</span>
               <div className={styles[`${theme}selectDropdownContainer`]}>
                 <select
                   value={hasSuper}
@@ -288,8 +294,10 @@ const NewPost = () => {
                   <option value="" disabled>
                     Select
                   </option>
-                  <option value={true}>Yes</option>
-                  <option value={false}>No</option>
+                  <option value="Level 1">Level 1</option>
+                  <option value="Level 2">Level 2</option>
+                  <option value="Level 3">Level 3</option>
+                  <option value="Critical Art">Critical Art</option>
                 </select>
               </div>
             </div>
@@ -353,6 +361,9 @@ const NewPost = () => {
             setComboStrings={setComboStrings}
             comboNotes={comboNotes}
             setcomboNotes={setcomboNotes}
+            handleInitialState={handleInitialState}
+            initialState={initialState}
+            setInitialState={setInitialState}
           />
           <TagInput
             theme={theme}
@@ -362,7 +373,7 @@ const NewPost = () => {
           />
 
           <button className={styles.submitPost_btn} disabled={!isFormValid}>
-            SUBMIT POST
+            SUBMIT COMBO
           </button>
         </form>
       </main>

@@ -10,8 +10,8 @@ const DirectionalInputs = ({ theme, handleInputValue }) => {
           <Image
             className={styles.directional_btn}
             src="/inputs/UB.svg"
-            width={42}
-            height={42}
+            width={40}
+            height={40}
             onClick={() => handleInputValue("UB")}
           />
           <Image
@@ -24,8 +24,8 @@ const DirectionalInputs = ({ theme, handleInputValue }) => {
           <Image
             className={styles.directional_btn}
             src="/inputs/DB.svg"
-            width={42}
-            height={42}
+            width={40}
+            height={40}
             onClick={() => handleInputValue("DB")}
           />
         </div>
@@ -50,8 +50,8 @@ const DirectionalInputs = ({ theme, handleInputValue }) => {
           <Image
             className={styles.directional_btn}
             src="/inputs/UF.svg"
-            width={42}
-            height={42}
+            width={40}
+            height={40}
             onClick={() => handleInputValue("UF")}
           />
           <Image
@@ -64,8 +64,8 @@ const DirectionalInputs = ({ theme, handleInputValue }) => {
           <Image
             className={styles.directional_btn}
             src="/inputs/DF.svg"
-            width={42}
-            height={42}
+            width={40}
+            height={40}
             onClick={() => handleInputValue("DF")}
           />
         </div>
@@ -74,12 +74,14 @@ const DirectionalInputs = ({ theme, handleInputValue }) => {
       <div className={styles.directionals_acronyms_container}>
         <div className={styles.directionals_aconyms_row}>
           <button
+            type="button"
             className={styles[`${theme}directional_acronym_btn`]}
             onClick={() => handleInputValue("QCF")}
           >
             QCF
           </button>
           <button
+            type="button"
             className={styles[`${theme}directional_acronym_btn`]}
             onClick={() => handleInputValue("QCB")}
           >
@@ -88,12 +90,14 @@ const DirectionalInputs = ({ theme, handleInputValue }) => {
         </div>
         <div className={styles.directionals_aconyms_row}>
           <button
+            type="button"
             className={styles[`${theme}directional_acronym_btn`]}
             onClick={() => handleInputValue("HCF")}
           >
             HCF
           </button>
           <button
+            type="button"
             className={styles[`${theme}directional_acronym_btn`]}
             onClick={() => handleInputValue("HCB")}
           >
@@ -103,6 +107,7 @@ const DirectionalInputs = ({ theme, handleInputValue }) => {
       </div>
       <div className={styles.directionals_aconyms_row}>
         <button
+          type="button"
           className={styles[`${theme}dp_acronym_btn`]}
           onClick={() => handleInputValue("DP")}
         >

@@ -8,13 +8,13 @@ const ComboStringSelectiveInput = ({
   theme,
   comboStrings,
   setComboStrings,
-  setcomboNotes,
-  comboNotes,
+  handleInitialState,
+  initialState,
+  setInitialState,
 }) => {
   const [inputValue, setInputValue] = useState([]);
   const [isPlusOnly, setIsPlusOnly] = useState(false);
   const [askInitialState, setAskInitialState] = useState(true);
-  const [initialState, setInitialState] = useState("");
   const [isComboValid, setIsComboValid] = useState(false);
   const [isComboSaved, setIsComboSaved] = useState(false);
 
@@ -47,8 +47,6 @@ const ComboStringSelectiveInput = ({
         { type: "image", value: val, alt: desc },
       ]);
     }
-    // Prevent form submission
-    event.preventDefault();
   };
 
   const handleAddString = useCallback(() => {
@@ -76,8 +74,6 @@ const ComboStringSelectiveInput = ({
       updatedComboStrings.splice(index, 1);
       return updatedComboStrings;
     });
-    // Prevent form submission
-    event.preventDefault();
   };
 
   const handleRemoveInputValue = (index) => {
@@ -86,9 +82,6 @@ const ComboStringSelectiveInput = ({
       updatedInputValue.splice(index, 1);
       return updatedInputValue;
     });
-
-    // Prevent form submission
-    event.preventDefault();
   };
 
   const handleResetStrings = () => {
@@ -99,8 +92,6 @@ const ComboStringSelectiveInput = ({
       setInputValue([]);
       setComboStrings([]);
     }
-    // Prevent form submission
-    event.preventDefault();
   };
 
   return (
@@ -114,15 +105,17 @@ const ComboStringSelectiveInput = ({
               </h2>
               <div className={styles.initialState_btn_wrapper}>
                 <button
+                  type="button"
                   className={styles.inititialState_btn}
-                  onClick={() => setInitialState("NONE")}
+                  onClick={() => handleInitialState("NONE")}
                 >
                   <span className={styles.inititialState_btn_text}>NONE</span>
                 </button>
                 {/* COUNTER HIT */}
                 <button
+                  type="button"
                   className={styles.inititialState_btn}
-                  onClick={() => setInitialState("CH")}
+                  onClick={() => handleInitialState("CH")}
                 >
                   <Image
                     src="/inputs/CH.svg"
@@ -136,8 +129,9 @@ const ComboStringSelectiveInput = ({
                 </button>
                 {/* PUNISH COUNTER */}
                 <button
+                  type="button"
                   className={styles.inititialState_btn}
-                  onClick={() => setInitialState("PC")}
+                  onClick={() => handleInitialState("PC")}
                 >
                   <Image
                     src="/inputs/PC.svg"
@@ -151,8 +145,9 @@ const ComboStringSelectiveInput = ({
                 </button>
                 {/* DRIVE IMPACT */}
                 <button
+                  type="button"
                   className={styles.inititialState_btn}
-                  onClick={() => setInitialState("DI")}
+                  onClick={() => handleInitialState("DI")}
                 >
                   <Image
                     src="/inputs/DI.svg"
@@ -166,8 +161,9 @@ const ComboStringSelectiveInput = ({
                 </button>
                 {/* DRIVE REVERSAL */}
                 <button
+                  type="button"
                   className={styles.inititialState_btn}
-                  onClick={() => setInitialState("DRE")}
+                  onClick={() => handleInitialState("DRE")}
                 >
                   <Image
                     src="/inputs/DRE.svg"
@@ -186,6 +182,7 @@ const ComboStringSelectiveInput = ({
               <div className={styles.header_container}>
                 <h2 className={styles.header}>
                   <button
+                    type="button"
                     className={styles.back_btn}
                     onClick={() => setAskInitialState(true)}
                   >
@@ -193,7 +190,9 @@ const ComboStringSelectiveInput = ({
                   </button>
                 </h2>
                 <h2 className={styles.header}>
-                  <button className={styles[`${theme}help_btn`]}>?</button>
+                  <button type="button" className={styles[`${theme}help_btn`]}>
+                    ?
+                  </button>
                   Click inputs to start building your combo
                 </h2>
                 <h2 className={styles.header}>
@@ -214,6 +213,7 @@ const ComboStringSelectiveInput = ({
                 />
 
                 <button
+                  type="button"
                   className={styles.addInput_btn}
                   onClick={() => handleInputValue("+", "+")}
                 >
@@ -224,6 +224,7 @@ const ComboStringSelectiveInput = ({
                   <div className={styles.buttonInputs_row}>
                     <div className={styles.buttonInput_container}>
                       <button
+                        type="button"
                         className={styles.buttonInput}
                         onClick={() => handleInputValue("P", "Any punch")}
                       >
@@ -238,6 +239,7 @@ const ComboStringSelectiveInput = ({
                     </div>
                     <div className={styles.buttonInput_container}>
                       <button
+                        type="button"
                         className={styles.buttonInput}
                         onClick={() => handleInputValue("LP", "Light Punch")}
                       >
@@ -254,6 +256,7 @@ const ComboStringSelectiveInput = ({
                     </div>
                     <div className={styles.buttonInput_container}>
                       <button
+                        type="button"
                         className={styles.buttonInput}
                         onClick={() => handleInputValue("MP", "Medium Punch")}
                       >
@@ -270,6 +273,7 @@ const ComboStringSelectiveInput = ({
                     </div>
                     <div className={styles.buttonInput_container}>
                       <button
+                        type="button"
                         className={styles.buttonInput}
                         onClick={() => handleInputValue("HP", "Heavy Punch")}
                       >
@@ -286,6 +290,7 @@ const ComboStringSelectiveInput = ({
                     </div>
                     <div className={styles.buttonInput_container}>
                       <button
+                        type="button"
                         className={styles.buttonInput}
                         onClick={() =>
                           handleInputValue("PP", "Overdrive Punch")
@@ -306,6 +311,7 @@ const ComboStringSelectiveInput = ({
                   <div className={styles.buttonInputs_row}>
                     <div className={styles.buttonInput_container}>
                       <button
+                        type="button"
                         className={styles.buttonInput}
                         onClick={() => handleInputValue("K", "Any kick")}
                       >
@@ -320,6 +326,7 @@ const ComboStringSelectiveInput = ({
                     </div>
                     <div className={styles.buttonInput_container}>
                       <button
+                        type="button"
                         className={styles.buttonInput}
                         onClick={() => handleInputValue("LK", "Light Kick")}
                       >
@@ -336,6 +343,7 @@ const ComboStringSelectiveInput = ({
                     </div>
                     <div className={styles.buttonInput_container}>
                       <button
+                        type="button"
                         className={styles.buttonInput}
                         onClick={() => handleInputValue("MK", "Medium Kick")}
                       >
@@ -352,6 +360,7 @@ const ComboStringSelectiveInput = ({
                     </div>
                     <div className={styles.buttonInput_container}>
                       <button
+                        type="button"
                         className={styles.buttonInput}
                         onClick={() => handleInputValue("HK", "Heavy Kick")}
                       >
@@ -368,6 +377,7 @@ const ComboStringSelectiveInput = ({
                     </div>
                     <div className={styles.buttonInput_container}>
                       <button
+                        type="button"
                         className={styles.buttonInput}
                         onClick={() => handleInputValue("KK", "Overdrive Kick")}
                       >
@@ -388,6 +398,7 @@ const ComboStringSelectiveInput = ({
                 <div className={styles.mechanicsColumn_container}>
                   <div className={styles.buttonInput_container}>
                     <button
+                      type="button"
                       className={styles.mechanicButtonInput}
                       onClick={() => handleInputValue("cancel", "cancel")}
                     >
@@ -404,6 +415,7 @@ const ComboStringSelectiveInput = ({
                   </div>
                   <div className={styles.buttonInput_container}>
                     <button
+                      type="button"
                       className={styles.mechanicButtonInput}
                       onClick={() =>
                         handleInputValue("PDR", "PARRY INTO DRIVE RUSH")
@@ -422,6 +434,7 @@ const ComboStringSelectiveInput = ({
                   </div>
                   <div className={styles.buttonInput_container}>
                     <button
+                      type="button"
                       className={styles.mechanicButtonInput}
                       onClick={() => handleInputValue("DR", "Drive Rush")}
                     >
@@ -441,6 +454,7 @@ const ComboStringSelectiveInput = ({
               <div className={styles.stringHandleBtn_container}>
                 {!isPlusOnly && inputValue.length > 0 && (
                   <button
+                    type="button"
                     className={styles.addString_btn}
                     onClick={(e) => {
                       e.preventDefault();
@@ -453,6 +467,7 @@ const ComboStringSelectiveInput = ({
 
                 {comboStrings.length > 0 && (
                   <button
+                    type="button"
                     className={styles.resetStrings_btn}
                     onClick={(e) => {
                       e.preventDefault();
@@ -522,6 +537,7 @@ const ComboStringSelectiveInput = ({
                         <div className={styles.comboString_string_container}>
                           <span>{item.value}</span>
                           <button
+                            type="button"
                             className={styles.removeInput_btn}
                             onClick={() => handleRemoveInputValue(index)}
                           >
@@ -540,6 +556,7 @@ const ComboStringSelectiveInput = ({
                             alt={item.value}
                           />
                           <button
+                            type="button"
                             className={styles.removeInput_btn}
                             onClick={() => handleRemoveInputValue(index)}
                           >
@@ -554,6 +571,7 @@ const ComboStringSelectiveInput = ({
 
               {(inputValue.length > 0 || comboStrings.length > 0) && (
                 <button
+                  type="button"
                   className={styles.saveStrings_btn}
                   disabled={!isComboValid}
                   onClick={() => setIsComboSaved(true)}

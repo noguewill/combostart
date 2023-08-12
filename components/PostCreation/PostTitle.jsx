@@ -4,7 +4,7 @@ import styles from "@/styles/Newpost.module.css";
 const PostTitle = ({ postTitle, handlePostTitleChange, theme }) => {
   return (
     <div className={styles.gameTitle_wrapper}>
-      <span>Post title</span>
+      <span>Title</span>
       <input
         className={styles[`${theme}gameTitle_input`]}
         type="text"
