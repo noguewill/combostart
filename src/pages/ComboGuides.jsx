@@ -33,18 +33,19 @@ const ComboGuides = () => {
 
   const handleSearch = (searchQuery) => {
     const formattedSearchQuery = searchQuery.toLowerCase().replace(/-/g, "");
-    const filteredData = comboRawData.filter((card) => {
+    const filteredData = displayedCombos.filter((card) => {
       const formattedCharName = card.Character?.S.toLowerCase().replace(
         /-/g,
         ""
       );
       const formattedTitle = card.PostTitle?.S.toLowerCase().replace(/-/g, "");
-      /*       const formattedTags = card.Tags?.S.map((tag) => tag.text.toLowerCase()); */
+
+      /*     const formattedTags = card.Tags?.S.map((tag) => tag.text.toLowerCase()); */
 
       return (
         formattedCharName.includes(formattedSearchQuery) ||
-        formattedTitle.includes(formattedSearchQuery)
-        /*      formattedTags.includes(formattedSearchQuery) */
+        formattedTitle.includes(formattedSearchQuery) /* ||
+        formattedTags.includes(formattedSearchQuery) */
       );
     });
     setDisplayedCombos(filteredData);
@@ -55,13 +56,13 @@ const ComboGuides = () => {
       <Navbar />
 
       <Search onSearch={handleSearch} />
-
-      <ComboCard
-        displayedCombos={displayedCombos}
-        userId={userId}
-        theme={theme}
-      />
-
+      <section className={styles.comboCards_parent_container}>
+        <ComboCard
+          displayedCombos={displayedCombos}
+          userId={userId}
+          theme={theme}
+        />
+      </section>
       <Footer />
     </div>
   );

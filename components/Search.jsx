@@ -20,14 +20,8 @@ const Search = ({ onSearch }) => {
   };
 
   return (
-    /* Mobile Search Section */
-    <div className={styles.search__container}>
-      <div className={styles.evoAd_container}>
-        <div className={styles.evoAd}></div>
-      </div>
-
-      {/* Main section of the Search Section */}
-      <div className={styles.search_main__container}>
+    <section className={styles.search__container}>
+      <main className={styles.search_main__container}>
         <div className={styles.search_container__child}>
           <div>
             <label className={styles.searchBar_container}>
@@ -50,8 +44,8 @@ const Search = ({ onSearch }) => {
             </label>
           </div>
         </div>
-      </div>
-    </div>
+      </main>
+    </section>
   );
 };
 

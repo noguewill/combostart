@@ -1,6 +1,5 @@
 .container,
 .light_theme_container {
-  position: relative;
   display: flex;
   justify-content: center;
   background-color: black;
@@ -12,25 +11,7 @@
   background-color: #dcdcdc;
 }
 
-.boi {
-  display: flex;
-  flex-direction: column;
+.comboCards_parent_container {
   width: 100vw;
   height: 100vh;
-  background-color: #292929;
-  color: #ebebeb;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.yeah {
-  background-color: #1f1f1f;
-  width: auto;
-
-  color: #ebebeb;
-}
-
-.aham {
-  color: aqua;
-  font-size: 3rem;
 }

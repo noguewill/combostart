@@ -88,19 +88,19 @@ const Navbar = () => {
               : styles[`${theme}nav_btn`]
           }
         >
-          COMBO GUIDES
+          COMBOS
         </Link>
         <span id={styles.aboutBtn} className={styles[`${theme}nav_hoverBtn`]}>
           ABOUT {/* Combos Page Submenu */}
           <div className={styles.about_submenu_parent}>
             <div
               className={styles.arrowUp}
-              style={{ top: "-0.5rem", left: "10.5rem" }}
+              style={{ top: "-0.5rem", left: "6rem" }}
             ></div>
             {/* Arrow Icon */} {/* This is a button section */}
             <p style={{ maxWidth: "27rem" }}>
               Combostart is a beginner-friendly community driven combo <br />
-              <span style={{ fontWeight: "800" }}> sharing </span> platform
+              <span style={{ fontWeight: "800" }}> sharing </span> platform,
               tailored for players of all skill levels.
               <br /> Whether you&apos;re a casual or a seasoned pro, we provide
               a space where you can
@@ -122,7 +122,7 @@ const Navbar = () => {
                     : styles[`${theme}nav_btn`]
                 }
               >
-                NEW POST +
+                NEW COMBO
               </Link>
               <div className={styles.profileBtn_container}>
                 <span className={styles.profileBtn_username}>

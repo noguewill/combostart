@@ -202,11 +202,13 @@
   .nav_btn_focus,
   .light_theme_nav_btn_focus {
     cursor: pointer;
+    align-items: center;
+    display: flex;
     font-family: "kanit";
-    font-size: 0.65rem;
+    font-size: 0.63rem;
     letter-spacing: 0.07rem;
     margin-right: 0.5rem;
-    padding: 0.3rem 0.5rem;
+    padding: 0.2rem 0.5rem;
     color: #ebebeb;
     border: none;
     background: transparent;

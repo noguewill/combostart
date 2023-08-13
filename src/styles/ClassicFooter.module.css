@@ -1,13 +1,10 @@
 .footer_container,
 .light_theme_footer_container {
-  margin-top: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 1rem;
   align-items: center;
   width: 100vw;
-
   color: #ebebeb;
 }
 .light_theme_footer_container {

@@ -119,8 +119,8 @@ const ComboStringSelectiveInput = ({
                 >
                   <Image
                     src="/inputs/CH.svg"
-                    width={42}
-                    height={42}
+                    width={36}
+                    height={36}
                     alt="initial state image"
                   />
                   <span className={styles.inititialState_btn_text}>
@@ -135,8 +135,8 @@ const ComboStringSelectiveInput = ({
                 >
                   <Image
                     src="/inputs/PC.svg"
-                    width={42}
-                    height={42}
+                    width={36}
+                    height={36}
                     alt="initial state image"
                   />
                   <span className={styles.inititialState_btn_text}>
@@ -151,28 +151,12 @@ const ComboStringSelectiveInput = ({
                 >
                   <Image
                     src="/inputs/DI.svg"
-                    width={42}
-                    height={42}
+                    width={26}
+                    height={26}
                     alt="initial state image"
                   />
                   <span className={styles.inititialState_btn_text}>
                     DRIVE IMPACT
-                  </span>
-                </button>
-                {/* DRIVE REVERSAL */}
-                <button
-                  type="button"
-                  className={styles.inititialState_btn}
-                  onClick={() => handleInitialState("DRE")}
-                >
-                  <Image
-                    src="/inputs/DRE.svg"
-                    width={42}
-                    height={42}
-                    alt="initial state image"
-                  />
-                  <span className={styles.inititialState_btn_text}>
-                    DRIVE REVERSAL
                   </span>
                 </button>
               </div>

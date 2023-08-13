@@ -232,7 +232,7 @@
   font-size: 0.55rem;
 }
 .driveRush {
-  background-color: #55d860;
+  background-color: #39a141;
   border-radius: 4px;
   width: 2rem;
 }
@@ -297,6 +297,7 @@
   display: flex;
   align-items: center;
   flex-grow: 1;
+  width: max-content;
   background-color: #0f0f0f;
   border-radius: 8px;
   flex-wrap: wrap; /* Add flex-wrap property */

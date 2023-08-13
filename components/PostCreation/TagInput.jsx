@@ -5,8 +5,8 @@ import { profanityCheck } from "../ProfanityFilter";
 const TagInput = ({ theme, tags, setTags, removeTag }) => {
   const [inputValue, setInputValue] = useState("");
 
-  const handleInputKeyDown = (event) => {
-    if (event.key === "Enter" && inputValue.trim() !== "") {
+  const handleInputKeyDown = () => {
+    if (inputValue.trim() !== "") {
       if (tags.includes(inputValue) || profanityCheck(inputValue)) {
         setInputValue("");
         return;
@@ -49,16 +49,24 @@ const TagInput = ({ theme, tags, setTags, removeTag }) => {
                 ( optional )
               </span>
             </span>
-
-            <input
-              className={styles[`${theme}tagInput`]}
-              type="text"
-              value={inputValue}
-              onChange={(event) => setInputValue(event.target.value)}
-              onKeyDown={handleInputKeyDown}
-              maxLength={10}
-              placeholder="BnB"
-            />
+            <div className={styles.tagInput_container}>
+              <input
+                className={styles[`${theme}tagInput`]}
+                type="text"
+                value={inputValue}
+                onChange={(event) => setInputValue(event.target.value)}
+                maxLength={10}
+                placeholder="BnB"
+              />
+              <button
+                type="button"
+                className={styles.tagAdd_btn}
+                onClick={handleInputKeyDown}
+                disabled={inputValue.length === 0}
+              >
+                ADD
+              </button>
+            </div>
           </>
         )}
         <div className={styles.tagInput_container}>

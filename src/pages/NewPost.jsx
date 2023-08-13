@@ -23,9 +23,8 @@ const NewPost = () => {
   const [character, setCharacter] = useState("");
   const [postTitle, setPostTitle] = useState("");
   const [comboStrings, setComboStrings] = useState([]);
-  const [comboNotes, setcomboNotes] = useState([]);
   const [hasSuper, setHasSuper] = useState("");
-  const [driveBars, setDriveBars] = useState(0);
+  const [driveBars, setDriveBars] = useState("");
   const [damage, setDamage] = useState("");
   const [dmgPercent, setDamagePercent] = useState(0);
   const [hits, setHits] = useState("");
@@ -163,7 +162,7 @@ const NewPost = () => {
       DriveBars: { N: driveBars.toString() },
       PostTitle: { S: postTitle },
       ComboStrings: { S: JSON.stringify(comboStrings) },
-      Tags: { S: tags.join(",") },
+      Tags: { M: tags.join(",") },
       SubmissionTime: { S: time },
       SubmissionDate: { S: date },
       VoteCount: { N: voteCount.toString() },
@@ -368,8 +367,6 @@ const NewPost = () => {
             theme={theme}
             comboStrings={comboStrings}
             setComboStrings={setComboStrings}
-            comboNotes={comboNotes}
-            setcomboNotes={setcomboNotes}
             handleInitialState={handleInitialState}
             initialState={initialState}
             setInitialState={setInitialState}
