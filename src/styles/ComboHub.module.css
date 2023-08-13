@@ -16,6 +16,7 @@
 .container {
   width: 95%;
   margin: 0 auto;
+  margin-bottom: 5rem;
 }
 .rowTitle,
 .light_theme_rowTitle {

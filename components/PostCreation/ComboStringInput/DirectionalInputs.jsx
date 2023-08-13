@@ -12,21 +12,21 @@ const DirectionalInputs = ({ theme, handleInputValue }) => {
             src="/inputs/UB.svg"
             width={40}
             height={40}
-            onClick={() => handleInputValue("UB")}
+            onClick={() => handleInputValue("UB", "UP BACK")}
           />
           <Image
             className={styles.directional_btn}
             src="/inputs/B.svg"
             width={42}
             height={42}
-            onClick={() => handleInputValue("B")}
+            onClick={() => handleInputValue("B", "BACK")}
           />
           <Image
             className={styles.directional_btn}
             src="/inputs/DB.svg"
             width={40}
             height={40}
-            onClick={() => handleInputValue("DB")}
+            onClick={() => handleInputValue("DB", "DOWN BACK")}
           />
         </div>
         <div className={styles.directionals_column}>
@@ -35,7 +35,7 @@ const DirectionalInputs = ({ theme, handleInputValue }) => {
             src="/inputs/UP.svg"
             width={42}
             height={42}
-            onClick={() => handleInputValue("UP")}
+            onClick={() => handleInputValue("UP", "UP")}
           />
           <span className={styles.neutalDot}></span>
           <Image
@@ -43,7 +43,7 @@ const DirectionalInputs = ({ theme, handleInputValue }) => {
             src="/inputs/D.svg"
             width={42}
             height={42}
-            onClick={() => handleInputValue("D")}
+            onClick={() => handleInputValue("D", "DOWN")}
           />
         </div>
         <div className={styles.directionals_column}>
@@ -52,21 +52,21 @@ const DirectionalInputs = ({ theme, handleInputValue }) => {
             src="/inputs/UF.svg"
             width={40}
             height={40}
-            onClick={() => handleInputValue("UF")}
+            onClick={() => handleInputValue("UF", "UP FORWARD")}
           />
           <Image
             className={styles.directional_btn}
             src="/inputs/F.svg"
             width={42}
             height={42}
-            onClick={() => handleInputValue("F")}
+            onClick={() => handleInputValue("F", "FORWARD")}
           />
           <Image
             className={styles.directional_btn}
             src="/inputs/DF.svg"
             width={40}
             height={40}
-            onClick={() => handleInputValue("DF")}
+            onClick={() => handleInputValue("DF", "DOWN FORWARD")}
           />
         </div>
       </div>
@@ -76,14 +76,14 @@ const DirectionalInputs = ({ theme, handleInputValue }) => {
           <button
             type="button"
             className={styles[`${theme}directional_acronym_btn`]}
-            onClick={() => handleInputValue("QCF")}
+            onClick={() => handleInputValue("QCF", "QUARTER-CIRCLE-FORWARD")}
           >
             QCF
           </button>
           <button
             type="button"
             className={styles[`${theme}directional_acronym_btn`]}
-            onClick={() => handleInputValue("QCB")}
+            onClick={() => handleInputValue("QCB", "QUARTER-CIRCLE-BACK")}
           >
             QCB
           </button>
@@ -92,14 +92,14 @@ const DirectionalInputs = ({ theme, handleInputValue }) => {
           <button
             type="button"
             className={styles[`${theme}directional_acronym_btn`]}
-            onClick={() => handleInputValue("HCF")}
+            onClick={() => handleInputValue("HCF", "HALF-CIRCLE-FORWARD")}
           >
             HCF
           </button>
           <button
             type="button"
             className={styles[`${theme}directional_acronym_btn`]}
-            onClick={() => handleInputValue("HCB")}
+            onClick={() => handleInputValue("HCB", "HALF-CIRCLE-BACK")}
           >
             HCB
           </button>
@@ -109,7 +109,7 @@ const DirectionalInputs = ({ theme, handleInputValue }) => {
         <button
           type="button"
           className={styles[`${theme}dp_acronym_btn`]}
-          onClick={() => handleInputValue("DP")}
+          onClick={() => handleInputValue("DP", "DRAGON PUNCH")}
         >
           DP
         </button>

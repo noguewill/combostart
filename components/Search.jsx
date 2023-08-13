@@ -1,23 +1,11 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { ThemeContext } from "./ThemeContext";
 import styles from "@/styles/Search.module.css";
 import Image from "next/image";
 
 const Search = ({ onSearch }) => {
   const { theme } = useContext(ThemeContext);
-  const [searchQuery, setSearchQuery] = useState("");
-  const debounceTimerRef = useRef(null);
-
-  const handleSearchQueryChange = (e) => {
-    // Update the search query and debounce the onSearch callback
-    const value = e.target.value;
-    setSearchQuery(value);
-
-    clearTimeout(debounceTimerRef.current);
-    debounceTimerRef.current = setTimeout(() => {
-      onSearch(value);
-    }, 300); // Adjust the debounce delay as needed
-  };
+  const inputRef = useRef(null);
 
   return (
     <section className={styles.search__container}>
@@ -29,11 +17,14 @@ const Search = ({ onSearch }) => {
                 className={styles[`${theme}searchBar_input`]}
                 type="text"
                 placeholder="Search for a character name, combo title or tags"
-                value={searchQuery}
-                onChange={handleSearchQueryChange}
+                ref={inputRef}
               />
 
-              <button className={styles.searchBar_searchBtn}>
+              <button
+                type="submit"
+                className={styles.searchBar_searchBtn}
+                onClick={() => onSearch(inputRef.current.value)}
+              >
                 <Image
                   src="/icons/searchIcon.svg"
                   alt="Search icon"

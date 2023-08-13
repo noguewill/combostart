@@ -15,3 +15,8 @@
   width: 100vw;
   height: 100vh;
 }
+.notFoundMessage {
+  margin-top: 6rem;
+  text-align: center;
+  color: #ebebeb;
+}

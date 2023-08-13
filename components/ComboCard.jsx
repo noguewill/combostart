@@ -248,8 +248,6 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
               <div className={styles.comboCard_social__container}>
                 {/* Container for the tags */}
                 <div className={styles.tag_container}>
-                  <span className={styles.tag_text}>TAGS:</span>
-
                   <button className={styles.tag_btn}>{card.Tags?.S}</button>
                 </div>
               </div>

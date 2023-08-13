@@ -14,25 +14,38 @@ const ComboGuides = () => {
 
   // Fetch data once when the component mounts
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const currentUser = await defCurrentUser();
-        setUserId(currentUser);
-
-        const comboData = await fetchComboData();
-        setDisplayedCombos(comboData);
-
-        console.log("Data fetching and state updates completed.", comboData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
     fetchData();
   }, []);
 
+  const fetchData = async () => {
+    try {
+      const currentUser = await defCurrentUser();
+      setUserId(currentUser);
+
+      const comboData = await fetchComboData();
+      setDisplayedCombos(comboData);
+
+      console.log("Data fetching and state updates completed.", comboData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   const handleSearch = (searchQuery) => {
     const formattedSearchQuery = searchQuery.toLowerCase().replace(/-/g, "");
+
+    if (formattedSearchQuery === "") {
+      // If search query is empty, reset displayedCombos to the original data
+      fetchData();
+      return;
+    }
+
+    // Re-fetch the data if displayedCombos is empty
+    if (displayedCombos.length === 0) {
+      fetchData();
+      return;
+    }
+
     const filteredData = displayedCombos.filter((card) => {
       const formattedCharName = card.Character?.S.toLowerCase().replace(
         /-/g,
@@ -40,14 +53,18 @@ const ComboGuides = () => {
       );
       const formattedTitle = card.PostTitle?.S.toLowerCase().replace(/-/g, "");
 
-      /*     const formattedTags = card.Tags?.S.map((tag) => tag.text.toLowerCase()); */
+      // Split the formatted title into words
+      const titleWords = formattedTitle.split(" ");
 
-      return (
-        formattedCharName.includes(formattedSearchQuery) ||
-        formattedTitle.includes(formattedSearchQuery) /* ||
-        formattedTags.includes(formattedSearchQuery) */
+      // Check if the lowercase character name or any lowercase title word includes the search query
+      const charNameMatch = formattedCharName.includes(formattedSearchQuery);
+      const titleMatch = titleWords.some((word) =>
+        word.includes(formattedSearchQuery)
       );
+
+      return charNameMatch || titleMatch;
     });
+
     setDisplayedCombos(filteredData);
   };
 
@@ -57,11 +74,15 @@ const ComboGuides = () => {
 
       <Search onSearch={handleSearch} />
       <section className={styles.comboCards_parent_container}>
-        <ComboCard
-          displayedCombos={displayedCombos}
-          userId={userId}
-          theme={theme}
-        />
+        {displayedCombos.length === 0 ? (
+          <h2 className={styles.notFoundMessage}>No results found.</h2>
+        ) : (
+          <ComboCard
+            displayedCombos={displayedCombos}
+            userId={userId}
+            theme={theme}
+          />
+        )}
       </section>
       <Footer />
     </div>
