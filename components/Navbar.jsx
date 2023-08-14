@@ -35,6 +35,10 @@ const Navbar = () => {
     checkAuth();
   }, []);
 
+  const toggleOverlay = () => {
+    setShowOverlay((prevShowOverlay) => !prevShowOverlay);
+  };
+
   const handleDropdownClick = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
   };
