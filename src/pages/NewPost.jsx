@@ -32,7 +32,7 @@ const NewPost = () => {
   const [initialState, setInitialState] = useState("");
   const voteCount = 1;
 
-  const [isFormValid, setIsFormValid] = useState(true);
+  const [isFormValid, setIsFormValid] = useState(false);
   const [postNotification, setPostNotification] = useState("");
 
   const currentDate = new Date();

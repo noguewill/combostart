@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "@/styles/Form.module.css";
 import Image from "next/image";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const SignUpForm = ({
   showSignupForm,
@@ -9,6 +10,13 @@ const SignUpForm = ({
   handleSignUpSubmit,
   errorState,
 }) => {
+  const [captchaVal, setCaptchaVal] = useState("");
+
+  function getCaptchaVal(value) {
+    console.log("Captcha value:", value);
+    setCaptchaVal(value);
+  }
+
   return (
     <form
       className={`${styles.signUp_form} ${
@@ -16,13 +24,9 @@ const SignUpForm = ({
       }`}
       onSubmit={handleSignUpSubmit}
     >
-      <h3 style={{ textAlign: "center" }}>Create a COMBOSTART account</h3>
-      <h2>{errorState}</h2>
-
       <div className={styles.label_wrapper}>
-        <div>
-          <span>Display Name</span>
-        </div>
+        <span>Display Name</span>
+
         <label htmlFor="displayname">
           <input
             className={styles.username_input}
@@ -44,9 +48,8 @@ const SignUpForm = ({
         </span>
       </div>
       <div className={styles.label_wrapper}>
-        <div>
-          <span>Username</span>
-        </div>
+        <span>Username</span>
+
         <label htmlFor="username">
           <input
             className={styles.username_input}
@@ -70,9 +73,7 @@ const SignUpForm = ({
       </div>
 
       <div className={styles.label_wrapper}>
-        <div>
-          <span>E-mail</span>
-        </div>
+        <span>E-mail</span>
         <label htmlFor="email" className={styles.signUp_label}>
           <input
             type="email"
@@ -85,10 +86,7 @@ const SignUpForm = ({
       </div>
 
       <div className={styles.label_wrapper}>
-        <div>
-          <span>Password</span>
-        </div>
-
+        <span>Password</span>
         <div className={styles.password_container}>
           <label htmlFor="password" className={styles.password_label}>
             <input
@@ -145,7 +143,13 @@ const SignUpForm = ({
         </span>
       </label>
 
-      <button type="submit" className={styles.submit_btn}>
+      <ReCAPTCHA sitekey={process.env.siteKey} onChange={getCaptchaVal} />
+
+      <button
+        type="submit"
+        className={styles.submit_btn}
+        disabled={captchaVal === ""}
+      >
         SUBMIT
       </button>
     </form>

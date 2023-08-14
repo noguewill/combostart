@@ -13,6 +13,7 @@ const withSessionCheck = (WrappedComponent) => {
           const user = await Auth.currentAuthenticatedUser();
           // Session is active, the user is authenticated
           setCurrentUser(user);
+          console.log("this is user", user);
         } catch (error) {
           // No active session, redirect to the sign-in page
           console.log(error);

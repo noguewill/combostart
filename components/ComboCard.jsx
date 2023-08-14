@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "@/styles/ComboCard.module.css";
 import Image from "next/image";
 import { recordVote, removeVote } from "./dataSend";
-import { fetchVoteData } from "./dataFetch";
+import { fetchVoteData, defCurrentUser } from "./dataFetch";
 
 const ComboCard = ({ displayedCombos, theme, userId }) => {
   const [parsedComboStrings, setParsedComboStrings] = useState([]);
@@ -46,62 +46,67 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
   const shouldShowComboArrow = (currentIndex) => {
     return currentIndex < parsedComboStrings.length - 1;
   };
-
   const handleUpvote = async (postId) => {
-    try {
-      const voteData = await fetchVoteData(postId, userId);
+    {
+      defCurrentUser !== undefined;
+      try {
+        const voteData = await fetchVoteData(postId, userId);
 
-      if (voteData === "upvote") {
-        console.log("User previously upvoted");
-        setCurrentVotes(currentVotes - 1);
+        if (voteData === "upvote") {
+          console.log("User previously upvoted");
+          setCurrentVotes(currentVotes - 1);
+          setIsMatching("");
+          await removeVote(postId, userId, "upvote");
+          console.log("Vote removed after upvote cancellation");
+        } else if (voteData === "downvote") {
+          console.log("User previously downvoted");
+          setIsMatching("upvote");
+          await removeVote(postId, userId, "downvote");
+          await recordVote(postId, userId, "upvote");
+          setCurrentVotes(currentVotes + 2);
+          console.log("Upvote registered after downvote cancellation");
+        } else {
+          console.log("User has not voted before");
+          await recordVote(postId, userId, "upvote");
+          setCurrentVotes(currentVotes + 1);
+          setIsMatching("upvote");
+        }
+      } catch (error) {
+        console.error("Error handling upvote:", error);
         setIsMatching("");
-        await removeVote(postId, userId, "upvote");
-        console.log("Vote removed after upvote cancellation");
-      } else if (voteData === "downvote") {
-        console.log("User previously downvoted");
-        setIsMatching("upvote");
-        await removeVote(postId, userId, "downvote");
-        await recordVote(postId, userId, "upvote");
-        setCurrentVotes(currentVotes + 2);
-        console.log("Upvote registered after downvote cancellation");
-      } else {
-        console.log("User has not voted before");
-        await recordVote(postId, userId, "upvote");
-        setCurrentVotes(currentVotes + 1);
-        setIsMatching("upvote");
       }
-    } catch (error) {
-      console.error("Error handling upvote:", error);
-      setIsMatching("");
     }
   };
 
   const handleDownvote = async (postId) => {
-    try {
-      const voteData = await fetchVoteData(postId, userId);
+    {
+      defCurrentUser !== undefined;
+      try {
+        const voteData = await fetchVoteData(postId, userId);
 
-      if (voteData === "downvote") {
-        console.log("User previously downvoted");
-        setCurrentVotes(currentVotes + 1);
+        if (voteData === "downvote") {
+          console.log("User previously downvoted");
+          setCurrentVotes(currentVotes + 1);
+          setIsMatching("");
+          await removeVote(postId, userId, "downvote");
+          console.log("Vote removed after downvote cancellation");
+        } else if (voteData === "upvote") {
+          console.log("User previously upvoted");
+          await removeVote(postId, userId, "upvote");
+          await recordVote(postId, userId, "downvote");
+          setCurrentVotes(currentVotes - 2);
+          setIsMatching("downvote");
+          console.log("Downvote registered after upvote cancellation");
+        } else {
+          console.log("User has not voted before");
+          await recordVote(postId, userId, "downvote");
+          setCurrentVotes(currentVotes - 1);
+          setIsMatching("downvote");
+        }
+      } catch (error) {
+        console.error("Error handling downvote:", error);
         setIsMatching("");
-        await removeVote(postId, userId, "downvote");
-        console.log("Vote removed after downvote cancellation");
-      } else if (voteData === "upvote") {
-        console.log("User previously upvoted");
-        await removeVote(postId, userId, "upvote");
-        await recordVote(postId, userId, "downvote");
-        setCurrentVotes(currentVotes - 2);
-        setIsMatching("downvote");
-        console.log("Downvote registered after upvote cancellation");
-      } else {
-        console.log("User has not voted before");
-        await recordVote(postId, userId, "downvote");
-        setCurrentVotes(currentVotes - 1);
-        setIsMatching("downvote");
       }
-    } catch (error) {
-      console.error("Error handling downvote:", error);
-      setIsMatching("");
     }
   };
 

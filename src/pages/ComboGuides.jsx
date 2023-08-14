@@ -7,13 +7,14 @@ import Navbar from "/components/Navbar";
 import ComboCard from "/components/ComboCard";
 import { defCurrentUser, fetchComboData } from "../../components/dataFetch";
 
-const ComboGuides = () => {
+const ComboGuides = ({ currentUser }) => {
   const { theme } = useContext(ThemeContext);
   const [userId, setUserId] = useState("");
   const [displayedCombos, setDisplayedCombos] = useState([]);
 
   // Fetch data once when the component mounts
   useEffect(() => {
+    console.log("this is the currentUser of ComboGuides:", currentUser);
     fetchData();
   }, []);
 

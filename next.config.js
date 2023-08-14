@@ -3,6 +3,7 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
+    siteKey: process.env.siteKey,
     AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
     AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
     AWS_PROJECT_REGION: process.env.AWS_PROJECT_REGION,
