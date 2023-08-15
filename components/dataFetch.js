@@ -24,7 +24,7 @@ export const defCurrentUser = async () => {
   try {
     const user = await Auth.currentAuthenticatedUser();
     console.log("User authenticated:", user);
-    return user.attributes.sub;
+    return user.attributes;
   } catch (error) {
     console.log("User not authenticated.");
   }

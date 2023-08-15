@@ -1,11 +1,19 @@
-import React, { useContext, useRef } from "react";
-import { ThemeContext } from "./ThemeContext";
+import React, { useRef } from "react";
 import styles from "@/styles/Search.module.css";
 import Image from "next/image";
 
-const Search = ({ onSearch }) => {
-  const { theme } = useContext(ThemeContext);
+const Search = ({ onSearch, setSearchQueryVal, theme }) => {
   const inputRef = useRef(null);
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      // Simulate a click on the search button
+      inputRef.current.blur(); // Remove focus from the input
+      onSearch(inputRef.current.value);
+      setSearchQueryVal(inputRef.current.value);
+      inputRef.current.value = "";
+    }
+  };
 
   return (
     <section className={styles.search__container}>
@@ -18,8 +26,8 @@ const Search = ({ onSearch }) => {
                 type="text"
                 placeholder="Search for a character name, combo title or tags"
                 ref={inputRef}
+                onKeyDown={handleKeyPress}
               />
-
               <button
                 type="submit"
                 className={styles.searchBar_searchBtn}

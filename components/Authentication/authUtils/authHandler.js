@@ -37,3 +37,14 @@ export const handleSignInSubmit = async (e, setNotificationText) => {
     setNotificationText("Error:", error.message);
   }
 };
+
+export const handleSignOut = async () => {
+  try {
+    await Auth.signOut();
+    window.location.href = "/";
+    // User has been successfully signed out
+  } catch (error) {
+    // An error occurred during the sign-out process
+    console.log("Error signing out:", error);
+  }
+};

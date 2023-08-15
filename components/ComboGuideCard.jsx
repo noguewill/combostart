@@ -63,7 +63,7 @@ const ComboGuideCard = () => {
     <>
       <h2 className={styles[`${theme}rowTitle`]}>FEATURED</h2>
       <div className={styles.featured_container}>
-        <Link href="/ComboGuides" className={styles.featuredCard}>
+        <Link href="/Combos" className={styles.featuredCard}>
           <span className={styles.cardTitle}>STREET FIGHTER 6</span>
           <Image
             className={styles.featured_img}

@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import styles from "@/styles/ComboGuides.module.css";
+import styles from "@/styles/Combos.module.css";
 import { ThemeContext } from "../../components/ThemeContext";
 import Search from "/components/Search";
 import Footer from "/components/Footer";
@@ -7,43 +7,47 @@ import Navbar from "/components/Navbar";
 import ComboCard from "/components/ComboCard";
 import { defCurrentUser, fetchComboData } from "../../components/dataFetch";
 
-const ComboGuides = ({ currentUser }) => {
+const Combos = () => {
   const { theme } = useContext(ThemeContext);
   const [userId, setUserId] = useState("");
   const [displayedCombos, setDisplayedCombos] = useState([]);
+  const [rawComboData, setRawComboData] = useState([]);
+  const [searchQueryval, setSearchQueryVal] = useState("");
 
-  // Fetch data once when the component mounts
   useEffect(() => {
-    console.log("this is the currentUser of ComboGuides:", currentUser);
+    const fetchData = async () => {
+      try {
+        const user = await defCurrentUser();
+        setUserId(user.sub);
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+      try {
+        const comboData = await fetchComboData();
+        setRawComboData(comboData);
+        setDisplayedCombos(comboData);
+
+        console.log("Data fetching and state updates completed.", comboData);
+      } catch (error) {
+        console.error("Error fetching combos:", error);
+      }
+    };
+
     fetchData();
   }, []);
-
-  const fetchData = async () => {
-    try {
-      const currentUser = await defCurrentUser();
-      setUserId(currentUser);
-
-      const comboData = await fetchComboData();
-      setDisplayedCombos(comboData);
-
-      console.log("Data fetching and state updates completed.", comboData);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
 
   const handleSearch = (searchQuery) => {
     const formattedSearchQuery = searchQuery.toLowerCase().replace(/-/g, "");
 
     if (formattedSearchQuery === "") {
       // If search query is empty, reset displayedCombos to the original data
-      fetchData();
+      setDisplayedCombos(rawComboData);
       return;
     }
 
     // Re-fetch the data if displayedCombos is empty
     if (displayedCombos.length === 0) {
-      fetchData();
+      setDisplayedCombos(rawComboData);
       return;
     }
 
@@ -73,10 +77,16 @@ const ComboGuides = ({ currentUser }) => {
     <div className={styles[`${theme}container`]}>
       <Navbar />
 
-      <Search onSearch={handleSearch} />
+      <Search
+        onSearch={handleSearch}
+        theme={theme}
+        setSearchQueryVal={setSearchQueryVal}
+      />
       <section className={styles.comboCards_parent_container}>
         {displayedCombos.length === 0 ? (
-          <h2 className={styles.notFoundMessage}>No results found.</h2>
+          <h2 className={styles.notFoundMessage}>
+            No results found, for "{searchQueryval}".
+          </h2>
         ) : (
           <ComboCard
             displayedCombos={displayedCombos}
@@ -90,4 +100,4 @@ const ComboGuides = ({ currentUser }) => {
   );
 };
 
-export default ComboGuides;
+export default Combos;

@@ -5,27 +5,26 @@ import Image from "next/image";
 import styles from "@/styles/Navbar.module.css";
 import AuthenticationBody from "./Authentication/AuthenticationBody";
 import ThemeToggleBtn from "./ThemeToggleBtn";
-import { Auth } from "aws-amplify";
 import { useRouter } from "next/router";
-import { awsmobile } from "./Authentication/amplifyHandler";
+import { defCurrentUser } from "../components/dataFetch";
+import { handleSignOut } from "./Authentication/authUtils/authHandler";
 
 const Navbar = () => {
   const router = useRouter();
-  const currentRoute = router.asPath; // The current route URL
+  const currentRoute = router.asPath;
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [showOverlay, setShowOverlay] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currenUser, setCurrentUser] = useState("");
   const [userDisplayName, setUserDisplayName] = useState("");
 
   useEffect(() => {
-    awsmobile;
     const checkAuth = async () => {
       try {
-        const user = await Auth.currentAuthenticatedUser();
-        // Session is active, the user is authenticated
+        const user = await defCurrentUser();
         setCurrentUser(user);
-        setUserDisplayName(user.attributes["custom:DisplayName"]);
+        console.log("user:", user);
+        setUserDisplayName(user["custom:DisplayName"]);
       } catch (error) {
         // No active session, redirect to the sign-in page
         console.log("Navbar:", error);
@@ -41,17 +40,6 @@ const Navbar = () => {
 
   const handleDropdownClick = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
-  };
-
-  const handleSignOut = async () => {
-    try {
-      await Auth.signOut();
-      // User has been successfully signed out
-      router.push("/"); // Redirect to "/"
-    } catch (error) {
-      // An error occurred during the sign-out process
-      console.log("Error signing out:", error);
-    }
   };
 
   return (
@@ -81,9 +69,9 @@ const Navbar = () => {
         </Link>
 
         <Link
-          href="/ComboGuides"
+          href="/Combos"
           className={
-            currentRoute === "/ComboGuides"
+            currentRoute === "/Combos"
               ? styles[`${theme}nav_btn_focus`]
               : styles[`${theme}nav_btn`]
           }
@@ -112,7 +100,7 @@ const Navbar = () => {
         {/* Only show if the user is logged in */}
         <div className={styles.authNavContainer}>
           <ThemeToggleBtn theme={theme} toggleTheme={toggleTheme} />
-          {currentUser !== null ? (
+          {currenUser !== undefined ? (
             <>
               <Link
                 href="/NewPost"
