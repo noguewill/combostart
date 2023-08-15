@@ -40,16 +40,18 @@
   font-size: 1.1rem;
 }
 
-.submenu_btn {
-  font-size: 0.8rem;
+.submenu_btn,
+.light_theme_submenu_btn {
   margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #ebebeb;
 }
-.submenu_btn_disabled {
-  pointer-events: none;
-  color: #aeaeae;
+.light_theme_submenu_btn {
+  color: #0f0f0f;
 }
 
-.submenu_btn:hover {
+.submenu_btn:hover,
+.light_theme_submenu_btn:hover {
   color: #3b3efc;
 }
 

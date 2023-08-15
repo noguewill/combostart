@@ -100,8 +100,8 @@
   border-radius: 4px 0 0 4px;
 }
 .light_theme_searchBar_input {
-  background-color: #aeaeae;
-  color: #1f1f1f;
+  background-color: #b9b7b7;
+  color: #0f0f0f;
 }
 .search__container {
   flex-direction: row;

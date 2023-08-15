@@ -86,8 +86,10 @@
   margin-right: 3rem;
 }
 .upvote_btn_,
+.light_theme_upvote_btn_,
 .upvote_btn_upvote,
 .downvote_btn_,
+.light_theme_downvote_btn_,
 .downvote_btn_downvote {
   width: 0;
   height: 0;
@@ -101,15 +103,23 @@
 .upvote_btn_upvote {
   border-bottom: 0.8rem solid #5263fa;
 }
+.light_theme_upvote_btn_ {
+  border-bottom: 0.8rem solid #0f0f0f;
+}
 
-.upvotes {
+.upvotes,
+.light_theme_upvotes {
   font-size: 1rem;
   color: #ebebeb;
   font-family: "Kanit";
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
-.downvote_btn_ {
+.light_theme_upvotes {
+  color: #0f0f0f;
+}
+.downvote_btn_,
+.light_theme_downvote_btn_ {
   border-bottom: 0;
   border-top: 0.8rem solid #ebebeb;
   border-left: 0.5rem solid transparent;
@@ -120,6 +130,9 @@
   border-left: 0.5rem solid transparent;
   border-right: 0.5rem solid transparent;
   border-top: 0.8rem solid #5263fa;
+}
+.light_theme_downvote_btn_ {
+  border-top: 0.8rem solid #0f0f0f;
 }
 
 .comboCard_hugger {
@@ -138,14 +151,25 @@
   color: #ebebeb;
   margin-bottom: 1rem;
 }
-.postTitle {
+.postTitle,
+.light_theme_postTitle {
+  color: #ebebeb;
   font-family: "Kanit";
   font-size: 1rem;
   margin-right: 0.3rem;
 }
-.postedBy {
+.light_theme_postTitle {
+  color: #0f0f0f;
+}
+
+.postedBy,
+.light_theme_postedBy {
+  color: #ebebeb;
   font-size: 0.8rem;
   margin-top: 0.2rem;
+}
+.light_theme_postedBy {
+  color: #0f0f0f;
 }
 .postedBy_authorName {
   color: #5263fa; /* ACCENT COLOR */
@@ -171,12 +195,16 @@
   align-items: center;
   width: 7rem;
 }
-.avatar_name {
+.avatar_name,
+.light_theme_avatar_name {
   color: #ebebeb;
   font-family: "Kanit";
   font-style: italic;
   font-size: 1rem;
   margin-top: 0.6rem;
+}
+.light_theme_avatar_name {
+  color: #0f0f0f;
 }
 .avatar_frame {
   display: flex;
@@ -228,8 +256,13 @@
   font-size: 1rem;
   font-family: "Kanit";
 }
-.mechanic_text {
+.mechanic_text,
+.light_theme_mechanic_text {
+  color: #ebebeb;
   font-size: 0.55rem;
+}
+.light_theme_mechanic_text {
+  color: #0f0f0f;
 }
 .driveRush {
   background-color: #39a141;
@@ -286,14 +319,22 @@
   margin-left: 0;
   margin-right: 0.2rem;
 }
-.screenPos {
+.screenPos,
+.light_theme_screenPos {
+  color: #ebebeb;
   font-size: 0.9rem;
   margin-left: 1.1rem;
+  font-family: "Kanit";
+  letter-spacing: 0.04rem;
+}
+.light_theme_screenPos {
+  color: #0f0f0f;
 }
 /* Stat section END */
 
 /* ComboCard Inputs Container */
-.comboCard_inputs__container {
+.inputs__container,
+.light_theme_inputs__container {
   display: flex;
   align-items: center;
   flex-grow: 1;
@@ -303,6 +344,9 @@
   flex-wrap: wrap; /* Add flex-wrap property */
   overflow-x: auto; /* Enable horizontal scrolling if needed */
   padding: 0.5rem; /* Adjust the padding as needed */
+}
+.light_theme_inputs__container {
+  background-color: #b9b7b7;
 }
 
 .comboStringRow {
@@ -329,8 +373,7 @@
   margin-left: -0.3rem;
   margin-right: -1rem;
 }
-.comboArrow,
-.light_theme_comboArrow {
+.comboArrow {
   border: solid #5263fa;
   border-width: 0 0.125rem 0.125rem 0;
   display: inline-block;
@@ -340,10 +383,13 @@
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
 }
-.light_theme_comboArrow {
-  border: solid #1f1f1f;
-}
 
-.input_text {
+.input_text,
+.light_theme_input_text {
+  color: #ebebeb;
   font-size: 0.8rem;
+}
+.light_theme_input_text {
+  color: #0f0f0f;
+  font-weight: bold;
 }

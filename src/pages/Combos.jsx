@@ -95,7 +95,7 @@ const Combos = () => {
           />
         )}
       </section>
-      <Footer />
+      <Footer theme={theme} />
     </div>
   );
 };

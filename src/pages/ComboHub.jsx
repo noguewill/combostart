@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { ThemeContext } from "../../components/ThemeContext";
 import styles from "@/styles/ComboHub.module.css";
 import Navbar from "/components/Navbar";
-import ComboGuideCard from "/components/ComboGuideCard";
+import ComboHubCards from "/components/ComboHubCards";
 import Footer from "/components/Footer";
 
 const ComboHub = () => {
@@ -28,9 +28,9 @@ const ComboHub = () => {
       <div className={styles[`${theme}page_container`]}>
         <Navbar />
         <div className={styles.container}>
-          <ComboGuideCard />
+          <ComboHubCards />
         </div>
-        <Footer />
+        <Footer theme={theme} />
       </div>
     </>
   );

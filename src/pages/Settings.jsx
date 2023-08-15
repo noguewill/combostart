@@ -350,7 +350,7 @@ const Settings = () => {
           Sign Out
         </button>
       </div>
-      <Footer />
+      <Footer theme={theme} />
     </div>
   );
 };

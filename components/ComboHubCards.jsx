@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/ComboHub.module.css";
 
-const ComboGuideCard = () => {
+const ComboHubCards = () => {
   const [cardLimit, setCardLimit] = useState(10);
   const { theme } = useContext(ThemeContext);
 
@@ -87,4 +87,4 @@ const ComboGuideCard = () => {
   );
 };
 
-export default ComboGuideCard;
+export default ComboHubCards;

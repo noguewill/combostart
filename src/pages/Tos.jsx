@@ -259,7 +259,7 @@ const Tos = () => {
         </div>
       </div>
 
-      <Footer />
+      <Footer theme={theme} />
     </div>
   );
 };

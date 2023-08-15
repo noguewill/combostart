@@ -383,7 +383,7 @@ const NewPost = () => {
           </button>
         </form>
       </main>
-      <Footer />
+      <Footer theme={theme} />
     </div>
   );
 };

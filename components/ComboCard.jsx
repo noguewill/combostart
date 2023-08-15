@@ -115,14 +115,14 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
           <main key={card.postId?.S} className={styles.comboCard_wrapper}>
             <section className={styles.upvote_container}>
               <button
-                className={`${styles.upvote_btn_} ${
+                className={`${styles[`${theme}upvote_btn_`]} ${
                   isMatching === "upvote" ? styles.upvote_btn_upvote : ""
                 }`}
                 onClick={() => handleUpvote(card.postId?.S)}
               ></button>
-              <span className={styles.upvotes}>{currentVotes}</span>
+              <span className={styles[`${theme}upvotes`]}>{currentVotes}</span>
               <button
-                className={`${styles.downvote_btn_} ${
+                className={`${styles[`${theme}downvote_btn_`]} ${
                   isMatching === "downvote" ? styles.downvote_btn_downvote : ""
                 }`}
                 onClick={() => handleDownvote(card.postId?.S)}
@@ -131,8 +131,10 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
 
             <article className={styles.comboCard_hugger}>
               <header className={styles.postTitle_container}>
-                <h2 className={styles.postTitle}> {card.PostTitle?.S}</h2>
-                <p className={styles.postedBy}>
+                <h2 className={styles[`${theme}postTitle`]}>
+                  {card.PostTitle?.S}
+                </h2>
+                <p className={styles[`${theme}postedBy`]}>
                   posted by{" "}
                   <span className={styles.postedBy_authorName}>
                     {card.User?.S}
@@ -144,7 +146,10 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
 
               <section className={styles.comboCard_container}>
                 <div className={styles.avatar_container}>
-                  <h4 className={styles.avatar_name}> {card.Character?.S}</h4>
+                  <h4 className={styles[`${theme}avatar_name`]}>
+                    {" "}
+                    {card.Character?.S}
+                  </h4>
                   <div className={styles.avatar_frame}>
                     <Image
                       src={`/comboAvatars/sf6/sf6_charAvatar_${card.Character?.S}.png`}
@@ -160,13 +165,17 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
                     {/* Mechanics */}
                     <div className={styles.mechanic_container}>
                       <div className={styles.mechanic}>{card.HasSuper?.S}</div>
-                      <span className={styles.mechanic_text}>SUPER ART</span>
+                      <span className={styles[`${theme}mechanic_text`]}>
+                        SUPER ART
+                      </span>
                     </div>
                     <div className={styles.mechanic_container}>
                       <div className={styles.driveRush}>
                         {card.DriveBars?.N}
                       </div>
-                      <span className={styles.mechanic_text}>DRIVE RUSH</span>
+                      <span className={styles[`${theme}mechanic_text`]}>
+                        DRIVE RUSH
+                      </span>
                     </div>
                     <div className={styles.mechanic_container}>
                       <div className={styles.initialState}>
@@ -177,7 +186,7 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
                           alt={card.InitialState?.S}
                         />
                       </div>
-                      <span className={styles.mechanic_text}>
+                      <span className={styles[`${theme}mechanic_text`]}>
                         INITIAL STATE
                       </span>
                     </div>
@@ -199,11 +208,11 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
                         <span className={styles.dmg_stat_text}>OF HP</span>
                       </div>
                     </div>
-                    <div className={styles.screenPos}>
+                    <div className={styles[`${theme}screenPos`]}>
                       {card.ScreenPosition?.S}
                     </div>
                   </section>
-                  <div className={styles.comboCard_inputs__container}>
+                  <div className={styles[`${theme}inputs__container`]}>
                     {parsedComboStrings.map((combo, comboIndex) => (
                       <div key={comboIndex} className={styles.comboStringRow}>
                         {combo.map((val, index) => (
@@ -228,7 +237,9 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
                                     width={34}
                                     height={34}
                                   />
-                                  <figcaption className={styles.input_text}>
+                                  <figcaption
+                                    className={styles[`${theme}input_text`]}
+                                  >
                                     {val.value}
                                   </figcaption>
                                 </figure>
@@ -237,7 +248,7 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
                           </div>
                         ))}
                         {shouldShowComboArrow(comboIndex) && (
-                          <span className={styles[`${theme}comboArrow`]}></span>
+                          <span className={styles.comboArrow}></span>
                         )}
                       </div>
                     ))}
