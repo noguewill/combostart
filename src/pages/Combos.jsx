@@ -85,7 +85,7 @@ const Combos = () => {
       <section className={styles.comboCards_parent_container}>
         {displayedCombos.length === 0 ? (
           <h2 className={styles.notFoundMessage}>
-            No results found, for "{searchQueryval}".
+            No results found, for &quot;{searchQueryval}&quot;.
           </h2>
         ) : (
           <ComboCard
