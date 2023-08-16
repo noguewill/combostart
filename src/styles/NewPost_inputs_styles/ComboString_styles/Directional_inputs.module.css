@@ -51,6 +51,7 @@
 
 .directional_acronym_btn,
 .dp_acronym_btn,
+.light_theme_dp_acronym_btn,
 .light_theme_directional_acronym_btn {
   display: flex;
   align-items: center;
@@ -67,9 +68,10 @@
   cursor: pointer;
   color: #ebebeb;
 }
-.light_theme_directional_acronym_btn {
-  color: #1f1f1f;
-  background-color: #aeaeae;
+.light_theme_directional_acronym_btn,
+.light_theme_dp_acronym_btn {
+  color: #ebebeb;
+  background-color: #6d6c6c;
 }
 .directional_acronym_btn:hover {
   background-color: #3d59fd;

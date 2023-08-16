@@ -35,7 +35,8 @@
 .dmgInfo_input,
 .stringsOptions_comboStrings,
 .gameTitle_input,
-.light_theme_dmgInfo_input .light_theme_hitsInfo_input,
+.light_theme_dmgInfo_input,
+.light_theme_hitsInfo_input,
 .light_theme_gameInfo_input,
 .light_theme_stringsOptions_comboStrings,
 .light_theme_gameTitle_input,
@@ -59,11 +60,13 @@
   background-color: #dcdcdc;
 }
 
-.dmgInfo_input {
+.dmgInfo_input,
+.light_theme_dmgInfo_input {
   width: 3.4rem;
   text-align: center;
 }
-.hitsInfo_input {
+.hitsInfo_input,
+.light_theme_hitsInfo_input {
   text-align: center;
   width: 2rem;
   height: 2rem;
@@ -110,6 +113,10 @@
   color: #ebebeb;
   background-color: #1f1f1f;
 }
+.light_theme_tagInput {
+  color: #0f0f0f;
+  background-color: #dcdcdc;
+}
 .light_theme_selectDropdownContainer {
   background-color: #dcdcdc;
 }
@@ -121,17 +128,17 @@
   display: flex;
   align-items: center;
 }
-.tagInput {
+.tagInput,
+.light_theme_tagInput {
   width: 6.7rem;
   height: 1.7rem;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   text-align: center;
 }
-.light_theme_tagInput {
-  color: #1f1f1f;
-}
-.tagAdd_btn {
+
+.tagAdd_btn,
+.light_theme_tagAdd_btn {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   border: none;
@@ -149,12 +156,16 @@
   background-color: #3b3efc;
   transition: background-color 0.2s cubic-bezier(0.7, 0, 0.3, 1);
 }
-.tagAdd_btn:disabled {
+.tagAdd_btn:disabled,
+.light_theme_tagAdd_btn:disabled {
   /* Styles for disabled button */
   background-color: gray;
-  color: white;
+  color: #ebebeb;
   opacity: 0.5;
   cursor: not-allowed;
+}
+.light_theme_tagAdd_btn:disabled {
+  background-color: #6d6c6c;
 }
 
 .content_container {

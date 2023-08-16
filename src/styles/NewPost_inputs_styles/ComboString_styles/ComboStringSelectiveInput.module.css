@@ -20,9 +20,11 @@
 .header_container {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
   margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1.5rem;
 }
 .back_btn {
   font-size: 0.6rem;
@@ -30,6 +32,7 @@
   border: none;
   background: transparent;
   cursor: pointer;
+  margin-right: 3rem;
 }
 .back_btn:hover {
   text-decoration: underline;
@@ -48,18 +51,24 @@
   border-radius: 100%;
   cursor: pointer;
   border: none;
-  margin-right: 0.2rem;
+  margin-right: 0.5rem;
 }
 .light_theme_help_btn {
-  color: #1f1f1f;
-  background-color: #aeaeae;
+  color: #ebebeb;
+  background-color: #6d6c6c;
 }
 
-.header {
+.header,
+.initialState_header {
   display: flex;
   align-items: center;
   font-size: 1rem;
-  font-family: "kanit";
+  font-family: "Kanit";
+  margin-left: 2rem;
+}
+.initialState_header {
+  font-size: 0.9rem;
+  margin-left: 1rem;
 }
 /* Header end */
 
@@ -206,10 +215,17 @@
   background-color: #3d59fd;
   transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
-.buttonInput_text {
+.buttonInput_text,
+.light_theme_buttonInput_text {
   font-size: 0.6rem;
   width: 7rem;
+  color: #ebebeb;
   text-align: center;
+}
+.light_theme_buttonInput_text {
+  color: #0f0f0f;
+  font-weight: bold;
+  font-size: 0.65;
 }
 
 .mechanicButtonInput {
@@ -228,12 +244,18 @@
   background-color: #3d59fd;
   transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
-.mechanicButton_text {
+.mechanicButton_text,
+.light_theme_mechanicButton_text {
   font-size: 0.65rem;
   text-align: center;
   color: #ebebeb;
   width: 5rem;
   margin-top: -0.2rem;
+}
+.light_theme_mechanicButton_text {
+  color: #0f0f0f;
+  font-size: 0.7rem;
+  font-weight: bold;
 }
 
 .mechanicsColumn_container {
@@ -244,7 +266,8 @@
 
 /* Actual combo strings */
 
-.comboStrings_container {
+.comboStrings_container,
+.light_theme_comboStrings_container {
   background-color: #292929;
   flex-wrap: wrap;
   padding-top: 0.5rem;
@@ -254,6 +277,9 @@
   align-items: center;
   margin-top: 1rem;
   border-radius: 8px;
+}
+.light_theme_comboStrings_container {
+  background-color: #6d6c6c;
 }
 .comboString_wrapper {
   display: flex;
@@ -301,7 +327,8 @@
 
 /* Initial State items */
 
-.initialState_container {
+.initialState_container,
+.light_theme_initialState_container {
   /* div */
   display: flex;
   flex-direction: column;
@@ -312,11 +339,16 @@
   padding-right: 1rem;
   background-color: #1f1f1f;
 }
+.light_theme_initialState_container {
+  background-color: #aeaeae;
+  color: #0f0f0f;
+}
 .inititialState_header {
   font-size: 1.2rem;
   margin-bottom: 1rem;
 }
-.initialState_btn_wrapper {
+.initialState_btn_wrapper,
+.light_theme_initialState_btn_wrapper {
   /* div */
   display: flex;
   width: 100%;
@@ -325,6 +357,10 @@
   border-radius: 4px;
   background-color: #292929;
   padding: 0.5rem;
+}
+.light_theme_initialState_btn_wrapper {
+  background-color: #6d6c6c;
+  color: #0f0f0f;
 }
 
 .inititialState_btn {

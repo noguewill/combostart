@@ -60,7 +60,7 @@ const TagInput = ({ theme, tags, setTags, removeTag }) => {
               />
               <button
                 type="button"
-                className={styles.tagAdd_btn}
+                className={styles[`${theme}tagAdd_btn`]}
                 onClick={handleInputKeyDown}
                 disabled={inputValue.length === 0}
               >

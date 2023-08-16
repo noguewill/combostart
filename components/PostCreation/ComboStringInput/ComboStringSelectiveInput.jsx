@@ -99,11 +99,11 @@ const ComboStringSelectiveInput = ({
       {!isComboSaved ? (
         <>
           {askInitialState ? (
-            <div className={styles.initialState_container}>
+            <div className={styles[`${theme}initialState_container`]}>
               <h2 className={styles.inititialState_header}>
                 What is the initial state the combo needs to start at?
               </h2>
-              <div className={styles.initialState_btn_wrapper}>
+              <div className={styles[`${theme}initialState_btn_wrapper`]}>
                 <button
                   type="button"
                   className={styles.inititialState_btn}
@@ -177,15 +177,15 @@ const ComboStringSelectiveInput = ({
                   <button type="button" className={styles[`${theme}help_btn`]}>
                     ?
                   </button>
-                  Click inputs to start building your combo
+                  Click the inputs below to start building your combo
                 </h2>
-                <h2 className={styles.header}>
+                <h2 className={styles.initialState_header}>
                   Initial state:
                   <Image
                     style={{ marginLeft: "0.5rem" }}
                     src={`/inputs/${initialState}.svg`}
-                    width={21}
-                    height={21}
+                    width={26}
+                    height={26}
                     alt="Initial state necessary to start combo"
                   />
                 </h2>
@@ -219,7 +219,9 @@ const ComboStringSelectiveInput = ({
                           alt="Any punch"
                         />
                       </button>
-                      <span className={styles.buttonInput_text}>ANY PUNCH</span>
+                      <span className={styles[`${theme}buttonInput_text`]}>
+                        ANY PUNCH
+                      </span>
                     </div>
                     <div className={styles.buttonInput_container}>
                       <button
@@ -234,7 +236,7 @@ const ComboStringSelectiveInput = ({
                           alt="Light Punch"
                         />
                       </button>
-                      <span className={styles.buttonInput_text}>
+                      <span className={styles[`${theme}buttonInput_text`]}>
                         LIGHT PUNCH
                       </span>
                     </div>
@@ -251,7 +253,7 @@ const ComboStringSelectiveInput = ({
                           alt="Medium Punch"
                         />
                       </button>
-                      <span className={styles.buttonInput_text}>
+                      <span className={styles[`${theme}buttonInput_text`]}>
                         MEDIUM PUNCH
                       </span>
                     </div>
@@ -268,7 +270,7 @@ const ComboStringSelectiveInput = ({
                           alt="Heavy Punch"
                         />
                       </button>
-                      <span className={styles.buttonInput_text}>
+                      <span className={styles[`${theme}buttonInput_text`]}>
                         HEAVY PUNCH
                       </span>
                     </div>
@@ -287,7 +289,7 @@ const ComboStringSelectiveInput = ({
                           alt="Overdrive Punch"
                         />
                       </button>
-                      <span className={styles.buttonInput_text}>
+                      <span className={styles[`${theme}buttonInput_text`]}>
                         OVERDRIVE PUNCH
                       </span>
                     </div>
@@ -306,7 +308,9 @@ const ComboStringSelectiveInput = ({
                           alt="Any kick"
                         />
                       </button>
-                      <span className={styles.buttonInput_text}>ANY KICK</span>
+                      <span className={styles[`${theme}buttonInput_text`]}>
+                        ANY KICK
+                      </span>
                     </div>
                     <div className={styles.buttonInput_container}>
                       <button
@@ -321,7 +325,7 @@ const ComboStringSelectiveInput = ({
                           alt="Light Kick"
                         />
                       </button>
-                      <span className={styles.buttonInput_text}>
+                      <span className={styles[`${theme}buttonInput_text`]}>
                         LIGHT KICK
                       </span>
                     </div>
@@ -338,7 +342,7 @@ const ComboStringSelectiveInput = ({
                           alt="Medium Kick"
                         />
                       </button>
-                      <span className={styles.buttonInput_text}>
+                      <span className={styles[`${theme}buttonInput_text`]}>
                         MEDIUM KICK
                       </span>
                     </div>
@@ -355,7 +359,7 @@ const ComboStringSelectiveInput = ({
                           alt="Heavy Kick"
                         />
                       </button>
-                      <span className={styles.buttonInput_text}>
+                      <span className={styles[`${theme}buttonInput_text`]}>
                         HEAVY KICK
                       </span>
                     </div>
@@ -372,7 +376,7 @@ const ComboStringSelectiveInput = ({
                           alt="Overdrive Kick"
                         />
                       </button>
-                      <span className={styles.buttonInput_text}>
+                      <span className={styles[`${theme}buttonInput_text`]}>
                         OVERDRIVE KICK
                       </span>
                     </div>
@@ -393,7 +397,7 @@ const ComboStringSelectiveInput = ({
                         alt="Cancel"
                       />
                     </button>
-                    <span className={styles.mechanicButton_text}>
+                    <span className={styles[`${theme}mechanicButton_text`]}>
                       CANCEL ( xx )
                     </span>
                   </div>
@@ -412,7 +416,7 @@ const ComboStringSelectiveInput = ({
                         alt="PARRY INTO DRIVE RUSH"
                       />
                     </button>
-                    <span className={styles.mechanicButton_text}>
+                    <span className={styles[`${theme}mechanicButton_text`]}>
                       PARRY INTO DRIVE RUSH
                     </span>
                   </div>
@@ -429,7 +433,7 @@ const ComboStringSelectiveInput = ({
                         alt="Drive Rush"
                       />
                     </button>
-                    <span className={styles.mechanicButton_text}>
+                    <span className={styles[`${theme}mechanicButton_text`]}>
                       DRIVE RUSH
                     </span>
                   </div>
@@ -463,7 +467,7 @@ const ComboStringSelectiveInput = ({
                 )}
               </div>
               {(inputValue.length > 0 || comboStrings.length > 0) && (
-                <div className={styles.comboStrings_container}>
+                <div className={styles[`${theme}comboStrings_container`]}>
                   {comboStrings.map((comboString, outerIndex) => (
                     <div
                       key={outerIndex}
