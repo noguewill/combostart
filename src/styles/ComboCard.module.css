@@ -36,8 +36,8 @@
   transition: all 0.1s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
 
-.social_bookmark__btn,
-.social_share__btn {
+.bookmark__btn,
+.share__btn {
   background-color: transparent;
   border: none;
   width: 2rem;
@@ -54,6 +54,15 @@
 .socialOptions_container {
   width: auto;
 }
+.social_text,
+.light_theme_social_text {
+  color: #ebebeb;
+  font-size: 0.7rem;
+}
+.light_theme_social_text {
+  color: #0f0f0f;
+}
+
 .tag_text {
   font-family: "Kanit";
   color: #5263fa;

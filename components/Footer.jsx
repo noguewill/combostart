@@ -34,6 +34,29 @@ const Footer = ({ theme }) => {
             <span>English(US)</span>
           </div>
         </div>
+        <div className={styles[`${theme}socialMedia_container`]}>
+          <h2 className={styles[`${theme}socialMedia_header}`]}>
+            Keep up with Combostart
+          </h2>
+          <div className={styles[`${theme}socialMediaIcons_container`]}>
+            <Link target="_blank" href="https://www.instagram.com/combostart/">
+              <Image
+                src="/icons/instagram.svg"
+                width={27}
+                height={27}
+                alt="Instagram icon"
+              />
+            </Link>
+            <Link target="_blank" href="https://twitter.com/COMBOSTARTFGC">
+              <Image
+                src="/icons/twitter.svg"
+                width={27}
+                height={27}
+                alt="twitter icon"
+              />
+            </Link>
+          </div>
+        </div>
 
         {/* Upcoming submenu */}
         <div className={styles.submenu_upcoming_container}>

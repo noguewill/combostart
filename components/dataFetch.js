@@ -77,3 +77,35 @@ export const fetchVoteData = async (postId, userId) => {
     return null; // Return null in case of an error
   }
 };
+
+export const fetchUpvotedPostIds = async (userId) => {
+  try {
+    const userVoteHistoryParams = {
+      TableName: "userData",
+      Key: {
+        userId: { S: userId },
+      },
+    };
+
+    const userVoteHistoryResponse = await client.send(
+      new GetItemCommand(userVoteHistoryParams)
+    );
+
+    const userVoteHistory = userVoteHistoryResponse.Item?.UserVoteHistory;
+
+    const upvotedPostIds = [];
+
+    if (userVoteHistory) {
+      for (const postId in userVoteHistory.M) {
+        console.log(userVoteHistory.M[postId]);
+        if (userVoteHistory.M[postId].S === "upvote") {
+          upvotedPostIds.push(postId);
+        }
+      }
+    }
+    return upvotedPostIds;
+  } catch (error) {
+    console.error("Error fetching upvoted post IDs:", error);
+    return [];
+  }
+};

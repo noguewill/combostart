@@ -4,7 +4,7 @@ import Image from "next/image";
 import { recordVote, removeVote } from "./dataSend";
 import { fetchVoteData } from "./dataFetch";
 
-const ComboCard = ({ displayedCombos, theme, userId }) => {
+const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
   const [parsedComboStrings, setParsedComboStrings] = useState([]);
   const [currentVotes, setCurrentVotes] = useState(null);
   const [renderedPostIds, setRenderedPostIds] = useState([]);
@@ -113,21 +113,29 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
         }
         return (
           <main key={card.postId?.S} className={styles.comboCard_wrapper}>
-            <section className={styles.upvote_container}>
-              <button
-                className={`${styles[`${theme}upvote_btn_`]} ${
-                  isMatching === "upvote" ? styles.upvote_btn_upvote : ""
-                }`}
-                onClick={() => handleUpvote(card.postId?.S)}
-              ></button>
-              <span className={styles[`${theme}upvotes`]}>{currentVotes}</span>
-              <button
-                className={`${styles[`${theme}downvote_btn_`]} ${
-                  isMatching === "downvote" ? styles.downvote_btn_downvote : ""
-                }`}
-                onClick={() => handleDownvote(card.postId?.S)}
-              ></button>
-            </section>
+            {noShowVote ? (
+              ""
+            ) : (
+              <section className={styles.upvote_container}>
+                <button
+                  className={`${styles[`${theme}upvote_btn_`]} ${
+                    isMatching === "upvote" ? styles.upvote_btn_upvote : ""
+                  }`}
+                  onClick={() => handleUpvote(card.postId?.S)}
+                ></button>
+                <span className={styles[`${theme}upvotes`]}>
+                  {currentVotes}
+                </span>
+                <button
+                  className={`${styles[`${theme}downvote_btn_`]} ${
+                    isMatching === "downvote"
+                      ? styles.downvote_btn_downvote
+                      : ""
+                  }`}
+                  onClick={() => handleDownvote(card.postId?.S)}
+                ></button>
+              </section>
+            )}
 
             <article className={styles.comboCard_hugger}>
               <header className={styles.postTitle_container}>
@@ -260,6 +268,15 @@ const ComboCard = ({ displayedCombos, theme, userId }) => {
                 <div className={styles.tag_container}>
                   <button className={styles.tag_btn}>{card.Tags?.S}</button>
                 </div>
+                {/*              <button className={styles.share__btn}>
+                  <Image
+                    src="/icons/shareicon.svg"
+                    width={26}
+                    height={26}
+                    alt="share icon"
+                  />
+                  <span className={styles[`${theme}social_text`]}>share</span>
+                </button> */}
               </div>
             </article>
           </main>
