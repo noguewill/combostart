@@ -33,9 +33,10 @@ const Upvoted = () => {
         setIsLoading(false);
 
         // Assuming 'rawComboData' is the array of all combo data
-        const filteredData = rawComboData.filter((card) =>
-          UpvotedPostIds.includes(card.postId?.S)
+        const filteredData = comboData.filter((card) =>
+          postIds.includes(card.postId?.S)
         );
+
         console.log("filteredData:", filteredData);
         setFilteredUpvotedPosts(filteredData);
       } catch (error) {
