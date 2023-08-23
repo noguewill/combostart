@@ -6,72 +6,53 @@ import { fetchVoteData } from "./dataFetch";
 
 const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
   const [parsedComboStrings, setParsedComboStrings] = useState([]);
+  const [expandCollapse, setExpandCollapse] = useState(false);
+  const [voteStatus, setVoteStatus] = useState({});
   const [currentVotes, setCurrentVotes] = useState(null);
   const [renderedPostIds, setRenderedPostIds] = useState([]);
-  const [isMatching, setIsMatching] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
-      if (displayedCombos.length > 0) {
-        const { ComboStrings } = displayedCombos[0];
-        setCurrentVotes(parseInt(displayedCombos[0].VoteCount?.N, 10));
-
-        if (ComboStrings && ComboStrings.S) {
-          try {
-            setParsedComboStrings(JSON.parse(ComboStrings.S));
-          } catch (error) {
-            console.error("Error parsing ComboStrings:", error);
-          }
-        }
-      }
+      displayedCombos.forEach((val) => {
+        setCurrentVotes(parseInt(val.VoteCount?.N, 10));
+      });
     };
+
     const didUserVote = async () => {
-      const results = await Promise.all(
-        renderedPostIds.map((value) => fetchVoteData(value, userId))
-      );
-      if (results.every((result) => result === "upvote")) {
-        setIsMatching("upvote");
-      } else if (results.every((result) => result === "downvote")) {
-        setIsMatching("downvote");
-      } else {
-        setIsMatching("");
+      const newVoteStatus = {};
+      for (const combo of displayedCombos) {
+        const postId = combo.postId?.S;
+        const voteData = await fetchVoteData(postId, userId);
+        newVoteStatus[postId] = voteData;
       }
+      setVoteStatus(newVoteStatus);
     };
-
-    didUserVote();
     fetchData();
-  }, [displayedCombos, renderedPostIds]);
+    didUserVote();
+  }, [displayedCombos, userId]);
 
   // Function to determine whether to show the comboArrow element icon
   const shouldShowComboArrow = (currentIndex) => {
     return currentIndex < parsedComboStrings.length - 1;
   };
+
   const handleUpvote = async (postId) => {
     try {
       const voteData = await fetchVoteData(postId, userId);
 
       if (voteData === "upvote") {
-        console.log("User previously upvoted");
         setCurrentVotes(currentVotes - 1);
-        setIsMatching("");
         await removeVote(postId, userId, "upvote");
-        console.log("Vote removed after upvote cancellation");
-      } else if (voteData === "downvote") {
-        console.log("User previously downvoted");
-        setIsMatching("upvote");
-        await removeVote(postId, userId, "downvote");
-        await recordVote(postId, userId, "upvote");
-        setCurrentVotes(currentVotes + 2);
-        console.log("Upvote registered after downvote cancellation");
       } else {
-        console.log("User has not voted before");
+        setCurrentVotes(currentVotes + (voteData === "downvote" ? 2 : 1));
         await recordVote(postId, userId, "upvote");
-        setCurrentVotes(currentVotes + 1);
-        setIsMatching("upvote");
       }
+
+      const newVoteStatus = { ...voteStatus };
+      newVoteStatus[postId] = voteData === "upvote" ? "" : "upvote";
+      setVoteStatus(newVoteStatus);
     } catch (error) {
       console.error("Error handling upvote:", error);
-      setIsMatching("");
     }
   };
 
@@ -80,27 +61,18 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
       const voteData = await fetchVoteData(postId, userId);
 
       if (voteData === "downvote") {
-        console.log("User previously downvoted");
         setCurrentVotes(currentVotes + 1);
-        setIsMatching("");
         await removeVote(postId, userId, "downvote");
-        console.log("Vote removed after downvote cancellation");
-      } else if (voteData === "upvote") {
-        console.log("User previously upvoted");
-        await removeVote(postId, userId, "upvote");
-        await recordVote(postId, userId, "downvote");
-        setCurrentVotes(currentVotes - 2);
-        setIsMatching("downvote");
-        console.log("Downvote registered after upvote cancellation");
       } else {
-        console.log("User has not voted before");
+        setCurrentVotes(currentVotes - (voteData === "upvote" ? 2 : 1));
         await recordVote(postId, userId, "downvote");
-        setCurrentVotes(currentVotes - 1);
-        setIsMatching("downvote");
       }
+
+      const newVoteStatus = { ...voteStatus };
+      newVoteStatus[postId] = voteData === "downvote" ? "" : "downvote";
+      setVoteStatus(newVoteStatus);
     } catch (error) {
       console.error("Error handling downvote:", error);
-      setIsMatching("");
     }
   };
 
@@ -111,28 +83,48 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
         if (!renderedPostIds.includes(postId)) {
           setRenderedPostIds((prevIds) => [...prevIds, postId]); // Store the rendered post ID
         }
+
+        const ComboStrings = card.ComboStrings?.S;
+        let parsedComboStrings = [];
+
+        if (ComboStrings) {
+          try {
+            parsedComboStrings = JSON.parse(ComboStrings);
+          } catch (error) {
+            console.error("Error parsing ComboStrings:", error);
+          }
+        }
+        const stringsCount = parsedComboStrings.reduce(
+          (totalCount, comboArray) =>
+            totalCount +
+            comboArray.filter((item) => item.type === "image").length,
+          0
+        );
+
         return (
-          <main key={card.postId?.S} className={styles.comboCard_wrapper}>
+          <main key={postId} className={styles.comboCard_wrapper}>
             {noShowVote ? (
               ""
             ) : (
               <section className={styles.upvote_container}>
                 <button
                   className={`${styles[`${theme}upvote_btn_`]} ${
-                    isMatching === "upvote" ? styles.upvote_btn_upvote : ""
+                    voteStatus[postId] === "upvote"
+                      ? styles.upvote_btn_upvote
+                      : ""
                   }`}
-                  onClick={() => handleUpvote(card.postId?.S)}
+                  onClick={() => handleUpvote(postId)}
                 ></button>
                 <span className={styles[`${theme}upvotes`]}>
-                  {currentVotes}
+                  {parseInt(card.VoteCount.N, 10)}
                 </span>
                 <button
                   className={`${styles[`${theme}downvote_btn_`]} ${
-                    isMatching === "downvote"
+                    voteStatus[postId] === "downvote"
                       ? styles.downvote_btn_downvote
                       : ""
                   }`}
-                  onClick={() => handleDownvote(card.postId?.S)}
+                  onClick={() => handleDownvote(postId)}
                 ></button>
               </section>
             )}
@@ -220,46 +212,56 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
                       {card.ScreenPosition?.S}
                     </div>
                   </section>
-                  <div className={styles[`${theme}inputs__container`]}>
-                    {parsedComboStrings.map((combo, comboIndex) => (
-                      <div key={comboIndex} className={styles.comboStringRow}>
-                        {combo.map((val, index) => (
-                          <div
-                            key={index}
-                            className={styles[`${theme}comboString`]}
-                          >
-                            {val.type === "text" ? (
-                              <span className={styles.plusSign}>
-                                {val.value}
-                              </span>
-                            ) : (
-                              <>
-                                <figure
-                                  className={
-                                    styles.comboString_string_container
-                                  }
-                                >
-                                  <Image
-                                    src={`/inputs/${val.value}.svg`}
-                                    alt={val.alt}
-                                    width={34}
-                                    height={34}
-                                  />
-                                  <figcaption
-                                    className={styles[`${theme}input_text`]}
+                  <div className={styles.inputs_parent}>
+                    <div className={styles[`${theme}inputs__container`]}>
+                      {parsedComboStrings.map((combo, comboIndex) => (
+                        <div key={comboIndex} className={styles.comboStringRow}>
+                          {combo.map((val, index) => (
+                            <div
+                              key={index}
+                              className={styles[`${theme}comboString`]}
+                            >
+                              {val.type === "text" ? (
+                                <span className={styles.plusSign}>
+                                  {val.value}
+                                </span>
+                              ) : (
+                                <>
+                                  <figure
+                                    className={
+                                      styles.comboString_string_container
+                                    }
                                   >
-                                    {val.value}
-                                  </figcaption>
-                                </figure>
-                              </>
-                            )}
-                          </div>
-                        ))}
-                        {shouldShowComboArrow(comboIndex) && (
-                          <span className={styles.comboArrow}></span>
-                        )}
-                      </div>
-                    ))}
+                                    <Image
+                                      src={`/inputs/${val.value}.svg`}
+                                      alt={val.alt}
+                                      width={34}
+                                      height={34}
+                                    />
+                                    <figcaption
+                                      className={styles[`${theme}input_text`]}
+                                    >
+                                      {val.value}
+                                    </figcaption>
+                                  </figure>
+                                </>
+                              )}
+                            </div>
+                          ))}
+                          {shouldShowComboArrow(comboIndex) && (
+                            <span className={styles.comboArrow}></span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                    {stringsCount >= 14 ? (
+                      <button
+                        className={styles.expand_btn}
+                        onClick={() => setExpandCollapse(!expandCollapse)}
+                      >
+                        {expandCollapse ? "COLLAPSE" : "EXPAND"}
+                      </button>
+                    ) : null}
                   </div>
                 </div>
               </section>

@@ -25,7 +25,7 @@ const ComboStringSelectiveInput = ({
     const isPlusOnlyValue =
       inputValue.length === 1 && inputValue[0].value === "+";
     setIsPlusOnly(isPlusOnlyValue);
-
+    console.log(inputValue);
     setIsComboValid(comboStrings.length >= 3); // check if comboString length is greater than or equal to 3
   }, [inputValue, initialState, comboStrings]);
 

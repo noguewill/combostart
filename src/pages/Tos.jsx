@@ -13,17 +13,13 @@ const Tos = () => {
         <h1 className={styles.tos_header}>TERMS OF SERVICE</h1>
         <div className={styles[`${theme}tos_body_parent`]}>
           <p className={styles[`${theme}tos_body`]}>
-            Terms of Service for COMBOSTART
+            Effective Date: AUGUST 20, 2023 (08/20/23)
             <br />
-            Effective Date: JUNE 30, 2023 (06/30/23)
-            <br />
-            <br />
-            Welcome to COMBOSTART!
             <br />
             These Terms of Service (&quot;Terms&quot;) govern your access to and
-            use of the COMBOSTART website and services (collectively referred to
-            as the &quot;Service&quot;). Please read these Terms carefully
-            before using the Service.
+            use of COMBOSTART website and services (collectively referred to as
+            the &quot;Service&quot;). Please read these Terms carefully before
+            using the Service.
             <br />
             <br />
             Acceptance of Terms

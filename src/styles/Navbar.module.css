@@ -306,6 +306,7 @@
   background-color: #dcdcdc;
   color: #1f1f1f;
   border-radius: 4px;
+  z-index: 99;
 }
 .light_theme_dropdownMenu {
   color: #ebebeb;

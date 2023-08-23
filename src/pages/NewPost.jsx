@@ -146,7 +146,8 @@ const NewPost = () => {
       return; // Exit the function and prevent form submission
     }
 
-    const dmgPercentVal = (damage / 10000) * 100;
+    const dmgPercentVal = Math.ceil((damage / 10000) * 100);
+
     // Prepare the item to be inserted into the DynamoDB table
     const comboInfo = {
       postId: { S: uuidv4() },
@@ -162,7 +163,7 @@ const NewPost = () => {
       DriveBars: { N: driveBars.toString() },
       PostTitle: { S: postTitle },
       ComboStrings: { S: JSON.stringify(comboStrings) },
-      Tags: { M: tags.join(",") },
+      Tags: { S: tags.join(",") },
       SubmissionTime: { S: time },
       SubmissionDate: { S: date },
       VoteCount: { N: voteCount.toString() },
@@ -182,6 +183,7 @@ const NewPost = () => {
       setGame("Street Fighter 6");
       setScreenPosition("");
       setCharacter("");
+      setComboStrings([]);
       setHasSuper("");
       setDriveBars("");
       setDamage("");
@@ -305,7 +307,6 @@ const NewPost = () => {
                   <option value="Level 1">Level 1</option>
                   <option value="Level 2">Level 2</option>
                   <option value="Level 3">Level 3</option>
-                  <option value="Critical Art">Critical Art</option>
                 </select>
               </div>
             </div>

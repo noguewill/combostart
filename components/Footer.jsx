@@ -89,7 +89,12 @@ const Footer = ({ theme }) => {
 
           <Link href="/Tos">
             <span className={styles[`${theme}submenu_btn`]}>
-              Terms of Service{" "}
+              Terms of Service
+            </span>
+          </Link>
+          <Link href="/PrivacyPolicy">
+            <span className={styles[`${theme}submenu_btn`]}>
+              Privacy Policy
             </span>
           </Link>
         </div>

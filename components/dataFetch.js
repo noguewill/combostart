@@ -60,7 +60,12 @@ export const fetchVoteData = async (postId, userId) => {
     if (userVoteHistory) {
       const voteTypeObject = userVoteHistory?.M[postId]; // Get the object for the specific post
       if (voteTypeObject && voteTypeObject.S) {
-        console.log("Success, voting data received:", voteTypeObject.S);
+        console.log(
+          "Success, voting data received for postId:",
+          postId,
+          "vote:",
+          voteTypeObject.S
+        );
         return voteTypeObject.S; // Return the voteType as a string
       } else {
         console.log(

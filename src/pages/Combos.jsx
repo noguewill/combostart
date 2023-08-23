@@ -82,19 +82,21 @@ const Combos = () => {
         theme={theme}
         setSearchQueryVal={setSearchQueryVal}
       />
-      <section className={styles.comboCards_parent_container}>
-        {displayedCombos.length === 0 ? (
-          <h2 className={styles.notFoundMessage}>
-            No results found, for &quot;{searchQueryval}&quot;.
-          </h2>
-        ) : (
+
+      {displayedCombos.length === 0 && searchQueryval !== "" ? (
+        <h2 className={styles.notFoundMessage}>
+          No results found, for &quot;{searchQueryval}&quot;.
+        </h2>
+      ) : (
+        <section className={styles.combos_container}>
           <ComboCard
             displayedCombos={displayedCombos}
             userId={userId}
             theme={theme}
           />
-        )}
-      </section>
+        </section>
+      )}
+
       <Footer theme={theme} />
     </div>
   );

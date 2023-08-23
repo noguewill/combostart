@@ -13,9 +13,10 @@ const Navbar = () => {
   const router = useRouter();
   const currentRoute = router.asPath;
   const { theme, toggleTheme } = useContext(ThemeContext);
+
   const [showOverlay, setShowOverlay] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [currenUser, setCurrentUser] = useState("");
+  const [currentUser, setCurrentUser] = useState("");
   const [userDisplayName, setUserDisplayName] = useState("");
 
   useEffect(() => {
@@ -100,7 +101,7 @@ const Navbar = () => {
         {/* Only show if the user is logged in */}
         <div className={styles.authNavContainer}>
           <ThemeToggleBtn theme={theme} toggleTheme={toggleTheme} />
-          {currenUser !== undefined ? (
+          {currentUser ? (
             <>
               <Link
                 href="/NewPost"
@@ -142,7 +143,7 @@ const Navbar = () => {
                       {" "}
                       <Link href="/Upvoted">
                         <button className={styles.submenu_item_btn}>
-                          Upvoted combos
+                          UPVOTED COMBOS
                         </button>
                       </Link>
                       <Link href="/Settings">
@@ -153,6 +154,11 @@ const Navbar = () => {
                       <Link href="/Tos">
                         <button className={styles.submenu_item_btn}>
                           TERMS OF SERVICE
+                        </button>
+                      </Link>
+                      <Link href="/PrivacyPolicy">
+                        <button className={styles.submenu_item_btn}>
+                          Privacy Policy
                         </button>
                       </Link>
                       <button
@@ -167,14 +173,12 @@ const Navbar = () => {
               </div>
             </>
           ) : (
-            <>
-              <button
-                className={styles[`${theme}nav_btn`]}
-                onClick={toggleOverlay}
-              >
-                LOG IN | SIGN UP
-              </button>
-            </>
+            <button
+              className={styles[`${theme}nav_btn`]}
+              onClick={toggleOverlay}
+            >
+              LOG IN | SIGN UP
+            </button>
           )}
         </div>
       </div>
