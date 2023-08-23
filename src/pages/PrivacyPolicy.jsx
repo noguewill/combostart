@@ -31,7 +31,7 @@ const PrivacyPolicy = () => {
             1. <strong>Analytics Data:</strong> We use analytics tools to
             collect information about how you interact with our website. This
             includes details about which pages you visit, your IP address
-            location, the device you're using, and device details. This data is
+            location, the device you are using, and device details. This data is
             collected to help us improve our services and enhance your
             experience on our website.
             <br />
