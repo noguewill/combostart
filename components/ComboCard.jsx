@@ -8,13 +8,17 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
   const [parsedComboStrings, setParsedComboStrings] = useState([]);
   const [expandCollapse, setExpandCollapse] = useState(false);
   const [voteStatus, setVoteStatus] = useState({});
-  const [currentVotes, setCurrentVotes] = useState(null);
+  const [currentVotes, setCurrentVotes] = useState({});
   const [renderedPostIds, setRenderedPostIds] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       displayedCombos.forEach((val) => {
-        setCurrentVotes(parseInt(val.VoteCount?.N, 10));
+        const postId = val.postId?.S;
+        setCurrentVotes((prevVotes) => ({
+          ...prevVotes,
+          [postId]: parseInt(val.VoteCount?.N, 10),
+        }));
       });
     };
 
@@ -41,10 +45,16 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
       const voteData = await fetchVoteData(postId, userId);
 
       if (voteData === "upvote") {
-        setCurrentVotes(currentVotes - 1);
+        setCurrentVotes((prevVotes) => ({
+          ...prevVotes,
+          [postId]: prevVotes[postId] - 1,
+        }));
         await removeVote(postId, userId, "upvote");
       } else {
-        setCurrentVotes(currentVotes + (voteData === "downvote" ? 2 : 1));
+        setCurrentVotes((prevVotes) => ({
+          ...prevVotes,
+          [postId]: prevVotes[postId] + (voteData === "downvote" ? 2 : 1),
+        }));
         await recordVote(postId, userId, "upvote");
       }
 
@@ -61,10 +71,16 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
       const voteData = await fetchVoteData(postId, userId);
 
       if (voteData === "downvote") {
-        setCurrentVotes(currentVotes + 1);
+        setCurrentVotes((prevVotes) => ({
+          ...prevVotes,
+          [postId]: prevVotes[postId] + 1,
+        }));
         await removeVote(postId, userId, "downvote");
       } else {
-        setCurrentVotes(currentVotes - (voteData === "upvote" ? 2 : 1));
+        setCurrentVotes((prevVotes) => ({
+          ...prevVotes,
+          [postId]: prevVotes[postId] - (voteData === "upvote" ? 2 : 1),
+        }));
         await recordVote(postId, userId, "downvote");
       }
 
@@ -116,7 +132,7 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
                   onClick={() => handleUpvote(postId)}
                 ></button>
                 <span className={styles[`${theme}upvotes`]}>
-                  {parseInt(card.VoteCount.N, 10)}
+                  {currentVotes[postId]}
                 </span>
                 <button
                   className={`${styles[`${theme}downvote_btn_`]} ${
