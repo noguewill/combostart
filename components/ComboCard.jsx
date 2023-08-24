@@ -59,7 +59,7 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
       }
 
       const newVoteStatus = { ...voteStatus };
-      newVoteStatus[postId] = voteData === "upvote" ? "" : "upvote";
+      newVoteStatus[postId] = voteData === "upvote" ? null : "upvote";
       setVoteStatus(newVoteStatus);
     } catch (error) {
       console.error("Error handling upvote:", error);
@@ -76,6 +76,7 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
           [postId]: prevVotes[postId] + 1,
         }));
         await removeVote(postId, userId, "downvote");
+        setVoteStatus({});
       } else {
         setCurrentVotes((prevVotes) => ({
           ...prevVotes,
@@ -85,7 +86,7 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
       }
 
       const newVoteStatus = { ...voteStatus };
-      newVoteStatus[postId] = voteData === "downvote" ? "" : "downvote";
+      newVoteStatus[postId] = voteData === "downvote" ? null : "downvote";
       setVoteStatus(newVoteStatus);
     } catch (error) {
       console.error("Error handling downvote:", error);
@@ -124,21 +125,28 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
             ) : (
               <section className={styles.upvote_container}>
                 <button
-                  className={`${styles[`${theme}upvote_btn_`]} ${
+                  className={`${
                     voteStatus[postId] === "upvote"
-                      ? styles.upvote_btn_upvote
-                      : ""
+                      ? styles[`${theme}upvote_btn_upvote`]
+                      : styles[`${theme}upvote_btn_`]
                   }`}
                   onClick={() => handleUpvote(postId)}
                 ></button>
-                <span className={styles[`${theme}upvotes`]}>
+
+                <span
+                  className={`${
+                    voteStatus[postId] !== null || ""
+                      ? styles[`${theme}votes_voted`]
+                      : styles[`${theme}votes`]
+                  }`}
+                >
                   {currentVotes[postId]}
                 </span>
                 <button
-                  className={`${styles[`${theme}downvote_btn_`]} ${
+                  className={`${
                     voteStatus[postId] === "downvote"
-                      ? styles.downvote_btn_downvote
-                      : ""
+                      ? styles[`${theme}downvote_btn_downvote`]
+                      : styles[`${theme}downvote_btn_`]
                   }`}
                   onClick={() => handleDownvote(postId)}
                 ></button>
@@ -151,7 +159,7 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
                   {card.PostTitle?.S}
                 </h2>
                 <p className={styles[`${theme}postedBy`]}>
-                  posted by
+                  posted by{" "}
                   <span className={styles.postedBy_authorName}>
                     {card.User?.S}
                   </span>

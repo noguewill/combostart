@@ -100,9 +100,7 @@
 .upvote_btn_,
 .light_theme_upvote_btn_,
 .upvote_btn_upvote,
-.downvote_btn_,
-.light_theme_downvote_btn_,
-.downvote_btn_downvote {
+.light_theme_upvote_btn_upvote {
   width: 0;
   height: 0;
   border-top: 0;
@@ -112,35 +110,47 @@
   background-color: transparent;
   cursor: pointer;
 }
-.upvote_btn_upvote {
+.upvote_btn_upvote,
+.light_theme_upvote_btn_upvote {
   border-bottom: 0.8rem solid #5263fa;
 }
 .light_theme_upvote_btn_ {
   border-bottom: 0.8rem solid #0f0f0f;
 }
 
-.upvotes,
-.light_theme_upvotes {
+.votes,
+.light_theme_votes,
+.votes_voted,
+.light_theme_votes_voted {
   font-size: 1rem;
   color: #ebebeb;
   font-family: "Kanit";
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
-.light_theme_upvotes {
+.light_theme_votes {
   color: #0f0f0f;
 }
+.votes_voted,
+.light_theme_votes_voted {
+  color: #5263fa;
+}
+
 .downvote_btn_,
-.light_theme_downvote_btn_ {
+.light_theme_downvote_btn_,
+.downvote_btn_downvote,
+.light_theme_downvote_btn_downvote {
+  width: 0;
+  height: 0;
   border-bottom: 0;
+  background-color: transparent;
+  cursor: pointer;
   border-top: 0.8rem solid #ebebeb;
   border-left: 0.5rem solid transparent;
   border-right: 0.5rem solid transparent;
 }
-.downvote_btn_downvote {
-  border-bottom: 0;
-  border-left: 0.5rem solid transparent;
-  border-right: 0.5rem solid transparent;
+.downvote_btn_downvote,
+.light_theme_downvote_btn_downvote {
   border-top: 0.8rem solid #5263fa;
 }
 .light_theme_downvote_btn_ {
