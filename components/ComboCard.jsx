@@ -6,7 +6,9 @@ import { fetchVoteData } from "./dataFetch";
 
 const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
   const [parsedComboStrings, setParsedComboStrings] = useState([]);
-  const [expandCollapse, setExpandCollapse] = useState(false);
+  const [stringsCount, setStringsCount] = useState(null);
+  const [postExpandCollapse, setPostExpandCollapse] = useState({});
+
   const [voteStatus, setVoteStatus] = useState({});
   const [currentVotes, setCurrentVotes] = useState({});
   const [renderedPostIds, setRenderedPostIds] = useState([]);
@@ -19,7 +21,17 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
           ...prevVotes,
           [postId]: parseInt(val.VoteCount?.N, 10),
         }));
+        setParsedComboStrings(JSON.parse(val.ComboStrings?.S));
       });
+
+      await setStringsCount(
+        parsedComboStrings.reduce(
+          (totalCount, comboArray) =>
+            totalCount +
+            comboArray.filter((item) => item.type === "image").length,
+          0
+        )
+      );
     };
 
     const didUserVote = async () => {
@@ -31,6 +43,7 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
       }
       setVoteStatus(newVoteStatus);
     };
+
     fetchData();
     didUserVote();
   }, [displayedCombos, userId]);
@@ -102,21 +115,15 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
         }
 
         const ComboStrings = card.ComboStrings?.S;
-        let parsedComboStrings = [];
+        let renderComboStrings = [];
 
         if (ComboStrings) {
           try {
-            parsedComboStrings = JSON.parse(ComboStrings);
+            renderComboStrings = JSON.parse(ComboStrings);
           } catch (error) {
             console.error("Error parsing ComboStrings:", error);
           }
         }
-        const stringsCount = parsedComboStrings.reduce(
-          (totalCount, comboArray) =>
-            totalCount +
-            comboArray.filter((item) => item.type === "image").length,
-          0
-        );
 
         return (
           <main key={postId} className={styles.comboCard_wrapper}>
@@ -236,8 +243,16 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
                     </div>
                   </section>
                   <div className={styles.inputs_parent}>
-                    <div className={styles[`${theme}inputs__container`]}>
-                      {parsedComboStrings.map((combo, comboIndex) => (
+                    <div
+                      id={postId}
+                      className={styles[`${theme}inputs__container`]}
+                      style={
+                        postExpandCollapse[postId]
+                          ? { flexWrap: "wrap" }
+                          : { flexWrap: "nowrap" }
+                      }
+                    >
+                      {renderComboStrings.map((combo, comboIndex) => (
                         <div key={comboIndex} className={styles.comboStringRow}>
                           {combo.map((val, index) => (
                             <div
@@ -264,7 +279,7 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
                                     <figcaption
                                       className={styles[`${theme}input_text`]}
                                     >
-                                      {val.value}
+                                      {val.alt}
                                     </figcaption>
                                   </figure>
                                 </>
@@ -277,14 +292,19 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
                         </div>
                       ))}
                     </div>
-                    {stringsCount >= 14 ? (
+                    {stringsCount >= 14 && (
                       <button
                         className={styles.expand_btn}
-                        onClick={() => setExpandCollapse(!expandCollapse)}
+                        onClick={() =>
+                          setPostExpandCollapse((prevExpandCollapse) => ({
+                            ...prevExpandCollapse,
+                            [postId]: !prevExpandCollapse[postId], // Toggle the state for this post
+                          }))
+                        }
                       >
-                        {expandCollapse ? "COLLAPSE" : "EXPAND"}
+                        {postExpandCollapse[postId] ? "COLLAPSE" : "EXPAND"}
                       </button>
-                    ) : null}
+                    )}
                   </div>
                 </div>
               </section>
@@ -293,15 +313,6 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
                 <div className={styles.tag_container}>
                   <button className={styles.tag_btn}>{card.Tags?.S}</button>
                 </div>
-                {/*              <button className={styles.share__btn}>
-                  <Image
-                    src="/icons/shareicon.svg"
-                    width={26}
-                    height={26}
-                    alt="share icon"
-                  />
-                  <span className={styles[`${theme}social_text`]}>share</span>
-                </button> */}
               </div>
             </article>
           </main>

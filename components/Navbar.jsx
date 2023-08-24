@@ -91,8 +91,7 @@ const Navbar = () => {
               Combostart is a beginner-friendly community driven combo <br />
               <span style={{ fontWeight: "800" }}> sharing </span> platform,
               tailored for players of all skill levels.
-              <br /> Whether you&apos;re a casual or a seasoned pro, we provide
-              a space where you can
+              <br /> Whether you&apos;re a casual or a seasoned pro, you can
               <span style={{ fontWeight: "800" }}> easily</span> learn and
               discover combos for a variety of fighting games.
             </p>

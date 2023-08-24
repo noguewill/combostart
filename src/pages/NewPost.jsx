@@ -128,7 +128,7 @@ const NewPost = () => {
 
   const handleSubmit = async (event) => {
     const time = `${hours}:${minutes}:${seconds}`;
-    const date = `${day}/${month}/${year}`;
+    const date = `${month}/${day}/${year}`;
 
     const client = new DynamoDBClient({
       region: "us-east-1",
@@ -163,7 +163,7 @@ const NewPost = () => {
       DriveBars: { N: driveBars.toString() },
       PostTitle: { S: postTitle },
       ComboStrings: { S: JSON.stringify(comboStrings) },
-      Tags: { S: tags.join(",") },
+      Tags: { S: tags.join(",").toUpperCase() },
       SubmissionTime: { S: time },
       SubmissionDate: { S: date },
       VoteCount: { N: voteCount.toString() },

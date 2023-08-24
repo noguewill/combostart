@@ -83,8 +83,8 @@
 .comboCard_wrapper {
   display: flex;
   align-items: center;
-  margin-left: 5rem;
-  margin-top: 2rem;
+  margin-left: 8rem;
+  margin-top: 3rem;
   margin-bottom: 2rem;
 }
 /* Upvote container */
@@ -160,6 +160,7 @@
 .comboCard_hugger {
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid #111111;
 }
 .comboCard_container {
   display: flex;
@@ -213,7 +214,6 @@
 .avatar_container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   width: 7rem;
 }
@@ -359,13 +359,10 @@
 .light_theme_inputs__container {
   display: flex;
   align-items: center;
-  flex-grow: 1;
-  width: max-content;
-  max-width: 68rem;
+  width: 45rem;
   background-color: #0f0f0f;
   border-radius: 8px;
-  flex-wrap: wrap;
-  overflow-x: hidden;
+  overflow: hidden;
   padding: 0.5rem;
 }
 .light_theme_inputs__container {
@@ -410,7 +407,7 @@
 .input_text,
 .light_theme_input_text {
   color: #ebebeb;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
 }
 .light_theme_input_text {
   color: #0f0f0f;
