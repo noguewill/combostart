@@ -151,10 +151,10 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
                   {card.PostTitle?.S}
                 </h2>
                 <p className={styles[`${theme}postedBy`]}>
-                  posted by{" "}
+                  posted by
                   <span className={styles.postedBy_authorName}>
                     {card.User?.S}
-                  </span>{" "}
+                  </span>
                   {card.SubmissionDate?.S}
                 </p>
                 <p className={styles.patchVersion}>PATCH: 1.0.0</p>
@@ -163,7 +163,6 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
               <section className={styles.comboCard_container}>
                 <div className={styles.avatar_container}>
                   <h4 className={styles[`${theme}avatar_name`]}>
-                    {" "}
                     {card.Character?.S}
                   </h4>
                   <div className={styles.avatar_frame}>

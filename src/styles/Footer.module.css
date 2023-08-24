@@ -64,3 +64,34 @@
   flex-direction: column;
   align-items: center;
 }
+.socialMedia_header,
+.light_theme_socialMedia_header {
+  font-family: "Kanit";
+  color: #ebebeb;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05rem;
+}
+.light_theme_socialMedia_header {
+  color: #0f0f0f;
+}
+
+.socialMediaIcons_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.socialMediaIcon,
+.light_theme_socialMediaIcon {
+  border-radius: 8px;
+  padding: 0.3rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+.socialMediaIcon:hover {
+  background-color: #ebebeb;
+}
+.light_theme_socialMediaIcon:hover {
+  background-color: #0f0f0f;
+}
