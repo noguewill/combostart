@@ -23,16 +23,16 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
         }));
         setParsedComboStrings(JSON.parse(val.ComboStrings?.S));
       });
-
-      await setStringsCount(
-        parsedComboStrings.reduce(
-          (totalCount, comboArray) =>
-            totalCount +
-            comboArray.filter((item) => item.type === "image").length,
-          0
-        )
-      );
     };
+
+    setStringsCount(
+      parsedComboStrings.reduce(
+        (totalCount, comboArray) =>
+          totalCount +
+          comboArray.filter((item) => item.type === "image").length,
+        0
+      )
+    );
 
     const didUserVote = async () => {
       const newVoteStatus = {};
@@ -279,7 +279,7 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
                                     <figcaption
                                       className={styles[`${theme}input_text`]}
                                     >
-                                      {val.alt}
+                                      {val.value}
                                     </figcaption>
                                   </figure>
                                 </>

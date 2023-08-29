@@ -45,23 +45,15 @@ const Combos = () => {
       return;
     }
 
-    // Re-fetch the data if displayedCombos is empty
-    if (displayedCombos.length === 0) {
-      setDisplayedCombos(rawComboData);
-      return;
-    }
-
-    const filteredData = displayedCombos.filter((card) => {
+    const filteredData = rawComboData.filter((card) => {
       const formattedCharName = card.Character?.S.toLowerCase().replace(
         /-/g,
         ""
       );
       const formattedTitle = card.PostTitle?.S.toLowerCase().replace(/-/g, "");
 
-      // Split the formatted title into words
       const titleWords = formattedTitle.split(" ");
 
-      // Check if the lowercase character name or any lowercase title word includes the search query
       const charNameMatch = formattedCharName.includes(formattedSearchQuery);
       const titleMatch = titleWords.some((word) =>
         word.includes(formattedSearchQuery)

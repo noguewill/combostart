@@ -7,11 +7,10 @@ const Search = ({ onSearch, setSearchQueryVal, theme }) => {
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
-      // Simulate a click on the search button
       inputRef.current.blur(); // Remove focus from the input
       onSearch(inputRef.current.value);
       setSearchQueryVal(inputRef.current.value);
-      inputRef.current.value = "";
+      inputRef.current.value = ""; // Clear the input value
     }
   };
 

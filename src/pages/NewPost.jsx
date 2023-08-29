@@ -26,13 +26,13 @@ const NewPost = () => {
   const [hasSuper, setHasSuper] = useState("");
   const [driveBars, setDriveBars] = useState("");
   const [damage, setDamage] = useState("");
-  const [dmgPercent, setDamagePercent] = useState(0);
   const [hits, setHits] = useState("");
   const [tags, setTags] = useState([]);
   const [initialState, setInitialState] = useState("");
   const voteCount = 1;
 
   const [isFormValid, setIsFormValid] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const [postNotification, setPostNotification] = useState("");
 
   const currentDate = new Date();
@@ -115,10 +115,6 @@ const NewPost = () => {
     }
   };
 
-  const handleDmgPercentage = () => {
-    setDamagePercent();
-  };
-
   const handleHitsChange = (event) => {
     let input = event.target.value;
     input = input.replace(/\D/g, ""); // Remove non-numeric characters
@@ -190,11 +186,12 @@ const NewPost = () => {
       setHits("");
       setIsFormValid(false);
       setTags([]);
-      event.target.reset();
 
+      setFormSubmitted(true);
       console.log("Combo post inserted successfully into DynamoDB");
     } catch (error) {
       console.error("Error inserting combo post into DynamoDB:", error);
+      setPostNotification("Error submitting post, try again later");
     }
   };
 
@@ -304,6 +301,7 @@ const NewPost = () => {
                   <option value="" disabled>
                     Select
                   </option>
+                  <option value="NONE">NONE</option>
                   <option value="Level 1">Level 1</option>
                   <option value="Level 2">Level 2</option>
                   <option value="Level 3">Level 3</option>
@@ -379,8 +377,12 @@ const NewPost = () => {
             removeTag={handleRemoveTag}
           />
 
-          <button className={styles.submitPost_btn} disabled={!isFormValid}>
-            SUBMIT COMBO
+          <button
+            type="submit"
+            className={styles.submitPost_btn}
+            disabled={!isFormValid || formSubmitted}
+          >
+            {formSubmitted ? "SUBMITTING..." : "SUBMIT COMBO"}
           </button>
         </form>
       </main>
