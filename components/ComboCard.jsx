@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "@/styles/ComboCard.module.css";
 import Image from "next/image";
 import { recordVote, removeVote } from "./dataSend";
-import { fetchVoteData } from "./dataFetch";
+import { fetchVoteData, fetchCurrentUserRate } from "./dataFetch";
 
 const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
   const [parsedComboStrings, setParsedComboStrings] = useState([]);
@@ -12,6 +12,10 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
   const [voteStatus, setVoteStatus] = useState({});
   const [currentVotes, setCurrentVotes] = useState({});
   const [renderedPostIds, setRenderedPostIds] = useState([]);
+
+  const [rateLimit, setRateLimit] = useState(null);
+  const [rateTimer, setRateTimer] = useState(null);
+  const [rateAmount, setRateAmount] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +37,11 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
         0
       )
     );
+
+    const rateVals = fetchCurrentUserRate(userId);
+    setRateLimit(rateVals.rateLimit);
+    setRateTimer(rateVals.rateTimer);
+    setRateAmount(rateVals.currentRate);
 
     const didUserVote = async () => {
       const newVoteStatus = {};
@@ -213,9 +222,26 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
                           src={`/inputs/${card.InitialState?.S}.svg`}
                           width={26}
                           height={26}
-                          alt={card.InitialState?.S}
+                          alt={
+                            card.InitialState?.S === "CH"
+                              ? "COUNTER HIT"
+                              : card.HasSuper?.S === "PC"
+                              ? "PUNISH COUNTER"
+                              : card.HasSuper?.S === "DI"
+                              ? "DRIVE IMPACT"
+                              : "NONE"
+                          }
                         />
                       </div>
+                      <span className={styles.initialStateDesc_text}>
+                        {card.InitialState?.S === "CH"
+                          ? "COUNTER HIT"
+                          : card.HasSuper?.S === "PC"
+                          ? "PUNISH COUNTER"
+                          : card.HasSuper?.S === "DI"
+                          ? "DRIVE IMPACT"
+                          : "NONE"}
+                      </span>
                       <span className={styles[`${theme}mechanic_text`]}>
                         INITIAL STATE
                       </span>

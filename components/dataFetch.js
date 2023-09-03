@@ -6,6 +6,7 @@ import {
   GetItemCommand,
 } from "@aws-sdk/client-dynamodb";
 
+/* Credential setup */
 const client = new DynamoDBClient({
   region: "us-east-1",
   credentials: {
@@ -19,6 +20,7 @@ const comboParams = {
   TableName: "combosSF6",
 };
 
+/* Defines the current authenticated user */
 export const defCurrentUser = async () => {
   awsmobile;
   try {
@@ -30,7 +32,7 @@ export const defCurrentUser = async () => {
   }
 };
 
-/* Function to fetch all comboPosts of Street Fighter 6 and set the current authenticated user */
+/* Function to fetch all comboPosts of Street Fighter 6 */
 export const fetchComboData = async () => {
   try {
     const response = await client.send(new ScanCommand(comboParams));
@@ -41,6 +43,7 @@ export const fetchComboData = async () => {
   }
 };
 
+/* It retrieves the vote history of a user */
 export const fetchVoteData = async (postId, userId) => {
   try {
     // Retrieve the user's vote history from the 'userData' table
@@ -83,6 +86,7 @@ export const fetchVoteData = async (postId, userId) => {
   }
 };
 
+/* It retrieves all the posts the user voted for */
 export const fetchUpvotedPostIds = async (userId) => {
   try {
     const userVoteHistoryParams = {
@@ -108,9 +112,33 @@ export const fetchUpvotedPostIds = async (userId) => {
         }
       }
     }
+
     return upvotedPostIds;
   } catch (error) {
     console.error("Error fetching upvoted post IDs:", error);
+    return [];
+  }
+};
+
+export const fetchCurrentUserRate = async (userId) => {
+  try {
+    const userTable = {
+      TableName: "userData",
+      Key: {
+        userId: { S: userId },
+      },
+    };
+    const rateAttr = await client.send(new GetItemCommand(userTable));
+
+    const rateObj = rateAttr.Item?.rate.M;
+
+    return {
+      currentRate: rateObj.currentRate?.N,
+      rateLimit: rateObj.rateLimit?.N,
+      rateTimer: rateObj.rateTimer?.N,
+    };
+  } catch (error) {
+    console.error("Error fetching rate values from user:", error);
     return [];
   }
 };

@@ -23,12 +23,12 @@ const Upvoted = () => {
       try {
         const user = await defCurrentUser();
         const userId = user.sub;
-        console.log("userId Upvoted:", userId);
+
         const comboData = await fetchComboData();
         setRawComboData(comboData);
-        console.log("rawComboData:", rawComboData);
+
         const postIds = await fetchUpvotedPostIds(userId);
-        console.log("postIds:", postIds);
+
         setUpvotedPostIds(postIds);
         setIsLoading(false);
 
@@ -37,7 +37,6 @@ const Upvoted = () => {
           postIds.includes(card.postId?.S)
         );
 
-        console.log("filteredData:", filteredData);
         setFilteredUpvotedPosts(filteredData);
       } catch (error) {
         console.error("Error fetching Upvoted post IDs:", error);

@@ -273,7 +273,6 @@
   border-radius: 4px;
   padding: 0.2rem;
   background-color: deeppink;
-
   width: auto;
   font-size: 1rem;
   font-family: "Kanit";
@@ -292,8 +291,8 @@
   width: 2rem;
 }
 .initialState {
+  position: relative;
   background-color: #000;
-  border-radius: 4px;
   width: 2rem;
 }
 
@@ -412,4 +411,23 @@
 .light_theme_input_text {
   color: #0f0f0f;
   font-weight: bold;
+}
+
+.initialStateDesc_text {
+  display: none;
+  background-color: #0f0f0f;
+  color: #ebebeb;
+  font-family: "Kanit";
+  letter-spacing: 0.06rem;
+  text-align: center;
+  border-radius: 8px;
+  z-index: 2;
+  top: 13.7rem;
+  left: 36.5rem;
+  font-size: 0.7rem;
+  padding: 0.3rem;
+}
+.comboCard_container:hover .initialStateDesc_text {
+  display: block;
+  position: absolute;
 }

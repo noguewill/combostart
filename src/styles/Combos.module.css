@@ -20,3 +20,65 @@
   display: flex;
   flex-direction: column;
 }
+.pageNum_parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  width: 50%;
+  height: 6rem;
+  padding: 1rem;
+  height: 5rem;
+  padding: 1rem;
+  margin-bottom: 3rem;
+}
+.pageNum_container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.pageNum,
+.light_theme_pageNum {
+  color: #ebebeb;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  font-family: "Kanit";
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0.1rem 0.5rem;
+  transition: 0.15s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.light_theme_pageNum {
+  color: #1f1f1f;
+}
+.pageNum:hover,
+.light_theme_pageNum:hover {
+  background-color: #5263fa;
+  color: #ebebeb;
+}
+.currentPageNum {
+  color: #5263fa;
+}
+
+.pageNum_next_btn,
+.pageNum_back_btn {
+  width: 0;
+  height: 0;
+  border-top: 0.4rem solid transparent;
+  border-left: 0.6rem solid #5263fa;
+  border-bottom: 0.4rem solid transparent;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.15s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.pageNum_back_btn {
+  border-left: 0;
+  border-right: 0.6rem solid #5263fa;
+}
+.pageNum_back_btn:disabled,
+.pageNum_next_btn:disabled {
+  visibility: hidden;
+}

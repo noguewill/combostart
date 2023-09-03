@@ -10,9 +10,10 @@ import { defCurrentUser, fetchComboData } from "../../components/dataFetch";
 const Combos = () => {
   const { theme } = useContext(ThemeContext);
   const [userId, setUserId] = useState("");
-  const [displayedCombos, setDisplayedCombos] = useState([]);
   const [rawComboData, setRawComboData] = useState([]);
-  const [searchQueryval, setSearchQueryVal] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 7;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +26,6 @@ const Combos = () => {
       try {
         const comboData = await fetchComboData();
         setRawComboData(comboData);
-        setDisplayedCombos(comboData);
 
         console.log("Data fetching and state updates completed.", comboData);
       } catch (error) {
@@ -36,33 +36,30 @@ const Combos = () => {
     fetchData();
   }, []);
 
-  const handleSearch = (searchQuery) => {
-    const formattedSearchQuery = searchQuery.toLowerCase().replace(/-/g, "");
+  // Calculate totalItems based on filtered data
+  const filteredComboData = rawComboData.filter((card) => {
+    const formattedCharName = card.Character?.S.toLowerCase().replace(/-/g, "");
+    const formattedTitle = card.PostTitle?.S.toLowerCase().replace(/-/g, "");
 
-    if (formattedSearchQuery === "") {
-      // If search query is empty, reset displayedCombos to the original data
-      setDisplayedCombos(rawComboData);
-      return;
-    }
+    const titleWords = formattedTitle.split(" ");
 
-    const filteredData = rawComboData.filter((card) => {
-      const formattedCharName = card.Character?.S.toLowerCase().replace(
-        /-/g,
-        ""
-      );
-      const formattedTitle = card.PostTitle?.S.toLowerCase().replace(/-/g, "");
+    const charNameMatch = formattedCharName.includes(searchQuery);
+    const titleMatch = titleWords.some((word) => word.includes(searchQuery));
 
-      const titleWords = formattedTitle.split(" ");
+    return charNameMatch || titleMatch;
+  });
 
-      const charNameMatch = formattedCharName.includes(formattedSearchQuery);
-      const titleMatch = titleWords.some((word) =>
-        word.includes(formattedSearchQuery)
-      );
+  const totalItems = filteredComboData.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
 
-      return charNameMatch || titleMatch;
-    });
+  // Calculate the start and end indexes based on currentPage
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentCombos = filteredComboData.slice(startIndex, endIndex);
 
-    setDisplayedCombos(filteredData);
+  const handleSearch = (newSearchQuery) => {
+    setSearchQuery(newSearchQuery);
+    setCurrentPage(1); // Reset to page 1 when performing a search
   };
 
   return (
@@ -72,20 +69,54 @@ const Combos = () => {
       <Search
         onSearch={handleSearch}
         theme={theme}
-        setSearchQueryVal={setSearchQueryVal}
+        setSearchQueryVal={setSearchQuery}
       />
 
-      {displayedCombos.length === 0 && searchQueryval !== "" ? (
+      {filteredComboData.length === 0 && searchQuery !== "" ? (
         <h2 className={styles.notFoundMessage}>
-          No results found, for &quot;{searchQueryval}&quot;.
+          No results found, for &quot;{searchQuery}&quot;.
         </h2>
       ) : (
         <section className={styles.combos_container}>
           <ComboCard
-            displayedCombos={displayedCombos}
+            displayedCombos={currentCombos}
             userId={userId}
             theme={theme}
           />
+
+          <div className={styles.pageNum_parent}>
+            <button
+              type="button"
+              className={styles.pageNum_back_btn}
+              onClick={() => setCurrentPage(currentPage - 1)}
+              disabled={currentPage === 1}
+            ></button>
+
+            <div className={styles.pageNum_container}>
+              {Array.from({ length: totalPages }, (_, index) => (
+                <button
+                  type="button"
+                  key={index + 1}
+                  className={`${styles[`${theme}pageNum`]} ${
+                    currentPage === index + 1 ? styles.currentPageNum : ""
+                  }`}
+                  onClick={() => setCurrentPage(index + 1)}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              className={styles.pageNum_next_btn}
+              onClick={() => setCurrentPage(currentPage + 1)}
+              disabled={
+                currentPage === totalPages ||
+                currentCombos.length < itemsPerPage
+              }
+            ></button>
+          </div>
         </section>
       )}
 
