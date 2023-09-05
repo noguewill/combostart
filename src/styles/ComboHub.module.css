@@ -120,7 +120,7 @@
 .upcoming_right {
   transform: scale(1.03);
 }
-.featuredCard:hover .cardTitle,
+.featuredCard:hover .featured_cardTitle,
 .upcoming_left:hover .cardTitle {
   visibility: visible;
 }
@@ -208,7 +208,8 @@
   object-fit: cover;
 }
 
-.cardTitle {
+.cardTitle,
+.featured_cardTitle {
   visibility: hidden;
   background-color: #1f1f1f;
   width: auto;
@@ -224,6 +225,9 @@
   color: white;
   z-index: 9;
   transition: all 0.1s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+.featured_cardTitle {
+  margin-left: 1rem;
 }
 .card:hover .cardImage {
   transform: scale(1.1);

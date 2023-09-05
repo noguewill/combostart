@@ -3,6 +3,7 @@ import styles from "@/styles/Newpost.module.css";
 import { ThemeContext } from "../../components/ThemeContext";
 import Navbar from "../../components/Navbar";
 import TagInput from "../../components/PostCreation/TagInput";
+import { NotificationModal } from "components/NotificationModal";
 import Footer from "../../components/Footer";
 import { profanityCheck } from "../../components/ProfanityFilter";
 import PostTitle from "../../components/PostCreation/PostTitle";
@@ -11,24 +12,106 @@ import { Auth } from "aws-amplify";
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { awsmobile } from "../../components/Authentication/amplifyHandler";
 import { v4 as uuidv4 } from "uuid";
+import { useRouter } from "next/router";
 
 const NewPost = () => {
+  const router = useRouter();
   const [userDisplayName, setUserDisplayName] = useState("");
   const [userSub, setUserSub] = useState(null);
   const { theme } = useContext(ThemeContext);
 
   /* Form Inputs states */
   const [game, setGame] = useState("Street Fighter 6");
-  const [screenPosition, setScreenPosition] = useState("");
-  const [character, setCharacter] = useState("");
-  const [postTitle, setPostTitle] = useState("");
-  const [comboStrings, setComboStrings] = useState([]);
-  const [hasSuper, setHasSuper] = useState("");
-  const [driveBars, setDriveBars] = useState("");
-  const [damage, setDamage] = useState("");
-  const [hits, setHits] = useState("");
+  const [screenPosition, setScreenPosition] = useState("Mid-screen");
+  const [character, setCharacter] = useState("Ryu");
+  const [postTitle, setPostTitle] = useState("Ryu testing");
+  const [comboStrings, setComboStrings] = useState([
+    [
+      {
+        type: "image",
+        value: "D",
+        alt: "DOWN",
+      },
+      {
+        type: "image",
+        value: "DB",
+        alt: "DOWN BACK",
+      },
+      {
+        type: "image",
+        value: "B",
+        alt: "BACK",
+      },
+      {
+        type: "text",
+        value: "+",
+      },
+      {
+        type: "image",
+        value: "P",
+        alt: "Any punch",
+      },
+    ],
+    [
+      {
+        type: "image",
+        value: "D",
+        alt: "DOWN",
+      },
+      {
+        type: "text",
+        value: "+",
+      },
+      {
+        type: "image",
+        value: "MP",
+        alt: "Medium Punch",
+      },
+    ],
+    [
+      {
+        type: "image",
+        value: "DR",
+        alt: "Drive Rush",
+      },
+      {
+        type: "text",
+        value: "+",
+      },
+      {
+        type: "image",
+        value: "P",
+        alt: "Any punch",
+      },
+    ],
+    [
+      {
+        type: "image",
+        value: "QCF",
+        alt: "QUARTER-CIRCLE-FORWARD",
+      },
+      {
+        type: "image",
+        value: "QCF",
+        alt: "QUARTER-CIRCLE-FORWARD",
+      },
+      {
+        type: "text",
+        value: "+",
+      },
+      {
+        type: "image",
+        value: "K",
+        alt: "Any kick",
+      },
+    ],
+  ]);
+  const [hasSuper, setHasSuper] = useState("NONE");
+  const [driveBars, setDriveBars] = useState("4");
+  const [damage, setDamage] = useState("8000");
+  const [hits, setHits] = useState("14");
   const [tags, setTags] = useState([]);
-  const [initialState, setInitialState] = useState("");
+  const [initialState, setInitialState] = useState("CH");
   const voteCount = 1;
 
   const [isFormValid, setIsFormValid] = useState(false);
@@ -79,7 +162,6 @@ const NewPost = () => {
     damage,
     hits,
   ]);
-
   /* Handling the inputs values of the form */
   const handleInitialState = (val) => {
     setInitialState(val);
@@ -123,6 +205,7 @@ const NewPost = () => {
   };
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
     const time = `${hours}:${minutes}:${seconds}`;
     const date = `${month}/${day}/${year}`;
 
@@ -134,11 +217,21 @@ const NewPost = () => {
       },
     });
 
+    if (!isFormValid) {
+      // Handle the case where the form is not valid, e.g., show an error message
+      setPostNotification(
+        "Form is not valid. Please fill in all required fields."
+      );
+      console.log("Form is not valid. Please fill in all required fields.");
+      return;
+    }
+
     if (profanityCheck(postTitle)) {
+      // Handle the case where profanity is detected, e.g., show an error message
       setPostNotification(
         "Input contains profanity. Please revise your inputs."
       );
-      console.log("oops", postNotification);
+      console.log("Oops, post contains profanity");
       return; // Exit the function and prevent form submission
     }
 
@@ -189,6 +282,19 @@ const NewPost = () => {
 
       setFormSubmitted(true);
       console.log("Combo post inserted successfully into DynamoDB");
+      setPostNotification(
+        <span>
+          Combo posted<span style={{ color: "#93f367" }}> successfully </span>
+          Redirecting...
+        </span>
+      );
+      // Debug message to confirm this part is reached
+      console.log("Before navigating to /Combos");
+      // Delay the navigation by a few milliseconds
+      setTimeout(() => {
+        console.log("Before navigating to /Combos");
+        router.push("/Combos");
+      }, 1000);
     } catch (error) {
       console.error("Error inserting combo post into DynamoDB:", error);
       setPostNotification("Error submitting post, try again later");
@@ -202,6 +308,7 @@ const NewPost = () => {
     <div className={styles[`${theme}post_parent`]}>
       <Navbar userDisplayName={userDisplayName} />
       <main className={styles.content_container}>
+        <NotificationModal notificationText={postNotification} />
         <form
           className={styles[`${theme}form_container`]}
           onSubmit={handleSubmit}

@@ -1,15 +1,11 @@
 .navbar {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
-  padding-bottom: 0.7rem;
-  position: relative;
-}
-
-.navbar_logo__container {
-  display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin-right: 1rem;
+  height: 6rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.5rem 1rem 2rem;
 }
 
 .combosPage_submenu_parent,
@@ -33,7 +29,10 @@
 #combosPageBtn {
   cursor: default;
 }
-
+.navbar_btn__container {
+  display: flex;
+  align-items: center;
+}
 .combosPage_submenu_container,
 .about_submenu_parent {
   display: flex;
@@ -66,8 +65,8 @@
 
 .arrowUp {
   position: absolute;
-  top: 3.7rem;
-  left: 13.5rem;
+  top: -0.5rem;
+  left: 1.6rem;
   width: 0;
   height: 0;
   border-left: 0.5rem solid transparent;
@@ -128,11 +127,6 @@
   font-size: 0.7rem;
 }
 
-/* Desktop overrides */
-.navbar_btn__container {
-  display: none;
-}
-
 .profileBtn_container {
   width: auto;
   display: flex;
@@ -150,32 +144,10 @@
     display: none;
   }
 
-  .navbar {
-    align-items: center;
-    justify-content: flex-start;
-    padding: 1rem 1.5rem 1rem 2rem;
-  }
-
-  .navbar_logo__container {
-    width: auto;
-  }
-
-  .navbar_logo {
-    margin-right: 0;
-  }
-
-  .navbar_btn__container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%;
-  }
-
   .authNavContainer {
     display: flex;
     justify-content: space-between;
     width: auto;
-    margin-left: auto;
   }
 
   .themeToggle_btn_container {
@@ -270,6 +242,9 @@
   background-color: transparent;
   border: none;
   margin-bottom: 0.3rem;
+}
+.navbar_logo {
+  margin-left: 4.8rem;
 }
 
 .arrow_btn {

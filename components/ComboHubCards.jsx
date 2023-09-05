@@ -63,7 +63,7 @@ const ComboHubCards = () => {
     <>
       <div className={styles.featured_container}>
         <Link href="/Combos" className={styles.featuredCard}>
-          <span className={styles.cardTitle}>STREET FIGHTER 6</span>
+          <span className={styles.featured_cardTitle}>STREET FIGHTER 6</span>
           <Image
             className={styles.featured_img}
             src="/gameCovers/sf6coverArt.webp"

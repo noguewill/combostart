@@ -45,17 +45,6 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.navbar_logo__container}>
-        <Link href="/" className={styles.navbar_logo}>
-          <Image
-            src="/icons/logo.svg"
-            width={50}
-            height={50}
-            alt="ComboStart Logo"
-          />
-        </Link>
-      </div>
-
       <div className={styles.navbar_btn__container}>
         {/* Add toggle button */}
         <Link
@@ -82,10 +71,7 @@ const Navbar = () => {
         <span id={styles.aboutBtn} className={styles[`${theme}nav_hoverBtn`]}>
           ABOUT {/* Combos Page Submenu */}
           <div className={styles.about_submenu_parent}>
-            <div
-              className={styles.arrowUp}
-              style={{ top: "-0.5rem", left: "6rem" }}
-            ></div>
+            <div className={styles.arrowUp}></div>
             {/* Arrow Icon */} {/* This is a button section */}
             <p style={{ maxWidth: "27rem" }}>
               Combostart is a beginner-friendly community driven combo <br />
@@ -97,89 +83,96 @@ const Navbar = () => {
             </p>
           </div>
         </span>
-        {/* Only show if the user is logged in */}
-        <div className={styles.authNavContainer}>
-          <ThemeToggleBtn theme={theme} toggleTheme={toggleTheme} />
-          {currentUser ? (
-            <>
-              <Link
-                href="/NewPost"
-                className={
-                  currentRoute === "/NewPost"
-                    ? styles[`${theme}nav_btn_focus`]
-                    : styles[`${theme}nav_btn`]
-                }
-              >
-                NEW COMBO
-              </Link>
-              <div className={styles.profileBtn_container}>
-                <span className={styles.profileBtn_username}>
-                  {userDisplayName}
-                </span>
-                <button
-                  className={styles.arrow_btn}
-                  onClick={() => handleDropdownClick()}
-                >
-                  <svg
-                    className={
-                      isOpen ? `${styles.icon} ${styles.rotated}` : styles.icon
-                    }
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#5263fa"
-                  >
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
-                </button>
+      </div>
 
-                {isOpen && (
-                  <div className={styles[`${theme}dropdownMenu`]}>
-                    <div
-                      className={styles.submenu_container}
-                      style={{ alignItems: "flex-start", fontSize: "0.2rem" }}
-                    >
-                      {" "}
-                      <Link href="/Upvoted">
-                        <button className={styles.submenu_item_btn}>
-                          UPVOTED COMBOS
-                        </button>
-                      </Link>
-                      <Link href="/Settings">
-                        <button className={styles.submenu_item_btn}>
-                          SETTINGS
-                        </button>
-                      </Link>
-                      <Link href="/Tos">
-                        <button className={styles.submenu_item_btn}>
-                          TERMS OF SERVICE
-                        </button>
-                      </Link>
-                      <Link href="/PrivacyPolicy">
-                        <button className={styles.submenu_item_btn}>
-                          Privacy Policy
-                        </button>
-                      </Link>
-                      <button
-                        className={styles.dropdown_logout_btn}
-                        onClick={handleSignOut}
-                      >
-                        LOG OUT
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </>
-          ) : (
-            <button
-              className={styles[`${theme}nav_btn`]}
-              onClick={toggleOverlay}
+      <Link href="/" className={styles.navbar_logo}>
+        <Image
+          src="/icons/logo.svg"
+          width={50}
+          height={50}
+          alt="ComboStart Logo"
+        />
+      </Link>
+
+      {/* Only show if the user is logged in */}
+      <div className={styles.authNavContainer}>
+        <ThemeToggleBtn theme={theme} toggleTheme={toggleTheme} />
+        {currentUser ? (
+          <>
+            <Link
+              href="/NewPost"
+              className={
+                currentRoute === "/NewPost"
+                  ? styles[`${theme}nav_btn_focus`]
+                  : styles[`${theme}nav_btn`]
+              }
             >
-              LOG IN | SIGN UP
-            </button>
-          )}
-        </div>
+              NEW COMBO
+            </Link>
+            <div className={styles.profileBtn_container}>
+              <span className={styles.profileBtn_username}>
+                {userDisplayName}
+              </span>
+              <button
+                className={styles.arrow_btn}
+                onClick={() => handleDropdownClick()}
+              >
+                <svg
+                  className={
+                    isOpen ? `${styles.icon} ${styles.rotated}` : styles.icon
+                  }
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#5263fa"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+
+              {isOpen && (
+                <div className={styles[`${theme}dropdownMenu`]}>
+                  <div
+                    className={styles.submenu_container}
+                    style={{ alignItems: "flex-start", fontSize: "0.2rem" }}
+                  >
+                    {" "}
+                    <Link href="/Upvoted">
+                      <button className={styles.submenu_item_btn}>
+                        UPVOTED COMBOS
+                      </button>
+                    </Link>
+                    <Link href="/Settings">
+                      <button className={styles.submenu_item_btn}>
+                        SETTINGS
+                      </button>
+                    </Link>
+                    <Link href="/Tos">
+                      <button className={styles.submenu_item_btn}>
+                        TERMS OF SERVICE
+                      </button>
+                    </Link>
+                    <Link href="/PrivacyPolicy">
+                      <button className={styles.submenu_item_btn}>
+                        Privacy Policy
+                      </button>
+                    </Link>
+                    <button
+                      className={styles.dropdown_logout_btn}
+                      onClick={handleSignOut}
+                    >
+                      LOG OUT
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </>
+        ) : (
+          <button className={styles[`${theme}nav_btn`]} onClick={toggleOverlay}>
+            LOG IN | SIGN UP
+          </button>
+        )}
       </div>
 
       {showOverlay && <AuthenticationBody toggleOverlay={toggleOverlay} />}

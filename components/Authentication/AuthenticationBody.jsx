@@ -3,7 +3,7 @@ import styles from "@/styles/Login.module.css";
 import Image from "next/image";
 import Form from "./Form";
 
-const AuthenticationBody = ({ toggleOverlay, onAuthenticationSuccess }) => {
+const AuthenticationBody = ({ toggleOverlay }) => {
   const [showSignupForm, setShowSignupForm] = useState(true);
   const [signIn, setSignIn] = useState(false);
   const [notificationText, setNotificationText] = useState("");

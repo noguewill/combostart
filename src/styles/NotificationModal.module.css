@@ -1,0 +1,17 @@
+.notificationMessage_container {
+  width: auto;
+  margin: 1.3rem;
+  background-color: #232323;
+  padding: 0.8rem;
+  border-radius: 8px;
+  position: fixed;
+  top: 10%;
+  left: 44%;
+  z-index: 9;
+}
+.notificationMessage {
+  font-family: "Lato";
+  color: #ebebeb;
+  font-size: 1rem;
+  letter-spacing: 0.03rem;
+}

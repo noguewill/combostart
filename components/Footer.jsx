@@ -126,9 +126,7 @@ const Footer = ({ theme }) => {
           width={50}
           height={50}
         />
-        <span style={{ fontSize: "0.6rem" }}>
-          ALL RIGHTS RESERVED COMBOSTART 2023
-        </span>
+        <span style={{ fontSize: "0.6rem" }}>@COMBOSTART 2023</span>
       </div>
     </footer>
   );
