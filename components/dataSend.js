@@ -117,3 +117,23 @@ export const updateVoteCount = async (postId, increment) => {
     console.error("Error updating vote count:", error);
   }
 };
+
+/* export const updateUserRate = async (userId, increment) => {
+  const updateParams = {
+    TableName: "userData",
+    Key: {
+      userId: { S: userId },
+    },
+    UpdateExpression: "SET rate = VoteCount + :increment",
+    ExpressionAttributeValues: {
+      ":increment": { N: increment.toString() },
+    },
+  };
+
+  try {
+    await client.send(new UpdateItemCommand(updateParams));
+    console.log("Vote count updated successfully");
+  } catch (error) {
+    console.error("Error updating vote count:", error);
+  }
+}; */

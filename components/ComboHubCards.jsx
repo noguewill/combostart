@@ -61,7 +61,6 @@ const ComboHubCards = () => {
 
   return (
     <>
-      <h2 className={styles[`${theme}rowTitle`]}>FEATURED</h2>
       <div className={styles.featured_container}>
         <Link href="/Combos" className={styles.featuredCard}>
           <span className={styles.cardTitle}>STREET FIGHTER 6</span>
@@ -73,6 +72,22 @@ const ComboHubCards = () => {
             height={920}
           />
         </Link>
+        <div className={styles.featuredDesc_container}>
+          <h2 className={styles[`${theme}featuredDesc_header`]}>
+            WANNA LEARN A COMBO?
+          </h2>
+          <p className={styles[`${theme}featuredDesc_textBody`]}>
+            Dive into the ultimate hub for discovering, learning, and sharing
+            your combos for a variety of fighting games. Whether you're a
+            seasoned player or just getting started, Combostart is the platform
+            to showcase your jaw-dropping combos or <bold>finding</bold> them!
+          </p>
+          <Link href="/Combos">
+            <button type="button" className={styles.featuredDesc_CTA}>
+              SHOW ME COMBOS FOR STREET FIGHTER 6
+            </button>
+          </Link>
+        </div>
       </div>
 
       <h2 className={styles[`${theme}rowTitle`]}>UPCOMING</h2>

@@ -33,15 +33,62 @@
 
 .featured_container {
   display: flex;
-  justify-content: center;
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
+  justify-content: space-between;
+  align-items: center;
   height: 25rem;
+  margin-bottom: 1rem;
+}
+.featuredCard {
+  border-radius: 8px;
+  overflow: hidden;
+  width: 50%;
+  object-fit: contain;
   transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
-  margin-bottom: 0.5rem;
+}
+
+.featuredDesc_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 45%;
+  height: 100%;
+}
+
+.featuredDesc_header,
+.light_theme_featuredDesc_header {
+  font-size: 2.7rem;
+  font-family: "Kanit";
+  color: #ebebeb;
+}
+.light_theme_featuredDesc_header {
+  color: #1f1f1f;
+}
+
+.featuredDesc_textBody,
+.light_theme_featuredDesc_textBody {
+  font-size: 1.2rem;
+  max-width: 31rem;
+  color: #ebebeb;
+}
+.light_theme_featuredDesc_textBody {
+  color: #1f1f1f;
+}
+
+.featuredDesc_CTA {
+  color: #ebebeb;
+  width: 20rem;
+  height: 3.5rem;
+  padding: 0.5rem;
+  text-align: center;
+  font-family: "Kanit";
+  background-color: #5263fa;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+.featuredDesc_CTA:hover {
+  background-color: #3b3efc;
 }
 
 .upcomingRow {
@@ -66,11 +113,6 @@
   margin: 0;
   height: 18rem;
   transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
-}
-
-.featuredCard {
-  flex-basis: 100%;
-  object-fit: contain;
 }
 
 .featuredCard:hover,
@@ -180,7 +222,7 @@
   font-style: italic;
   font-weight: 600;
   color: white;
-  z-index: 99;
+  z-index: 9;
   transition: all 0.1s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
 .card:hover .cardImage {

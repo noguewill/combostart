@@ -12,6 +12,7 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
   const [voteStatus, setVoteStatus] = useState({});
   const [currentVotes, setCurrentVotes] = useState({});
   const [renderedPostIds, setRenderedPostIds] = useState([]);
+  const [hoveredPost, setHoveredPost] = useState(null);
 
   const [rateLimit, setRateLimit] = useState(null);
   const [rateTimer, setRateTimer] = useState(null);
@@ -169,7 +170,11 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
               </section>
             )}
 
-            <article className={styles.comboCard_hugger}>
+            <article
+              className={styles.comboCard_hugger}
+              onMouseEnter={() => setHoveredPost(postId)} // Set the hovered post
+              onMouseLeave={() => setHoveredPost(null)}
+            >
               <header className={styles.postTitle_container}>
                 <h2 className={styles[`${theme}postTitle`]}>
                   {card.PostTitle?.S}
@@ -233,15 +238,17 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
                           }
                         />
                       </div>
-                      <span className={styles.initialStateDesc_text}>
-                        {card.InitialState?.S === "CH"
-                          ? "COUNTER HIT"
-                          : card.HasSuper?.S === "PC"
-                          ? "PUNISH COUNTER"
-                          : card.HasSuper?.S === "DI"
-                          ? "DRIVE IMPACT"
-                          : "NONE"}
-                      </span>
+                      {hoveredPost === postId && ( // Render initialStateDesc_text if hoveredPost matches postId
+                        <span className={styles.initialStateDesc_text}>
+                          {card.InitialState?.S === "CH"
+                            ? "COUNTER HIT"
+                            : card.HasSuper?.S === "PC"
+                            ? "PUNISH COUNTER"
+                            : card.HasSuper?.S === "DI"
+                            ? "DRIVE IMPACT"
+                            : "NONE"}
+                        </span>
+                      )}
                       <span className={styles[`${theme}mechanic_text`]}>
                         INITIAL STATE
                       </span>

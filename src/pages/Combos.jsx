@@ -6,6 +6,7 @@ import Footer from "/components/Footer";
 import Navbar from "/components/Navbar";
 import ComboCard from "/components/ComboCard";
 import { defCurrentUser, fetchComboData } from "../../components/dataFetch";
+import { KoFiWidget } from "components/PaymentOptions";
 
 const Combos = () => {
   const { theme } = useContext(ThemeContext);
@@ -119,7 +120,7 @@ const Combos = () => {
           </div>
         </section>
       )}
-
+      <KoFiWidget />
       <Footer theme={theme} />
     </div>
   );

@@ -358,7 +358,7 @@
 .light_theme_inputs__container {
   display: flex;
   align-items: center;
-  width: 45rem;
+  width: auto;
   background-color: #0f0f0f;
   border-radius: 8px;
   overflow: hidden;
@@ -414,7 +414,7 @@
 }
 
 .initialStateDesc_text {
-  display: none;
+  position: absolute;
   background-color: #0f0f0f;
   color: #ebebeb;
   font-family: "Kanit";
@@ -427,7 +427,8 @@
   font-size: 0.7rem;
   padding: 0.3rem;
 }
-.comboCard_container:hover .initialStateDesc_text {
+/* .comboCard_container:hover .initialStateDesc_text {
   display: block;
   position: absolute;
 }
+ */
