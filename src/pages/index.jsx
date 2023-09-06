@@ -4,7 +4,7 @@ import styles from "@/styles/Home.module.css";
 import ComboHub from "./ComboHub";
 import Cookies from "js-cookie";
 
-const index = () => {
+function Home() {
   useEffect(() => {
     const visited = Cookies.get("visited");
     if (!visited) {
@@ -34,5 +34,5 @@ const index = () => {
       </main>
     </>
   );
-};
-export default index;
+}
+export default Home;
