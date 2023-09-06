@@ -3,9 +3,8 @@ import { useEffect } from "react";
 import styles from "@/styles/Home.module.css";
 import ComboHub from "./ComboHub";
 import Cookies from "js-cookie";
-import withSessionCheck from "../../components/withSessionCheck";
 
-function Home() {
+const index = () => {
   useEffect(() => {
     const visited = Cookies.get("visited");
     if (!visited) {
@@ -35,5 +34,5 @@ function Home() {
       </main>
     </>
   );
-}
-export default withSessionCheck(Home);
+};
+export default index;

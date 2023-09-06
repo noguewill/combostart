@@ -9,6 +9,7 @@ import {
   fetchComboData,
   fetchUpvotedPostIds,
 } from "/components/dataFetch";
+import withAuth from "components/withAuth";
 
 const Upvoted = () => {
   const { theme } = useContext(ThemeContext);
@@ -66,4 +67,4 @@ const Upvoted = () => {
   );
 };
 
-export default Upvoted;
+export default withAuth(Upvoted);

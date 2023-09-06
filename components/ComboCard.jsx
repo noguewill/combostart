@@ -4,7 +4,14 @@ import Image from "next/image";
 import { recordVote, removeVote } from "./dataSend";
 import { fetchVoteData, fetchCurrentUserRate } from "./dataFetch";
 
-const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
+const ComboCard = ({
+  displayedCombos,
+  theme,
+  userId,
+  noShowVote,
+  loggedIn,
+  setShowSignIn,
+}) => {
   const [parsedComboStrings, setParsedComboStrings] = useState([]);
   const [stringsCount, setStringsCount] = useState(null);
   const [postExpandCollapse, setPostExpandCollapse] = useState({});
@@ -64,28 +71,32 @@ const ComboCard = ({ displayedCombos, theme, userId, noShowVote }) => {
   };
 
   const handleUpvote = async (postId) => {
-    try {
-      const voteData = await fetchVoteData(postId, userId);
+    if (loggedIn !== false) {
+      try {
+        const voteData = await fetchVoteData(postId, userId);
 
-      if (voteData === "upvote") {
-        setCurrentVotes((prevVotes) => ({
-          ...prevVotes,
-          [postId]: prevVotes[postId] - 1,
-        }));
-        await removeVote(postId, userId, "upvote");
-      } else {
-        setCurrentVotes((prevVotes) => ({
-          ...prevVotes,
-          [postId]: prevVotes[postId] + (voteData === "downvote" ? 2 : 1),
-        }));
-        await recordVote(postId, userId, "upvote");
+        if (voteData === "upvote") {
+          setCurrentVotes((prevVotes) => ({
+            ...prevVotes,
+            [postId]: prevVotes[postId] - 1,
+          }));
+          await removeVote(postId, userId, "upvote");
+        } else {
+          setCurrentVotes((prevVotes) => ({
+            ...prevVotes,
+            [postId]: prevVotes[postId] + (voteData === "downvote" ? 2 : 1),
+          }));
+          await recordVote(postId, userId, "upvote");
+        }
+
+        const newVoteStatus = { ...voteStatus };
+        newVoteStatus[postId] = voteData === "upvote" ? null : "upvote";
+        setVoteStatus(newVoteStatus);
+      } catch (error) {
+        console.error("Error handling upvote:", error);
       }
-
-      const newVoteStatus = { ...voteStatus };
-      newVoteStatus[postId] = voteData === "upvote" ? null : "upvote";
-      setVoteStatus(newVoteStatus);
-    } catch (error) {
-      console.error("Error handling upvote:", error);
+    } else {
+      setShowSignIn(true);
     }
   };
 

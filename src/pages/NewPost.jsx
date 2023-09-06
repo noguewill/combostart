@@ -13,6 +13,7 @@ import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { awsmobile } from "../../components/Authentication/amplifyHandler";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/router";
+import withAuth from "components/withAuth";
 
 const NewPost = () => {
   const router = useRouter();
@@ -498,4 +499,4 @@ const NewPost = () => {
   );
 };
 
-export default NewPost;
+export default withAuth(NewPost);

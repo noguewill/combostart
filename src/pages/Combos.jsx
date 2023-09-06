@@ -7,6 +7,7 @@ import Navbar from "/components/Navbar";
 import ComboCard from "/components/ComboCard";
 import { defCurrentUser, fetchComboData } from "../../components/dataFetch";
 import { KoFiWidget } from "components/PaymentOptions";
+import AuthenticationBody from "components/Authentication/AuthenticationBody";
 
 const Combos = () => {
   const { theme } = useContext(ThemeContext);
@@ -14,13 +15,20 @@ const Combos = () => {
   const [rawComboData, setRawComboData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [showSignIn, setShowSignIn] = useState(false);
+
   const itemsPerPage = 7;
+  const toggleOverlay = () => {
+    setShowSignIn((prevShowSignIn) => !prevShowSignIn);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const user = await defCurrentUser();
         setUserId(user.sub);
+        setLoggedIn(true);
       } catch (error) {
         console.error("Error fetching user:", error);
       }
@@ -79,7 +87,11 @@ const Combos = () => {
         </h2>
       ) : (
         <section className={styles.combos_container}>
+          {showSignIn && <AuthenticationBody toggleOverlay={toggleOverlay} />}
+
           <ComboCard
+            loggedIn={loggedIn}
+            setShowSignIn={setShowSignIn}
             displayedCombos={currentCombos}
             userId={userId}
             theme={theme}

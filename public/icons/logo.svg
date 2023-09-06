@@ -42,23 +42,23 @@
                 </g>
             </g>
             <g id="XMLID_35_">
-                <g id="XMLID_6_">
+                <g id="XMLID_4_">
 
-                    <line id="XMLID_1_" fill="none" stroke="#F915FF" stroke-width="8" stroke-miterlimit="10" x1="-1844" y1="1057" x2="-1895" y2="1057"/>
+                    <line id="XMLID_5_" fill="none" stroke="#F915FF" stroke-width="8" stroke-miterlimit="10" x1="-1844" y1="1057" x2="-1895" y2="1057"/>
 
-                    <line id="XMLID_3_" fill="none" stroke="#F915FF" stroke-width="8" stroke-miterlimit="10" x1="-1898" y1="1052" x2="-1898" y2="1269"/>
+                    <line id="XMLID_6_" fill="none" stroke="#F915FF" stroke-width="8" stroke-miterlimit="10" x1="-1898" y1="1052" x2="-1898" y2="1269"/>
 
-                    <line id="XMLID_4_" fill="none" stroke="#F915FF" stroke-width="8" stroke-miterlimit="10" x1="-1897" y1="1266" x2="-1844" y2="1266"/>
+                    <line id="XMLID_7_" fill="none" stroke="#F915FF" stroke-width="8" stroke-miterlimit="10" x1="-1897" y1="1266" x2="-1844" y2="1266"/>
 
-                    <line id="XMLID_5_" fill="none" stroke="#F915FF" stroke-width="8" stroke-miterlimit="10" x1="-1847" y1="1269" x2="-1847" y2="1233"/>
+                    <line id="XMLID_8_" fill="none" stroke="#F915FF" stroke-width="8" stroke-miterlimit="10" x1="-1847" y1="1269" x2="-1847" y2="1233"/>
 
-                    <line id="XMLID_7_" fill="none" stroke="#F915FF" stroke-width="8" stroke-miterlimit="10" x1="-1846" y1="1087" x2="-1846" y2="1052"/>
+                    <line id="XMLID_9_" fill="none" stroke="#F915FF" stroke-width="8" stroke-miterlimit="10" x1="-1846" y1="1087" x2="-1846" y2="1052"/>
                 </g>
 
-                <rect id="XMLID_8_" x="-1817.6" y="1056.7" fill="none" stroke="#F915FF" stroke-width="8" stroke-miterlimit="10" width="51.6" height="208.5"/>
+                <rect id="XMLID_10_" x="-1817.6" y="1056.7" fill="none" stroke="#F915FF" stroke-width="8" stroke-miterlimit="10" width="51.6" height="208.5"/>
 
                 <rect id="XMLID_18_" x="-1575.1" y="1056.7" fill="none" stroke="#F915FF" stroke-width="8" stroke-miterlimit="10" width="51.6" height="208.5"/>
-                <g id="XMLID_10_">
+                <g id="XMLID_11_">
                     <polygon id="XMLID_16_" fill="none" stroke="#F915FF" stroke-width="8" stroke-miterlimit="10" points="-1610,1057 
 					-1610,1151.4 -1612.1,1163 -1662,1163 -1662,1057 				"/>
                     <polygon id="XMLID_17_" fill="none" stroke="#F915FF" stroke-width="8" stroke-miterlimit="10" points="-1610,1267 
@@ -89,7 +89,7 @@
 
             <line id="XMLID_23_" fill="none" stroke="#41F7E9" stroke-width="20" stroke-miterlimit="10" x1="-757" y1="1263" x2="-757" y2="1471"/>
         </g>
-        <g id="XMLID_11_">
+        <g id="XMLID_2_">
 
             <line id="XMLID_13_" fill="none" stroke="#41F7E9" stroke-width="20" stroke-miterlimit="10" x1="-540" y1="1266" x2="-488" y2="1266"/>
 
@@ -204,6 +204,51 @@
         <polyline id="XMLID_155_" fill="none" stroke="#000000" stroke-width="20" stroke-miterlimit="10" points="-640,1874 -640,1656 
 		-646.3,1656 -663.5,1681.5 -681,1656 -688,1656 -688,1875 	"/>
     </g>
+    <g id="XMLID_269_">
+        <circle id="XMLID_271_" fill="#FC1A35" cx="905" cy="926.5" r="899.6"/>
+        <polyline id="XMLID_273_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" points="531,1277 373,1277 
+		373,1024 523,1024 523,1089 	"/>
+        <polyline id="XMLID_274_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" points="379,1277 523,1277 
+		523,1527 373,1527 373,1447 	"/>
+
+        <line id="XMLID_275_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" x1="599" y1="1021" x2="753" y2="1021"/>
+
+        <line id="XMLID_276_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" x1="675" y1="1012" x2="675" y2="1556"/>
+
+        <line id="XMLID_277_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" x1="1316" y1="1021" x2="1468" y2="1021"/>
+
+        <line id="XMLID_278_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" x1="1392" y1="1012" x2="1392" y2="1556"/>
+        <polyline id="XMLID_279_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" points="982,1560 982,1021 
+		829,1021 829,1560 	"/>
+
+        <line id="XMLID_280_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" x1="835" y1="1267" x2="987" y2="1267"/>
+        <polygon id="XMLID_281_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" points="1252,1024 1252,1171 
+		1212.1,1216 1100,1216 1100,1024 	"/>
+
+        <line id="XMLID_282_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" x1="1100" y1="1240" x2="1100" y2="1560"/>
+        <polyline id="XMLID_283_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" points="1186.7,1211.2 
+		1252,1302.3 1252,1560 	"/>
+
+        <line id="XMLID_284_" fill="none" stroke="#EBEBEB" stroke-width="49" stroke-miterlimit="10" x1="482" y1="376.5" x2="331" y2="376.5"/>
+
+        <line id="XMLID_285_" fill="none" stroke="#EBEBEB" stroke-width="49" stroke-miterlimit="10" x1="315.5" y1="352" x2="315.5" y2="863"/>
+
+        <line id="XMLID_286_" fill="none" stroke="#EBEBEB" stroke-width="49" stroke-miterlimit="10" x1="325" y1="838.5" x2="482" y2="838.5"/>
+
+        <line id="XMLID_287_" fill="none" stroke="#EBEBEB" stroke-width="49" stroke-miterlimit="10" x1="465.5" y1="863" x2="465.5" y2="741"/>
+
+        <line id="XMLID_288_" fill="none" stroke="#EBEBEB" stroke-width="49" stroke-miterlimit="10" x1="468.5" y1="465" x2="468.5" y2="352"/>
+
+        <rect id="XMLID_289_" x="584.4" y="373.1" fill="none" stroke="#EBEBEB" stroke-width="49" stroke-miterlimit="10" width="151.8" height="454.2"/>
+
+        <rect id="XMLID_290_" x="1338.1" y="373.1" fill="none" stroke="#EBEBEB" stroke-width="49" stroke-miterlimit="10" width="151.8" height="454.2"/>
+        <polygon id="XMLID_291_" fill="none" stroke="#EBEBEB" stroke-width="49" stroke-miterlimit="10" points="1237.5,380.5 1237.5,535 
+		1201,596.5 1084.5,596.5 1084.5,380.5 	"/>
+        <polygon id="XMLID_292_" fill="none" stroke="#EBEBEB" stroke-width="49" stroke-miterlimit="10" points="1237.5,833.5 
+		1237.5,650.1 1218.2,618.9 1084.5,618 1084.5,833.5 	"/>
+        <polyline id="XMLID_293_" fill="none" stroke="#EBEBEB" stroke-width="49" stroke-miterlimit="10" points="984.5,863 984.5,380.5 
+		972.2,380.5 914.1,436 853.8,380.5 842.5,380.5 842.5,862 	"/>
+    </g>
     <path id="BG_3_" fill="none" stroke="#000000" stroke-width="20" stroke-miterlimit="10" d="M-2188.5,1969.2h-242.3
 	c-28.7,0-51.9-23.2-51.9-51.9v-258.5c0-28.7,23.2-51.9,51.9-51.9h242.3c28.7,0,51.9,23.2,51.9,51.9v258.5
 	C-2136.6,1945.9-2159.8,1969.2-2188.5,1969.2z"/>
@@ -237,7 +282,7 @@
 
             <line id="XMLID_111_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="-1522" y1="1380" x2="-1470" y2="1380"/>
         </g>
-        <g id="XMLID_9_">
+        <g id="XMLID_3_">
             <polygon id="XMLID_109_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" points="-1372,1301 
 			-1371,1361.9 -1383.3,1372.7 -1423,1373 -1424,1301 		"/>
 
@@ -359,12 +404,12 @@
             <line id="XMLID_134_" fill="none" stroke="#000000" stroke-width="20" stroke-miterlimit="10" x1="-2343" y1="1685" x2="-2343" y2="1638"/>
         </g>
     </g>
-    <g id="XMLID_14_">
+    <g id="XMLID_1_">
         <g id="XMLID_219_">
             <circle id="XMLID_249_" fill="#F9192A" cx="3211" cy="1533" r="351.5"/>
             <circle id="XMLID_248_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" cx="3211" cy="1533" r="351.5"/>
         </g>
-        <g id="XMLID_2_">
+        <g id="XMLID_14_">
             <g id="XMLID_226_">
                 <polyline id="XMLID_228_" fill="none" stroke="#EBEBEB" stroke-width="50" stroke-miterlimit="10" points="3378,1532 3268,1532 
 				3268,1338 3361,1338 3361,1395 			"/>
@@ -387,168 +432,103 @@
     </g>
     <g id="XMLID_125_">
         <g id="XMLID_140_">
-            <path id="XMLID_124_" fill="#EBEBEB" d="M-2309.6,1789.5c1.9,0,1.9-3,0-3C-2311.6,1786.5-2311.6,1789.5-2309.6,1789.5
+            <path id="XMLID_126_" fill="#EBEBEB" d="M-2309.6,1789.5c1.9,0,1.9-3,0-3C-2311.6,1786.5-2311.6,1789.5-2309.6,1789.5
 			L-2309.6,1789.5z"/>
         </g>
     </g>
-    <circle id="XMLID_126_" fill="#F9192A" cx="1929" cy="2681.5" r="351.5"/>
-    <circle id="XMLID_218_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" cx="1929" cy="2681.5" r="351.5"/>
-    <g id="START_3_">
-        <g id="XMLID_215_">
-            <polyline id="XMLID_217_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" points="1802,2823 1748,2823 
-			1748,2726 1799,2726 1799,2751 		"/>
-            <polyline id="XMLID_216_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" points="1750,2823 1799,2823 
-			1799,2919 1748,2919 1748,2888 		"/>
-        </g>
-        <g id="XMLID_212_">
-
-            <line id="XMLID_214_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1825" y1="2725" x2="1877" y2="2725"/>
-
-            <line id="XMLID_213_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1851" y1="2722" x2="1851" y2="2930"/>
-        </g>
-        <g id="XMLID_209_">
-
-            <line id="XMLID_211_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="2068" y1="2725" x2="2120" y2="2725"/>
-
-            <line id="XMLID_210_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="2094" y1="2722" x2="2094" y2="2930"/>
-        </g>
-        <g id="XMLID_206_">
-            <polyline id="XMLID_208_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" points="1955,2931 1955,2725 
-			1903,2725 1903,2931 		"/>
-
-            <line id="XMLID_207_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1905" y1="2819" x2="1957" y2="2819"/>
-        </g>
-        <g id="XMLID_202_">
-            <polygon id="XMLID_205_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" points="2047,2726 2047,2788.2 
-			2033.1,2800 1995,2800 1995,2726 		"/>
-
-            <line id="XMLID_204_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1995" y1="2809" x2="1995" y2="2931"/>
-            <polyline id="XMLID_203_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" points="2024.8,2797.7 
-			2047,2832.7 2047,2931 		"/>
-        </g>
-    </g>
-    <g id="COMBO_3_">
-        <g id="XMLID_196_">
-
-            <line id="XMLID_201_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1785" y1="2469" x2="1734" y2="2469"/>
-
-            <line id="XMLID_200_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1731" y1="2459" x2="1731" y2="2688"/>
-
-            <line id="XMLID_199_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1732" y1="2678" x2="1785" y2="2678"/>
-
-            <line id="XMLID_198_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1782" y1="2688" x2="1782" y2="2650"/>
-
-            <line id="XMLID_197_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1783" y1="2495" x2="1783" y2="2459"/>
-        </g>
-
-        <rect id="XMLID_195_" x="1819.9" y="2468.8" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" width="51.6" height="208.5"/>
-
-        <rect id="XMLID_192_" x="2075.9" y="2468.8" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" width="51.6" height="208.5"/>
-        <g id="XMLID_187_">
-            <polygon id="XMLID_189_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" points="2044,2469 2044,2562.1 
-			2042.1,2574 1992,2574 1992,2469 		"/>
-            <polygon id="XMLID_188_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" points="2044,2677 2044,2582.2 
-			2042.1,2575 1992,2575 1992,2677 		"/>
-        </g>
-        <path id="XMLID_186_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" d="M2071,2575.1"/>
-        <polyline id="XMLID_185_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" points="1958,2687 1958,2469 
-		1951.7,2469 1934.5,2494.5 1917,2469 1910,2469 1910,2688 	"/>
-    </g>
-    <g id="XMLID_229_">
-        <g id="XMLID_291_">
-            <circle id="XMLID_262_" fill="#F9192A" cx="937" cy="781.5" r="739.2"/>
-            <circle id="XMLID_261_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" cx="937" cy="781.5" r="739.2"/>
-            <g id="START_4_">
-                <g id="XMLID_258_">
-                    <polyline id="XMLID_260_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" points="668,1079 557,1079 
-					557,876 664,876 664,927 				"/>
-                    <polyline id="XMLID_259_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" points="562,1079 664,1079 
-					664,1281 557,1281 557,1216 				"/>
-                </g>
-                <g id="XMLID_255_">
-
-                    <line id="XMLID_257_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" x1="718" y1="873" x2="827" y2="873"/>
-
-                    <line id="XMLID_256_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" x1="773" y1="866" x2="773" y2="1304"/>
-                </g>
-                <g id="XMLID_252_">
-
-                    <line id="XMLID_254_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" x1="1230" y1="873" x2="1339" y2="873"/>
-
-                    <line id="XMLID_253_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" x1="1284" y1="866" x2="1284" y2="1304"/>
-                </g>
-                <g id="XMLID_247_">
-                    <polyline id="XMLID_251_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" points="992,1306 992,873 
-					882,873 882,1306 				"/>
-
-                    <line id="XMLID_250_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" x1="887" y1="1072" x2="995" y2="1072"/>
-                </g>
-                <g id="XMLID_243_">
-                    <polygon id="XMLID_246_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" points="1185,876 1185,1005.9 
-					1156,1031 1076,1031 1076,876 				"/>
-
-                    <line id="XMLID_245_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" x1="1076" y1="1048" x2="1076" y2="1306"/>
-                    <polyline id="XMLID_244_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" points="1138.4,1025.7 
-					1185,1099.5 1185,1306 				"/>
-                </g>
+    <g id="XMLID_124_">
+        <circle id="XMLID_127_" fill="#F9192A" cx="1929" cy="2681.5" r="351.5"/>
+        <circle id="XMLID_218_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" cx="1929" cy="2681.5" r="351.5"/>
+        <g id="START_3_">
+            <g id="XMLID_215_">
+                <polyline id="XMLID_217_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" points="1802,2823 1748,2823 
+				1748,2726 1799,2726 1799,2751 			"/>
+                <polyline id="XMLID_216_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" points="1750,2823 1799,2823 
+				1799,2919 1748,2919 1748,2888 			"/>
             </g>
-            <g id="COMBO_4_">
-                <g id="XMLID_237_">
+            <g id="XMLID_212_">
 
-                    <line id="XMLID_242_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" x1="634" y1="334" x2="526" y2="334"/>
+                <line id="XMLID_214_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1825" y1="2725" x2="1877" y2="2725"/>
 
-                    <line id="XMLID_241_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" x1="521" y1="314" x2="521" y2="795"/>
+                <line id="XMLID_213_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1851" y1="2722" x2="1851" y2="2930"/>
+            </g>
+            <g id="XMLID_209_">
 
-                    <line id="XMLID_240_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" x1="522" y1="778" x2="634" y2="778"/>
+                <line id="XMLID_211_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="2068" y1="2725" x2="2120" y2="2725"/>
 
-                    <line id="XMLID_239_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" x1="628" y1="795" x2="628" y2="715"/>
+                <line id="XMLID_210_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="2094" y1="2722" x2="2094" y2="2930"/>
+            </g>
+            <g id="XMLID_206_">
+                <polyline id="XMLID_208_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" points="1955,2931 1955,2725 
+				1903,2725 1903,2931 			"/>
 
-                    <line id="XMLID_238_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" x1="630" y1="389" x2="630" y2="314"/>
-                </g>
+                <line id="XMLID_207_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1905" y1="2819" x2="1957" y2="2819"/>
+            </g>
+            <g id="XMLID_202_">
+                <polygon id="XMLID_205_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" points="2047,2726 2047,2788.2 
+				2033.1,2800 1995,2800 1995,2726 			"/>
 
-                <rect id="XMLID_236_" x="707.6" y="334.2" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" width="108.4" height="438.6"/>
-
-                <rect id="XMLID_235_" x="1246.1" y="334.2" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" width="108.4" height="438.6"/>
-                <g id="XMLID_232_">
-                    <polygon id="XMLID_234_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" points="1179,334 1179,530.4 
-					1162.4,555 1069,555 1069,334 				"/>
-                    <polygon id="XMLID_233_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" points="1179,772 1179,572.6 
-					1164.9,558.2 1069,557.3 1069,772 				"/>
-                </g>
-                <path id="XMLID_231_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" d="M1235.7,557.7"/>
-                <polyline id="XMLID_230_" fill="none" stroke="#EBEBEB" stroke-width="40" stroke-miterlimit="10" points="998,793 998,334 
-				984.7,334 948.5,387.6 911.7,334 896,334 896,792 			"/>
+                <line id="XMLID_204_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1995" y1="2809" x2="1995" y2="2931"/>
+                <polyline id="XMLID_203_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" points="2024.8,2797.7 
+				2047,2832.7 2047,2931 			"/>
             </g>
         </g>
-        <g id="XMLID_151_">
-            <g id="XMLID_128_">
-                <polyline id="XMLID_130_" fill="none" stroke="#005EFF" stroke-width="40" stroke-miterlimit="10" points="637,1737 637,1565 
-				544,1565 544,1737 			"/>
+        <g id="COMBO_3_">
+            <g id="XMLID_196_">
 
-                <line id="XMLID_129_" fill="none" stroke="#005EFF" stroke-width="40" stroke-miterlimit="10" x1="547" y1="1644" x2="641" y2="1644"/>
+                <line id="XMLID_201_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1785" y1="2469" x2="1734" y2="2469"/>
+
+                <line id="XMLID_200_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1731" y1="2459" x2="1731" y2="2688"/>
+
+                <line id="XMLID_199_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1732" y1="2678" x2="1785" y2="2678"/>
+
+                <line id="XMLID_198_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1782" y1="2688" x2="1782" y2="2650"/>
+
+                <line id="XMLID_197_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" x1="1783" y1="2495" x2="1783" y2="2459"/>
+            </g>
+
+            <rect id="XMLID_195_" x="1819.9" y="2468.8" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" width="51.6" height="208.5"/>
+
+            <rect id="XMLID_192_" x="2075.9" y="2468.8" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" width="51.6" height="208.5"/>
+            <g id="XMLID_187_">
+                <polygon id="XMLID_189_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" points="2044,2469 2044,2562.1 
+				2042.1,2574 1992,2574 1992,2469 			"/>
+                <polygon id="XMLID_188_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" points="2044,2677 2044,2582.2 
+				2042.1,2575 1992,2575 1992,2677 			"/>
+            </g>
+            <path id="XMLID_186_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" d="M2071,2575.1"/>
+            <polyline id="XMLID_185_" fill="none" stroke="#EBEBEB" stroke-width="20" stroke-miterlimit="10" points="1958,2687 1958,2469 
+			1951.7,2469 1934.5,2494.5 1917,2469 1910,2469 1910,2688 		"/>
+        </g>
+        <g id="XMLID_128_">
+            <g id="XMLID_129_">
+                <polyline id="XMLID_130_" fill="none" stroke="#005EFF" stroke-width="20" stroke-miterlimit="10" points="1758,3197 1758,3101 
+				1706,3101 1706,3197 			"/>
+
+                <line id="XMLID_132_" fill="none" stroke="#005EFF" stroke-width="20" stroke-miterlimit="10" x1="1708" y1="3145" x2="1760" y2="3145"/>
             </g>
             <g id="XMLID_146_">
-                <polyline id="XMLID_148_" fill="none" stroke="#005EFF" stroke-width="40" stroke-miterlimit="10" points="1327,1739 1327,1568 
-				1233,1568 1233,1739 			"/>
+                <polyline id="XMLID_148_" fill="none" stroke="#005EFF" stroke-width="20" stroke-miterlimit="10" points="2144,3198 2144,3102 
+				2092,3102 2092,3198 			"/>
 
-                <line id="XMLID_147_" fill="none" stroke="#005EFF" stroke-width="40" stroke-miterlimit="10" x1="1237" y1="1646" x2="1330" y2="1646"/>
+                <line id="XMLID_147_" fill="none" stroke="#005EFF" stroke-width="20" stroke-miterlimit="10" x1="2094" y1="3146" x2="2146" y2="3146"/>
             </g>
-            <polyline id="XMLID_127_" fill="none" stroke="#005EFF" stroke-width="40" stroke-miterlimit="10" points="717,1549 717,1720 
-			817,1720 		"/>
+            <polyline id="XMLID_139_" fill="none" stroke="#005EFF" stroke-width="20" stroke-miterlimit="10" points="1803,3092 1803,3188 
+			1859,3188 		"/>
             <g id="XMLID_150_">
-                <polyline id="XMLID_137_" fill="none" stroke="#005EFF" stroke-width="40" stroke-miterlimit="10" points="885,1739 885,1568 
-				959,1568 			"/>
-                <polyline id="XMLID_138_" fill="none" stroke="#005EFF" stroke-width="40" stroke-miterlimit="10" points="939,1568 976,1568 
-				976,1644 893,1644 			"/>
+                <polyline id="XMLID_145_" fill="none" stroke="#005EFF" stroke-width="20" stroke-miterlimit="10" points="1897,3198 1897,3102 
+				1938,3102 			"/>
+                <polyline id="XMLID_149_" fill="none" stroke="#005EFF" stroke-width="20" stroke-miterlimit="10" points="1927,3102 1948,3102 
+				1948,3145 1901,3145 			"/>
             </g>
-            <g id="XMLID_149_">
+            <g id="XMLID_144_">
 
-                <line id="XMLID_139_" fill="none" stroke="#005EFF" stroke-width="40" stroke-miterlimit="10" x1="1053" y1="1555" x2="1053" y2="1737"/>
-                <g id="XMLID_132_">
+                <line id="XMLID_151_" fill="none" stroke="#005EFF" stroke-width="20" stroke-miterlimit="10" x1="1991" y1="3095" x2="1991" y2="3197"/>
+                <g id="XMLID_184_">
 
-                    <line id="XMLID_144_" fill="none" stroke="#005EFF" stroke-width="40" stroke-miterlimit="10" x1="1151" y1="1556" x2="1151" y2="1739"/>
+                    <line id="XMLID_229_" fill="none" stroke="#005EFF" stroke-width="20" stroke-miterlimit="10" x1="2046" y1="3096" x2="2046" y2="3198"/>
 
-                    <line id="XMLID_145_" fill="none" stroke="#005EFF" stroke-width="40" stroke-miterlimit="10" x1="1053" y1="1644" x2="1158" y2="1644"/>
+                    <line id="XMLID_263_" fill="none" stroke="#005EFF" stroke-width="20" stroke-miterlimit="10" x1="1991" y1="3145" x2="2050" y2="3145"/>
                 </g>
             </g>
         </g>

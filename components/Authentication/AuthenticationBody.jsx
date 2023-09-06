@@ -31,7 +31,7 @@ const AuthenticationBody = ({ toggleOverlay }) => {
             <Image
               src="/icons/logo.svg"
               alt="combostart logo"
-              width={60}
+              width={40}
               height={40}
             />
           </div>

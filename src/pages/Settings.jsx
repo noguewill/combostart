@@ -7,6 +7,7 @@ import VerificationModal from "../../components/Authentication/VerificationModal
 import { Auth } from "aws-amplify";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import withAuth from "components/withAuth";
 
 // Import necessary dependencies and components
 
@@ -355,4 +356,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default withAuth(Settings);

@@ -80,7 +80,7 @@ const ComboHubCards = () => {
             Dive into the ultimate hub for discovering, learning, and sharing
             your combos for a variety of fighting games. Whether you're a
             seasoned player or just getting started, Combostart is the platform
-            to showcase your jaw-dropping combos or <bold>finding</bold> them!
+            to showcase your jaw-dropping combos or finding them!
           </p>
           <Link href="/Combos">
             <button type="button" className={styles.featuredDesc_CTA}>
