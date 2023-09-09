@@ -3,6 +3,8 @@ import styles from "@/styles/Form.module.css";
 import SignUpForm from "./SignUpForm";
 import SignInForm from "./SignInForm";
 import { Auth } from "aws-amplify";
+import { defCurrentUser } from "components/dataFetch";
+import { addRatesToUserData } from "components/dataSend";
 
 const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -72,7 +74,7 @@ const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
       );
       setSignIn(true);
     } catch (error) {
-      setNotificationText("Error:", error.message);
+      setNotificationText(error.message);
       console.log("Error confirming sign-up:", error);
     }
   };
@@ -120,6 +122,7 @@ const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
           <div className={styles.resendVerificationCode_notice}>
             <span>Did not arrive?</span>
             <button
+              type="button"
               className={styles.resendCode_btn}
               onClick={resendConfirmationCode}
             >

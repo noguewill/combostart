@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from "@/styles/ComboCard.module.css";
 import Image from "next/image";
-import { recordVote, removeVote } from "./dataSend";
-import { fetchVoteData, fetchCurrentUserRate } from "./dataFetch";
+import { recordVote, removeVote, addRatesToUserData } from "./dataSend";
+import { fetchVoteData, fetchRates } from "./dataFetch";
 
 const ComboCard = ({
   displayedCombos,
@@ -20,10 +20,7 @@ const ComboCard = ({
   const [currentVotes, setCurrentVotes] = useState({});
   const [renderedPostIds, setRenderedPostIds] = useState([]);
   const [hoveredPost, setHoveredPost] = useState(null);
-
-  const [rateLimit, setRateLimit] = useState(null);
-  const [rateTimer, setRateTimer] = useState(null);
-  const [rateAmount, setRateAmount] = useState(null);
+  const [limitReached, setLimitReached] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,11 +42,6 @@ const ComboCard = ({
         0
       )
     );
-
-    const rateVals = fetchCurrentUserRate(userId);
-    setRateLimit(rateVals.rateLimit);
-    setRateTimer(rateVals.rateTimer);
-    setRateAmount(rateVals.currentRate);
 
     const didUserVote = async () => {
       const newVoteStatus = {};
@@ -74,24 +66,35 @@ const ComboCard = ({
     if (loggedIn !== false) {
       try {
         const voteData = await fetchVoteData(postId, userId);
+        const rates = await fetchRates(userId);
 
-        if (voteData === "upvote") {
-          setCurrentVotes((prevVotes) => ({
-            ...prevVotes,
-            [postId]: prevVotes[postId] - 1,
-          }));
-          await removeVote(postId, userId, "upvote");
+        if (rates.voteRate <= 0 && rates.rateTimer !== 0) {
+          setLimitReached(true);
+          console.log(limitReached);
         } else {
-          setCurrentVotes((prevVotes) => ({
-            ...prevVotes,
-            [postId]: prevVotes[postId] + (voteData === "downvote" ? 2 : 1),
-          }));
-          await recordVote(postId, userId, "upvote");
+          addRatesToUserData(userId);
+          setLimitReached(false);
         }
 
-        const newVoteStatus = { ...voteStatus };
-        newVoteStatus[postId] = voteData === "upvote" ? null : "upvote";
-        setVoteStatus(newVoteStatus);
+        if (limitReached === false) {
+          if (voteData === "upvote") {
+            setCurrentVotes((prevVotes) => ({
+              ...prevVotes,
+              [postId]: prevVotes[postId] - 1,
+            }));
+            await removeVote(postId, userId, "upvote");
+          } else {
+            setCurrentVotes((prevVotes) => ({
+              ...prevVotes,
+              [postId]: prevVotes[postId] + (voteData === "downvote" ? 2 : 1),
+            }));
+            await recordVote(postId, userId, "upvote");
+          }
+
+          const newVoteStatus = { ...voteStatus };
+          newVoteStatus[postId] = voteData === "upvote" ? null : "upvote";
+          setVoteStatus(newVoteStatus);
+        }
       } catch (error) {
         console.error("Error handling upvote:", error);
       }
@@ -101,29 +104,42 @@ const ComboCard = ({
   };
 
   const handleDownvote = async (postId) => {
-    try {
-      const voteData = await fetchVoteData(postId, userId);
+    if (loggedIn !== false) {
+      try {
+        const voteData = await fetchVoteData(postId, userId);
+        const rates = await fetchRates(userId);
 
-      if (voteData === "downvote") {
-        setCurrentVotes((prevVotes) => ({
-          ...prevVotes,
-          [postId]: prevVotes[postId] + 1,
-        }));
-        await removeVote(postId, userId, "downvote");
-        setVoteStatus({});
-      } else {
-        setCurrentVotes((prevVotes) => ({
-          ...prevVotes,
-          [postId]: prevVotes[postId] - (voteData === "upvote" ? 2 : 1),
-        }));
-        await recordVote(postId, userId, "downvote");
+        if (rates.voteRate <= 0 && rates.rateTimer !== 0) {
+          setLimitReached(true);
+        } else {
+          addRatesToUserData(userId);
+          setLimitReached(false);
+        }
+        if (limitReached === false) {
+          if (voteData === "downvote") {
+            setCurrentVotes((prevVotes) => ({
+              ...prevVotes,
+              [postId]: prevVotes[postId] + 1,
+            }));
+            await removeVote(postId, userId, "downvote");
+            setVoteStatus({});
+          } else {
+            setCurrentVotes((prevVotes) => ({
+              ...prevVotes,
+              [postId]: prevVotes[postId] - (voteData === "upvote" ? 2 : 1),
+            }));
+            await recordVote(postId, userId, "downvote");
+          }
+
+          const newVoteStatus = { ...voteStatus };
+          newVoteStatus[postId] = voteData === "downvote" ? null : "downvote";
+          setVoteStatus(newVoteStatus);
+        }
+      } catch (error) {
+        console.error("Error handling downvote:", error);
       }
-
-      const newVoteStatus = { ...voteStatus };
-      newVoteStatus[postId] = voteData === "downvote" ? null : "downvote";
-      setVoteStatus(newVoteStatus);
-    } catch (error) {
-      console.error("Error handling downvote:", error);
+    } else {
+      setShowSignIn(true);
     }
   };
 

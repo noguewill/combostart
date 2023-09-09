@@ -120,25 +120,32 @@ export const fetchUpvotedPostIds = async (userId) => {
   }
 };
 
-export const fetchCurrentUserRate = async (userId) => {
+export const fetchRates = async (userId) => {
   try {
-    const userTable = {
+    // Define the parameters for the GetItemCommand
+    const userTableParams = {
       TableName: "userData",
       Key: {
         userId: { S: userId },
       },
     };
-    const rateAttr = await client.send(new GetItemCommand(userTable));
 
-    const rateObj = rateAttr.Item?.rate.M;
+    // Use the GetItemCommand to retrieve the item
+    const results = await client.send(new GetItemCommand(userTableParams));
 
-    return {
-      currentRate: rateObj.currentRate?.N,
-      rateLimit: rateObj.rateLimit?.N,
-      rateTimer: rateObj.rateTimer?.N,
-    };
+    /* If userRates comes back empty, return null */
+    const userRates = results.Item?.Rates.M;
+    if (userRates) {
+      return {
+        voteRate: userRates.voteRate?.N,
+        rateTimer: userRates.rateTimer?.N,
+      };
+    } else {
+      console.log(error.message);
+      return null;
+    }
   } catch (error) {
-    console.error("Error fetching rate values from user:", error);
-    return [];
+    console.error("Error fetching Rates from userData:", error);
+    throw error; // You can handle the error as needed.
   }
 };

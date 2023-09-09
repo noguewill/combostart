@@ -33,8 +33,7 @@ export const handleSignInSubmit = async (e, setNotificationText) => {
       console.error("Invalid token");
     }
   } catch (error) {
-    console.log(error);
-    setNotificationText("Error:", error.message);
+    setNotificationText(error.message);
   }
 };
 

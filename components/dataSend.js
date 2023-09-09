@@ -4,6 +4,7 @@ import {
   PutItemCommand,
   UpdateItemCommand,
 } from "@aws-sdk/client-dynamodb";
+import { fetchRates } from "./dataFetch";
 
 const client = new DynamoDBClient({
   region: "us-east-1",
@@ -12,6 +13,59 @@ const client = new DynamoDBClient({
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   },
 });
+const currentTimestampInSeconds = Math.floor(Date.now() / 1000);
+const voteRate = 5;
+
+export const addRatesToUserData = async (userId) => {
+  try {
+    // Fetch the current UNIX timestamp
+    const currentTimestampInSeconds = Math.floor(Date.now() / 1000);
+
+    // Fetch existing rates data for the user
+    const rates = await fetchRates(userId);
+
+    let { voteRate, rateTimer } = rates;
+
+    // Condition 1: If there is no Rates attribute and rateTimer - 1 hour is equal to 0
+    if (!rates && rateTimer - 3600 === 0) {
+      voteRate = 10;
+      rateTimer = currentTimestampInSeconds + 3600; // 3600 seconds = 1 hour
+    }
+    // Condition 2: If rateTimer and voteRate are not 0, decrement voteRate by 1
+    else if (rateTimer !== 0 && voteRate !== 0) {
+      voteRate -= 1;
+    }
+    // Condition 3: If rateTimer has a value and voteRate is 0, stop executing
+    else if (rateTimer !== 0 && voteRate === 0) {
+      console.log("Conditions not met. Function not executed.");
+      return "denied";
+    }
+
+    // Define the Rates attribute with the updated values
+    const ratesAttribute = {
+      voteRate: { N: voteRate.toString() },
+      rateTimer: { N: rateTimer.toString() },
+    };
+
+    const userTableParams = {
+      TableName: "userData",
+      Key: {
+        userId: { S: userId },
+      },
+      UpdateExpression: "SET Rates = :rates",
+      ExpressionAttributeValues: {
+        ":rates": { M: ratesAttribute },
+      },
+    };
+
+    // Send the UpdateItem request to DynamoDB
+    await client.send(new UpdateItemCommand(userTableParams));
+
+    console.log("Rates attribute updated in userData successfully.");
+  } catch (error) {
+    console.error("Error updating Rates attribute in userData:", error);
+  }
+};
 
 export const recordVote = async (postId, userId, voteType) => {
   try {
@@ -117,23 +171,3 @@ export const updateVoteCount = async (postId, increment) => {
     console.error("Error updating vote count:", error);
   }
 };
-
-/* export const updateUserRate = async (userId, increment) => {
-  const updateParams = {
-    TableName: "userData",
-    Key: {
-      userId: { S: userId },
-    },
-    UpdateExpression: "SET rate = VoteCount + :increment",
-    ExpressionAttributeValues: {
-      ":increment": { N: increment.toString() },
-    },
-  };
-
-  try {
-    await client.send(new UpdateItemCommand(updateParams));
-    console.log("Vote count updated successfully");
-  } catch (error) {
-    console.error("Error updating vote count:", error);
-  }
-}; */
