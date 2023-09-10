@@ -83,3 +83,49 @@
 .pageNum_next_btn:disabled {
   visibility: hidden;
 }
+
+/* Filtering Options */
+
+.filterOptions_container {
+  margin-top: 2rem;
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  align-items: center;
+}
+
+.filter_header,
+.light_theme_filter_header {
+  font-size: 0.75rem;
+  font-family: "Kanit";
+  color: #ebebeb;
+  margin-right: 0.8rem;
+}
+.light_theme_filter_header {
+  color: #1f1f1f;
+}
+
+.filterBtn_container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 21rem;
+}
+
+.filter_btn {
+  font-size: 0.65rem;
+  letter-spacing: 0.05rem;
+  padding: 0.4rem;
+  background-color: #5263fa;
+  color: #ebebeb;
+  border-radius: 4px;
+  border: none;
+  font-family: "Kanit";
+  text-align: center;
+  transition: all 0.2s cubic-bezier(0.7, 0, 0.3, 1);
+  cursor: pointer;
+}
+.filter_btn:hover {
+  background-color: #3b3efc;
+}

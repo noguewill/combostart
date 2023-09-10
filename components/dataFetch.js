@@ -149,3 +149,26 @@ export const fetchRates = async (userId) => {
     throw error; // You can handle the error as needed.
   }
 };
+
+export const fetchTimestamps = async () => {
+  const params = {
+    TableName: "combosSF6",
+  };
+
+  try {
+    // Use the ScanCommand to retrieve all items from the table
+    const results = await client.send(new ScanCommand(params));
+
+    // Extract the timestamps and partition keys from the results
+    const itemsData = results.Items.map((item) => {
+      return {
+        timestamp: item.Timestamp?.N, // Assuming the timestamp is stored as a number
+        postId: item.postId?.S, // Replace PARTITION_KEY_NAME with your actual partition key attribute name
+      };
+    });
+
+    console.log(itemsData);
+  } catch (error) {
+    console.error("Error retrieving data:", error);
+  }
+};

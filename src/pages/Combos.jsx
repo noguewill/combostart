@@ -8,6 +8,7 @@ import ComboCard from "/components/ComboCard";
 import { defCurrentUser, fetchComboData } from "../../components/dataFetch";
 import { KoFiWidget } from "components/PaymentOptions";
 import AuthenticationBody from "components/Authentication/AuthenticationBody";
+import { fetchTimestamps } from "../../components/dataFetch";
 
 const Combos = () => {
   const { theme } = useContext(ThemeContext);
@@ -17,6 +18,7 @@ const Combos = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [loggedIn, setLoggedIn] = useState(false);
   const [showSignIn, setShowSignIn] = useState(false);
+  const [sortedComboData, setSortedComboData] = useState([]); // Initialize as an empty array
 
   const itemsPerPage = 7;
   const toggleOverlay = () => {
@@ -35,6 +37,7 @@ const Combos = () => {
       try {
         const comboData = await fetchComboData();
         setRawComboData(comboData);
+        setSortedComboData(comboData); // Initialize sorted data with the raw data
 
         console.log("Data fetching and state updates completed.", comboData);
       } catch (error) {
@@ -43,6 +46,7 @@ const Combos = () => {
     };
 
     fetchData();
+    fetchTimestamps();
   }, []);
 
   // Calculate totalItems based on filtered data
@@ -58,17 +62,61 @@ const Combos = () => {
     return charNameMatch || titleMatch;
   });
 
-  const totalItems = filteredComboData.length;
+  const totalItems = sortedComboData.length; // Use sorted data for totalItems
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   // Calculate the start and end indexes based on currentPage
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const currentCombos = filteredComboData.slice(startIndex, endIndex);
+  const currentCombos = sortedComboData.slice(startIndex, endIndex); // Use sorted data
 
   const handleSearch = (newSearchQuery) => {
     setSearchQuery(newSearchQuery);
     setCurrentPage(1); // Reset to page 1 when performing a search
+    // Note: No need to call sortFilteredCombos here, as we're not applying sort filtering
+  };
+
+  const sortFilteredCombos = (sortBy) => {
+    // Clone the filteredComboData to avoid mutation
+    const filteredDataCopy = [...filteredComboData];
+
+    // Sort the filtered data based on the sortBy parameter
+    if (sortBy === "newest") {
+      filteredDataCopy.sort((a, b) => b.Timestamp?.N - a.Timestamp?.N); // Sort by newest first
+    } else if (sortBy === "oldest") {
+      filteredDataCopy.sort((a, b) => a.Timestamp?.N - b.Timestamp?.N); // Sort by oldest first
+    } else if (sortBy === "popular") {
+      filteredDataCopy.sort((a, b) => b.VoteCount?.N - a.VoteCount?.N); // Sort by popular (highest votes first)
+    } else if (sortBy === "trending") {
+      // Calculate the "Trending Score" for each post using the provided formula
+      filteredDataCopy.sort((a, b) => {
+        const trendingScoreA = calcTrendingScore(a);
+        const trendingScoreB = calcTrendingScore(b);
+        return trendingScoreB - trendingScoreA; // Sort by trending score (higher first)
+      });
+    }
+
+    // Use the sorted data for rendering or further processing
+    console.log(filteredDataCopy);
+
+    // Set the sorted data to the state
+    setSortedComboData(filteredDataCopy);
+  };
+
+  const calcTrendingScore = (post) => {
+    const weightForVotes = 0.7; // Adjust this weight to your preference
+    const weightForTimestamp = 0.3; // Adjust this weight to your preference
+
+    const votes = post.VoteCount?.N || 0; // Number of votes
+    const timestamp = new Date(post.Timestamp?.N).getTime(); // Timestamp in milliseconds
+    const currentTimestamp = Date.now(); // Current timestamp in milliseconds
+
+    // Calculate the trending score based on the formula
+    const trendingScore =
+      weightForVotes * votes +
+      weightForTimestamp * (1 / (currentTimestamp - timestamp + 1));
+
+    return trendingScore;
   };
 
   return (
@@ -81,9 +129,45 @@ const Combos = () => {
         setSearchQueryVal={setSearchQuery}
       />
 
+      {/* Filtering options */}
+      <div className={styles.filterOptions_container}>
+        <h4 className={styles[`${theme}filter_header`]}>SORT BY:</h4>
+        <div className={styles.filterBtn_container}>
+          <button
+            type="button"
+            className={styles.filter_btn}
+            onClick={() => sortFilteredCombos("trending")} // Sort by trending posts first
+          >
+            TRENDING
+          </button>
+          <button
+            type="button"
+            className={styles.filter_btn}
+            onClick={() => sortFilteredCombos("popular")} // Sort by popular (highest votes first)
+          >
+            POPULAR
+          </button>
+
+          <button
+            type="button"
+            className={styles.filter_btn}
+            onClick={() => sortFilteredCombos("newest")} // Default: sort by newest first
+          >
+            NEWEST
+          </button>
+          <button
+            type="button"
+            className={styles.filter_btn}
+            onClick={() => sortFilteredCombos("oldest")} // Sort by oldest first
+          >
+            OLDEST
+          </button>
+        </div>
+      </div>
+
       {filteredComboData.length === 0 && searchQuery !== "" ? (
         <h2 className={styles.notFoundMessage}>
-          No results found, for &quot;{searchQuery}&quot;.
+          No results found for &quot;{searchQuery}&quot;.
         </h2>
       ) : (
         <section className={styles.combos_container}>
@@ -92,7 +176,7 @@ const Combos = () => {
           <ComboCard
             loggedIn={loggedIn}
             setShowSignIn={setShowSignIn}
-            displayedCombos={currentCombos}
+            displayedCombos={currentCombos} // Use sorted data for rendering
             userId={userId}
             theme={theme}
           />

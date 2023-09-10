@@ -126,6 +126,7 @@ const NewPost = () => {
   const day = currentDate.getDate();
   const month = currentDate.getMonth() + 1;
   const year = currentDate.getFullYear();
+  const numericTimestamp = currentDate.getTime(); // This gives you the timestamp in milliseconds since January 1, 1970 (UTC)
 
   useEffect(() => {
     awsmobile;
@@ -256,6 +257,7 @@ const NewPost = () => {
       Tags: { S: tags.join(",").toUpperCase() },
       SubmissionTime: { S: time },
       SubmissionDate: { S: date },
+      Timestamp: { N: numericTimestamp.toString() },
       VoteCount: { N: voteCount.toString() },
     };
 
