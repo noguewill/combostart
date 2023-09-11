@@ -4,7 +4,7 @@ import {
   PutItemCommand,
   UpdateItemCommand,
 } from "@aws-sdk/client-dynamodb";
-import { fetchRates } from "./dataFetch";
+import { fetchRates } from "../logic/dataFetch";
 
 const client = new DynamoDBClient({
   region: "us-east-1",
@@ -13,8 +13,6 @@ const client = new DynamoDBClient({
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   },
 });
-const currentTimestampInSeconds = Math.floor(Date.now() / 1000);
-const voteRate = 5;
 
 export const addRatesToUserData = async (userId) => {
   try {
@@ -80,20 +78,33 @@ export const recordVote = async (postId, userId, voteType) => {
       Item: voteInfo,
     };
 
-    /* Sending data to the userData table */
+    /* Construct the userVoteHistoryUpdate map */
     const userVoteHistoryUpdate = {
       [postId]: { S: voteType }, // Use postId as a key
     };
+
+    /* Sending data to the userData table */
     const userTableParams = {
       TableName: "userData",
       Key: {
         userId: { S: userId },
       },
-      UpdateExpression: "SET UserVoteHistory = :history",
+      UpdateExpression: "SET UserVoteHistory.#post = :voteType",
+      ExpressionAttributeNames: {
+        "#post": postId, // Specify the post ID as the attribute name
+      },
       ExpressionAttributeValues: {
-        ":history": { M: userVoteHistoryUpdate },
+        ":voteType": { S: voteType },
       },
     };
+
+    // Check if UserVoteHistory doesn't exist and create it
+    if (!userVoteHistoryUpdate[postId]) {
+      userTableParams.UpdateExpression = "SET UserVoteHistory = :voteMap";
+      userTableParams.ExpressionAttributeValues[":voteMap"] = {
+        M: userVoteHistoryUpdate,
+      };
+    }
 
     await client.send(new PutItemCommand(params));
     await client.send(new UpdateItemCommand(userTableParams));

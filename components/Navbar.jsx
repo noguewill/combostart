@@ -3,11 +3,11 @@ import { ThemeContext } from "./ThemeContext";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/Navbar.module.css";
-import AuthenticationBody from "./Authentication/AuthenticationBody";
+import AuthenticationBody from "./authentication/AuthenticationBody";
 import ThemeToggleBtn from "./ThemeToggleBtn";
 import { useRouter } from "next/router";
-import { defCurrentUser } from "../components/dataFetch";
-import { handleSignOut } from "./Authentication/authUtils/authHandler";
+import { defCurrentUser } from "../logic/dataFetch";
+import { handleSignOut } from "../logic/authUtils/authHandler";
 
 const Navbar = () => {
   const router = useRouter();

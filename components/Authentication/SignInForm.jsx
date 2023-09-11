@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "@/styles/Form.module.css";
 import Image from "next/image";
-import { handleSignInSubmit } from "./authUtils/authHandler";
+import { handleSignInSubmit } from "../../logic/authUtils/authHandler";
 
 const SignInForm = ({
   showSignupForm,

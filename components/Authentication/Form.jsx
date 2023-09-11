@@ -3,8 +3,6 @@ import styles from "@/styles/Form.module.css";
 import SignUpForm from "./SignUpForm";
 import SignInForm from "./SignInForm";
 import { Auth } from "aws-amplify";
-import { defCurrentUser } from "components/dataFetch";
-import { addRatesToUserData } from "components/dataSend";
 
 const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
   const [showPassword, setShowPassword] = useState(false);

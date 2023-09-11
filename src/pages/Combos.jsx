@@ -5,10 +5,9 @@ import Search from "/components/Search";
 import Footer from "/components/Footer";
 import Navbar from "/components/Navbar";
 import ComboCard from "/components/ComboCard";
-import { defCurrentUser, fetchComboData } from "../../components/dataFetch";
+import { defCurrentUser, fetchComboData } from "../../logic/dataFetch";
 import { KoFiWidget } from "components/PaymentOptions";
-import AuthenticationBody from "components/Authentication/AuthenticationBody";
-import { fetchTimestamps } from "../../components/dataFetch";
+import AuthenticationBody from "components/authentication/AuthenticationBody";
 
 const Combos = () => {
   const { theme } = useContext(ThemeContext);
@@ -19,6 +18,7 @@ const Combos = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [showSignIn, setShowSignIn] = useState(false);
   const [sortedComboData, setSortedComboData] = useState([]); // Initialize as an empty array
+  const [filteredComboData, setFilteredComboData] = useState([]); // State for filtered combo data
 
   const itemsPerPage = 7;
   const toggleOverlay = () => {
@@ -37,31 +37,17 @@ const Combos = () => {
       try {
         const comboData = await fetchComboData();
         setRawComboData(comboData);
+        setFilteredComboData(comboData); // Initialize filtered data with the raw data
         setSortedComboData(comboData); // Initialize sorted data with the raw data
-
-        console.log("Data fetching and state updates completed.", comboData);
       } catch (error) {
         console.error("Error fetching combos:", error);
       }
     };
 
     fetchData();
-    fetchTimestamps();
   }, []);
 
   // Calculate totalItems based on filtered data
-  const filteredComboData = rawComboData.filter((card) => {
-    const formattedCharName = card.Character?.S.toLowerCase().replace(/-/g, "");
-    const formattedTitle = card.PostTitle?.S.toLowerCase().replace(/-/g, "");
-
-    const titleWords = formattedTitle.split(" ");
-
-    const charNameMatch = formattedCharName.includes(searchQuery);
-    const titleMatch = titleWords.some((word) => word.includes(searchQuery));
-
-    return charNameMatch || titleMatch;
-  });
-
   const totalItems = sortedComboData.length; // Use sorted data for totalItems
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
@@ -71,9 +57,30 @@ const Combos = () => {
   const currentCombos = sortedComboData.slice(startIndex, endIndex); // Use sorted data
 
   const handleSearch = (newSearchQuery) => {
+    const filteredData = rawComboData.filter((card) => {
+      const formattedCharName = card.Character?.S.toLowerCase().replace(
+        /-/g,
+        ""
+      );
+      const formattedTitle = card.PostTitle?.S.toLowerCase().replace(/-/g, "");
+      const searchQueryLowerCase = newSearchQuery.toLowerCase();
+
+      const titleWords = formattedTitle.split(" ");
+
+      const charNameMatch = formattedCharName.includes(searchQueryLowerCase);
+      const titleMatch = titleWords.some((word) =>
+        word.includes(searchQueryLowerCase)
+      );
+
+      return charNameMatch || titleMatch;
+    });
+
+    // Update both filteredComboData and sortedComboData
+    setFilteredComboData(filteredData);
+    setSortedComboData(filteredData);
+
     setSearchQuery(newSearchQuery);
     setCurrentPage(1); // Reset to page 1 when performing a search
-    // Note: No need to call sortFilteredCombos here, as we're not applying sort filtering
   };
 
   const sortFilteredCombos = (sortBy) => {
@@ -82,40 +89,35 @@ const Combos = () => {
 
     // Sort the filtered data based on the sortBy parameter
     if (sortBy === "newest") {
-      filteredDataCopy.sort((a, b) => b.Timestamp?.N - a.Timestamp?.N); // Sort by newest first
+      filteredDataCopy.sort((a, b) => b.Timestamp?.N - a.Timestamp?.N);
     } else if (sortBy === "oldest") {
-      filteredDataCopy.sort((a, b) => a.Timestamp?.N - b.Timestamp?.N); // Sort by oldest first
+      filteredDataCopy.sort((a, b) => a.Timestamp?.N - b.Timestamp?.N);
     } else if (sortBy === "popular") {
-      filteredDataCopy.sort((a, b) => b.VoteCount?.N - a.VoteCount?.N); // Sort by popular (highest votes first)
+      filteredDataCopy.sort((a, b) => b.VoteCount?.N - a.VoteCount?.N);
     } else if (sortBy === "trending") {
-      // Calculate the "Trending Score" for each post using the provided formula
       filteredDataCopy.sort((a, b) => {
         const trendingScoreA = calcTrendingScore(a);
         const trendingScoreB = calcTrendingScore(b);
-        return trendingScoreB - trendingScoreA; // Sort by trending score (higher first)
+        return trendingScoreB - trendingScoreA;
       });
     }
-
-    // Use the sorted data for rendering or further processing
-    console.log(filteredDataCopy);
 
     // Set the sorted data to the state
     setSortedComboData(filteredDataCopy);
   };
 
   const calcTrendingScore = (post) => {
-    const weightForVotes = 0.7; // Adjust this weight to your preference
+    const weightForVotes = 0.9; // Adjust this weight to your preference
     const weightForTimestamp = 0.3; // Adjust this weight to your preference
 
     const votes = post.VoteCount?.N || 0; // Number of votes
-    const timestamp = new Date(post.Timestamp?.N).getTime(); // Timestamp in milliseconds
+    const timestamp = post.Timestamp?.N; // Timestamp in milliseconds
     const currentTimestamp = Date.now(); // Current timestamp in milliseconds
 
     // Calculate the trending score based on the formula
     const trendingScore =
       weightForVotes * votes +
       weightForTimestamp * (1 / (currentTimestamp - timestamp + 1));
-
     return trendingScore;
   };
 

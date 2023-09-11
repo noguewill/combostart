@@ -1,5 +1,5 @@
 import { Auth } from "aws-amplify";
-import { awsmobile } from "./Authentication/amplifyHandler";
+import { awsmobile } from "./amplifyHandler";
 import {
   DynamoDBClient,
   ScanCommand,
@@ -83,40 +83,6 @@ export const fetchVoteData = async (postId, userId) => {
     }
   } catch (error) {
     return null; // Return null in case of an error
-  }
-};
-
-/* It retrieves all the posts the user voted for */
-export const fetchUpvotedPostIds = async (userId) => {
-  try {
-    const userVoteHistoryParams = {
-      TableName: "userData",
-      Key: {
-        userId: { S: userId },
-      },
-    };
-
-    const userVoteHistoryResponse = await client.send(
-      new GetItemCommand(userVoteHistoryParams)
-    );
-
-    const userVoteHistory = userVoteHistoryResponse.Item?.UserVoteHistory;
-
-    const upvotedPostIds = [];
-
-    if (userVoteHistory) {
-      for (const postId in userVoteHistory.M) {
-        console.log(userVoteHistory.M[postId]);
-        if (userVoteHistory.M[postId].S === "upvote") {
-          upvotedPostIds.push(postId);
-        }
-      }
-    }
-
-    return upvotedPostIds;
-  } catch (error) {
-    console.error("Error fetching upvoted post IDs:", error);
-    return [];
   }
 };
 

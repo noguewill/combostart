@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Auth } from "aws-amplify";
-import { awsmobile } from "./Authentication/amplifyHandler";
+import { awsmobile } from "../logic/amplifyHandler";
 import { useRouter } from "next/router";
 
 const withAuth = (WrappedComponent) => {
