@@ -78,45 +78,38 @@ export const recordVote = async (postId, userId, voteType) => {
       Item: voteInfo,
     };
 
-    /* Construct the userVoteHistoryUpdate map */
-    const userVoteHistoryUpdate = {
-      [postId]: { S: voteType }, // Use postId as a key
-    };
-
     /* Sending data to the userData table */
     const userTableParams = {
       TableName: "userData",
       Key: {
         userId: { S: userId },
       },
-      UpdateExpression: "SET UserVoteHistory.#post = :voteType",
-      ExpressionAttributeNames: {
-        "#post": postId, // Specify the post ID as the attribute name
-      },
+      // Use a conditional expression to check if UserVoteHistory exists
+      ConditionExpression: "attribute_not_exists(UserVoteHistory)",
+      UpdateExpression: "SET UserVoteHistory = :initialMap",
       ExpressionAttributeValues: {
-        ":voteType": { S: voteType },
+        ":initialMap": { M: { [postId]: { S: voteType } } }, // Initial UserVoteHistory map
       },
     };
 
-    // Check if UserVoteHistory doesn't exist and create it
-    if (!userVoteHistoryUpdate[postId]) {
-      userTableParams.UpdateExpression = "SET UserVoteHistory = :voteMap";
-      userTableParams.ExpressionAttributeValues[":voteMap"] = {
-        M: userVoteHistoryUpdate,
-      };
+    try {
+      await client.send(new PutItemCommand(params));
+
+      // Attempt to add the key-value pair to UserVoteHistory
+      await client.send(new UpdateItemCommand(userTableParams));
+
+      // Increment or decrement the VoteCount of the corresponding post
+      if (voteType === "upvote") {
+        await updateVoteCount(postId, 1); // Increase VoteCount by 1
+      } else if (voteType === "downvote") {
+        await updateVoteCount(postId, -1); // Decrease VoteCount by 1
+      }
+
+      console.log("voteInfo inserted successfully into DynamoDB");
+    } catch (updateError) {
+      // Handle errors
+      console.error("Error inserting item into DynamoDB:", updateError);
     }
-
-    await client.send(new PutItemCommand(params));
-    await client.send(new UpdateItemCommand(userTableParams));
-
-    // Increment or decrement the VoteCount of the corresponding post
-    if (voteType === "upvote") {
-      await updateVoteCount(postId, 1); // Increase VoteCount by 1
-    } else if (voteType === "downvote") {
-      await updateVoteCount(postId, -1); // Decrease VoteCount by 1
-    }
-
-    console.log("voteInfo inserted successfully into DynamoDB");
   } catch (error) {
     console.error("Error inserting item into DynamoDB:", error);
   }
