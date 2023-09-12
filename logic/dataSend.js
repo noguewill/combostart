@@ -79,37 +79,31 @@ export const recordVote = async (postId, userId, voteType) => {
     };
 
     /* Sending data to the userData table */
+    const userVoteHistoryUpdate = {
+      [postId]: { S: voteType }, // Use postId as a key
+    };
     const userTableParams = {
       TableName: "userData",
       Key: {
         userId: { S: userId },
       },
-      // Use a conditional expression to check if UserVoteHistory exists
-      ConditionExpression: "attribute_not_exists(UserVoteHistory)",
-      UpdateExpression: "SET UserVoteHistory = :initialMap",
+      UpdateExpression: "SET UserVoteHistory = :history",
       ExpressionAttributeValues: {
-        ":initialMap": { M: { [postId]: { S: voteType } } }, // Initial UserVoteHistory map
+        ":history": { M: userVoteHistoryUpdate },
       },
     };
 
-    try {
-      await client.send(new PutItemCommand(params));
+    await client.send(new PutItemCommand(params));
+    await client.send(new UpdateItemCommand(userTableParams));
 
-      // Attempt to add the key-value pair to UserVoteHistory
-      await client.send(new UpdateItemCommand(userTableParams));
-
-      // Increment or decrement the VoteCount of the corresponding post
-      if (voteType === "upvote") {
-        await updateVoteCount(postId, 1); // Increase VoteCount by 1
-      } else if (voteType === "downvote") {
-        await updateVoteCount(postId, -1); // Decrease VoteCount by 1
-      }
-
-      console.log("voteInfo inserted successfully into DynamoDB");
-    } catch (updateError) {
-      // Handle errors
-      console.error("Error inserting item into DynamoDB:", updateError);
+    // Increment or decrement the VoteCount of the corresponding post
+    if (voteType === "upvote") {
+      await updateVoteCount(postId, 1); // Increase VoteCount by 1
+    } else if (voteType === "downvote") {
+      await updateVoteCount(postId, -1); // Decrease VoteCount by 1
     }
+
+    console.log("voteInfo inserted successfully into DynamoDB");
   } catch (error) {
     console.error("Error inserting item into DynamoDB:", error);
   }
@@ -175,3 +169,14 @@ export const updateVoteCount = async (postId, increment) => {
     console.error("Error updating vote count:", error);
   }
 };
+
+/* const newUser = {
+  userId: { S: userId },
+  UserVoteHIstory: { M: {} },
+};
+
+const params = {
+  TableName: "userData",
+  Item: newUser,
+};
+ */

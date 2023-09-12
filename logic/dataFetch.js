@@ -25,7 +25,7 @@ export const defCurrentUser = async () => {
   awsmobile;
   try {
     const user = await Auth.currentAuthenticatedUser();
-    console.log("User authenticated:", user);
+
     return user.attributes;
   } catch (error) {
     console.log("User not authenticated.");
@@ -113,6 +113,35 @@ export const fetchRates = async (userId) => {
   } catch (error) {
     console.error("Error fetching Rates from userData:", error);
     throw error; // You can handle the error as needed.
+  }
+};
+
+export const fetchUpvotedPostIds = async (userId) => {
+  try {
+    const userVoteHistoryParams = {
+      TableName: "userData",
+      Key: {
+        userId: { S: userId },
+      },
+    };
+    const userVoteHistoryResponse = await client.send(
+      new GetItemCommand(userVoteHistoryParams)
+    );
+    const userVoteHistory = userVoteHistoryResponse.Item?.UserVoteHistory;
+    const upvotedPostIds = [];
+    if (userVoteHistory) {
+      for (const postId in userVoteHistory.M) {
+        console.log(userVoteHistory.M[postId]);
+        if (userVoteHistory.M[postId].S === "upvote") {
+          upvotedPostIds.push(postId);
+        }
+      }
+    }
+
+    return upvotedPostIds;
+  } catch (error) {
+    console.error("Error fetching upvoted post IDs:", error);
+    return [];
   }
 };
 

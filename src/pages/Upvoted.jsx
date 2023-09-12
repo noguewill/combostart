@@ -8,7 +8,7 @@ import {
   defCurrentUser,
   fetchComboData,
   fetchUpvotedPostIds,
-} from "/components/dataFetch";
+} from "logic/dataFetch";
 import withAuth from "components/withAuth";
 
 const Upvoted = () => {

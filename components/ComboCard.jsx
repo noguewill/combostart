@@ -57,33 +57,33 @@ const ComboCard = ({
               ""
             ) : (
               <section className={styles.upvote_container}>
-              <button
-                className={`${
-                  voteStatus[postId] === "upvote"
-                    ? styles[`${theme}upvote_btn_upvote`]
-                    : styles[`${theme}upvote_btn_`]
-                }`}
-                onClick={() => handleUpvote(postId)}
-              ></button>
+                <button
+                  className={`${
+                    voteStatus[postId] === "upvote"
+                      ? styles[`${theme}upvote_btn_upvote`]
+                      : styles[`${theme}upvote_btn_`]
+                  }`}
+                  onClick={() => handleUpvote(postId)}
+                ></button>
 
-              <span
-                className={`${
-                  voteStatus[postId] !== null || ""
-                    ? styles[`${theme}votes_voted`]
-                    : styles[`${theme}votes`]
-                }`}
-              >
-                {currentVotes[postId]}
-              </span>
-              <button
-                className={`${
-                  voteStatus[postId] === "downvote"
-                    ? styles[`${theme}downvote_btn_downvote`]
-                    : styles[`${theme}downvote_btn_`]
-                }`}
-                onClick={() => handleDownvote(postId)}
-              ></button>
-            </section>
+                <span
+                  className={`${
+                    voteStatus[postId] !== null || ""
+                      ? styles[`${theme}votes_voted`]
+                      : styles[`${theme}votes`]
+                  }`}
+                >
+                  {currentVotes[postId]}
+                </span>
+                <button
+                  className={`${
+                    voteStatus[postId] === "downvote"
+                      ? styles[`${theme}downvote_btn_downvote`]
+                      : styles[`${theme}downvote_btn_`]
+                  }`}
+                  onClick={() => handleDownvote(postId)}
+                ></button>
+              </section>
             )}
 
             <article
