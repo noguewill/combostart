@@ -36,7 +36,11 @@ export function useComboCardLogic(
         }));
         setParsedComboStrings(JSON.parse(val.ComboStrings?.S));
       });
-      await fetchUserVoteHistory(userId);
+      try {
+        await fetchUserVoteHistory(userId);
+      } catch (error) {
+        console.error();
+      }
     };
 
     setStringsCount(
