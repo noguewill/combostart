@@ -1,7 +1,12 @@
 // comboCardLogic.js
 
 import { useState, useEffect } from "react";
-import { recordVote, removeVote, addRatesToUserData } from "../logic/dataSend";
+import {
+  recordVote,
+  removeVote,
+  addRatesToUserData,
+  fetchUserVoteHistory,
+} from "../logic/dataSend";
 import { fetchVoteData, fetchRates } from "../logic/dataFetch";
 
 export function useComboCardLogic(
@@ -31,6 +36,7 @@ export function useComboCardLogic(
         }));
         setParsedComboStrings(JSON.parse(val.ComboStrings?.S));
       });
+      await fetchUserVoteHistory(userId);
     };
 
     setStringsCount(
@@ -72,34 +78,24 @@ export function useComboCardLogic(
     if (loggedIn !== false) {
       try {
         const voteData = await fetchVoteData(postId, userId);
-        const rates = await fetchRates(userId);
 
-        if (rates.voteRate <= 0 && rates.rateTimer !== 0) {
-          setLimitReached(true);
+        if (voteData === "upvote") {
+          setCurrentVotes((prevVotes) => ({
+            ...prevVotes,
+            [postId]: prevVotes[postId] - 1,
+          }));
+          await removeVote(postId, userId, "upvote");
         } else {
-          addRatesToUserData(userId);
-          setLimitReached(false);
+          setCurrentVotes((prevVotes) => ({
+            ...prevVotes,
+            [postId]: prevVotes[postId] + (voteData === "downvote" ? 2 : 1),
+          }));
+          await recordVote(postId, userId, "upvote");
         }
 
-        if (limitReached === false) {
-          if (voteData === "upvote") {
-            setCurrentVotes((prevVotes) => ({
-              ...prevVotes,
-              [postId]: prevVotes[postId] - 1,
-            }));
-            await removeVote(postId, userId, "upvote");
-          } else {
-            setCurrentVotes((prevVotes) => ({
-              ...prevVotes,
-              [postId]: prevVotes[postId] + (voteData === "downvote" ? 2 : 1),
-            }));
-            await recordVote(postId, userId, "upvote");
-          }
-
-          const newVoteStatus = { ...voteStatus };
-          newVoteStatus[postId] = voteData === "upvote" ? null : "upvote";
-          setVoteStatus(newVoteStatus);
-        }
+        const newVoteStatus = { ...voteStatus };
+        newVoteStatus[postId] = voteData === "upvote" ? null : "upvote";
+        setVoteStatus(newVoteStatus);
       } catch (error) {
         console.error("Error handling upvote:", error);
       }

@@ -3,6 +3,7 @@ import {
   DeleteItemCommand,
   PutItemCommand,
   UpdateItemCommand,
+  GetItemCommand,
 } from "@aws-sdk/client-dynamodb";
 import { fetchRates } from "../logic/dataFetch";
 
@@ -65,8 +66,30 @@ export const addRatesToUserData = async (userId) => {
   }
 };
 
+// Function to fetch userData by userId
+export const fetchUserVoteHistory = async (userId) => {
+  const params = {
+    TableName: "userData",
+    Key: {
+      userId: { S: userId },
+    },
+  };
+
+  try {
+    const response = await client.send(new GetItemCommand(params));
+    console.log("response.Item:", response.Item);
+    return response.Item; // Return the userData item
+  } catch (error) {
+    console.error("Error fetching userData:", error);
+    throw error;
+  }
+};
+
+// Function to create or update UserVoteHistory
 export const recordVote = async (postId, userId, voteType) => {
   try {
+    const isThereUserVoteHistory = await fetchUserVoteHistory(userId);
+
     /* Sending data to the postVotes table */
     const voteInfo = {
       postId: { S: postId }, // Use postId as a key
@@ -82,7 +105,7 @@ export const recordVote = async (postId, userId, voteType) => {
     const userVoteHistoryUpdate = {
       [postId]: { S: voteType }, // Use postId as a key
     };
-    const userTableParams = {
+    const createUserVoteHistory = {
       TableName: "userData",
       Key: {
         userId: { S: userId },
@@ -93,8 +116,28 @@ export const recordVote = async (postId, userId, voteType) => {
       },
     };
 
+    /* Sending update vote record data to the UserVoteHistory attribute */
+    const updateUserVoteHistory = {
+      TableName: "userData",
+      Key: {
+        userId: { S: userId },
+      },
+      UpdateExpression: "SET UserVoteHistory.#post = :voteType",
+      ExpressionAttributeNames: {
+        "#post": postId, // Specify the post ID as the attribute name
+      },
+      ExpressionAttributeValues: {
+        ":voteType": { S: voteType },
+      },
+    };
+
     await client.send(new PutItemCommand(params));
-    await client.send(new UpdateItemCommand(userTableParams));
+
+    if (isThereUserVoteHistory) {
+      await client.send(new UpdateItemCommand(updateUserVoteHistory));
+    } else {
+      await client.send(new UpdateItemCommand(createUserVoteHistory));
+    }
 
     // Increment or decrement the VoteCount of the corresponding post
     if (voteType === "upvote") {
