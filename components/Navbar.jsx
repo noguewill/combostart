@@ -3,7 +3,7 @@ import { ThemeContext } from "./ThemeContext";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/Navbar.module.css";
-import AuthenticationBody from "./authentication/AuthenticationBody";
+import AuthenticationBody from "./auth/AuthenticationBody";
 import ThemeToggleBtn from "./ThemeToggleBtn";
 import { useRouter } from "next/router";
 import { defCurrentUser } from "../logic/dataFetch";

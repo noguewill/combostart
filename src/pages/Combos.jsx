@@ -7,7 +7,7 @@ import Navbar from "/components/Navbar";
 import ComboCard from "/components/ComboCard";
 import { defCurrentUser, fetchComboData } from "../../logic/dataFetch";
 import { KoFiWidget } from "components/PaymentOptions";
-import AuthenticationBody from "components/authentication/AuthenticationBody";
+import AuthenticationBody from "components/auth/AuthenticationBody";
 
 const Combos = () => {
   const { theme } = useContext(ThemeContext);
