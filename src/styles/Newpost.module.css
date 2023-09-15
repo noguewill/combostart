@@ -309,3 +309,25 @@
 .tagItem:hover {
   background-color: #f13f39;
 }
+
+.selectGame_parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 25rem;
+}
+.selectGame_container {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #292929;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.selectGame_header,
+.light_theme_selectGame_header {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}

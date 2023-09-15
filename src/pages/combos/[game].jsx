@@ -1,15 +1,20 @@
 import React, { useState, useContext, useEffect } from "react";
 import styles from "@/styles/Combos.module.css";
-import { ThemeContext } from "../../components/ThemeContext";
+import { ThemeContext } from "components/ThemeContext";
 import Search from "/components/Search";
 import Footer from "/components/Footer";
 import Navbar from "/components/Navbar";
 import ComboCard from "/components/ComboCard";
-import { defCurrentUser, fetchComboData } from "../../logic/dataFetch";
+import ComboCardMK from "/components/ComboCardMK";
+import { defCurrentUser, fetchComboData } from "logic/dataFetch";
 import { KoFiWidget } from "components/PaymentOptions";
 import AuthenticationBody from "components/auth/AuthenticationBody";
+import { useRouter } from "next/router";
 
-const Combos = () => {
+const ComboPage = () => {
+  const router = useRouter();
+  const { game } = router.query;
+
   const { theme } = useContext(ThemeContext);
   const [userId, setUserId] = useState("");
   const [rawComboData, setRawComboData] = useState([]);
@@ -35,17 +40,20 @@ const Combos = () => {
         console.error("Error fetching user:", error);
       }
       try {
-        const comboData = await fetchComboData();
-        setRawComboData(comboData);
-        setFilteredComboData(comboData); // Initialize filtered data with the raw data
-        setSortedComboData(comboData); // Initialize sorted data with the raw data
+        if (game) {
+          // Fetch combo data based on the dynamic value
+          const comboData = await fetchComboData(game);
+          setRawComboData(comboData);
+          setFilteredComboData(comboData); // Initialize filtered data with the raw data
+          setSortedComboData(comboData); // Initialize sorted data with the raw data
+        }
       } catch (error) {
         console.error("Error fetching combos:", error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [game]);
 
   // Calculate totalItems based on filtered data
   const totalItems = sortedComboData.length; // Use sorted data for totalItems
@@ -174,14 +182,25 @@ const Combos = () => {
       ) : (
         <section className={styles.combos_container}>
           {showSignIn && <AuthenticationBody toggleOverlay={toggleOverlay} />}
+          {game === "streetfighter6" && (
+            <ComboCard
+              loggedIn={loggedIn}
+              setShowSignIn={setShowSignIn}
+              displayedCombos={currentCombos} // Use sorted data for rendering
+              userId={userId}
+              theme={theme}
+            />
+          )}
 
-          <ComboCard
-            loggedIn={loggedIn}
-            setShowSignIn={setShowSignIn}
-            displayedCombos={currentCombos} // Use sorted data for rendering
-            userId={userId}
-            theme={theme}
-          />
+          {game === "mortalkombat1" && (
+            <ComboCardMK
+              loggedIn={loggedIn}
+              setShowSignIn={setShowSignIn}
+              displayedCombos={currentCombos} // Use sorted data for rendering
+              userId={userId}
+              theme={theme}
+            />
+          )}
 
           <div className={styles.pageNum_parent}>
             <button
@@ -224,4 +243,4 @@ const Combos = () => {
   );
 };
 
-export default Combos;
+export default ComboPage;

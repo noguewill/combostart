@@ -421,3 +421,9 @@
 .string_item {
   cursor: default;
 }
+
+.headerMK_container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}

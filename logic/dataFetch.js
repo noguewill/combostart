@@ -15,11 +15,6 @@ const client = new DynamoDBClient({
     sessionToken: process.env.AWS_SESSION_TOKEN,
   },
 });
-
-const comboParams = {
-  TableName: "combosSF6",
-};
-
 /* Defines the current authenticated user */
 export const defCurrentUser = async () => {
   awsmobile;
@@ -33,13 +28,32 @@ export const defCurrentUser = async () => {
 };
 
 /* Function to fetch all comboPosts of Street Fighter 6 */
-export const fetchComboData = async () => {
+export const fetchComboData = async (game) => {
   try {
-    const response = await client.send(new ScanCommand(comboParams));
+    const tableParamsMap = {
+      streetfighter6: {
+        TableName: "combosSF6",
+      },
+      mortalkombat1: {
+        TableName: "combosMKOne",
+      },
+    };
+
+    // Get the table parameters based on the game name
+    const tableParams = tableParamsMap[game];
+
+    if (!tableParams) {
+      console.error("Invalid game name:", game);
+      return []; // Return an empty array or handle the error as needed
+    }
+
+    const response = await client.send(new ScanCommand(tableParams));
     console.log("Success, data received:", response.Items);
     return response.Items;
   } catch (error) {
     console.error("Error retrieving comboData from DynamoDB:", error);
+    // You might want to throw the error or handle it as needed
+    throw error;
   }
 };
 

@@ -4,10 +4,19 @@ import hubCardData from "/gamesData/hubCardData.json";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/ComboHub.module.css";
+import { useRouter } from "next/router";
 
 const ComboHubCards = () => {
   const [cardLimit, setCardLimit] = useState(10);
   const { theme } = useContext(ThemeContext);
+  const router = useRouter();
+
+  const selectGame = (chosenGame) => {
+    if (typeof window !== "undefined") {
+      // Check if we are on the client-side
+      router.push(`/combos/${chosenGame}`);
+    }
+  };
 
   const cards = hubCardData
     .filter((card) => card.attr !== "Featured" && card.attr !== "Upcoming") // Ignore cards with "Featured" or "Upcoming" attribute
@@ -62,7 +71,11 @@ const ComboHubCards = () => {
   return (
     <>
       <div className={styles.featured_container}>
-        <Link href="/Combos" className={styles.featuredCard}>
+        <button
+          type="button"
+          className={styles.featuredCard}
+          onClick={() => selectGame("streefighter6")}
+        >
           <span className={styles.featured_cardTitle}>STREET FIGHTER 6</span>
           <Image
             className={styles.featured_img}
@@ -71,7 +84,7 @@ const ComboHubCards = () => {
             width={920}
             height={920}
           />
-        </Link>
+        </button>
         <div className={styles.featuredDesc_container}>
           <h2 className={styles[`${theme}featuredDesc_header`]}>
             WANNA LEARN A COMBO?
@@ -97,7 +110,22 @@ const ComboHubCards = () => {
       <h2 className={styles[`${theme}rowTitle`]} style={{ marginTop: "2rem" }}>
         ONGOING
       </h2>
-      <div className={styles.ongoingRow}>{cards.slice(0, cardLimit * 3)}</div>
+      <div className={styles.ongoingRow}>
+        <button
+          type="button"
+          className={styles.featuredCard}
+          onClick={() => selectGame("mortalkombat1")}
+        >
+          <span className={styles.featured_cardTitle}>MORTAL KOMBAT 1</span>
+          <Image
+            className={styles.featured_img}
+            src="/gameCovers/sf6coverArt.webp"
+            alt="street fighter 6"
+            width={920}
+            height={920}
+          />
+        </button>
+      </div>
     </>
   );
 };

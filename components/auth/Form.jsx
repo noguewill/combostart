@@ -16,6 +16,16 @@ const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
   /* Disables verify button when there's less than 6 digits on it's input */
   const isButtonActive = verificationCode.length === 6;
 
+  const isEmailAlreadyInUse = async (email) => {
+    try {
+      const userAttributes = await Auth.fetchUserAttributes({ email });
+      return !!userAttributes;
+    } catch (error) {
+      console.log("Error checking if email is in use:", error);
+      return false;
+    }
+  };
+
   const handleSignUpSubmit = async (e) => {
     e.preventDefault();
 
@@ -25,12 +35,23 @@ const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
     const password = e.target.password.value;
 
     try {
+      // Check if the email is already in use
+      const isEmailInUse = await isEmailAlreadyInUse(email);
+
+      if (isEmailInUse) {
+        setNotificationText(
+          "Email is already in use. Please use a different email."
+        );
+        return;
+      }
+
+      // If email is not in use, proceed with sign-up
       await Auth.signUp({
         username,
         password,
         attributes: {
           email,
-          "custom:DisplayName": DisplayName, // Replace 'DisplayName' with the actual value
+          "custom:DisplayName": DisplayName,
         },
       });
       console.log("Sign up successful");
@@ -42,9 +63,8 @@ const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
       setShowVerifyModal(true);
     } catch (error) {
       // Handle sign-up error
-      setNotificationText("Error:", error.message);
+      setNotificationText(error.message);
       console.log("Error signing up:", error);
-      setErrorState(error.message);
     }
   };
 
