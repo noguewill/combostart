@@ -136,12 +136,11 @@
   transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
 
-.featuredCard:hover,
 .upcoming_left,
 .upcoming_right {
   transform: scale(1.03);
 }
-.featuredCard:hover .featured_cardTitle,
+
 .upcoming_left:hover .cardTitle {
   visibility: visible;
 }
@@ -149,7 +148,7 @@
 .upcoming_right:hover .cardTitle {
   visibility: visible;
 }
-.featuredCard:hover .featured_img,
+
 .upcoming_left:hover .cardImage {
   transform: scale(1.1);
 }
@@ -194,7 +193,12 @@
   transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
   object-fit: cover;
 }
-
+.splashKeyArt {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 .cardImage {
   display: block;
   width: 100%;

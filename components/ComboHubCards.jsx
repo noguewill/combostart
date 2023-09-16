@@ -21,7 +21,7 @@ const ComboHubCards = () => {
       <div className={styles.featured_container}>
         <div className={styles.featuredCard}>
           <Image
-            className={styles.cardImage}
+            className={styles.splashKeyArt}
             src="/gameCovers/splashImg.png"
             alt="Combostart splash cover"
             fill
