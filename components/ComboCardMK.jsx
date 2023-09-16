@@ -107,14 +107,14 @@ const ComboCard = ({
 
               <section className={styles.comboCard_container}>
                 <div className={styles.avatar_container}>
-                  <h4 className={styles[`${theme}avatar_name`]}>
-                    {card.Character?.S}
-                  </h4>
+                  <h5 className={styles[`${theme}avatar_name`]}>
+                    {card.Character?.S} | {card.Kameo?.S}
+                  </h5>
                   <div className={styles.avatar_frame}>
                     <Image
-                      src={`/comboAvatars/sf6/sf6_charAvatar_${card.Character?.S}.png`}
-                      width={101}
-                      height={101}
+                      src={`/comboAvatars/mkOne/${card.Character?.S}.webp`}
+                      width={102}
+                      height={102}
                       className={styles.avatar_img}
                       alt={card.Character?.S}
                     />

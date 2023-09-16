@@ -1,13 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
-import hubCardData from "/gamesData/hubCardData.json";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/ComboHub.module.css";
 import { useRouter } from "next/router";
 
 const ComboHubCards = () => {
-  const [cardLimit, setCardLimit] = useState(10);
   const { theme } = useContext(ThemeContext);
   const router = useRouter();
 
@@ -18,73 +16,17 @@ const ComboHubCards = () => {
     }
   };
 
-  const cards = hubCardData
-    .filter((card) => card.attr !== "Featured" && card.attr !== "Upcoming") // Ignore cards with "Featured" or "Upcoming" attribute
-    .slice(0, cardLimit * 3)
-    .map((card) => (
-      <Link key={card.id} href={card.src} className={styles.card}>
-        <div className={styles.cardImageContainer}>
-          <span className={styles.cardTitle}>{card.name}</span>
-          <Image
-            src={card.bgImg}
-            alt={card.name}
-            className={styles.cardImage}
-            fill
-          />
-          <div className={styles.cardWIP}>WIP</div>
-        </div>
-      </Link>
-    ));
-
-  const upcomingCards = hubCardData.filter((card) => card.attr === "Upcoming");
-
-  const upcomingCardElements = upcomingCards.map((card) => {
-    let cardClassName;
-    let videoLink;
-    if (card.id === 5) {
-      cardClassName = styles.upcoming_left;
-      videoLink = "https://www.youtube.com/watch?v=UZ6eFEjFfJ0";
-    } else if (card.id === 6) {
-      cardClassName = styles.upcoming_right;
-      videoLink = "https://www.youtube.com/watch?v=2hPuRQz6IlM";
-    }
-
-    return (
-      <Link
-        key={card.id}
-        target="_blank"
-        href={videoLink}
-        className={cardClassName}
-      >
-        <span className={styles.cardTitle}>{card.name}</span>
-        <Image
-          style={{ filter: "none" }}
-          className={styles.cardImage}
-          src={card.bgImg}
-          alt={card.name}
-          fill
-        />
-      </Link>
-    );
-  });
-
   return (
     <>
       <div className={styles.featured_container}>
-        <button
-          type="button"
-          className={styles.featuredCard}
-          onClick={() => selectGame("streefighter6")}
-        >
-          <span className={styles.featured_cardTitle}>STREET FIGHTER 6</span>
+        <div className={styles.featuredCard}>
           <Image
-            className={styles.featured_img}
-            src="/gameCovers/sf6coverArt.webp"
-            alt="street fighter 6"
-            width={920}
-            height={920}
+            className={styles.cardImage}
+            src="/gameCovers/splashImg.png"
+            alt="Combostart splash cover"
+            fill
           />
-        </button>
+        </div>
         <div className={styles.featuredDesc_container}>
           <h2 className={styles[`${theme}featuredDesc_header`]}>
             WANNA LEARN A COMBO?
@@ -95,36 +37,86 @@ const ComboHubCards = () => {
             seasoned player or just getting started, Combostart is the platform
             to showcase your jaw-dropping combos or finding them!
           </p>
-          <Link href="/Combos">
-            <button type="button" className={styles.featuredDesc_CTA}>
-              SHOW ME COMBOS FOR STREET FIGHTER 6
+          <div className={styles.featuredDesc_CTA_container}>
+            <span className={styles[`${theme}CTA_header`]}>
+              SHOW COMBOS FOR:
+            </span>
+            <button
+              type="button"
+              className={styles.featuredDesc_CTA}
+              onClick={() => selectGame("streetfighter6")}
+            >
+              STREET FIGHTER 6
             </button>
-          </Link>
+            <span className={styles[`${theme}CTA_header`]}>OR</span>
+            <button
+              type="button"
+              className={styles.featuredDesc_CTA}
+              onClick={() => selectGame("mortalkombat1")}
+            >
+              MORTAL KOMBAT 1
+            </button>
+          </div>
         </div>
       </div>
-
-      <h2 className={styles[`${theme}rowTitle`]}>UPCOMING</h2>
-      <div className={styles.upcomingRow}>{upcomingCardElements}</div>
-
       {/* Ongoing row */}
-      <h2 className={styles[`${theme}rowTitle`]} style={{ marginTop: "2rem" }}>
-        ONGOING
-      </h2>
-      <div className={styles.ongoingRow}>
+      <h2 className={styles[`${theme}rowTitle`]}>ONGOING</h2>
+      <div className={styles.upcomingRow}>
         <button
-          type="button"
-          className={styles.featuredCard}
+          className={styles.upcoming_left}
           onClick={() => selectGame("mortalkombat1")}
         >
-          <span className={styles.featured_cardTitle}>MORTAL KOMBAT 1</span>
+          <span className={styles.cardTitle}>Mortal Kombat 1</span>
           <Image
-            className={styles.featured_img}
+            className={styles.cardImage}
+            src="/gameCovers/mkOne2023m.jpg"
+            alt={"Mortal Kombat 1"}
+            fill
+          />
+        </button>
+        <button
+          className={styles.upcoming_right}
+          onClick={() => selectGame("streetfighter6")}
+        >
+          <span className={styles.cardTitle}>STREET FIGHTER 6</span>
+          <Image
+            className={styles.cardImage}
             src="/gameCovers/sf6coverArt.webp"
             alt="street fighter 6"
             width={920}
             height={920}
           />
         </button>
+      </div>
+
+      <h2 className={styles[`${theme}rowTitle`]}>UPCOMING</h2>
+      <div className={styles.upcomingRow}>
+        <Link
+          target="_blank"
+          href="https://www.youtube.com/watch?v=Z1FgmHRPtLU"
+          className={styles.upcoming_left}
+        >
+          <span className={styles.cardTitle}>Killer Instinct</span>
+          <Image
+            className={styles.cardImage}
+            src="/gameCovers/killerinstinct2013coverArt.jpeg"
+            alt={"Killer Instinct"}
+            fill
+          />
+        </Link>
+        <Link
+          target="_blank"
+          href="https://www.youtube.com/watch?v=2hPuRQz6IlM"
+          className={styles.upcoming_right}
+        >
+          <span className={styles.cardTitle}>TEKKEN 8</span>
+          <Image
+            className={styles.cardImage}
+            src="/gameCovers/tekken8.webp"
+            alt={"TEKKEN 8"}
+            fill
+          />
+        </Link>
       </div>
     </>
   );

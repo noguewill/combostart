@@ -84,10 +84,10 @@ const Footer = ({ theme }) => {
 
           <Link
             target="_blank"
-            href="https://www.youtube.com/watch?v=UZ6eFEjFfJ0"
+            href="https://www.youtube.com/watch?v=Z1FgmHRPtLU"
           >
             <span className={styles[`${theme}submenu_btn`]}>
-              Mortal Kombat 1 (2023)
+              Killer Instinct(2013)
             </span>
           </Link>
 
@@ -120,12 +120,6 @@ const Footer = ({ theme }) => {
         </div>
       </div>
       <div className={styles.copyright_container}>
-        <Image
-          src="/icons/logo.svg"
-          alt="Combostart logo"
-          width={50}
-          height={50}
-        />
         <span style={{ fontSize: "0.6rem" }}>@COMBOSTART 2023</span>
       </div>
     </footer>

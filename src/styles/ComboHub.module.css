@@ -24,8 +24,9 @@
   letter-spacing: 0.1rem;
   font-style: italic;
   color: #ebebeb;
-  margin-top: 0.8rem;
-  margin-bottom: 0.6rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  align-self: center;
 }
 .light_theme_rowTitle {
   color: #1f1f1f;
@@ -39,11 +40,12 @@
   margin-bottom: 1rem;
 }
 .featuredCard {
-  border-radius: 8px;
+  width: 38rem;
+  height: 22rem;
+  position: relative;
   overflow: hidden;
-  width: 50%;
-  object-fit: contain;
-  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+  padding: 0;
+  margin: 0;
 }
 
 .featuredDesc_container {
@@ -74,10 +76,27 @@
   color: #1f1f1f;
 }
 
+.featuredDesc_CTA_container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-right: 2rem;
+}
+.CTA_header,
+.light_theme_CTA_header {
+  font-size: 1rem;
+  font-family: "Kanit";
+  color: #ebebeb;
+}
+.light_theme_CTA_header {
+  color: #1f1f1f;
+}
 .featuredDesc_CTA {
   color: #ebebeb;
-  width: 20rem;
-  height: 3.5rem;
+  width: auto;
+  height: 2.5rem;
   padding: 0.5rem;
   text-align: center;
   font-family: "Kanit";
@@ -95,15 +114,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
-}
-.upcomingRow {
+  margin-bottom: 3rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 
 .upcoming_left,
 .upcoming_right {
+  width: 38rem;
+  height: 22rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   border-radius: 8px;
@@ -111,7 +133,6 @@
   overflow: hidden;
   padding: 0;
   margin: 0;
-  height: 18rem;
   transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
 
@@ -135,14 +156,6 @@
 
 .upcoming_right:hover .cardImage {
   transform: scale(1.1);
-}
-
-.upcoming_left {
-  flex-basis: 48%;
-}
-
-.upcoming_right {
-  flex-basis: 48%;
 }
 
 .ongoingRow {
@@ -174,23 +187,6 @@
   margin: 0;
 }
 
-.cardWIP {
-  background-color: #1f1f1f;
-  width: 2.5rem;
-  height: 1.5rem;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fcd12a;
-  font-family: "Open Sans";
-  font-weight: 600;
-  font-size: 0.8rem;
-  letter-spacing: 0.1rem;
-  border-radius: 2px;
-  z-index: 98;
-}
-
 .featured_img {
   display: block;
   width: 100%;
@@ -200,7 +196,6 @@
 }
 
 .cardImage {
-  filter: grayscale(100%);
   display: block;
   width: 100%;
   height: auto;
