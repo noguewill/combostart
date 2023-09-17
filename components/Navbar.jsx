@@ -16,6 +16,7 @@ const Navbar = () => {
 
   const [showOverlay, setShowOverlay] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isComboOpen, setIsComboOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState("");
   const [userDisplayName, setUserDisplayName] = useState("");
 
@@ -43,6 +44,14 @@ const Navbar = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
   };
 
+  const handleComboOpener = (chosenGame) => {
+    setIsComboOpen(!isComboOpen);
+
+    if (typeof window !== "undefined") {
+      // Check if we are on the client-side
+      router.push(`/combos/${chosenGame}`);
+    }
+  };
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbar_btn__container}>
@@ -57,17 +66,44 @@ const Navbar = () => {
         >
           HOME
         </Link>
-
-        <Link
-          href="/Combos"
-          className={
-            currentRoute === "/Combos"
-              ? styles[`${theme}nav_btn_focus`]
-              : styles[`${theme}nav_btn`]
-          }
+        <button
+          type="button"
+          className={styles[`${theme}nav_btn`]}
+          onClick={() => setIsComboOpen(!isComboOpen)}
         >
           COMBOS
-        </Link>
+        </button>
+        {isComboOpen && (
+          <div className={styles[`${theme}comboDropdownMenu`]}>
+            <div
+              className={styles.submenu_container}
+              style={{ alignItems: "flex-start", fontSize: "0.2rem" }}
+            >
+              <button
+                type="button"
+                className={
+                  currentRoute === "/combos/streetfighter6"
+                    ? styles[`${theme}nav_comboBtn_focus`]
+                    : styles[`${theme}nav_comboBtn`]
+                }
+                onClick={() => handleComboOpener("streetfighter6")}
+              >
+                STREET FIGHTER 6
+              </button>
+              <button
+                type="button"
+                className={
+                  currentRoute === "/combos/mortalkombat1"
+                    ? styles[`${theme}nav_comboBtn_focus`]
+                    : styles[`${theme}nav_comboBtn`]
+                }
+                onClick={() => handleComboOpener("mortalkombat1")}
+              >
+                MORTAL KOMBAT 1
+              </button>
+            </div>
+          </div>
+        )}
         <span id={styles.aboutBtn} className={styles[`${theme}nav_hoverBtn`]}>
           ABOUT {/* Combos Page Submenu */}
           <div className={styles.about_submenu_parent}>

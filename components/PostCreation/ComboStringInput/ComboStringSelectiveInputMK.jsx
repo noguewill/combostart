@@ -215,16 +215,18 @@ const ComboStringSelectiveInputMK = ({
                   <button
                     type="button"
                     className={styles.buttonInput}
-                    onClick={() => handleInputValue("L2", "L2")}
+                    onClick={() => handleInputValue("hold", "hold")}
                   >
                     <Image
-                      src="/inputs/L2.svg"
+                      src="/inputs/hold.svg"
                       width={32}
                       height={32}
-                      alt="L2"
+                      alt="R1 HOLD"
                     />
                   </button>
-                  <span className={styles[`${theme}buttonInput_text`]}>L2</span>
+                  <span className={styles[`${theme}buttonInput_text`]}>
+                    R1 hold
+                  </span>
                 </div>
                 <div className={styles.buttonInput_container}>
                   <button
@@ -245,16 +247,18 @@ const ComboStringSelectiveInputMK = ({
                   <button
                     type="button"
                     className={styles.buttonInput}
-                    onClick={() => handleInputValue("R2", "R2")}
+                    onClick={() => handleInputValue("THROW", "THROW")}
                   >
                     <Image
-                      src="/inputs/R2.svg"
+                      src="/icons/THROW.svg"
                       width={32}
                       height={32}
-                      alt="R2"
+                      alt="THROW"
                     />
                   </button>
-                  <span className={styles[`${theme}buttonInput_text`]}>R2</span>
+                  <span className={styles[`${theme}buttonInput_text`]}>
+                    THROW
+                  </span>
                 </div>
                 <div className={styles.buttonInput_container}>
                   <button

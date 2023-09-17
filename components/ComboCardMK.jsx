@@ -106,16 +106,15 @@ const ComboCard = ({
               </header>
 
               <section className={styles.comboCard_container}>
-                <div className={styles.avatar_container}>
-                  <h5 className={styles[`${theme}avatar_name`]}>
-                    {card.Character?.S} | {card.Kameo?.S}
+                <div className={styles.mkAvatar_container}>
+                  <h5 className={styles[`${theme}mkAvatar_name`]}>
+                    {card.Character?.S} and {card.Kameo?.S}
                   </h5>
-                  <div className={styles.avatar_frame}>
+                  <div className={styles.mkAvatar_frame}>
                     <Image
                       src={`/comboAvatars/mkOne/${card.Character?.S}.webp`}
-                      width={102}
-                      height={102}
-                      className={styles.avatar_img}
+                      fill
+                      className={styles.mkAvatar_img}
                       alt={card.Character?.S}
                     />
                   </div>
@@ -124,18 +123,12 @@ const ComboCard = ({
                   <section className={styles.stats_container}>
                     {/* Mechanics */}
                     {card.HasSuper?.S === "YES" && (
-                      <div className={styles.mechanic_container}>
-                        <Image
-                          src="/icons/fatalBlow.svg"
-                          width={92}
-                          height={52}
-                        />
+                      <div className={styles.fataBlow_container}>
+                        <span className={styles.fataBlow}>FATAL BLOW</span>
                       </div>
                     )}
                     <div className={styles.mechanic_container}>
-                      <div className={styles.driveRush}>
-                        {card.DriveBars?.N}
-                      </div>
+                      <div className={styles.mkmeter}>{card.DriveBars?.N}</div>
                       <span className={styles[`${theme}mechanic_text`]}>
                         METER
                       </span>

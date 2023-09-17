@@ -43,9 +43,9 @@ const ComboPage = () => {
         if (game) {
           // Fetch combo data based on the dynamic value
           const comboData = await fetchComboData(game);
-          setRawComboData(comboData);
-          setFilteredComboData(comboData); // Initialize filtered data with the raw data
-          setSortedComboData(comboData); // Initialize sorted data with the raw data
+          await setRawComboData(comboData);
+          await setFilteredComboData(comboData); // Initialize filtered data with the raw data
+          await setSortedComboData(comboData); // Initialize sorted data with the raw data
         }
       } catch (error) {
         console.error("Error fetching combos:", error);

@@ -119,8 +119,7 @@
   padding-right: 0.5rem;
 }
 
-.upcoming_left,
-.upcoming_right {
+.mainCard {
   width: 38rem;
   height: 22rem;
   border: none;
@@ -136,24 +135,14 @@
   transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
 
-.upcoming_left,
-.upcoming_right {
+.mainCard {
   transform: scale(1.03);
 }
 
-.upcoming_left:hover .cardTitle {
+.mainCard:hover .cardTitle {
   visibility: visible;
 }
-
-.upcoming_right:hover .cardTitle {
-  visibility: visible;
-}
-
-.upcoming_left:hover .cardImage {
-  transform: scale(1.1);
-}
-
-.upcoming_right:hover .cardImage {
+.mainCard:hover .cardImage {
   transform: scale(1.1);
 }
 
@@ -251,4 +240,63 @@
     align-items: center;
     font-size: 1.2rem;
   }
+}
+/* Your existing styles outside of the media query */
+
+/* Styles for 1920x1080 and above */
+@media screen and (min-width: 1920px) {
+  .featured_container {
+    height: 30rem;
+  }
+  .featuredCard {
+    width: 50%;
+    height: 100%;
+  }
+
+  .featuredDesc_textBody,
+  .light_theme_featuredDesc_textBody {
+    font-size: 1.45rem;
+    max-width: 46rem;
+  }
+
+  .featuredDesc_header,
+  .light_theme_featuredDesc_header {
+    /* font-size: 2.7rem; */
+    font-size: 4rem;
+  }
+
+  .CTA_header,
+  .light_theme_CTA_header {
+    font-size: 1.5rem;
+  }
+
+  .featuredDesc_CTA {
+    padding: 1rem;
+    font-size: 1rem;
+    height: auto;
+  }
+
+  .mainCard {
+    width: 47%;
+    height: 32rem;
+  }
+  .splashKeyArt {
+    height: 149%;
+    object-fit: cover;
+  }
+}
+
+/* Styles for 1600x900 */
+@media screen and (min-width: 1600px) and (max-width: 1919px) {
+  /* Your styles for 1600x900 here */
+}
+
+/* Styles for 1536x864 */
+@media screen and (min-width: 1536px) and (max-width: 1599px) {
+  /* Your styles for 1536x864 here */
+}
+
+/* Styles for 1440x900 */
+@media screen and (min-width: 1440px) and (max-width: 1535px) {
+  /* Your styles for 1440x900 here */
 }

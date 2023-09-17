@@ -63,7 +63,7 @@ const ComboHubCards = () => {
       <h2 className={styles[`${theme}rowTitle`]}>ONGOING</h2>
       <div className={styles.upcomingRow}>
         <button
-          className={styles.upcoming_left}
+          className={styles.mainCard}
           onClick={() => selectGame("mortalkombat1")}
         >
           <span className={styles.cardTitle}>Mortal Kombat 1</span>
@@ -75,7 +75,7 @@ const ComboHubCards = () => {
           />
         </button>
         <button
-          className={styles.upcoming_right}
+          className={styles.mainCard}
           onClick={() => selectGame("streetfighter6")}
         >
           <span className={styles.cardTitle}>STREET FIGHTER 6</span>
@@ -94,7 +94,7 @@ const ComboHubCards = () => {
         <Link
           target="_blank"
           href="https://www.youtube.com/watch?v=Z1FgmHRPtLU"
-          className={styles.upcoming_left}
+          className={styles.mainCard}
         >
           <span className={styles.cardTitle}>Killer Instinct</span>
           <Image
@@ -107,7 +107,7 @@ const ComboHubCards = () => {
         <Link
           target="_blank"
           href="https://www.youtube.com/watch?v=2hPuRQz6IlM"
-          className={styles.upcoming_right}
+          className={styles.mainCard}
         >
           <span className={styles.cardTitle}>TEKKEN 8</span>
           <Image
