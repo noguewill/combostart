@@ -100,3 +100,10 @@
 .backToOptions:hover {
   text-decoration: underline;
 }
+
+@media screen and (min-width: 1920px) {
+  .login_body {
+    width: auto;
+    padding: 1.5rem;
+  }
+}

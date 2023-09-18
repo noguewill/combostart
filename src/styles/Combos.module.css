@@ -21,6 +21,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: auto;
 }
 .pageNum_parent {
   display: flex;
@@ -129,4 +130,20 @@
 }
 .filter_btn:hover {
   background-color: #3b3efc;
+}
+
+/* Media queries */
+
+@media screen and (min-width: 1920px) {
+}
+/* Styles for 1600x900 */
+@media screen and (min-width: 1600px) and (max-width: 1919px) {
+}
+
+/* Styles for 1536x864 */
+@media screen and (min-width: 1536px) and (max-width: 1599px) {
+}
+
+/* Styles for 1440x900 */
+@media screen and (min-width: 1440px) and (max-width: 1535px) {
 }

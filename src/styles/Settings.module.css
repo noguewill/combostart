@@ -169,3 +169,10 @@
   margin-top: 0.3rem;
   margin-bottom: 0.5rem;
 }
+
+/* Media queries */
+@media screen and (min-width: 1920px) {
+  .modal_parent {
+    height: 50rem;
+  }
+}
