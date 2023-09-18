@@ -135,6 +135,10 @@
 /* Media queries */
 
 @media screen and (min-width: 1920px) {
+  .light_theme_pageNum,
+  .pageNum {
+    font-size: 1.4rem;
+  }
 }
 /* Styles for 1600x900 */
 @media screen and (min-width: 1600px) and (max-width: 1919px) {

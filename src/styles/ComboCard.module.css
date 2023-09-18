@@ -494,3 +494,98 @@
   position: absolute;
   z-index: 5;
 }
+
+/* Media queries */
+
+@media screen and (min-width: 1920px) {
+  .comboCard_hugger {
+    padding: 0.5rem;
+  }
+
+  .light_theme_postTitle,
+  .postTitle {
+    font-size: 1.4rem;
+  }
+
+  .light_theme_postedBy,
+  .postedBy {
+    font-size: 0.9rem;
+  }
+
+  .patchVersion {
+    font-size: 0.7rem;
+  }
+
+  .light_theme_screenPos,
+  .screenPos {
+    font-size: 1rem;
+  }
+
+  .input_text,
+  .light_theme_input_text {
+    font-size: 0.8rem;
+  }
+
+  .comboString,
+  .light_theme_comboString {
+    margin: 0.4rem;
+  }
+
+  .light_theme_votes,
+  .light_theme_votes_voted,
+  .votes,
+  .votes_voted {
+    font-size: 1.4rem;
+  }
+
+  .avatar_name,
+  .light_theme_avatar_name {
+    font-size: 1.5rem;
+  }
+
+  .avatar_frame {
+    height: 6.8rem;
+  }
+
+  .dmg_stat_text {
+    font-size: 0.8rem;
+  }
+
+  .dmg_stat_dmgPercent,
+  .dmg_stat_number {
+    font-size: 1.5rem;
+  }
+
+  .light_theme_mechanic_text,
+  .mechanic_text {
+    font-size: 0.85rem;
+  }
+
+  .initialState {
+    width: auto;
+  }
+
+  .driveRush,
+  .fataBlow_container,
+  .initialState,
+  .mechanic,
+  .mkmeter {
+    font-size: 1.2rem;
+  }
+
+  .plusSign {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+/* Styles for 1600x900 */
+@media screen and (min-width: 1600px) and (max-width: 1919px) {
+}
+
+/* Styles for 1536x864 */
+@media screen and (min-width: 1536px) and (max-width: 1599px) {
+}
+
+/* Styles for 1440x900 */
+@media screen and (min-width: 1440px) and (max-width: 1535px) {
+}
