@@ -184,7 +184,7 @@ const ComboStringSelectiveInputMK = ({
                     onClick={() => handleInputValue("EX", "Enhanced Move")}
                   >
                     <Image
-                      src="/icons/EX.svg"
+                      src="/inputs/EX.svg"
                       width={32}
                       height={32}
                       alt="Enhanced Move"
@@ -250,7 +250,7 @@ const ComboStringSelectiveInputMK = ({
                     onClick={() => handleInputValue("THROW", "THROW")}
                   >
                     <Image
-                      src="/icons/THROW.svg"
+                      src="/inputs/throw.svg"
                       width={32}
                       height={32}
                       alt="THROW"
@@ -267,7 +267,7 @@ const ComboStringSelectiveInputMK = ({
                     onClick={() => handleInputValue("cancel", "cancel(xx)")}
                   >
                     <Image
-                      src="/icons/cancel.svg"
+                      src="/inputs/cancel.svg"
                       width={42}
                       height={42}
                       alt="cancel"
