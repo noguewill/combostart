@@ -392,3 +392,22 @@
     right: 86.7%;
   }
 }
+@media screen and (min-width: 1600px) and (max-width: 1919px) {
+  .comboDropdownMenu,
+  .light_theme_comboDropdownMenu {
+    right: 83rem;
+  }
+}
+
+@media screen and (min-width: 1536px) and (max-width: 1599px) {
+  .comboDropdownMenu,
+  .light_theme_comboDropdownMenu {
+    right: 79rem;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1024px) {
+  .comboDropdownMenu,
+  .light_theme_comboDropdownMenu {
+    right: 80.2%;
+  }
+}

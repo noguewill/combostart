@@ -297,14 +297,13 @@
 
   .featuredDesc_textBody,
   .light_theme_featuredDesc_textBody {
-    font-size: 1.45rem;
-    max-width: 46rem;
+    font-size: 1.35rem;
+    max-width: 39rem;
   }
 
   .featuredDesc_header,
   .light_theme_featuredDesc_header {
-    /* font-size: 2.7rem; */
-    font-size: 4rem;
+    font-size: 3.4rem;
   }
 
   .CTA_header,
@@ -408,5 +407,11 @@
   .splashKeyArt {
     height: 149%;
     object-fit: cover;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1024px) {
+  .mainCard {
+    width: 35rem;
+    height: 20rem;
   }
 }

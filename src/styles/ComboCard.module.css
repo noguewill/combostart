@@ -319,7 +319,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  padding: 0.2rem;
+  padding: 0.1rem 0.7rem;
   background-color: deeppink;
   width: auto;
   font-size: 1rem;
@@ -570,7 +570,7 @@
   .initialState,
   .mechanic,
   .mkmeter {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 
   .plusSign {
