@@ -3,6 +3,7 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
+    NEXT_PUBLIC_GOOGLE_ANALYTICS: "G-9BR6R08YJC",
     siteKey: process.env.siteKey,
     AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
     AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
