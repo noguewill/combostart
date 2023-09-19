@@ -8,17 +8,20 @@ function App({ Component, pageProps }) {
       <Script
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        id="google-analytics-script"
       />
 
-      <Script strategy="lazyOnload">
+      <Script strategy="lazyOnload" id="google-analytics-inline-script">
+        {" "}
+        {/* Add the id attribute */}
         {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-                page_path: window.location.pathname,
-                });
-            `}
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+            page_path: window.location.pathname,
+          });
+        `}
       </Script>
       <ThemeProvider>
         <Component {...pageProps} />
