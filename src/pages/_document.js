@@ -14,6 +14,16 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,600;1,400;1,600&family=Lato:wght@400;700&family=Rubik:wght@700&display=swap&family=Open+Sans:wght@400;600;800"
           rel="stylesheet"
         />
+        {/* Google Analytics Tracking Code */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-9BR6R08YJC"
+        ></script>
+        <script>
+          window.dataLayer = window.dataLayer || []; function gtag()
+          {dataLayer.push(arguments)}
+          gtag('js', new Date()); gtag('config', 'G-9BR6R08YJC');
+        </script>
       </Head>
       <body>
         <Main />
