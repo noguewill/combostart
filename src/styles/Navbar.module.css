@@ -388,3 +388,10 @@
   color: #949393;
   cursor: default;
 }
+
+@media screen and (min-width: 1920px) {
+  .comboDropdownMenu,
+  .light_theme_comboDropdownMenu {
+    right: 86%;
+  }
+}
