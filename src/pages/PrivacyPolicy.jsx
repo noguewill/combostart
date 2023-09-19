@@ -3,6 +3,7 @@ import { ThemeContext } from "../../components/ThemeContext";
 import Navbar from "/components/Navbar";
 import Footer from "/components/Footer";
 import styles from "@/styles/Tos.module.css";
+import StickyButton from "components/StickyButton";
 
 const PrivacyPolicy = () => {
   const { theme } = useContext(ThemeContext);
@@ -87,7 +88,7 @@ const PrivacyPolicy = () => {
           </p>
         </div>
       </div>
-
+      <StickyButton />
       <Footer theme={theme} />
     </div>
   );

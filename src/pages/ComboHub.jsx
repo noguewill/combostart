@@ -4,6 +4,7 @@ import styles from "@/styles/ComboHub.module.css";
 import Navbar from "/components/Navbar";
 import ComboHubCards from "/components/ComboHubCards";
 import Footer from "/components/Footer";
+import StickyButton from "components/StickyButton";
 
 const ComboHub = () => {
   const { theme } = useContext(ThemeContext);
@@ -30,6 +31,7 @@ const ComboHub = () => {
         <div className={styles.container}>
           <ComboHubCards />
         </div>
+        <StickyButton />
         <Footer theme={theme} />
       </div>
     </>

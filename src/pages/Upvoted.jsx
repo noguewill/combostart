@@ -10,6 +10,7 @@ import {
   fetchUpvotedPostIds,
 } from "logic/dataFetch";
 import withAuth from "components/withAuth";
+import StickyButton from "components/StickyButton";
 
 const Upvoted = () => {
   const { theme } = useContext(ThemeContext);
@@ -62,6 +63,7 @@ const Upvoted = () => {
           />
         </section>
       )}
+      <StickyButton />
       <Footer theme={theme} />
     </main>
   );

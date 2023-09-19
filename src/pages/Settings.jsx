@@ -8,6 +8,7 @@ import { Auth } from "aws-amplify";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import withAuth from "components/withAuth";
+import StickyButton from "components/StickyButton";
 
 // Import necessary dependencies and components
 
@@ -350,6 +351,7 @@ const Settings = () => {
           Sign Out
         </button>
       </div>
+      <StickyButton />
       <Footer theme={theme} />
     </div>
   );

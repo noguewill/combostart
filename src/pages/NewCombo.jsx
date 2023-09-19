@@ -11,6 +11,7 @@ import Footer from "../../components/Footer";
 import withAuth from "components/withAuth";
 import SF6Form from "components/gameForms/SF6Form";
 import MKOneForm from "components/gameForms/MKOneForm";
+import StickyButton from "components/StickyButton";
 
 const NewCombo = () => {
   const router = useRouter();
@@ -176,6 +177,7 @@ const NewCombo = () => {
           <MKOneForm {...defaultProps} />
         ) : null}
       </main>
+      <StickyButton />
       <Footer theme={theme} />
     </div>
   );

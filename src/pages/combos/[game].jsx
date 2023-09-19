@@ -7,7 +7,7 @@ import Navbar from "/components/Navbar";
 import ComboCard from "/components/ComboCard";
 import ComboCardMK from "/components/ComboCardMK";
 import { defCurrentUser, fetchComboData } from "logic/dataFetch";
-import { KoFiWidget } from "components/PaymentOptions";
+import StickyButton from "components/StickyButton";
 import AuthenticationBody from "components/auth/AuthenticationBody";
 import { useRouter } from "next/router";
 
@@ -237,7 +237,7 @@ const ComboPage = () => {
           </div>
         </section>
       )}
-      <KoFiWidget />
+      <StickyButton />
       <Footer theme={theme} />
     </div>
   );

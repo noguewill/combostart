@@ -1,0 +1,79 @@
+.sticky_button_container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+}
+
+.sticky_button {
+  padding: 0.9rem;
+  font-family: "Kanit";
+  background-color: #5263fa;
+  color: #ebebeb;
+  border: none;
+  border-radius: 0.45rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+}
+.sticky_button:hover {
+  background-color: #3b3efc;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 1rem;
+}
+
+.paymentOption_patreon,
+.paymentOption_kofi {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 0.9rem;
+  font-family: "Kanit";
+  margin-top: 0.1rem;
+  margin-bottom: 0.5rem;
+  background-color: #ebebeb;
+  height: 2.5rem;
+  padding: 1rem;
+  color: #000;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
+  z-index: 3;
+}
+
+.logo_container,
+.logo_container_patreon {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  margin-right: 0.6rem;
+}
+.logo_container_patreon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.paymentOption_kofi:hover {
+  background-color: #2c2c2c;
+  color: #ebebeb;
+}
+.paymentOption_patreon:hover {
+  background-color: #fc8d4d;
+  color: #ebebeb;
+}
+
+.logo_icon,
+.logo_icon_patreon {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+}
