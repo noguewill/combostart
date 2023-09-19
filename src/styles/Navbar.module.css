@@ -264,9 +264,6 @@
   border: none;
   margin-bottom: 0.3rem;
 }
-.navbar_logo {
-  margin-left: 4.8rem;
-}
 
 .arrow_btn {
   margin: 0 0.5rem 0 0.5rem;
@@ -392,6 +389,6 @@
 @media screen and (min-width: 1920px) {
   .comboDropdownMenu,
   .light_theme_comboDropdownMenu {
-    right: 86%;
+    right: 86.7%;
   }
 }
