@@ -154,7 +154,7 @@ const ComboCard = ({
                           }
                         />
                       </div>
-                      {hoveredPost === postId && ( // Render initialStateDesc_text if hoveredPost matches postId
+                      {/*              {hoveredPost === postId && ( 
                         <span className={styles.initialStateDesc_text}>
                           {card.InitialState?.S === "CH"
                             ? "COUNTER HIT"
@@ -164,7 +164,7 @@ const ComboCard = ({
                             ? "DRIVE IMPACT"
                             : "NONE"}
                         </span>
-                      )}
+                      )} */}
                       <span className={styles[`${theme}mechanic_text`]}>
                         INITIAL STATE
                       </span>
