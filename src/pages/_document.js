@@ -20,9 +20,14 @@ export default function Document() {
           src="https://www.googletagmanager.com/gtag/js?id=G-9BR6R08YJC"
         ></script>
         <script>
-          window.dataLayer = window.dataLayer || []; function gtag()
-          {dataLayer.push(arguments)}
-          gtag('js', new Date()); gtag('config', 'G-9BR6R08YJC');
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-9BR6R08YJC');
+          `}
         </script>
       </Head>
       <body>
