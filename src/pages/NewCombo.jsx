@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import styles from "@/styles/Newpost.module.css";
+import styles from "@/styles/NewCombo.module.css";
 import { ThemeContext } from "../../components/ThemeContext";
 import { Auth } from "aws-amplify";
 import { awsmobile } from "../../logic/amplifyHandler";
@@ -12,7 +12,7 @@ import withAuth from "components/withAuth";
 import SF6Form from "components/gameForms/SF6Form";
 import MKOneForm from "components/gameForms/MKOneForm";
 
-const NewPost = () => {
+const NewCombo = () => {
   const router = useRouter();
   const [userDisplayName, setUserDisplayName] = useState("");
   const { theme } = useContext(ThemeContext);
@@ -181,4 +181,4 @@ const NewPost = () => {
   );
 };
 
-export default withAuth(NewPost);
+export default withAuth(NewCombo);
