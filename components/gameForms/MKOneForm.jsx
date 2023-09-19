@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "@/styles/Newpost.module.css";
+import styles from "@/styles/NewCombo.module.css";
 import TagInput from "components/PostCreation/TagInput";
 import { profanityCheck } from "logic/profanityFilter";
 import PostTitle from "components/PostCreation/PostTitle";

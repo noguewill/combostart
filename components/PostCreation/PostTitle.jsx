@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/styles/Newpost.module.css";
+import styles from "@/styles/NewCombo.module.css";
 
 const PostTitle = ({ postTitle, handlePostTitleChange, theme }) => {
   return (

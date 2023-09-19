@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "@/styles/Newpost.module.css";
+import styles from "@/styles/NewCombo.module.css";
 import { profanityCheck } from "../../logic/profanityFilter";
 
 const TagInput = ({ theme, tags, setTags, removeTag }) => {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "@/styles/NewPost_inputs_styles/ComboStringTextInput.module.css";
+import styles from "@/styles/NewCombo_inputs_styles/ComboStringTextInput.module.css";
 
 const ComboStringsTextInput = ({
   theme,

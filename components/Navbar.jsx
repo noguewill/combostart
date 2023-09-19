@@ -136,9 +136,9 @@ const Navbar = () => {
         {currentUser ? (
           <>
             <Link
-              href="/NewPost"
+              href="/NewCombo"
               className={
-                currentRoute === "/NewPost"
+                currentRoute === "/NewCombo"
                   ? styles[`${theme}nav_btn_focus`]
                   : styles[`${theme}nav_btn`]
               }

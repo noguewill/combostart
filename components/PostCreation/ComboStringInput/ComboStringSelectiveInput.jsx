@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import styles from "@/styles/NewPost_inputs_styles/ComboString_styles/ComboStringSelectiveInput.module.css";
+import styles from "@/styles/NewCombo_inputs_styles/ComboString_styles/ComboStringSelectiveInput.module.css";
 import Image from "next/image";
 import DirectionalInputs from "./DirectionalInputs";
 import SavedComboStrings from "./SavedComboStrings";

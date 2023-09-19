@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/styles/NewPost_inputs_styles/ComboString_styles/Directional_inputs.module.css";
+import styles from "@/styles/NewCombo_inputs_styles/ComboString_styles/Directional_inputs.module.css";
 import Image from "next/image";
 
 const DirectionalInputs = ({ theme, handleInputValue }) => {
