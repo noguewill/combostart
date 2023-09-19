@@ -23,21 +23,19 @@ const VerificationModal = ({
       // User wants to change the current e-mail
       try {
         await Auth.verifyCurrentUserAttributeSubmit("email", verificationCode);
-        console.log("Email verification success");
         setNotificationText("E-mail verified!");
         window.location.reload();
       } catch (error) {
-        console.log(newEmail, verificationCode);
-        setNotificationText("Error: " + error.message);
-        console.log("Email verification failed with error ye", error);
+        console.error(newEmail, verificationCode);
+        setNotificationText(error.message);
+        console.error("Email verification failed with:", error);
       }
     } else {
       // User wants to sign-up for the first time
       try {
         await Auth.confirmSignUp(username, verificationCode); // Provide the username in the confirmSignUp call
-        console.log("Success ye");
       } catch (error) {
-        console.log("Error confirming sign-up:", error);
+        console.error("Error confirming sign-up:", error);
       }
     }
   };
@@ -57,7 +55,7 @@ const VerificationModal = ({
       setNotificationText(<span>Code sent! Check your e-mail</span>);
     } catch (err) {
       setNotificationText("Error resending code:", err.message);
-      console.log("error resending code: ", err);
+      console.error("error resending code: ", err);
     }
   }
 

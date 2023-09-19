@@ -109,7 +109,7 @@ const MKOneForm = ({
       setPostNotification(
         "Form is not valid. Please fill in all required fields."
       );
-      console.log("Form is not valid. Please fill in all required fields.");
+      console.error("Form is not valid. Please fill in all required fields.");
       return;
     }
 
@@ -118,7 +118,7 @@ const MKOneForm = ({
       setPostNotification(
         "Input contains profanity. Please revise your inputs."
       );
-      console.log("Oops, post contains profanity");
+      console.error("Oops, post contains profanity");
       return; // Exit the function and prevent form submission
     }
     const dmgPercentVal = Math.ceil((damage / 1000) * 100);

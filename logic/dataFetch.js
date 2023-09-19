@@ -23,7 +23,7 @@ export const defCurrentUser = async () => {
 
     return user.attributes;
   } catch (error) {
-    console.log("User not authenticated.");
+    console.error("User not authenticated.");
   }
 };
 
@@ -48,7 +48,7 @@ export const fetchComboData = async (game) => {
     }
 
     const response = await client.send(new ScanCommand(tableParams));
-    console.log("Success, data received:", response.Items);
+
     return response.Items;
   } catch (error) {
     console.error("Error retrieving comboData from DynamoDB:", error);
@@ -77,22 +77,11 @@ export const fetchVoteData = async (postId, userId) => {
     if (userVoteHistory) {
       const voteTypeObject = userVoteHistory?.M[postId]; // Get the object for the specific post
       if (voteTypeObject && voteTypeObject.S) {
-        console.log(
-          "Success, voting data received for postId:",
-          postId,
-          "vote:",
-          voteTypeObject.S
-        );
         return voteTypeObject.S; // Return the voteType as a string
       } else {
-        console.log(
-          "PostId matches, the user voted, here's his vote:",
-          voteTypeObject.S
-        );
         return null;
       }
     } else {
-      console.log("User's vote history not found");
       return null;
     }
   } catch (error) {
@@ -121,7 +110,7 @@ export const fetchRates = async (userId) => {
         rateTimer: userRates.rateTimer?.N,
       };
     } else {
-      console.log(error.message);
+      console.error(error.message);
       return null;
     }
   } catch (error) {
@@ -145,7 +134,6 @@ export const fetchUpvotedPostIds = async (userId) => {
     const upvotedPostIds = [];
     if (userVoteHistory) {
       for (const postId in userVoteHistory.M) {
-        console.log(userVoteHistory.M[postId]);
         if (userVoteHistory.M[postId].S === "upvote") {
           upvotedPostIds.push(postId);
         }
@@ -175,8 +163,6 @@ export const fetchTimestamps = async () => {
         postId: item.postId?.S, // Replace PARTITION_KEY_NAME with your actual partition key attribute name
       };
     });
-
-    console.log(itemsData);
   } catch (error) {
     console.error("Error retrieving data:", error);
   }

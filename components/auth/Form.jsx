@@ -16,16 +16,6 @@ const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
   /* Disables verify button when there's less than 6 digits on it's input */
   const isButtonActive = verificationCode.length === 6;
 
-  const isEmailAlreadyInUse = async (email) => {
-    try {
-      const userAttributes = await Auth.fetchUserAttributes({ email });
-      return !!userAttributes;
-    } catch (error) {
-      console.log("Error checking if email is in use:", error);
-      return false;
-    }
-  };
-
   const handleSignUpSubmit = async (e) => {
     e.preventDefault();
 
@@ -54,7 +44,7 @@ const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
           "custom:DisplayName": DisplayName,
         },
       });
-      console.log("Sign up successful");
+
       setUsername(username); // Set the username state
       // Proceed with sending the confirmation code to the user's email
       setNotificationText(
@@ -64,7 +54,7 @@ const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
     } catch (error) {
       // Handle sign-up error
       setNotificationText(error.message);
-      console.log("Error signing up:", error);
+      console.error("Error signing up:", error);
     }
   };
 
@@ -74,7 +64,7 @@ const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
       setNotificationText(<span>Code sent! Check your e-mail</span>);
     } catch (err) {
       setNotificationText("Error resending code:", err.message);
-      console.log("error resending code: ", err);
+      console.error("error resending code: ", err);
     }
   }
 
@@ -82,7 +72,6 @@ const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
     e.preventDefault();
     try {
       await Auth.confirmSignUp(username, verificationCode);
-      console.log("Success");
       setVerificationComplete(true);
       setNotificationText(
         <span>
@@ -93,7 +82,7 @@ const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
       setSignIn(true);
     } catch (error) {
       setNotificationText(error.message);
-      console.log("Error confirming sign-up:", error);
+      console.error("Error confirming sign-up:", error);
     }
   };
 

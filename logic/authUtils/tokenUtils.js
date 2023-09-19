@@ -19,7 +19,6 @@ export const storeToken = async (token, expirationTime) => {
 
   try {
     await client.send(new PutItemCommand(params));
-    console.log("Token stored successfully");
   } catch (error) {
     console.error("Error storing token:", error);
     throw error;

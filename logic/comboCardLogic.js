@@ -57,12 +57,9 @@ export function useComboCardLogic(
       const comboId = [];
       displayedCombos.map((val) => {
         comboId.push(val.postId?.S);
-        console.log("comboId", comboId);
       });
       for (const combo of displayedCombos) {
-        console.log("combo:", combo);
         const postId = combo.postId?.S;
-        console.log("postId:", postId);
         const voteData = await fetchVoteData(postId, userId);
         newVoteStatus[postId] = voteData;
       }

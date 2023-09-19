@@ -36,7 +36,6 @@ export const addRatesToUserData = async (userId) => {
     }
     // Condition 3: If rateTimer has a value and voteRate is 0, stop executing
     else if (rateTimer !== 0 && voteRate === 0) {
-      console.log("Conditions not met. Function not executed.");
       return "denied";
     }
 
@@ -59,8 +58,6 @@ export const addRatesToUserData = async (userId) => {
 
     // Send the UpdateItem request to DynamoDB
     await client.send(new UpdateItemCommand(userTableParams));
-
-    console.log("Rates attribute updated in userData successfully.");
   } catch (error) {
     console.error("Error updating Rates attribute in userData:", error);
   }
@@ -77,7 +74,7 @@ export const fetchUserVoteHistory = async (userId) => {
 
   try {
     const response = await client.send(new GetItemCommand(params));
-    console.log("response.Item:", response.Item);
+
     return response.Item; // Return the userData item
   } catch (error) {
     console.error("Error fetching userData:", error);
@@ -145,8 +142,6 @@ export const recordVote = async (postId, userId, voteType) => {
     } else if (voteType === "downvote") {
       await updateVoteCount(postId, -1); // Decrease VoteCount by 1
     }
-
-    console.log("voteInfo inserted successfully into DynamoDB");
   } catch (error) {
     console.error("Error inserting item into DynamoDB:", error);
   }
@@ -186,8 +181,6 @@ export const removeVote = async (postId, userId, voteType) => {
     } else if (voteType === "downvote") {
       await updateVoteCount(postId, 1); // Increase VoteCount by 1
     }
-
-    console.log("Vote record removed successfully");
   } catch (error) {
     console.error("Error removing vote record:", error);
   }
@@ -207,7 +200,6 @@ export const updateVoteCount = async (postId, increment) => {
 
   try {
     await client.send(new UpdateItemCommand(updateParams));
-    console.log("Vote count updated successfully");
   } catch (error) {
     console.error("Error updating vote count:", error);
   }

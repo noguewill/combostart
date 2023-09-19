@@ -25,11 +25,10 @@ const Navbar = () => {
       try {
         const user = await defCurrentUser();
         setCurrentUser(user);
-        console.log("user:", user);
         setUserDisplayName(user["custom:DisplayName"]);
       } catch (error) {
         // No active session, redirect to the sign-in page
-        console.log("Navbar:", error);
+        console.error(error);
       }
     };
 

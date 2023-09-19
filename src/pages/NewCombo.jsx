@@ -52,7 +52,7 @@ const NewCombo = () => {
         setUserDisplayName(userInfo.attributes["custom:DisplayName"]);
       } catch (error) {
         // Handle error or redirect to the sign-in page
-        console.log(error);
+        console.error(error);
       }
     };
 

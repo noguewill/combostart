@@ -46,7 +46,7 @@ const Settings = () => {
         setUserAttributes(userInfo);
       } catch (error) {
         // Handle error or redirect to the sign-in page
-        console.log(error);
+        console.error(error);
       }
     };
 
@@ -61,12 +61,12 @@ const Settings = () => {
     })
       .then(() => {
         setDisplaynameEditMode(false);
-        console.log("Display name updated successfully");
+
         setNotificationText("Display name updated successfully");
         window.location.reload();
       })
       .catch((error) => {
-        console.log("Error updating display name:", error);
+        console.error("Error updating display name:", error);
         if (
           error.message ===
           "user.custom:DisplayName: String must be no longer than 10 characters"
@@ -89,7 +89,7 @@ const Settings = () => {
     } catch (error) {
       setNotificationText(error.message);
       // Handle sign-out error
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -98,14 +98,14 @@ const Settings = () => {
       setLoading(true); // Show the loading icon
       const user = await Auth.currentAuthenticatedUser();
       await Auth.changePassword(user, oldPassword, newPassword);
-      console.log("Password changed successfully");
+
       // Reset the password fields
       setOldPassword("");
       setNewPassword("");
       setNotificationText("Password changed successfully");
     } catch (error) {
       // Handle error while changing the password
-      console.log(error);
+      console.error(error);
       if (error.code === "InvalidParameterException") {
         setNotificationText(
           "Password not accepted: Must have at least 6 characters, no space between characters"
@@ -126,12 +126,11 @@ const Settings = () => {
       email: newEmail,
     })
       .then(() => {
-        console.log("Verification has been sent to your new e-mail");
         setNotificationText("Verification has been sent to your new e-mail");
         setShowVerificationModal(true);
       })
       .catch((e) => {
-        console.log("failed with error", e);
+        console.error("failed with error", e);
         setNotificationText("Error", error.message);
       });
   }

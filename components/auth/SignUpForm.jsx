@@ -13,7 +13,6 @@ const SignUpForm = ({
   const [captchaVal, setCaptchaVal] = useState("");
 
   function getCaptchaVal(value) {
-    console.log("Captcha value:", value);
     setCaptchaVal(value);
   }
 

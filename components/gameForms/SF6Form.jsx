@@ -111,7 +111,7 @@ const SF6Form = ({
       setPostNotification(
         "Form is not valid. Please fill in all required fields."
       );
-      console.log("Form is not valid. Please fill in all required fields.");
+      console.error("Form is not valid. Please fill in all required fields.");
       return;
     }
 
@@ -120,7 +120,7 @@ const SF6Form = ({
       setPostNotification(
         "Input contains profanity. Please revise your inputs."
       );
-      console.log("Oops, post contains profanity");
+      console.error("Oops, post contains profanity");
       return; // Exit the function and prevent form submission
     }
 
@@ -173,18 +173,15 @@ const SF6Form = ({
       setTags([]);
 
       setFormSubmitted(true);
-      console.log("Combo post inserted successfully into DynamoDB");
       setPostNotification(
         <span>
           Combo posted<span style={{ color: "#93f367" }}> successfully </span>
           Redirecting...
         </span>
       );
-      // Debug message to confirm this part is reached
-      console.log("Before navigating to /Combos");
+
       // Delay the navigation by a few milliseconds
       setTimeout(() => {
-        console.log("Before navigating to /Combos");
         router.push("/Combos");
       }, 1000);
     } catch (error) {

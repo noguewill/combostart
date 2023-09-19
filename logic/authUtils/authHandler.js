@@ -9,7 +9,7 @@ export const handleSignInSubmit = async (e, setNotificationText) => {
 
   try {
     await Auth.signIn(username, password);
-    console.log("Sign-in successful");
+
     setNotificationText(
       <span>
         Sign-in<span style={{ color: "#93f367" }}> successful </span>
@@ -44,6 +44,6 @@ export const handleSignOut = async () => {
     // User has been successfully signed out
   } catch (error) {
     // An error occurred during the sign-out process
-    console.log("Error signing out:", error);
+    console.error("Error signing out:", error);
   }
 };
