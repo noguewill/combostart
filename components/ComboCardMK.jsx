@@ -112,7 +112,7 @@ const ComboCard = ({
                   </h5>
                   <div className={styles.mkAvatar_frame}>
                     <Image
-                      src={`/comboAvatars/mkOne/${card.Character?.S}.webp`}
+                      src={`/comboAvatars/mk1/${card.Character?.S}.webp`}
                       fill
                       className={styles.mkAvatar_img}
                       alt={card.Character?.S}
