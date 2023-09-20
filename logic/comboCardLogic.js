@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import {
   recordVote,
   removeVote,
-  addRatesToUserData,
+  recordRate,
   fetchUserVoteHistory,
 } from "../logic/dataSend";
 import { fetchVoteData, fetchRates } from "../logic/dataFetch";
@@ -79,20 +79,16 @@ export function useComboCardLogic(
     if (loggedIn !== false) {
       try {
         const voteData = await fetchVoteData(postId, userId);
-        const rates = await fetchRates(userId);
 
-        if (rates.voteRate <= 0 && rates.rateTimer !== 0) {
-          setLimitReached(true);
-        } else {
+        if (limitReached === false) {
           if (voteData === "upvote") {
+            recordRate(userId);
             setCurrentVotes((prevVotes) => ({
               ...prevVotes,
               [postId]: prevVotes[postId] - 1,
             }));
             await removeVote(postId, userId, "upvote");
           } else {
-            addRatesToUserData(userId);
-            setLimitReached(false);
             setCurrentVotes((prevVotes) => ({
               ...prevVotes,
               [postId]: prevVotes[postId] + (voteData === "downvote" ? 2 : 1),
@@ -100,28 +96,12 @@ export function useComboCardLogic(
             await recordVote(postId, userId, "upvote");
           }
 
-          if (!limitReached) {
-            if (voteData === "upvote") {
-              setCurrentVotes((prevVotes) => ({
-                ...prevVotes,
-                [postId]: prevVotes[postId] - 1,
-              }));
-              await removeVote(postId, userId, "upvote");
-            } else {
-              setCurrentVotes((prevVotes) => ({
-                ...prevVotes,
-                [postId]: prevVotes[postId] + (voteData === "downvote" ? 2 : 1),
-              }));
-              await recordVote(postId, userId, "upvote");
-            }
-
-            const newVoteStatus = { ...voteStatus };
-            newVoteStatus[postId] = voteData === "upvote" ? null : "upvote";
-            setVoteStatus(newVoteStatus);
-          }
+          const newVoteStatus = { ...voteStatus };
+          newVoteStatus[postId] = voteData === "upvote" ? null : "upvote";
+          setVoteStatus(newVoteStatus);
         }
       } catch (error) {
-        console.error("Error handling upvote:", error);
+        console.log("Error handling upvote:", error);
       }
     } else {
       setShowSignIn(true);
@@ -140,6 +120,7 @@ export function useComboCardLogic(
           addRatesToUserData(userId);
           setLimitReached(false);
         }
+
         if (limitReached === false) {
           if (voteData === "downvote") {
             setCurrentVotes((prevVotes) => ({

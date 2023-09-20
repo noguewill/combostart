@@ -89,33 +89,52 @@ export const fetchVoteData = async (postId, userId) => {
   }
 };
 
+// Function to fetch rate data for a user and create/update rate attributes
 export const fetchRates = async (userId) => {
+  const params = {
+    TableName: "userData", // Your DynamoDB table name for user data
+    Key: {
+      userId: { S: userId }, // Specify the user ID to retrieve rate data
+    },
+    ProjectionExpression: "RateAmount, RateTimer", // Attributes to retrieve
+  };
+
   try {
-    // Define the parameters for the GetItemCommand
-    const userTableParams = {
-      TableName: "userData",
-      Key: {
-        userId: { S: userId },
-      },
-    };
+    const response = await client.send(new GetItemCommand(params));
 
-    // Use the GetItemCommand to retrieve the item
-    const results = await client.send(new GetItemCommand(userTableParams));
-
-    /* If userRates comes back empty, return null */
-    const userRates = results.Item?.Rates.M;
-    if (userRates) {
+    if (response.Item) {
+      // Rate-related attributes exist; extract and return them
+      const { RateAmount, RateTimer } = response.Item;
       return {
-        voteRate: userRates.voteRate?.N,
-        rateTimer: userRates.rateTimer?.N,
+        rateAmount: Number(RateAmount.N), // Convert to a number
+        rateTimer: Number(RateTimer.N), // Convert to a number
       };
     } else {
-      console.error(error.message);
-      return null;
+      // Rate-related attributes do not exist; create them
+      const createRateAttributes = {
+        TableName: "userData", // Your DynamoDB table name for user data
+        Key: {
+          userId: { S: userId },
+        },
+        UpdateExpression:
+          "SET RateAmount = :initialAmount, RateTimer = :initialTimer",
+        ExpressionAttributeValues: {
+          ":initialAmount": { N: "0" }, // Initial rate amount is 0
+          ":initialTimer": { N: "0" }, // Initial rate timer is 0
+        },
+      };
+
+      await client.send(new UpdateItemCommand(createRateAttributes));
+
+      // Return the newly created rate attributes
+      return {
+        rateAmount: 0,
+        rateTimer: 0,
+      };
     }
   } catch (error) {
-    console.error("Error fetching Rates from userData:", error);
-    throw error; // You can handle the error as needed.
+    console.error("Error fetching/creating rate data:", error);
+    return null;
   }
 };
 
