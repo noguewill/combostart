@@ -1,21 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "@/styles/Form.module.css";
 import Image from "next/image";
-import ReCAPTCHA from "react-google-recaptcha";
 
 const SignUpForm = ({
   showSignupForm,
   showPassword,
   setShowPassword,
   handleSignUpSubmit,
-  errorState,
 }) => {
-  const [captchaVal, setCaptchaVal] = useState("");
-
-  function getCaptchaVal(value) {
-    setCaptchaVal(value);
-  }
-
   return (
     <form
       className={`${styles.signUp_form} ${
@@ -36,15 +28,6 @@ const SignUpForm = ({
             required
           />
         </label>
-        <span className={styles.errorMessage}>
-          {errorState === "User already exists"
-            ? "Display name already in use"
-            : ""}
-          {errorState ===
-          "1 validation error detected: Value at 'Display name' failed to satisfy constraint: Member must satisfy regular expression pattern: [p{L}p{M}p{S}p{N}p{P}]+"
-            ? "Invalid Display name, try again."
-            : ""}
-        </span>
       </div>
       <div className={styles.label_wrapper}>
         <span>Username</span>
@@ -60,15 +43,6 @@ const SignUpForm = ({
             required
           />
         </label>
-        <span className={styles.errorMessage}>
-          {errorState === "User already exists"
-            ? "Username already in use"
-            : ""}
-          {errorState ===
-          "1 validation error detected: Value at 'username' failed to satisfy constraint: Member must satisfy regular expression pattern: [p{L}p{M}p{S}p{N}p{P}]+"
-            ? "Invalid username, try again."
-            : ""}
-        </span>
       </div>
 
       <div className={styles.label_wrapper}>
@@ -95,12 +69,6 @@ const SignUpForm = ({
               placeholder="Minimum 8 characters"
               className={styles.password_input}
             />
-            <span className={styles.errorMessage}>
-              {errorState ===
-              "Password did not conform with policy: Password not long enough"
-                ? "Password not long enough."
-                : ""}
-            </span>
           </label>
           <button
             className={styles.passwordEye_btn}
@@ -142,13 +110,7 @@ const SignUpForm = ({
         </span>
       </label>
 
-      <ReCAPTCHA sitekey={process.env.siteKey} onChange={getCaptchaVal} />
-
-      <button
-        type="submit"
-        className={styles.submit_btn}
-        disabled={captchaVal === ""}
-      >
+      <button type="submit" className={styles.submit_btn}>
         SUBMIT
       </button>
     </form>

@@ -187,7 +187,7 @@
   font-family: "Kanit";
   font-weight: 700;
   letter-spacing: 0.1rem;
-  margin: 0.8rem 0;
+  margin: 0.1rem 0;
   padding: 0.8rem;
   border-radius: 5px;
   border: none;
@@ -331,4 +331,8 @@
 }
 .backToOptions:hover {
   text-decoration: underline;
+}
+.captchaHeader {
+  align-self: center;
+  margin-bottom: 0.6rem;
 }

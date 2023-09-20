@@ -3,6 +3,7 @@ import styles from "@/styles/Form.module.css";
 import SignUpForm from "./SignUpForm";
 import SignInForm from "./SignInForm";
 import { Auth } from "aws-amplify";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -10,8 +11,21 @@ const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
   const [verificationCode, setVerificationCode] = useState("");
   const [username, setUsername] = useState("");
   const [verficationComplete, setVerificationComplete] = useState(false);
-  /* Login processes error handling state*/
-  const [errorState, setErrorState] = useState("");
+  const [captchaVal, setCaptchaVal] = useState("");
+
+  let captchaTimeout;
+
+  function getCaptchaVal(value) {
+    // Clear any existing timeout to prevent immediate execution
+    if (captchaTimeout) {
+      clearTimeout(captchaTimeout);
+    }
+
+    // Set a new timeout of 1 second (1000 milliseconds)
+    captchaTimeout = setTimeout(() => {
+      setCaptchaVal(value);
+    }, 1000);
+  }
 
   /* Disables verify button when there's less than 6 digits on it's input */
   const isButtonActive = verificationCode.length === 6;
@@ -85,60 +99,68 @@ const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
 
   return (
     <>
-      {signIn ? (
-        <SignInForm
-          showPassword={showPassword}
-          setShowPassword={setShowPassword}
-          showSignupForm={showSignupForm}
-          setNotificationText={setNotificationText}
-        />
-      ) : !showVerifyModal ? (
-        <SignUpForm
-          showSignupForm={showSignupForm}
-          showPassword={showPassword}
-          setShowPassword={setShowPassword}
-          handleSignUpSubmit={handleSignUpSubmit}
-          errorState={errorState}
-        />
-      ) : (
-        <form
-          className={styles.verificationCode_container}
-          onSubmit={handleVerificationSubmit}
-        >
-          <h4>Almost there!</h4>
-          <h2>Enter your verification code</h2>
-          <input
-            className={styles.verificationCode_input}
-            type="text"
-            value={verificationCode}
-            onChange={handleVerificationCodeChange}
-            placeholder="000000"
-            required
-          />
-          <div className={styles.resendVerificationCode_notice}>
-            <span>Did not arrive?</span>
-            <button
-              type="button"
-              className={styles.resendCode_btn}
-              onClick={resendConfirmationCode}
-            >
-              Resend code
-            </button>
-          </div>
-          {isButtonActive ? (
-            <button className={styles.submit_btn} type="submit">
-              VERIFY
-            </button>
+      {captchaVal !== "" ? (
+        <>
+          {signIn ? (
+            <SignInForm
+              showPassword={showPassword}
+              setShowPassword={setShowPassword}
+              showSignupForm={showSignupForm}
+              setNotificationText={setNotificationText}
+            />
+          ) : !showVerifyModal ? (
+            <SignUpForm
+              showSignupForm={showSignupForm}
+              showPassword={showPassword}
+              setShowPassword={setShowPassword}
+              handleSignUpSubmit={handleSignUpSubmit}
+            />
           ) : (
-            <button
-              className={styles.submit_btn_inactive}
-              type="button"
-              disabled
+            <form
+              className={styles.verificationCode_container}
+              onSubmit={handleVerificationSubmit}
             >
-              VERIFY
-            </button>
+              <h4>Almost there!</h4>
+              <h2>Enter your verification code</h2>
+              <input
+                className={styles.verificationCode_input}
+                type="text"
+                value={verificationCode}
+                onChange={handleVerificationCodeChange}
+                placeholder="000000"
+                required
+              />
+              <div className={styles.resendVerificationCode_notice}>
+                <span>Did not arrive?</span>
+                <button
+                  type="button"
+                  className={styles.resendCode_btn}
+                  onClick={resendConfirmationCode}
+                >
+                  Resend code
+                </button>
+              </div>
+              {isButtonActive ? (
+                <button className={styles.submit_btn} type="submit">
+                  VERIFY
+                </button>
+              ) : (
+                <button
+                  className={styles.submit_btn_inactive}
+                  type="button"
+                  disabled
+                >
+                  VERIFY
+                </button>
+              )}
+            </form>
           )}
-        </form>
+        </>
+      ) : (
+        <>
+          <h4 className={styles.captchaHeader}>Are you a human?</h4>
+          <ReCAPTCHA sitekey={process.env.siteKey} onChange={getCaptchaVal} />
+        </>
       )}
     </>
   );
