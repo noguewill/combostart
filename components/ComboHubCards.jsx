@@ -71,7 +71,8 @@ const ComboHubCards = () => {
             className={styles.cardImage}
             src="/gameCovers/mkOne2023m.jpg"
             alt={"Mortal Kombat 1"}
-            fill
+            width={920}
+            height={920}
           />
         </button>
         <button
@@ -101,7 +102,8 @@ const ComboHubCards = () => {
             className={styles.cardImage}
             src="/gameCovers/killerinstinct2013coverArt.jpeg"
             alt={"Killer Instinct"}
-            fill
+            width={920}
+            height={920}
           />
         </Link>
         <Link
@@ -114,7 +116,8 @@ const ComboHubCards = () => {
             className={styles.cardImage}
             src="/gameCovers/tekken8.webp"
             alt={"TEKKEN 8"}
-            fill
+            width={920}
+            height={920}
           />
         </Link>
       </div>
