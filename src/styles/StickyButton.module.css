@@ -10,7 +10,7 @@
 .sticky_button {
   padding: 0.9rem;
   font-family: "Kanit";
-  background-color: #5263fa;
+  background-color: #3b3efc;
   color: #ebebeb;
   border: none;
   border-radius: 0.45rem;
@@ -18,7 +18,7 @@
   transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
 }
 .sticky_button:hover {
-  background-color: #3b3efc;
+  background-color: #282cfd;
 }
 
 .menu {
@@ -66,7 +66,7 @@
   color: #ebebeb;
 }
 .paymentOption_patreon:hover {
-  background-color: #fc8d4d;
+  background-color: #ff8f4e;
   color: #ebebeb;
 }
 

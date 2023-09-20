@@ -136,7 +136,7 @@
 .profileBtn_username {
   font-family: "Kanit";
   letter-spacing: 0.2;
-  color: #5263fa;
+  color: #fc3434;
 }
 
 @media (min-width: 700px) {
@@ -253,7 +253,7 @@
     z-index: 2;
   }
   .combosPage_submenu_btn:hover {
-    color: #5263fa;
+    color: #fc3434;
   }
 }
 
@@ -282,7 +282,7 @@
 .icon {
   width: 2rem;
   height: 2rem;
-  fill: #5263fa;
+  fill: #fc3434;
   transition: transform 0.3s ease;
 }
 

@@ -323,10 +323,10 @@
   text-decoration: underline;
 }
 .backToOptions {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 400;
   margin-top: 0.5rem;
-  color: #48aaf0;
+  color: #ebebeb;
   cursor: pointer;
 }
 .backToOptions:hover {

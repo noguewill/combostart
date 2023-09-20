@@ -67,14 +67,14 @@
 
 .tag_text {
   font-family: "Kanit";
-  color: #5263fa;
+  color: #fc3434;
   font-style: italic;
   font-size: 0.9rem;
 }
 .tag_btn {
   background-color: transparent;
   border: none;
-  color: #5263fa;
+  color: #fc3434;
   font-size: 0.75rem;
   padding-left: 0.8rem;
 }
@@ -111,7 +111,7 @@
 }
 .upvote_btn_upvote,
 .light_theme_upvote_btn_upvote {
-  border-bottom: 0.8rem solid #5263fa;
+  border-bottom: 0.8rem solid #fc3434;
 }
 .light_theme_upvote_btn_ {
   border-bottom: 0.8rem solid #0f0f0f;
@@ -132,7 +132,7 @@
 }
 .votes_voted,
 .light_theme_votes_voted {
-  color: #5263fa;
+  color: #fc3434;
 }
 
 .downvote_btn_,
@@ -150,7 +150,7 @@
 }
 .downvote_btn_downvote,
 .light_theme_downvote_btn_downvote {
-  border-top: 0.8rem solid #5263fa;
+  border-top: 0.8rem solid #fc3434;
 }
 .light_theme_downvote_btn_ {
   border-top: 0.8rem solid #0f0f0f;
@@ -200,7 +200,7 @@
   color: #0f0f0f;
 }
 .postedBy_authorName {
-  color: #5263fa; /* ACCENT COLOR */
+  color: #fc3434; /* ACCENT COLOR */
   font-family: "Kanit";
   margin-right: 0.2rem;
   margin-left: 0.1rem;
@@ -450,7 +450,7 @@
   margin-right: -1rem;
 }
 .comboArrow {
-  border: solid #5263fa;
+  border: solid #ff0101;
   border-width: 0 0.125rem 0.125rem 0;
   display: inline-block;
   padding: 0.15rem;
