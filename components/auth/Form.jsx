@@ -25,17 +25,6 @@ const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
     const password = e.target.password.value;
 
     try {
-      // Check if the email is already in use
-      const isEmailInUse = await isEmailAlreadyInUse(email);
-
-      if (isEmailInUse) {
-        setNotificationText(
-          "Email is already in use. Please use a different email."
-        );
-        return;
-      }
-
-      // If email is not in use, proceed with sign-up
       await Auth.signUp({
         username,
         password,

@@ -120,8 +120,7 @@
 }
 
 .mainCard {
-  width: 38rem;
-  height: 22rem;
+  width: 46%;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -276,10 +275,6 @@
     height: auto;
   }
 
-  .mainCard {
-    width: 47%;
-    height: 32rem;
-  }
   .splashKeyArt {
     height: 149%;
     object-fit: cover;
@@ -317,10 +312,6 @@
     height: auto;
   }
 
-  .mainCard {
-    width: 47%;
-    height: 32rem;
-  }
   .splashKeyArt {
     height: 149%;
     object-fit: cover;
@@ -358,10 +349,6 @@
     height: auto;
   }
 
-  .mainCard {
-    width: 47.7%;
-    height: 24rem;
-  }
   .splashKeyArt {
     height: 149%;
     object-fit: cover;
@@ -400,18 +387,10 @@
     height: auto;
   }
 
-  .mainCard {
-    width: 47%;
-    height: 32rem;
-  }
   .splashKeyArt {
     height: 149%;
     object-fit: cover;
   }
 }
 @media screen and (min-width: 1280px) and (max-width: 1024px) {
-  .mainCard {
-    width: 35rem;
-    height: 20rem;
-  }
 }
