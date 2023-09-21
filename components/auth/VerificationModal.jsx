@@ -49,7 +49,6 @@ const VerificationModal = ({
   };
 
   async function resendConfirmationCode() {
-    e.preventDefault();
     try {
       await Auth.resendSignUp(username);
       setNotificationText(<span>Code sent! Check your e-mail</span>);
@@ -100,6 +99,7 @@ const VerificationModal = ({
           <div className={styles.resendVerificationCode_notice}>
             <span>Did not arrive?</span>
             <button
+              type="button"
               className={styles.resendCode_btn}
               onClick={resendConfirmationCode}
             >

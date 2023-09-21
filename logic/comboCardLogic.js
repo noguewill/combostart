@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import {
   recordVote,
   removeVote,
-  recordRate,
+  recordUserRate,
   fetchUserVoteHistory,
 } from "../logic/dataSend";
 import { fetchVoteData, fetchRates } from "../logic/dataFetch";
@@ -79,10 +79,11 @@ export function useComboCardLogic(
     if (loggedIn !== false) {
       try {
         const voteData = await fetchVoteData(postId, userId);
+        const checkLimit = await recordUserRate(userId);
 
-        if (limitReached === false) {
+        if (checkLimit !== "Limit Reached") {
+          await recordUserRate(userId);
           if (voteData === "upvote") {
-            recordRate(userId);
             setCurrentVotes((prevVotes) => ({
               ...prevVotes,
               [postId]: prevVotes[postId] - 1,
@@ -112,16 +113,10 @@ export function useComboCardLogic(
     if (loggedIn !== false) {
       try {
         const voteData = await fetchVoteData(postId, userId);
-        const rates = await fetchRates(userId);
+        const checkLimit = await recordUserRate(userId);
 
-        if (rates.voteRate <= 0 && rates.rateTimer !== 0) {
-          setLimitReached(true);
-        } else {
-          addRatesToUserData(userId);
-          setLimitReached(false);
-        }
-
-        if (limitReached === false) {
+        if (checkLimit !== "Limit Reached") {
+          await recordUserRate(userId);
           if (voteData === "downvote") {
             setCurrentVotes((prevVotes) => ({
               ...prevVotes,

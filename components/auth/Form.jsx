@@ -3,7 +3,7 @@ import styles from "@/styles/Form.module.css";
 import SignUpForm from "./SignUpForm";
 import SignInForm from "./SignInForm";
 import { Auth } from "aws-amplify";
-import ReCAPTCHA from "react-google-recaptcha";
+import PreRenderedCaptcha from "components/PreRenderedCaptcha";
 
 const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -159,7 +159,10 @@ const Form = ({ showSignupForm, signIn, setSignIn, setNotificationText }) => {
       ) : (
         <>
           <h4 className={styles.captchaHeader}>Are you a human?</h4>
-          <ReCAPTCHA sitekey={process.env.siteKey} onChange={getCaptchaVal} />
+          <PreRenderedCaptcha
+          
+            getCaptchaVal={getCaptchaVal}
+          />
         </>
       )}
     </>

@@ -27,8 +27,7 @@ const Navbar = () => {
         setCurrentUser(user);
         setUserDisplayName(user["custom:DisplayName"]);
       } catch (error) {
-        // No active session, redirect to the sign-in page
-        console.error(error);
+        return;
       }
     };
 
@@ -159,7 +158,7 @@ const Navbar = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#5263fa"
+                  stroke="#fc3434"
                 >
                   <path d="M6 9l6 6 6-6" />
                 </svg>

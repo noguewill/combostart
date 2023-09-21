@@ -15,140 +15,6 @@ const client = new DynamoDBClient({
   },
 });
 
-/* export const addRatesToUserData = async (userId) => {
-  try {
-    // Fetch the current UNIX timestamp
-    const currentTimestampInSeconds = Math.floor(Date.now() / 1000);
-
-    // Fetch existing rates data for the user
-    const rates = await fetchRates(userId);
-
-    let { voteRate, rateTimer } = rates;
-
-    // Condition 1: If there is no Rates attribute and rateTimer - 1 hour is equal to 0
-    if (!rates && rateTimer - 3600 === 0) {
-      voteRate = 10;
-      rateTimer = currentTimestampInSeconds + 3600; // 3600 seconds = 1 hour
-    }
-    // Condition 2: If rateTimer and voteRate are not 0, decrement voteRate by 1
-    else if (rateTimer !== 0 && voteRate !== 0) {
-      voteRate -= 1;
-    }
-    // Condition 3: If rateTimer has a value and voteRate is 0, stop executing
-    else if (rateTimer !== 0 && voteRate === 0) {
-      console.log("Conditions not met. Function not executed.");
-      return "denied";
-    }
-
-    // Define the Rates attribute with the updated values
-    const ratesAttribute = {
-      voteRate: { N: voteRate.toString() },
-      rateTimer: { N: rateTimer.toString() },
-    };
-
-    const userTableParams = {
-      TableName: "userData",
-      Key: {
-        userId: { S: userId },
-      },
-      UpdateExpression: "SET Rates = :rates",
-      ExpressionAttributeValues: {
-        ":rates": { M: ratesAttribute },
-      },
-    };
-
-    // Send the UpdateItem request to DynamoDB
-    await client.send(new UpdateItemCommand(userTableParams));
-
-    console.log("Rates attribute updated in userData successfully.");
-  } catch (error) {
-    console.error("Error updating Rates attribute in userData:", error);
-  }
-}; */
-
-export const recordRate = async (userId) => {
-  try {
-    // Fetch the current UNIX timestamp in seconds
-    const currentTimestampInSeconds = Math.floor(Date.now() / 1000);
-
-    // Fetch existing rates data for the user
-    let rates = await fetchRates(userId);
-
-    // Check if it has been an hour since the last rate update
-    if (rates && currentTimestampInSeconds >= rates.rateTimer) {
-      // It has been an hour, reset rateAmount to 0 and update rateTimer
-      rates.rateAmount = 0;
-      rates.rateTimer = currentTimestampInSeconds + 3600; // Reset the timer to 1 hour from now
-    }
-
-    // Check if the user has reached the rate limit
-    if (
-      rates &&
-      rates.rateAmount >= 15 &&
-      currentTimestampInSeconds < rates.rateTimer
-    ) {
-      return "limitReached"; // Rate limit reached, don't update rateAmount
-    }
-
-    // If rate-related attributes don't exist, create them
-    if (!rates) {
-      const createRateAttributes = {
-        TableName: "userData", // Your DynamoDB table name for user data
-        Key: {
-          userId: { S: userId },
-        },
-        UpdateExpression:
-          "SET RateAmount = :initialAmount, RateTimer = :initialTimer",
-        ExpressionAttributeValues: {
-          ":initialAmount": { N: "0" }, // Initial rate amount is 0
-          ":initialTimer": { N: "0" }, // Initial rate timer is 0
-        },
-      };
-
-      await client.send(new UpdateItemCommand(createRateAttributes));
-
-      // Set rates with the newly created attributes
-      rates = {
-        rateAmount: 0,
-        rateTimer: 0,
-      };
-    }
-
-    /* Sending data to the userData table */
-    const rateInfo = {
-      userId: { S: userId }, // Use userId as a key
-    };
-    const params = {
-      TableName: "userData", // Your DynamoDB table name for user data
-      Item: rateInfo,
-    };
-
-    /* Sending data to the userData table */
-    const userRateUpdate = {
-      RateAmount: { N: "1" }, // Assuming you always increase the rateAmount by 1
-    };
-    const updateUserRate = {
-      TableName: "userData", // Your DynamoDB table name for user data
-      Key: {
-        userId: { S: userId },
-      },
-      UpdateExpression:
-        "SET RateAmount = RateAmount + :increment, RateTimer = :timer",
-      ExpressionAttributeValues: {
-        ":increment": { N: "1" }, // You can adjust this value if you want to increment by a different amount
-        ":timer": { N: rates.rateTimer.toString() },
-      },
-    };
-
-    await client.send(new PutItemCommand(params));
-
-    // Update the RateAmount in the userData table
-    await client.send(new UpdateItemCommand(updateUserRate));
-  } catch (error) {
-    console.error("Error recording rate:", error);
-  }
-};
-
 // Function to fetch userData by userId
 export const fetchUserVoteHistory = async (userId) => {
   const params = {
@@ -291,13 +157,90 @@ export const updateVoteCount = async (postId, increment) => {
   }
 };
 
-/* const newUser = {
-  userId: { S: userId },
-  UserVoteHIstory: { M: {} },
+/* User rating handling */
+export const recordUserRate = async (userId) => {
+  const voteRate = 0;
+  const rateTimerVal = Math.floor(Date.now() / 1000) + 3600; // 3600 seconds = 1 hour
+
+  try {
+    const userRates = await fetchRates(userId);
+
+    /* FIRST TIME CREATION OF THE RATE ATTRIBUTE IN THE USERDATA TABLE */
+    const rateAttributes = {
+      RateAmount: { N: voteRate.toString() },
+      RateTimer: { N: rateTimerVal.toString() },
+    };
+
+    const createRateAttr = {
+      TableName: "userData",
+      Key: {
+        userId: { S: userId },
+      },
+      UpdateExpression: "SET Rates = :rateObj",
+      ExpressionAttributeValues: {
+        ":rateObj": { M: rateAttributes },
+      },
+    };
+
+    // Calculate the time difference in seconds
+    const currentTimestampInSeconds = Math.floor(Date.now() / 1000);
+    const rateTimerInSeconds = userRates ? parseInt(userRates.RateTimer) : 0;
+    const timeDifference = currentTimestampInSeconds - rateTimerInSeconds;
+
+    // Check if an hour has passed
+    const anHourHasPassed = timeDifference >= 3600;
+
+    /* Condition 1: The user does not have the Rates attribute*/
+    if (userRates === null) {
+      await client.send(new UpdateItemCommand(createRateAttr));
+    }
+
+    if (userRates) {
+      console.log(anHourHasPassed);
+      console.log(timeDifference);
+      /* Condition 2: The user has not voted 10 times and time has not ran out */
+      if (userRates.RateAmount !== 9 && anHourHasPassed === false) {
+        await updateRateAmount(userId, 1);
+
+        /* Condition 3: The user voted 10 times and time has not ran out */
+      } else if (userRates.RateAmount === 9 && anHourHasPassed === false) {
+        console.log("Limit Reached");
+        return "Limit Reached";
+
+        /* Condition 4: Time has ran out */
+      } else if (anHourHasPassed === true) {
+        // Delete the "Rates" attribute for the user
+        const deleteRateAttr = {
+          TableName: "userData",
+          Key: {
+            userId: { S: userId },
+          },
+          UpdateExpression: "REMOVE Rates",
+        };
+
+        await client.send(new UpdateItemCommand(deleteRateAttr));
+      }
+    }
+  } catch (error) {
+    console.error("Error inserting rates into DynamoDB:", error);
+  }
 };
 
-const params = {
-  TableName: "userData",
-  Item: newUser,
+export const updateRateAmount = async (userId, increment) => {
+  const updateParams = {
+    TableName: "userData",
+    Key: {
+      userId: { S: userId },
+    },
+    UpdateExpression: "SET Rates.RateAmount = Rates.RateAmount + :increment",
+    ExpressionAttributeValues: {
+      ":increment": { N: increment.toString() },
+    },
+  };
+
+  try {
+    await client.send(new UpdateItemCommand(updateParams));
+  } catch (error) {
+    console.error("Error updating rate amount:", error);
+  }
 };
- */

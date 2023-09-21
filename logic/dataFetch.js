@@ -15,7 +15,7 @@ const client = new DynamoDBClient({
     sessionToken: process.env.AWS_SESSION_TOKEN,
   },
 });
-/* Defines the current authenticated user */
+
 export const defCurrentUser = async () => {
   awsmobile;
   try {
@@ -23,7 +23,7 @@ export const defCurrentUser = async () => {
 
     return user.attributes;
   } catch (error) {
-    console.error("User not authenticated.");
+    return;
   }
 };
 
@@ -96,44 +96,23 @@ export const fetchRates = async (userId) => {
     Key: {
       userId: { S: userId }, // Specify the user ID to retrieve rate data
     },
-    ProjectionExpression: "RateAmount, RateTimer", // Attributes to retrieve
   };
 
   try {
     const response = await client.send(new GetItemCommand(params));
 
-    if (response.Item) {
+    if (response.Item.Rates.M) {
       // Rate-related attributes exist; extract and return them
-      const { RateAmount, RateTimer } = response.Item;
-      return {
-        rateAmount: Number(RateAmount.N), // Convert to a number
-        rateTimer: Number(RateTimer.N), // Convert to a number
-      };
+      const rates = response.Item.Rates.M;
+      const rateAmount = parseInt(rates.RateAmount.N); // Convert RateAmount to an integer
+      const rateTimer = parseInt(rates.RateTimer.N); // Convert RateTimer to an integer
+
+      return { RateAmount: rateAmount, RateTimer: rateTimer };
     } else {
-      // Rate-related attributes do not exist; create them
-      const createRateAttributes = {
-        TableName: "userData", // Your DynamoDB table name for user data
-        Key: {
-          userId: { S: userId },
-        },
-        UpdateExpression:
-          "SET RateAmount = :initialAmount, RateTimer = :initialTimer",
-        ExpressionAttributeValues: {
-          ":initialAmount": { N: "0" }, // Initial rate amount is 0
-          ":initialTimer": { N: "0" }, // Initial rate timer is 0
-        },
-      };
-
-      await client.send(new UpdateItemCommand(createRateAttributes));
-
-      // Return the newly created rate attributes
-      return {
-        rateAmount: 0,
-        rateTimer: 0,
-      };
+      return null;
     }
   } catch (error) {
-    console.error("Error fetching/creating rate data:", error);
+    console.error("Error fetching rate data:", error);
     return null;
   }
 };
