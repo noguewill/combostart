@@ -34,49 +34,87 @@ const Footer = ({ theme }) => {
             <span>English(US)</span>
           </div>
         </div>
-        <div className={styles[`${theme}socialMedia_container`]}>
-          <h2 className={styles[`${theme}socialMedia_header`]}>
-            KEEP UP WITH COMBOSTART
+        <section className={styles.socials_wrapper}>
+          <div className={styles[`${theme}socialMedia_container`]}>
+            <h2 className={styles[`${theme}socialMedia_header`]}>
+              KEEP UP WITH COMBOSTART
+            </h2>
+            <div className={styles.socialMediaIcons_container}>
+              <Link
+                target="_blank"
+                href="https://www.instagram.com/combostart/"
+                className={styles[`${theme}socialMediaIcon`]}
+              >
+                <Image
+                  src="/icons/instagram.svg"
+                  width={27}
+                  height={27}
+                  alt="Combostart instagram account"
+                />
+              </Link>
+              <Link
+                target="_blank"
+                href="https://twitter.com/COMBOSTARTFGC"
+                className={styles[`${theme}socialMediaIcon`]}
+              >
+                <Image
+                  src="/icons/twitter.svg"
+                  width={27}
+                  height={27}
+                  alt="Combostart twitter"
+                />
+              </Link>
+              <Link
+                target="_blank"
+                href="https://discord.gg/ZxhnMddS"
+                className={styles[`${theme}socialMediaIcon`]}
+              >
+                <Image
+                  src="/icons/discord.svg"
+                  width={27}
+                  height={27}
+                  alt="Combostart discord server"
+                />
+              </Link>
+            </div>
+          </div>
+
+          <h2 className={styles[`${theme}paymentOptions_header`]}>
+            SUPPORT COMBOSTART DEVELOPMENT
           </h2>
-          <div className={styles.socialMediaIcons_container}>
+          <div className={styles[`${theme}paymentOptions_container`]}>
             <Link
               target="_blank"
-              href="https://www.instagram.com/combostart/"
-              className={styles[`${theme}socialMediaIcon`]}
+              href="https://patreon.com/COMBOSTART"
+              className={styles.paymentOption_patreon}
             >
-              <Image
-                src="/icons/instagram.svg"
-                width={27}
-                height={27}
-                alt="Combostart instagram account"
-              />
+              <div className={styles.logo_container_patreon}>
+                <Image
+                  className={styles.logo_icon}
+                  src="/icons/patreonLogo.svg"
+                  fill
+                  alt="Patreon logo"
+                />
+              </div>
+              PATREON
             </Link>
             <Link
               target="_blank"
-              href="https://twitter.com/COMBOSTARTFGC"
-              className={styles[`${theme}socialMediaIcon`]}
+              href="https://ko-fi.com/combostart"
+              className={styles.paymentOption_kofi}
             >
-              <Image
-                src="/icons/twitter.svg"
-                width={27}
-                height={27}
-                alt="Combostart twitter"
-              />
-            </Link>
-            <Link
-              target="_blank"
-              href="https://discord.gg/ZxhnMddS"
-              className={styles[`${theme}socialMediaIcon`]}
-            >
-              <Image
-                src="/icons/discord.svg"
-                width={27}
-                height={27}
-                alt="Combostart discord server"
-              />
+              <div className={styles.logo_container}>
+                <Image
+                  className={styles.logo_icon}
+                  src="/icons/kofiLogo.svg"
+                  fill
+                  alt="Ko-fi logo"
+                />
+              </div>
+              KO-FI
             </Link>
           </div>
-        </div>
+        </section>
 
         {/* Upcoming submenu */}
         <div className={styles.submenu_upcoming_container}>
