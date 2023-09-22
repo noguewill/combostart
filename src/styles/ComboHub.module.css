@@ -121,7 +121,7 @@
 
 .mainCard {
   width: 45%;
-  height: 20.5rem;
+  height: auto;
   border: none;
   background: transparent;
   cursor: pointer;
