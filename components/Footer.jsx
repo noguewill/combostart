@@ -82,11 +82,11 @@ const Footer = ({ theme }) => {
           <h2 className={styles[`${theme}paymentOptions_header`]}>
             SUPPORT COMBOSTART DEVELOPMENT
           </h2>
-          <div className={styles[`${theme}paymentOptions_container`]}>
+          <div className={styles.paymentOptions_container}>
             <Link
               target="_blank"
               href="https://patreon.com/COMBOSTART"
-              className={styles.paymentOption_patreon}
+              className={styles[`${theme}paymentOption_patreon`]}
             >
               <div className={styles.logo_container_patreon}>
                 <Image
@@ -101,7 +101,7 @@ const Footer = ({ theme }) => {
             <Link
               target="_blank"
               href="https://ko-fi.com/combostart"
-              className={styles.paymentOption_kofi}
+              className={styles[`${theme}paymentOption_kofi`]}
             >
               <div className={styles.logo_container}>
                 <Image
