@@ -121,7 +121,7 @@
 
 .mainCard {
   width: 45%;
-  height: 18rem;
+  height: 20.5rem;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -194,6 +194,7 @@
   height: auto;
   transition: all 0.2s cubic-bezier(0.2, 0.5, 0.8, 0.9);
   object-fit: cover;
+  object-position: center top;
 }
 
 .cardTitle,

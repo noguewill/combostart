@@ -62,7 +62,7 @@ const ComboCard = ({
             {noShowVote ? (
               ""
             ) : (
-              <section className={styles.upvote_container}>
+              <section className={styles.vote_container}>
                 <button
                   type="button"
                   className={`${
