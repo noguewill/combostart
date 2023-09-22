@@ -49,7 +49,7 @@ const Footer = ({ theme }) => {
                   src="/icons/instagram.svg"
                   width={27}
                   height={27}
-                  alt="Combostart instagram account"
+                  alt="Combostart instagram"
                 />
               </Link>
               <Link
@@ -66,14 +66,14 @@ const Footer = ({ theme }) => {
               </Link>
               <Link
                 target="_blank"
-                href="https://discord.gg/ZxhnMddS"
+                href="https://www.threads.net/@combostart?hl=en"
                 className={styles[`${theme}socialMediaIcon`]}
               >
                 <Image
-                  src="/icons/discord.svg"
+                  src="/icons/threads.svg"
                   width={27}
                   height={27}
-                  alt="Combostart discord server"
+                  alt="Combostart threads"
                 />
               </Link>
             </div>
