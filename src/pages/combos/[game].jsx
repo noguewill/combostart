@@ -145,8 +145,8 @@ const ComboPage = () => {
             <div className={styles.rateWarning_open}>
               <span className={styles.rateWarning_text}>
                 Vote limit reached. In{" "}
-                <span className={styles.rateWarningTime}>1 hour</span> you'll be
-                able to vote again.
+                <span className={styles.rateWarningTime}>1 hour</span>{" "}
+                you&apos;ll be able to vote again.
               </span>
               <button
                 type="button"
