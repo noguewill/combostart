@@ -24,6 +24,13 @@ const ComboPage = () => {
   const [showSignIn, setShowSignIn] = useState(false);
   const [sortedComboData, setSortedComboData] = useState([]); // Initialize as an empty array
   const [filteredComboData, setFilteredComboData] = useState([]); // State for filtered combo data
+  const [limitReached, setLimitReached] = useState(false);
+  const [rateWarningOpen, setRateWarningOPen] = useState(true);
+
+  // Function to update the limitReached state
+  const updateLimitReached = (newValue) => {
+    setLimitReached(newValue);
+  };
 
   const itemsPerPage = 7;
   const toggleOverlay = () => {
@@ -132,6 +139,33 @@ const ComboPage = () => {
   return (
     <div className={styles[`${theme}container`]}>
       <Navbar />
+      {limitReached && (
+        <>
+          {rateWarningOpen ? (
+            <div className={styles.rateWarning_open}>
+              <span className={styles.rateWarning_text}>
+                Vote limit reached. In{" "}
+                <span className={styles.rateWarningTime}>1 hour</span> you'll be
+                able to vote again.
+              </span>
+              <button
+                type="button"
+                className={styles.rateWarning_close_btn}
+                onClick={() => setRateWarningOPen(false)}
+              >
+                X
+              </button>
+            </div>
+          ) : (
+            <button
+              className={styles.rateWarning_closed}
+              onClick={() => setRateWarningOPen(true)}
+            >
+              !
+            </button>
+          )}
+        </>
+      )}
 
       <Search
         onSearch={handleSearch}
@@ -189,6 +223,7 @@ const ComboPage = () => {
               displayedCombos={currentCombos} // Use sorted data for rendering
               userId={userId}
               theme={theme}
+              updateLimitReached={updateLimitReached}
             />
           )}
 
@@ -199,6 +234,7 @@ const ComboPage = () => {
               displayedCombos={currentCombos} // Use sorted data for rendering
               userId={userId}
               theme={theme}
+              updateLimitReached={updateLimitReached}
             />
           )}
 

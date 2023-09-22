@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "@/styles/ComboCard.module.css";
 import { useComboCardLogic } from "logic/comboCardLogic";
 import Image from "next/image";
@@ -10,6 +10,7 @@ const ComboCard = ({
   noShowVote,
   loggedIn,
   setShowSignIn,
+  updateLimitReached,
 }) => {
   const {
     stringsCount,
@@ -25,9 +26,12 @@ const ComboCard = ({
     setHoveredPost,
     postExpandCollapse,
     setPostExpandCollapse,
+    hasLimitReached,
     // Destructure other functions and states you need
   } = useComboCardLogic(displayedCombos, userId, loggedIn, setShowSignIn);
-
+  useEffect(() => {
+    updateLimitReached(hasLimitReached);
+  }, [hasLimitReached]);
   return (
     <>
       {displayedCombos.map((card) => {

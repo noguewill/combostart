@@ -7,7 +7,7 @@ import {
   recordUserRate,
   fetchUserVoteHistory,
 } from "../logic/dataSend";
-import { fetchVoteData, fetchRates } from "../logic/dataFetch";
+import { fetchVoteData } from "../logic/dataFetch";
 
 export function useComboCardLogic(
   displayedCombos,
@@ -24,7 +24,7 @@ export function useComboCardLogic(
   const [currentVotes, setCurrentVotes] = useState({});
   const [renderedPostIds, setRenderedPostIds] = useState([]);
   const [hoveredPost, setHoveredPost] = useState(null);
-  const [limitReached, setLimitReached] = useState(false);
+  const [hasLimitReached, setHasLimitReached] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -100,6 +100,9 @@ export function useComboCardLogic(
           const newVoteStatus = { ...voteStatus };
           newVoteStatus[postId] = voteData === "upvote" ? null : "upvote";
           setVoteStatus(newVoteStatus);
+        } else if (checkLimit === "Limit Reached") {
+          setHasLimitReached(true);
+          return;
         }
       } catch (error) {
         console.log("Error handling upvote:", error);
@@ -135,6 +138,9 @@ export function useComboCardLogic(
           const newVoteStatus = { ...voteStatus };
           newVoteStatus[postId] = voteData === "downvote" ? null : "downvote";
           setVoteStatus(newVoteStatus);
+        } else if (checkLimit === "Limit Reached") {
+          setHasLimitReached(true);
+          return;
         }
       } catch (error) {
         console.error("Error handling downvote:", error);
@@ -175,5 +181,6 @@ export function useComboCardLogic(
     postExpandCollapse,
     setPostExpandCollapse,
     comboHighlighted,
+    hasLimitReached,
   };
 }

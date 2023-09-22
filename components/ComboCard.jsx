@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "@/styles/ComboCard.module.css";
 import { useComboCardLogic } from "logic/comboCardLogic";
 import Image from "next/image";
@@ -10,6 +10,7 @@ const ComboCard = ({
   noShowVote,
   loggedIn,
   setShowSignIn,
+  updateLimitReached,
 }) => {
   const {
     stringsCount,
@@ -25,8 +26,13 @@ const ComboCard = ({
     setHoveredPost,
     postExpandCollapse,
     setPostExpandCollapse,
+    hasLimitReached,
     // Destructure other functions and states you need
   } = useComboCardLogic(displayedCombos, userId, loggedIn, setShowSignIn);
+
+  useEffect(() => {
+    updateLimitReached(hasLimitReached);
+  }, [hasLimitReached]);
 
   return (
     <>
@@ -58,6 +64,7 @@ const ComboCard = ({
             ) : (
               <section className={styles.upvote_container}>
                 <button
+                  type="button"
                   className={`${
                     voteStatus[postId] === "upvote"
                       ? styles[`${theme}upvote_btn_upvote`]
@@ -76,6 +83,8 @@ const ComboCard = ({
                   {currentVotes[postId]}
                 </span>
                 <button
+                  type="button"
+                  disabled
                   className={`${
                     voteStatus[postId] === "downvote"
                       ? styles[`${theme}downvote_btn_downvote`]
