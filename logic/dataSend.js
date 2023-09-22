@@ -198,12 +198,12 @@ export const recordUserRate = async (userId) => {
     if (userRates) {
       console.log(anHourHasPassed);
       console.log(timeDifference);
-      /* Condition 2: The user has not voted 10 times and time has not ran out */
-      if (userRates.RateAmount !== 9 && anHourHasPassed === false) {
+      /* Condition 2: The user has not voted 6 times and time has not ran out */
+      if (userRates.RateAmount !== 5 && anHourHasPassed === false) {
         await updateRateAmount(userId, 1);
 
-        /* Condition 3: The user voted 10 times and time has not ran out */
-      } else if (userRates.RateAmount === 9 && anHourHasPassed === false) {
+        /* Condition 3: The user voted 6 times and time has not ran out */
+      } else if (userRates.RateAmount === 5 && anHourHasPassed === false) {
         console.log("Limit Reached");
         return "Limit Reached";
 
