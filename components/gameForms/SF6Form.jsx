@@ -174,7 +174,7 @@ const SF6Form = ({
 
       setFormSubmitted(true);
       setPostNotification(
-        <span>
+        <span style={{ marginLeft: "auto", marginRight: "auto" }}>
           Combo posted<span style={{ color: "#93f367" }}> successfully </span>
           Redirecting...
         </span>

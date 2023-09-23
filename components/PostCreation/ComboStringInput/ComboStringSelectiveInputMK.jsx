@@ -311,14 +311,6 @@ const ComboStringSelectiveInputMK = ({
             <div className={styles[`${theme}comboStrings_container`]}>
               {comboStrings.map((comboString, outerIndex) => (
                 <div key={outerIndex} className={styles.comboString_wrapper}>
-                  <input
-                    className={styles.comboString_input}
-                    type="text"
-                    placeholder="FULLY CHARGED"
-                    maxLength={15}
-                    value={""}
-                    onChange={(e) => e.target.value}
-                  />
                   <div
                     key={outerIndex}
                     className={styles.comboStringRow}

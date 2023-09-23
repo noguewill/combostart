@@ -140,7 +140,7 @@ const ComboCard = ({
                     </div>
                     <div className={styles.mechanic_container}>
                       <div className={styles.driveRush}>
-                        {card.DriveBars?.N}
+                        {card.MeterBars?.N}
                       </div>
                       <span className={styles[`${theme}mechanic_text`]}>
                         DRIVE RUSH

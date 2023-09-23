@@ -180,13 +180,17 @@ const ComboStringSelectiveInput = ({
                 </h2>
                 <h2 className={styles.initialState_header}>
                   Initial state:
-                  <Image
-                    style={{ marginLeft: "0.5rem" }}
-                    src={`/inputs/${initialState}.svg`}
-                    width={26}
-                    height={26}
-                    alt="Initial state necessary to start combo"
-                  />
+                  {initialState === "NONE" ? (
+                    <span>NONE</span>
+                  ) : (
+                    <Image
+                      style={{ marginLeft: "0.5rem" }}
+                      src={`/inputs/${initialState}.svg`}
+                      width={26}
+                      height={26}
+                      alt="Initial state necessary to start combo"
+                    />
+                  )}
                 </h2>
               </div>
               <main className={styles[`${theme}comboBtns_container`]}>
@@ -472,14 +476,6 @@ const ComboStringSelectiveInput = ({
                       key={outerIndex}
                       className={styles.comboString_wrapper}
                     >
-                      <input
-                        className={styles.comboString_input}
-                        type="text"
-                        placeholder="FULLY CHARGED"
-                        maxLength={15}
-                        value={""}
-                        onChange={(e) => e.target.value}
-                      />
                       <div
                         key={outerIndex}
                         className={styles.comboStringRow}
