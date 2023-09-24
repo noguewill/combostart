@@ -11,6 +11,7 @@ import {
 } from "logic/dataFetch";
 import withAuth from "components/withAuth";
 import StickyButton from "components/StickyButton";
+import { Helmet } from "react-helmet";
 
 const Upvoted = () => {
   const { theme } = useContext(ThemeContext);

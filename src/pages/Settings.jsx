@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import withAuth from "components/withAuth";
 import StickyButton from "components/StickyButton";
+import { Helmet } from "react-helmet";
 
 // Import necessary dependencies and components
 

@@ -4,6 +4,7 @@ import Navbar from "/components/Navbar";
 import Footer from "/components/Footer";
 import styles from "@/styles/Tos.module.css";
 import StickyButton from "components/StickyButton";
+import { Helmet } from "react-helmet";
 
 const PrivacyPolicy = () => {
   const { theme } = useContext(ThemeContext);

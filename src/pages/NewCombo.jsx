@@ -12,6 +12,7 @@ import withAuth from "components/withAuth";
 import SF6Form from "components/gameForms/SF6Form";
 import MKOneForm from "components/gameForms/MKOneForm";
 import StickyButton from "components/StickyButton";
+import { Helmet } from "react-helmet";
 
 const NewCombo = () => {
   const router = useRouter();

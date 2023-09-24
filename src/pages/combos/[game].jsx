@@ -10,6 +10,7 @@ import { defCurrentUser, fetchComboData } from "logic/dataFetch";
 import StickyButton from "components/StickyButton";
 import AuthenticationBody from "components/auth/AuthenticationBody";
 import { useRouter } from "next/router";
+import { Helmet } from "react-helmet";
 
 const ComboPage = () => {
   const router = useRouter();
