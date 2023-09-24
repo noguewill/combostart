@@ -143,7 +143,7 @@ const SF6Form = ({
       MeterBars: { N: meterBars.toString() },
       PostTitle: { S: postTitle },
       ComboStrings: { S: JSON.stringify(comboStrings) },
-      Tags: { S: tags.join(",").toUpperCase() },
+      Tags: { S: tags.toUpperCase() },
       SubmissionTime: { S: time },
       SubmissionDate: { S: date },
       Timestamp: { N: numericTimestamp.toString() },
