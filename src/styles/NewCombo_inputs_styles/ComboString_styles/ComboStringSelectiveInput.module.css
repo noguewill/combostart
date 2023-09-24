@@ -70,6 +70,9 @@
   font-size: 0.9rem;
   margin-left: 1rem;
 }
+.initialState_none {
+  margin-left: 0.3rem;
+}
 /* Header end */
 
 /* Combo input buttons */

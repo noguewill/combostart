@@ -194,13 +194,18 @@ const MKOneForm = ({
         <div className={styles[`${theme}gameInfo_input_wrapper`]}>
           <span className={styles[`${theme}gameInfo_input_title`]}>Game</span>
           <div className={styles[`${theme}selectDropdownContainer`]}>
-            <input
-              style={{ width: "6rem", color: "gray" }}
+            <select
               value={game}
               onChange={handleGameChange}
               className={styles[`${theme}stringsOptions_stringType`]}
-              disabled
-            />
+              required
+            >
+              <option value="" disabled>
+                Select
+              </option>
+              <option value="Street Fighter 6">Street Fighter 6</option>
+              <option value="Mortal Kombat 1">Mortal Kombat 1</option>
+            </select>
           </div>
         </div>
 

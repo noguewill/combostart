@@ -173,15 +173,12 @@ const ComboStringSelectiveInput = ({
                   </button>
                 </h2>
                 <h2 className={styles.header}>
-                  <button type="button" className={styles[`${theme}help_btn`]}>
-                    ?
-                  </button>
                   Click the inputs below to start building your combo
                 </h2>
                 <h2 className={styles.initialState_header}>
                   Initial state:
                   {initialState === "NONE" ? (
-                    <span>NONE</span>
+                    <span className={styles.initialState_none}>NONE</span>
                   ) : (
                     <Image
                       style={{ marginLeft: "0.5rem" }}

@@ -93,9 +93,6 @@ const ComboStringSelectiveInputMK = ({
         <>
           <div className={styles.headerMK_container}>
             <h2 className={styles.header}>
-              <button type="button" className={styles[`${theme}help_btn`]}>
-                ?
-              </button>
               Click the inputs below to start building your combo
             </h2>
           </div>

@@ -49,6 +49,7 @@
 .password_container {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.9rem;
 }
 .password_input {
   width: 18rem;

@@ -182,7 +182,7 @@ const SF6Form = ({
 
       // Delay the navigation by a few milliseconds
       setTimeout(() => {
-        router.push("/Combos");
+        router.push("/combos/streetfighter6");
       }, 1000);
     } catch (error) {
       console.error("Error inserting combo post into DynamoDB:", error);
