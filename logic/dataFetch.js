@@ -43,7 +43,7 @@ export const fetchComboData = async (game) => {
     const tableParams = tableParamsMap[game];
 
     if (!tableParams) {
-      console.error("Invalid game name:", game);
+      console.log("Invalid game name:", game);
       return []; // Return an empty array or handle the error as needed
     }
 

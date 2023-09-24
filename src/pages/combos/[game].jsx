@@ -140,12 +140,7 @@ const ComboPage = () => {
   return (
     <>
       <Helmet>
-        <title>
-          COMBOSTART |{" "}
-          {game === "streetfighter6"
-            ? "Street Fighter 6 combos"
-            : "Mortal Kombat 1 combos"}{" "}
-        </title>
+        <title>COMBOSTART | COMBOS</title>
         <meta
           name="description"
           content={`Combos for the fighting game ${game}`}

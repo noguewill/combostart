@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
   return (
     <>
       <Helmet>
-        <title>COMBOSTART | Private Policy</title>
+        <title>COMBOSTART | Privacy Policy</title>
 
         <link
           rel="canonical"

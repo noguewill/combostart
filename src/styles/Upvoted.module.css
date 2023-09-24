@@ -18,3 +18,11 @@
   flex-direction: column;
   justify-content: space-between;
 }
+.noCombosFound_header {
+  font-size: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: #ebebeb;
+  background-color: #000;
+  border-radius: 8px;
+}
