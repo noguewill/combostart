@@ -137,223 +137,235 @@ const Settings = () => {
   }
 
   return (
-    <div className={styles[`${theme}settings_container`]}>
-      <Navbar />
-      {showVerificationModal && (
-        <VerificationModal
-          newEmail={newEmail}
-          emailEditMode={emailEditMode}
-          currentUserName={currentUserName}
-          notificationText={notificationText}
-          setNotificationText={setNotificationText}
-        />
-      )}
-      <div className={styles.modal_parent}>
-        <div
-          className={styles.notificationMessage_container}
-          style={
-            notificationText === ""
-              ? { visibility: "hidden" }
-              : { visibility: "visible" }
-          }
-        >
-          <h4 className={styles.notificationMessage}>{notificationText}</h4>
-        </div>
-        <div className={styles.modal_container}>
-          <div className={styles[`${theme}settingsRow`]}>
-            {displaynameEditMode ? (
-              <div className={styles.settingTitle_container}>
-                <span className={styles.settingOption_text}>
-                  CHANGE DISPLAY NAME
-                </span>
-                <label htmlFor="name" className={styles.email_label}>
-                  <input
-                    type="text"
-                    className={styles.password_input}
-                    value={newDisplayName}
-                    maxLength={10}
-                    onChange={(e) => setNewDisplayName(e.target.value)}
-                  />
-                </label>
-                <button
-                  className={styles.saveBtn}
-                  onClick={updateUserDisplayName}
-                >
-                  Save
-                </button>
-              </div>
-            ) : (
-              <div className={styles.settingTitle_container}>
-                <span className={styles.settingOption_text}>DISPLAY NAME</span>
-                <h3 className={styles.settingsOption}>
-                  {userAttributes &&
-                    userAttributes.attributes["custom:DisplayName"]}
-                </h3>
-              </div>
-            )}
+    <>
+      <Helmet>
+        <title>COMBOSTART | User Settings</title>
 
-            <button
-              className={
-                displaynameEditMode
-                  ? styles.settingBtn_cancel
-                  : styles.settingBtn
-              }
-              onClick={() => setDisplaynameEditMode(!displaynameEditMode)}
-            >
-              {displaynameEditMode ? "Cancel" : " Edit Display Name"}
-            </button>
+        <link rel="canonical" href="https://combostart.vercel.app/Settings" />
+      </Helmet>
+      <div className={styles[`${theme}settings_container`]}>
+        <Navbar />
+        {showVerificationModal && (
+          <VerificationModal
+            newEmail={newEmail}
+            emailEditMode={emailEditMode}
+            currentUserName={currentUserName}
+            notificationText={notificationText}
+            setNotificationText={setNotificationText}
+          />
+        )}
+        <div className={styles.modal_parent}>
+          <div
+            className={styles.notificationMessage_container}
+            style={
+              notificationText === ""
+                ? { visibility: "hidden" }
+                : { visibility: "visible" }
+            }
+          >
+            <h4 className={styles.notificationMessage}>{notificationText}</h4>
           </div>
-
-          {/* E-mail section */}
-          <div className={styles[`${theme}settingsRow`]}>
-            <div className={styles.settingTitle_container}>
-              {!emailEditMode ? (
-                <>
-                  <span className={styles.settingOption_text}>E-MAIL</span>
-                  <h3 className={styles.settingsOption}>
-                    {userAttributes && userAttributes.attributes["email"]}
-                  </h3>
-                </>
-              ) : (
-                <>
+          <div className={styles.modal_container}>
+            <div className={styles[`${theme}settingsRow`]}>
+              {displaynameEditMode ? (
+                <div className={styles.settingTitle_container}>
                   <span className={styles.settingOption_text}>
-                    CHANGE E-MAIL
+                    CHANGE DISPLAY NAME
                   </span>
-                  <label htmlFor="email" className={styles.email_label}>
+                  <label htmlFor="name" className={styles.email_label}>
                     <input
-                      type="email"
+                      type="text"
                       className={styles.password_input}
-                      value={newEmail.toString()} // Convert the value to a string
-                      onChange={(e) => setNewEmail(e.target.value)}
+                      value={newDisplayName}
+                      maxLength={10}
+                      onChange={(e) => setNewDisplayName(e.target.value)}
                     />
                   </label>
-                  <button className={styles.saveBtn} onClick={updateUserEmail}>
-                    Save
-                  </button>
-                </>
-              )}
-            </div>
-            <button
-              className={
-                emailEditMode ? styles.settingBtn_cancel : styles.settingBtn
-              }
-              onClick={() => setEmailEditMode(!emailEditMode)}
-            >
-              {emailEditMode ? "Cancel" : "Change E-mail"}
-            </button>
-          </div>
-
-          {/* Change Password */}
-
-          <div className={styles[`${theme}settingsRow`]}>
-            <div className={styles.settingTitle_container}>
-              {!changePassword ? (
-                <>
-                  <span className={styles.settingOption_text}>PASSWORD</span>
-                  <h3 className={styles.settingsOption}>****************</h3>
-                </>
-              ) : (
-                <>
-                  <span className={styles.settingOption_text}>
-                    CHANGE PASSWORD
-                  </span>
-                  {/* Input for the old password */}
-                  <div className={styles.password_container}>
-                    <label htmlFor="password">
-                      {/* Input for the old password */}
-                      <input
-                        type={showOldPassword ? "text" : "password"}
-                        name="oldPassword"
-                        required
-                        onChange={(e) => setOldPassword(e.target.value)}
-                        className={styles.password_input}
-                        placeholder="Current Password"
-                        maxLength={16}
-                      />
-                    </label>
-                    <button
-                      className={styles.passwordEye_btn}
-                      type="button"
-                      onClick={() => setShowOldPassword(!showOldPassword)}
-                    >
-                      <Image
-                        className={styles.eye_icon}
-                        src={
-                          showOldPassword
-                            ? "/icons/signUpPasswordEye.svg"
-                            : "/icons/signUpPasswordClosedEye.svg"
-                        }
-                        alt="eye"
-                        width={20}
-                        height={20}
-                      />
-                    </button>
-                  </div>
-
-                  {/* Input for the new password */}
-
-                  <div className={styles.password_container}>
-                    <label htmlFor="password">
-                      {/* Input for the new password */}
-                      <input
-                        type={showNewPassword ? "text" : "password"}
-                        name="newPassword"
-                        required
-                        className={styles.password_input}
-                        onChange={(e) => setNewPassword(e.target.value)}
-                        placeholder="New Password"
-                        maxLength={16}
-                      />
-                    </label>
-                    <button
-                      className={styles.passwordEye_btn}
-                      type="button"
-                      onClick={() => setShowNewPassword(!showNewPassword)}
-                    >
-                      <Image
-                        className={styles.eye_icon}
-                        src={
-                          showNewPassword
-                            ? "/icons/signUpPasswordEye.svg"
-                            : "/icons/signUpPasswordClosedEye.svg"
-                        }
-                        alt="eye"
-                        width={20}
-                        height={20}
-                      />
-                    </button>
-                  </div>
-                  {/* Save button */}
                   <button
                     className={styles.saveBtn}
-                    onClick={handleChangePassword}
+                    onClick={updateUserDisplayName}
                   >
                     Save
                   </button>
-                </>
+                </div>
+              ) : (
+                <div className={styles.settingTitle_container}>
+                  <span className={styles.settingOption_text}>
+                    DISPLAY NAME
+                  </span>
+                  <h3 className={styles.settingsOption}>
+                    {userAttributes &&
+                      userAttributes.attributes["custom:DisplayName"]}
+                  </h3>
+                </div>
               )}
+
+              <button
+                className={
+                  displaynameEditMode
+                    ? styles.settingBtn_cancel
+                    : styles.settingBtn
+                }
+                onClick={() => setDisplaynameEditMode(!displaynameEditMode)}
+              >
+                {displaynameEditMode ? "Cancel" : " Edit Display Name"}
+              </button>
             </div>
-            <button
-              className={
-                changePassword ? styles.settingBtn_cancel : styles.settingBtn
-              }
-              onClick={() => setChangePassword(!changePassword)}
-            >
-              {changePassword ? "Cancel" : "Change Password"}
-            </button>
+
+            {/* E-mail section */}
+            <div className={styles[`${theme}settingsRow`]}>
+              <div className={styles.settingTitle_container}>
+                {!emailEditMode ? (
+                  <>
+                    <span className={styles.settingOption_text}>E-MAIL</span>
+                    <h3 className={styles.settingsOption}>
+                      {userAttributes && userAttributes.attributes["email"]}
+                    </h3>
+                  </>
+                ) : (
+                  <>
+                    <span className={styles.settingOption_text}>
+                      CHANGE E-MAIL
+                    </span>
+                    <label htmlFor="email" className={styles.email_label}>
+                      <input
+                        type="email"
+                        className={styles.password_input}
+                        value={newEmail.toString()} // Convert the value to a string
+                        onChange={(e) => setNewEmail(e.target.value)}
+                      />
+                    </label>
+                    <button
+                      className={styles.saveBtn}
+                      onClick={updateUserEmail}
+                    >
+                      Save
+                    </button>
+                  </>
+                )}
+              </div>
+              <button
+                className={
+                  emailEditMode ? styles.settingBtn_cancel : styles.settingBtn
+                }
+                onClick={() => setEmailEditMode(!emailEditMode)}
+              >
+                {emailEditMode ? "Cancel" : "Change E-mail"}
+              </button>
+            </div>
+
+            {/* Change Password */}
+
+            <div className={styles[`${theme}settingsRow`]}>
+              <div className={styles.settingTitle_container}>
+                {!changePassword ? (
+                  <>
+                    <span className={styles.settingOption_text}>PASSWORD</span>
+                    <h3 className={styles.settingsOption}>****************</h3>
+                  </>
+                ) : (
+                  <>
+                    <span className={styles.settingOption_text}>
+                      CHANGE PASSWORD
+                    </span>
+                    {/* Input for the old password */}
+                    <div className={styles.password_container}>
+                      <label htmlFor="password">
+                        {/* Input for the old password */}
+                        <input
+                          type={showOldPassword ? "text" : "password"}
+                          name="oldPassword"
+                          required
+                          onChange={(e) => setOldPassword(e.target.value)}
+                          className={styles.password_input}
+                          placeholder="Current Password"
+                          maxLength={16}
+                        />
+                      </label>
+                      <button
+                        className={styles.passwordEye_btn}
+                        type="button"
+                        onClick={() => setShowOldPassword(!showOldPassword)}
+                      >
+                        <Image
+                          className={styles.eye_icon}
+                          src={
+                            showOldPassword
+                              ? "/icons/signUpPasswordEye.svg"
+                              : "/icons/signUpPasswordClosedEye.svg"
+                          }
+                          alt="eye"
+                          width={20}
+                          height={20}
+                        />
+                      </button>
+                    </div>
+
+                    {/* Input for the new password */}
+
+                    <div className={styles.password_container}>
+                      <label htmlFor="password">
+                        {/* Input for the new password */}
+                        <input
+                          type={showNewPassword ? "text" : "password"}
+                          name="newPassword"
+                          required
+                          className={styles.password_input}
+                          onChange={(e) => setNewPassword(e.target.value)}
+                          placeholder="New Password"
+                          maxLength={16}
+                        />
+                      </label>
+                      <button
+                        className={styles.passwordEye_btn}
+                        type="button"
+                        onClick={() => setShowNewPassword(!showNewPassword)}
+                      >
+                        <Image
+                          className={styles.eye_icon}
+                          src={
+                            showNewPassword
+                              ? "/icons/signUpPasswordEye.svg"
+                              : "/icons/signUpPasswordClosedEye.svg"
+                          }
+                          alt="eye"
+                          width={20}
+                          height={20}
+                        />
+                      </button>
+                    </div>
+                    {/* Save button */}
+                    <button
+                      className={styles.saveBtn}
+                      onClick={handleChangePassword}
+                    >
+                      Save
+                    </button>
+                  </>
+                )}
+              </div>
+              <button
+                className={
+                  changePassword ? styles.settingBtn_cancel : styles.settingBtn
+                }
+                onClick={() => setChangePassword(!changePassword)}
+              >
+                {changePassword ? "Cancel" : "Change Password"}
+              </button>
+            </div>
           </div>
+          <button
+            className={styles.signOut_btn}
+            style={{ marginTop: "1rem" }}
+            onClick={handleSignOut}
+          >
+            Sign Out
+          </button>
         </div>
-        <button
-          className={styles.signOut_btn}
-          style={{ marginTop: "1rem" }}
-          onClick={handleSignOut}
-        >
-          Sign Out
-        </button>
+        <StickyButton />
+        <Footer theme={theme} />
       </div>
-      <StickyButton />
-      <Footer theme={theme} />
-    </div>
+    </>
   );
 };
 

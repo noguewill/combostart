@@ -145,41 +145,47 @@ const NewCombo = () => {
   };
 
   return (
-    <div className={styles[`${theme}post_parent`]}>
-      <Navbar userDisplayName={userDisplayName} />
-      <main className={styles.content_container}>
-        <NotificationModal notificationText={postNotification} />
-        {game === "" ? (
-          <section className={styles.selectGame_parent}>
-            <div className={styles.selectGame_container}>
-              <h3 className={styles[`${theme}selectGame_header`]}>
-                Create a combo for:
-              </h3>
-              <div className={styles[`${theme}selectDropdownContainer`]}>
-                <select
-                  value={game}
-                  onChange={handleGameChange}
-                  className={styles[`${theme}stringsOptions_stringType`]}
-                  required
-                >
-                  <option value="" disabled>
-                    Select
-                  </option>
-                  <option value="Street Fighter 6">Street Fighter 6</option>
-                  <option value="Mortal Kombat 1">Mortal Kombat 1</option>
-                </select>
+    <>
+      <Helmet>
+        <title>COMBOSTART | New Combo</title>
+        <link rel="canonical" href="https://combostart.vercel.app/NewCombo" />
+      </Helmet>
+      <div className={styles[`${theme}post_parent`]}>
+        <Navbar userDisplayName={userDisplayName} />
+        <main className={styles.content_container}>
+          <NotificationModal notificationText={postNotification} />
+          {game === "" ? (
+            <section className={styles.selectGame_parent}>
+              <div className={styles.selectGame_container}>
+                <h3 className={styles[`${theme}selectGame_header`]}>
+                  Create a combo for:
+                </h3>
+                <div className={styles[`${theme}selectDropdownContainer`]}>
+                  <select
+                    value={game}
+                    onChange={handleGameChange}
+                    className={styles[`${theme}stringsOptions_stringType`]}
+                    required
+                  >
+                    <option value="" disabled>
+                      Select
+                    </option>
+                    <option value="Street Fighter 6">Street Fighter 6</option>
+                    <option value="Mortal Kombat 1">Mortal Kombat 1</option>
+                  </select>
+                </div>
               </div>
-            </div>
-          </section>
-        ) : game === "Street Fighter 6" ? (
-          <SF6Form {...defaultProps} />
-        ) : game === "Mortal Kombat 1" ? (
-          <MKOneForm {...defaultProps} />
-        ) : null}
-      </main>
-      <StickyButton />
-      <Footer theme={theme} />
-    </div>
+            </section>
+          ) : game === "Street Fighter 6" ? (
+            <SF6Form {...defaultProps} />
+          ) : game === "Mortal Kombat 1" ? (
+            <MKOneForm {...defaultProps} />
+          ) : null}
+        </main>
+        <StickyButton />
+        <Footer theme={theme} />
+      </div>
+    </>
   );
 };
 

@@ -137,145 +137,164 @@ const ComboPage = () => {
   };
 
   return (
-    <div className={styles[`${theme}container`]}>
-      <Navbar />
-      {limitReached && (
-        <>
-          {rateWarningOpen ? (
-            <div className={styles.rateWarning_open}>
-              <span className={styles.rateWarning_text}>
-                Vote limit reached. In{" "}
-                <span className={styles.rateWarningTime}>1 hour</span>{" "}
-                you&apos;ll be able to vote again.
-              </span>
-              <button
-                type="button"
-                className={styles.rateWarning_close_btn}
-                onClick={() => setRateWarningOPen(false)}
-              >
-                X
-              </button>
-            </div>
-          ) : (
-            <button
-              className={styles.rateWarning_closed}
-              onClick={() => setRateWarningOPen(true)}
-            >
-              !
-            </button>
-          )}
-        </>
-      )}
-
-      <Search
-        onSearch={handleSearch}
-        theme={theme}
-        setSearchQueryVal={setSearchQuery}
-      />
-
-      {/* Filtering options */}
-      <div className={styles.filterOptions_container}>
-        <h4 className={styles[`${theme}filter_header`]}>SORT BY:</h4>
-        <div className={styles.filterBtn_container}>
-          <button
-            type="button"
-            className={styles.filter_btn}
-            onClick={() => sortFilteredCombos("trending")} // Sort by trending posts first
-          >
-            TRENDING
-          </button>
-          <button
-            type="button"
-            className={styles.filter_btn}
-            onClick={() => sortFilteredCombos("popular")} // Sort by popular (highest votes first)
-          >
-            POPULAR
-          </button>
-
-          <button
-            type="button"
-            className={styles.filter_btn}
-            onClick={() => sortFilteredCombos("newest")} // Default: sort by newest first
-          >
-            NEWEST
-          </button>
-          <button
-            type="button"
-            className={styles.filter_btn}
-            onClick={() => sortFilteredCombos("oldest")} // Sort by oldest first
-          >
-            OLDEST
-          </button>
-        </div>
-      </div>
-
-      {filteredComboData.length === 0 && searchQuery !== "" ? (
-        <h2 className={styles.notFoundMessage}>
-          No results found for &quot;{searchQuery}&quot;.
-        </h2>
-      ) : (
-        <section className={styles.combos_container}>
-          {showSignIn && <AuthenticationBody toggleOverlay={toggleOverlay} />}
-          {game === "streetfighter6" && (
-            <ComboCard
-              loggedIn={loggedIn}
-              setShowSignIn={setShowSignIn}
-              displayedCombos={currentCombos} // Use sorted data for rendering
-              userId={userId}
-              theme={theme}
-              updateLimitReached={updateLimitReached}
-            />
-          )}
-
-          {game === "mortalkombat1" && (
-            <ComboCardMK
-              loggedIn={loggedIn}
-              setShowSignIn={setShowSignIn}
-              displayedCombos={currentCombos} // Use sorted data for rendering
-              userId={userId}
-              theme={theme}
-              updateLimitReached={updateLimitReached}
-            />
-          )}
-
-          <div className={styles.pageNum_parent}>
-            <button
-              type="button"
-              className={styles.pageNum_back_btn}
-              onClick={() => setCurrentPage(currentPage - 1)}
-              disabled={currentPage === 1}
-            ></button>
-
-            <div className={styles.pageNum_container}>
-              {Array.from({ length: totalPages }, (_, index) => (
+    <>
+      <Helmet>
+        <title>
+          COMBOSTART |{" "}
+          {game === "streetfighter6"
+            ? "Street Fighter 6 combos"
+            : "Mortal Kombat 1 combos"}{" "}
+        </title>
+        <meta
+          name="description"
+          content={`Combos for the fighting game ${game}`}
+        />
+        <meta
+          name="keywords"
+          content="combos, fighting games, street fighter 6 combos, mortal kombat 1 combos, fighting game combos"
+        />
+        <link rel="canonical" href={`https://combostart.vercel.app/${game}`} />
+      </Helmet>
+      <div className={styles[`${theme}container`]}>
+        <Navbar />
+        {limitReached && (
+          <>
+            {rateWarningOpen ? (
+              <div className={styles.rateWarning_open}>
+                <span className={styles.rateWarning_text}>
+                  Vote limit reached. In{" "}
+                  <span className={styles.rateWarningTime}>1 hour</span>{" "}
+                  you&apos;ll be able to vote again.
+                </span>
                 <button
                   type="button"
-                  key={index + 1}
-                  className={`${styles[`${theme}pageNum`]} ${
-                    currentPage === index + 1 ? styles.currentPageNum : ""
-                  }`}
-                  onClick={() => setCurrentPage(index + 1)}
+                  className={styles.rateWarning_close_btn}
+                  onClick={() => setRateWarningOPen(false)}
                 >
-                  {index + 1}
+                  X
                 </button>
-              ))}
-            </div>
+              </div>
+            ) : (
+              <button
+                className={styles.rateWarning_closed}
+                onClick={() => setRateWarningOPen(true)}
+              >
+                !
+              </button>
+            )}
+          </>
+        )}
+
+        <Search
+          onSearch={handleSearch}
+          theme={theme}
+          setSearchQueryVal={setSearchQuery}
+        />
+
+        {/* Filtering options */}
+        <div className={styles.filterOptions_container}>
+          <h4 className={styles[`${theme}filter_header`]}>SORT BY:</h4>
+          <div className={styles.filterBtn_container}>
+            <button
+              type="button"
+              className={styles.filter_btn}
+              onClick={() => sortFilteredCombos("trending")} // Sort by trending posts first
+            >
+              TRENDING
+            </button>
+            <button
+              type="button"
+              className={styles.filter_btn}
+              onClick={() => sortFilteredCombos("popular")} // Sort by popular (highest votes first)
+            >
+              POPULAR
+            </button>
 
             <button
               type="button"
-              className={styles.pageNum_next_btn}
-              onClick={() => setCurrentPage(currentPage + 1)}
-              disabled={
-                currentPage === totalPages ||
-                currentCombos.length < itemsPerPage
-              }
-            ></button>
+              className={styles.filter_btn}
+              onClick={() => sortFilteredCombos("newest")} // Default: sort by newest first
+            >
+              NEWEST
+            </button>
+            <button
+              type="button"
+              className={styles.filter_btn}
+              onClick={() => sortFilteredCombos("oldest")} // Sort by oldest first
+            >
+              OLDEST
+            </button>
           </div>
-        </section>
-      )}
-      <StickyButton />
-      <Footer theme={theme} />
-    </div>
+        </div>
+
+        {filteredComboData.length === 0 && searchQuery !== "" ? (
+          <h2 className={styles.notFoundMessage}>
+            No results found for &quot;{searchQuery}&quot;.
+          </h2>
+        ) : (
+          <section className={styles.combos_container}>
+            {showSignIn && <AuthenticationBody toggleOverlay={toggleOverlay} />}
+            {game === "streetfighter6" && (
+              <ComboCard
+                loggedIn={loggedIn}
+                setShowSignIn={setShowSignIn}
+                displayedCombos={currentCombos} // Use sorted data for rendering
+                userId={userId}
+                theme={theme}
+                updateLimitReached={updateLimitReached}
+              />
+            )}
+
+            {game === "mortalkombat1" && (
+              <ComboCardMK
+                loggedIn={loggedIn}
+                setShowSignIn={setShowSignIn}
+                displayedCombos={currentCombos} // Use sorted data for rendering
+                userId={userId}
+                theme={theme}
+                updateLimitReached={updateLimitReached}
+              />
+            )}
+
+            <div className={styles.pageNum_parent}>
+              <button
+                type="button"
+                className={styles.pageNum_back_btn}
+                onClick={() => setCurrentPage(currentPage - 1)}
+                disabled={currentPage === 1}
+              ></button>
+
+              <div className={styles.pageNum_container}>
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <button
+                    type="button"
+                    key={index + 1}
+                    className={`${styles[`${theme}pageNum`]} ${
+                      currentPage === index + 1 ? styles.currentPageNum : ""
+                    }`}
+                    onClick={() => setCurrentPage(index + 1)}
+                  >
+                    {index + 1}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                type="button"
+                className={styles.pageNum_next_btn}
+                onClick={() => setCurrentPage(currentPage + 1)}
+                disabled={
+                  currentPage === totalPages ||
+                  currentCombos.length < itemsPerPage
+                }
+              ></button>
+            </div>
+          </section>
+        )}
+        <StickyButton />
+        <Footer theme={theme} />
+      </div>
+    </>
   );
 };
 

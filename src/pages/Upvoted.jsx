@@ -50,22 +50,29 @@ const Upvoted = () => {
   }, []);
 
   return (
-    <main className={styles[`${theme}content_container`]}>
-      <Navbar theme={theme} />
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <section className={styles.upvotedCombos_container}>
-          <ComboCard
-            displayedCombos={filteredUpvotedPosts}
-            theme={theme}
-            noShowVote={noShowVote}
-          />
-        </section>
-      )}
-      <StickyButton />
-      <Footer theme={theme} />
-    </main>
+    <>
+      <Helmet>
+        <title>COMBOSTART | Upvoted Combos</title>
+
+        <link rel="canonical" href="https://combostart.vercel.app/Upvoted" />
+      </Helmet>
+      <main className={styles[`${theme}content_container`]}>
+        <Navbar theme={theme} />
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <section className={styles.upvotedCombos_container}>
+            <ComboCard
+              displayedCombos={filteredUpvotedPosts}
+              theme={theme}
+              noShowVote={noShowVote}
+            />
+          </section>
+        )}
+        <StickyButton />
+        <Footer theme={theme} />
+      </main>
+    </>
   );
 };
 
