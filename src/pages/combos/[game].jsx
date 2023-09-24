@@ -27,6 +27,7 @@ const ComboPage = () => {
   const [filteredComboData, setFilteredComboData] = useState([]); // State for filtered combo data
   const [limitReached, setLimitReached] = useState(false);
   const [rateWarningOpen, setRateWarningOPen] = useState(true);
+  const [selectedFilter, setSelectedFilter] = useState("Trending");
 
   // Function to update the limitReached state
   const updateLimitReached = (newValue) => {
@@ -59,7 +60,7 @@ const ComboPage = () => {
         console.error("Error fetching combos:", error);
       }
     };
-
+    sortFilteredCombos("trending");
     fetchData();
   }, [game]);
 
@@ -105,12 +106,16 @@ const ComboPage = () => {
 
     // Sort the filtered data based on the sortBy parameter
     if (sortBy === "newest") {
+      setSelectedFilter("newest");
       filteredDataCopy.sort((a, b) => b.Timestamp?.N - a.Timestamp?.N);
     } else if (sortBy === "oldest") {
+      setSelectedFilter("oldest");
       filteredDataCopy.sort((a, b) => a.Timestamp?.N - b.Timestamp?.N);
     } else if (sortBy === "popular") {
+      setSelectedFilter("popular");
       filteredDataCopy.sort((a, b) => b.VoteCount?.N - a.VoteCount?.N);
     } else if (sortBy === "trending") {
+      setSelectedFilter("trending");
       filteredDataCopy.sort((a, b) => {
         const trendingScoreA = calcTrendingScore(a);
         const trendingScoreB = calcTrendingScore(b);
@@ -193,14 +198,22 @@ const ComboPage = () => {
           <div className={styles.filterBtn_container}>
             <button
               type="button"
-              className={styles.filter_btn}
+              className={
+                selectedFilter === "trending"
+                  ? styles.filter_btn_selected
+                  : styles.filter_btn
+              }
               onClick={() => sortFilteredCombos("trending")} // Sort by trending posts first
             >
               TRENDING
             </button>
             <button
               type="button"
-              className={styles.filter_btn}
+              className={
+                selectedFilter === "popular"
+                  ? styles.filter_btn_selected
+                  : styles.filter_btn
+              }
               onClick={() => sortFilteredCombos("popular")} // Sort by popular (highest votes first)
             >
               POPULAR
@@ -208,14 +221,22 @@ const ComboPage = () => {
 
             <button
               type="button"
-              className={styles.filter_btn}
+              className={
+                selectedFilter === "newest"
+                  ? styles.filter_btn_selected
+                  : styles.filter_btn
+              }
               onClick={() => sortFilteredCombos("newest")} // Default: sort by newest first
             >
               NEWEST
             </button>
             <button
               type="button"
-              className={styles.filter_btn}
+              className={
+                selectedFilter === "oldest"
+                  ? styles.filter_btn_selected
+                  : styles.filter_btn
+              }
               onClick={() => sortFilteredCombos("oldest")} // Sort by oldest first
             >
               OLDEST

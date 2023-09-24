@@ -115,12 +115,13 @@
   width: 21rem;
 }
 
-.filter_btn {
+.filter_btn,
+.filter_btn_selected {
   font-size: 0.65rem;
   letter-spacing: 0.05rem;
   padding: 0.4rem;
-  background-color: #fc3434;
-  color: #ebebeb;
+  background-color: #dcdcdc;
+  color: #000;
   border-radius: 4px;
   border: none;
   font-family: "Kanit";
@@ -129,7 +130,13 @@
   cursor: pointer;
 }
 .filter_btn:hover {
-  background-color: #3b3efc;
+  color: #ebebeb;
+  background-color: #fc3434;
+}
+
+.filter_btn_selected {
+  color: #ebebeb;
+  background-color: #fc3434;
 }
 
 .rateWarning_open {
