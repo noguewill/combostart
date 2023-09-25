@@ -170,12 +170,6 @@ const Navbar = () => {
                     className={styles.submenu_container}
                     style={{ alignItems: "flex-start", fontSize: "0.2rem" }}
                   >
-                    {" "}
-                    <Link href="/Upvoted">
-                      <button className={styles.submenu_item_btn}>
-                        UPVOTED COMBOS
-                      </button>
-                    </Link>
                     <Link href="/Settings">
                       <button className={styles.submenu_item_btn}>
                         SETTINGS
