@@ -132,7 +132,7 @@ const ComboCard = ({
                       </div>
                     )}
                     <div className={styles.mechanic_container}>
-                      <div className={styles.mkmeter}>{card.DriveBars?.N}</div>
+                      <div className={styles.mkmeter}> {card.MeterBars?.N}</div>
                       <span className={styles[`${theme}mechanic_text`]}>
                         METER
                       </span>
