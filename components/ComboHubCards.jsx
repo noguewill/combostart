@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/ComboHub.module.css";
 import { useRouter } from "next/router";
+/* hell yeahs */
 
 const ComboHubCards = () => {
   const { theme } = useContext(ThemeContext);
@@ -11,7 +12,7 @@ const ComboHubCards = () => {
 
   const selectGame = (chosenGame) => {
     if (typeof window !== "undefined") {
-      // Check if we are on the client-side
+      // Check if we are on the client-ss
       router.push(`/combos/${chosenGame}`);
     }
   };
